@@ -8,10 +8,10 @@
 
 
 // Import the interfaces
-#import "HelloWorldLayer.h"
+#import "TitleLayer.h"
 
 // HelloWorldLayer implementation
-@implementation HelloWorldLayer
+@implementation TitleLayer
 
 +(CCScene *) scene
 {
@@ -19,7 +19,7 @@
 	CCScene *scene = [CCScene node];
 	
 	// 'layer' is an autorelease object.
-	HelloWorldLayer *layer = [HelloWorldLayer node];
+	TitleLayer *layer = [TitleLayer node];
 	
 	// add layer as a child to scene
 	[scene addChild: layer];
@@ -35,17 +35,6 @@
 	// Apple recommends to re-assign "self" with the "super" return value
 	if( (self=[super init])) {
 		
-		// create and initialize a Label
-		CCLabelTTF *label = [CCLabelTTF labelWithString:@"Hello World" fontName:@"Marker Felt" fontSize:64];
-
-		// ask director the the window size
-		CGSize size = [[CCDirector sharedDirector] winSize];
-	
-		// position the label on the center of the screen
-		label.position =  ccp( size.width /2 , size.height/2 );
-		
-		// add the label as a child to this Layer
-		[self addChild: label];
 	}
 	return self;
 }
