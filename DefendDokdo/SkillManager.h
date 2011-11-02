@@ -13,4 +13,6 @@
     
 }
 
+- (void)update;
+
 @end

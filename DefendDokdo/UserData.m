@@ -11,4 +11,14 @@
 
 @implementation UserData
 
+- (id)init
+{
+	if( self == [self init] )
+	{
+		
+	}
+	
+	return self;
+}
+
 @end

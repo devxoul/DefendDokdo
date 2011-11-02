@@ -134,7 +134,6 @@
 		037B5F5114603CE300074732 /* Enemy.m in Sources */ = {isa = PBXBuildFile; fileRef = 037B5F5014603CE300074732 /* Enemy.m */; };
 		037B5F54146040E900074732 /* Flag.m in Sources */ = {isa = PBXBuildFile; fileRef = 037B5F53146040E900074732 /* Flag.m */; };
 		037B5F571460418400074732 /* Player.m in Sources */ = {isa = PBXBuildFile; fileRef = 037B5F561460418400074732 /* Player.m */; };
-		037B5F5E1460426400074732 /* GameManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 037B5F5D1460426400074732 /* GameManager.m */; };
 		037B5F611460426D00074732 /* EnemyManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 037B5F601460426D00074732 /* EnemyManager.m */; };
 		037B5F641460427400074732 /* ControlManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 037B5F631460427400074732 /* ControlManager.m */; };
 		037B5F671460427B00074732 /* SkillManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 037B5F661460427B00074732 /* SkillManager.m */; };
@@ -401,8 +400,6 @@
 		037B5F53146040E900074732 /* Flag.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Flag.m; sourceTree = "<group>"; };
 		037B5F551460418400074732 /* Player.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Player.h; sourceTree = "<group>"; };
 		037B5F561460418400074732 /* Player.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Player.m; sourceTree = "<group>"; };
-		037B5F5C1460426400074732 /* GameManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameManager.h; sourceTree = "<group>"; };
-		037B5F5D1460426400074732 /* GameManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameManager.m; sourceTree = "<group>"; };
 		037B5F5F1460426D00074732 /* EnemyManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EnemyManager.h; sourceTree = "<group>"; };
 		037B5F601460426D00074732 /* EnemyManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EnemyManager.m; sourceTree = "<group>"; };
 		037B5F621460427400074732 /* ControlManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ControlManager.h; sourceTree = "<group>"; };
@@ -863,14 +860,12 @@
 		037B5F581460422F00074732 /* Managers */ = {
 			isa = PBXGroup;
 			children = (
-				037B5F5C1460426400074732 /* GameManager.h */,
-				037B5F5D1460426400074732 /* GameManager.m */,
 				037B5F5F1460426D00074732 /* EnemyManager.h */,
 				037B5F601460426D00074732 /* EnemyManager.m */,
-				037B5F621460427400074732 /* ControlManager.h */,
-				037B5F631460427400074732 /* ControlManager.m */,
 				037B5F651460427B00074732 /* SkillManager.h */,
 				037B5F661460427B00074732 /* SkillManager.m */,
+				037B5F621460427400074732 /* ControlManager.h */,
+				037B5F631460427400074732 /* ControlManager.m */,
 			);
 			name = Managers;
 			sourceTree = "<group>";
@@ -1055,7 +1050,6 @@
 				037B5F5114603CE300074732 /* Enemy.m in Sources */,
 				037B5F54146040E900074732 /* Flag.m in Sources */,
 				037B5F571460418400074732 /* Player.m in Sources */,
-				037B5F5E1460426400074732 /* GameManager.m in Sources */,
 				037B5F611460426D00074732 /* EnemyManager.m in Sources */,
 				037B5F641460427400074732 /* ControlManager.m in Sources */,
 				037B5F671460427B00074732 /* SkillManager.m in Sources */,

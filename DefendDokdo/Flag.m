@@ -14,4 +14,14 @@
 @synthesize level, maxHp, hp;
 @synthesize flagSpr;
 
+- (id)init
+{
+	if( self == [self init] )
+	{
+		
+	}
+	
+	return self;
+}
+
 @end

@@ -11,4 +11,14 @@
 
 @implementation ControlManager
 
+- (id)init
+{
+	if( self == [self init] )
+	{
+		
+	}
+	
+	return self;
+}
+
 @end

@@ -14,4 +14,14 @@
 @synthesize power, maxMp, mp;
 @synthesize slots;
 
+- (id)init
+{
+	if( self == [self init] )
+	{
+		
+	}
+	
+	return self;
+}
+
 @end

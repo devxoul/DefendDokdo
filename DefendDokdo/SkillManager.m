@@ -11,4 +11,19 @@
 
 @implementation SkillManager
 
+- (id)init
+{
+	if( self == [self init] )
+	{
+		
+	}
+	
+	return self;
+}
+
+- (void)update
+{
+	
+}
+
 @end

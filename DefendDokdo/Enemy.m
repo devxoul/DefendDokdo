@@ -14,4 +14,14 @@
 @synthesize type, level, power, maxHp, hp, speed;
 @synthesize enemySpr;
 
+- (id)init
+{
+	if( self == [self init] )
+	{
+		
+	}
+	
+	return self;
+}
+
 @end

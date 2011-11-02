@@ -8,16 +8,18 @@
 
 #import <Foundation/Foundation.h>
 #import "cocos2d.h"
-#import "GameManager.h"
 #import "EnemyManager.h"
 #import "ControlManager.h"
 #import "SkillManager.h"
 
 @interface GameScene : CCScene {
-    GameManager *gameManager;
 	EnemyManager *enemyManager;
 	ControlManager *controlManager;
 	SkillManager *skillManager;
+	
+	NSMutableArray *enemies;
 }
+
+@property (nonatomic, retain) NSMutableArray *enemies;
 
 @end
