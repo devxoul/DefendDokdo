@@ -12,13 +12,21 @@
 #import "ControlManager.h"
 #import "SkillManager.h"
 
+@class GameLayer, GameUILayer;
+
 @interface GameScene : CCScene {
+	GameLayer *gameLayer;
+	GameUILayer *gameUILayer;
+	
 	EnemyManager *enemyManager;
 	ControlManager *controlManager;
 	SkillManager *skillManager;
 	
 	NSMutableArray *enemies;
 }
+
+@property (nonatomic, retain) GameLayer *gameLayer;
+@property (nonatomic, retain) GameUILayer *gameUILayer;
 
 @property (nonatomic, retain) NSMutableArray *enemies;
 

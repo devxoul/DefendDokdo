@@ -9,10 +9,13 @@
 #import <Foundation/Foundation.h>
 #import "cocos2d.h"
 
+@class GameScene;
+
 @interface EnemyManager : NSObject {
-	NSMutableArray *enemies;
+	GameScene *_gameScene;
 }
 
+- (id)initWithGameScene:(GameScene *)gameScene;
 - (void)update;
-
+- (void)createEnemy:(NSInteger)type level:(NSInteger)level;
 @end

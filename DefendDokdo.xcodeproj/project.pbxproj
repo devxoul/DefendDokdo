@@ -122,6 +122,10 @@
 		03398A99146001FF002AAAA3 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 03398A98146001FF002AAAA3 /* AppDelegate.m */; };
 		03398A9C146001FF002AAAA3 /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 03398A9B146001FF002AAAA3 /* RootViewController.m */; };
 		03398A9F146001FF002AAAA3 /* TitleLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 03398A9E146001FF002AAAA3 /* TitleLayer.m */; };
+		0374E23A14619E8400B9EAF7 /* dummy_enemy_0.png in Resources */ = {isa = PBXBuildFile; fileRef = 0374E23614619E8400B9EAF7 /* dummy_enemy_0.png */; };
+		0374E23B14619E8400B9EAF7 /* dummy_enemy_1.png in Resources */ = {isa = PBXBuildFile; fileRef = 0374E23714619E8400B9EAF7 /* dummy_enemy_1.png */; };
+		0374E23C14619E8400B9EAF7 /* dummy_enemy_2.png in Resources */ = {isa = PBXBuildFile; fileRef = 0374E23814619E8400B9EAF7 /* dummy_enemy_2.png */; };
+		0374E23D14619E8400B9EAF7 /* dummy_enemy_3.png in Resources */ = {isa = PBXBuildFile; fileRef = 0374E23914619E8400B9EAF7 /* dummy_enemy_3.png */; };
 		037B5F36146039DB00074732 /* MainLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 037B5F35146039DB00074732 /* MainLayer.m */; };
 		037B5F3914603A6500074732 /* IntroLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 037B5F3814603A6500074732 /* IntroLayer.m */; };
 		037B5F3C14603A8900074732 /* TutorialLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 037B5F3B14603A8900074732 /* TutorialLayer.m */; };
@@ -376,6 +380,11 @@
 		03398A9D146001FF002AAAA3 /* TitleLayer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TitleLayer.h; sourceTree = "<group>"; };
 		03398A9E146001FF002AAAA3 /* TitleLayer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TitleLayer.m; sourceTree = "<group>"; };
 		03398AA0146001FF002AAAA3 /* GameConfig.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GameConfig.h; sourceTree = "<group>"; };
+		0374E23614619E8400B9EAF7 /* dummy_enemy_0.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = dummy_enemy_0.png; sourceTree = "<group>"; };
+		0374E23714619E8400B9EAF7 /* dummy_enemy_1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = dummy_enemy_1.png; sourceTree = "<group>"; };
+		0374E23814619E8400B9EAF7 /* dummy_enemy_2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = dummy_enemy_2.png; sourceTree = "<group>"; };
+		0374E23914619E8400B9EAF7 /* dummy_enemy_3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = dummy_enemy_3.png; sourceTree = "<group>"; };
+		0374E23F1461A65E00B9EAF7 /* Const.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Const.h; sourceTree = "<group>"; };
 		037B5F34146039DB00074732 /* MainLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainLayer.h; sourceTree = "<group>"; };
 		037B5F35146039DB00074732 /* MainLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainLayer.m; sourceTree = "<group>"; };
 		037B5F3714603A6500074732 /* IntroLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IntroLayer.h; sourceTree = "<group>"; };
@@ -478,6 +487,7 @@
 		03398946146001FD002AAAA3 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				0374E23514619E8400B9EAF7 /* enemies */,
 				03398947146001FD002AAAA3 /* Default.png */,
 				03398949146001FD002AAAA3 /* fps_images.png */,
 				0339894B146001FD002AAAA3 /* Icon-72.png */,
@@ -803,6 +813,18 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		0374E23514619E8400B9EAF7 /* enemies */ = {
+			isa = PBXGroup;
+			children = (
+				0374E23614619E8400B9EAF7 /* dummy_enemy_0.png */,
+				0374E23714619E8400B9EAF7 /* dummy_enemy_1.png */,
+				0374E23814619E8400B9EAF7 /* dummy_enemy_2.png */,
+				0374E23914619E8400B9EAF7 /* dummy_enemy_3.png */,
+			);
+			name = enemies;
+			path = Resources/enemies;
+			sourceTree = "<group>";
+		};
 		037B5F30146038F000074732 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
@@ -833,6 +855,7 @@
 		037B5F32146038FE00074732 /* Others */ = {
 			isa = PBXGroup;
 			children = (
+				0374E23F1461A65E00B9EAF7 /* Const.h */,
 				03398A97146001FF002AAAA3 /* AppDelegate.h */,
 				03398A98146001FF002AAAA3 /* AppDelegate.m */,
 				03398A9A146001FF002AAAA3 /* RootViewController.h */,
@@ -930,6 +953,10 @@
 				03398954146001FD002AAAA3 /* Icon.png in Resources */,
 				03398956146001FD002AAAA3 /* Icon@2x.png in Resources */,
 				03398959146001FD002AAAA3 /* iTunesArtwork in Resources */,
+				0374E23A14619E8400B9EAF7 /* dummy_enemy_0.png in Resources */,
+				0374E23B14619E8400B9EAF7 /* dummy_enemy_1.png in Resources */,
+				0374E23C14619E8400B9EAF7 /* dummy_enemy_2.png in Resources */,
+				0374E23D14619E8400B9EAF7 /* dummy_enemy_3.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
