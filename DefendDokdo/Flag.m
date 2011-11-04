@@ -14,14 +14,13 @@
 @synthesize level, maxHp, hp;
 @synthesize flagSpr;
 
-- (id)init
+- (void)init:(CCScene*)scene
 {
-	if( self == [self init] )
-	{
-		
-	}
+	flagSpr = [[CCSprite alloc]initWithFile:@".png"];
+	[flagSpr setPosition:ccp(240, 320)];
+	[flagSpr setAnchorPoint:ccp(0.5f, 0.0f)];
 	
-	return self;
+	[scene addChild:flagSpr];
 }
 
 @end

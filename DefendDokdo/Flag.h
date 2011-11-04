@@ -17,6 +17,8 @@
 	CCSprite *flagSpr;
 }
 
+- (void)init:(CCScene*)scene;
+
 @property (nonatomic) NSInteger *level;
 @property (nonatomic) NSInteger *maxHp;
 @property (nonatomic) NSInteger *hp;
