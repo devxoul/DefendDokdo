@@ -9,10 +9,13 @@
 #import <Foundation/Foundation.h>
 #import "cocos2d.h"
 
+@class GameScene;
+
 @interface SkillManager : NSObject {
-    
+	GameScene *_gameScene;
 }
 
+- (id)initWithGameScene:(GameScene *)gameScene;
 - (void)update;
 
 @end

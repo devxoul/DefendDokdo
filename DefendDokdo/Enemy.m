@@ -7,20 +7,33 @@
 //
 
 #import "Enemy.h"
+#import "Const.h"
+
+@interface Enemy(Private)
+
+@end
 
 
 @implementation Enemy
 
 @synthesize type, level, power, maxHp, hp, speed;
-@synthesize enemySpr;
+@synthesize enemySpr, boatSpr;
 @synthesize x = _x, y = _y, dx, dy;
 
 - (id)initWithType:(NSInteger)type level:(NSInteger)level
 {
 	if( self == [self init] )
 	{
+		self.x = arc4random() % 2 ? 0 : 480;
+		self.y = 320;
+		self.speed = 2;
+		
 		enemySpr = [[CCSprite alloc] initWithFile:@"dummy_enemy_0.png"];
-		enemySpr.anchorPoint = ccp( 0.5f, 1.0f );
+		enemySpr.anchorPoint = ccp( 0.5f, 0 );
+		
+		boatSpr = [[CCSprite alloc] initWithFile:@"boat.png"];
+		boatSpr.anchorPoint = ccp( 0.5f, 0 );
+		
 		dx = dy = 0;
 	}
 	
@@ -61,8 +74,76 @@
 
 - (void)update
 {
-	self.x += dx;
-	self.y += dy;
+	switch( state )
+	{
+		case ENEMY_STATE_BOAT:
+			if( self.x < DOKDO_LEFT_X )
+			{
+				self.boatSpr.flipX = YES;
+				self.x += self.speed;
+				self.y = SEA_Y + sinf( self.x / 10 ) * 3; // 둥실둥실
+			}
+			else if( self.x > DOKDO_RIGHT_X )
+			{
+				self.x -= self.speed;
+				self.y = SEA_Y + sinf( self.x / 10 ) * 3; // 둥실둥실
+			}
+			else
+			{
+				state = ENEMY_STATE_WALK;
+			}
+			break;
+			
+		case ENEMY_STATE_SWIM:
+			if( self.x < DOKDO_LEFT_X )
+			{
+				self.x += self.speed / 2;
+				self.y = SEA_Y + sinf( self.x / 10 ) * 3; // 둥실둥실
+			}
+			else if( self.x > DOKDO_RIGHT_X )
+			{
+				self.x -= self.speed / 2;
+				self.y = SEA_Y + sinf( self.x / 10 ) * 3; // 둥실둥실
+			}
+			else
+			{
+				state = ENEMY_STATE_WALK;
+			}
+			break;
+			
+		case ENEMY_STATE_WALK:
+			if( DOKDO_LEFT_X <= self.x && self.x < FLAG_LEFT_X )
+			{
+				self.boatSpr.visible = NO;
+				self.x += self.speed * cosf( atan2f( 23.0, 31.0 ) );
+				self.y = ( self.x - 110 ) * 31 / 23 + 50;
+			}
+			else if( FLAG_RIGHT_X < self.x && self.x <= DOKDO_RIGHT_X )
+			{
+				self.enemySpr.flipX = YES;
+				self.boatSpr.visible = NO;
+				self.x += self.speed * cosf( atan2f( 20, -31.0 ) );
+				self.y = -1 * ( self.x - 360 ) * 31 / 20 + 50;
+			}
+			break;
+			
+		case ENEMY_STATE_FLAG:
+			break;
+			
+		case ENEMY_STATE_CATCH:
+			break;
+			
+		case ENEMY_STATE_FALL:
+			self.x += dx;
+			self.y += dy;
+			break;
+			
+		case ENEMY_STATE_HIT:
+			break;
+			
+		case ENEMY_STATE_DEAD:
+			break;
+	}
 }
 
 - (void)hitTestGround

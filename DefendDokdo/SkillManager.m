@@ -7,15 +7,15 @@
 //
 
 #import "SkillManager.h"
-
+#import "GameScene.h"
 
 @implementation SkillManager
 
-- (id)init
+- (id)initWithGameScene:(GameScene *)gameScene
 {
 	if( self == [self init] )
 	{
-		
+		_gameScene = gameScene;
 	}
 	
 	return self;

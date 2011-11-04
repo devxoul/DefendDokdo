@@ -126,6 +126,10 @@
 		0374E23B14619E8400B9EAF7 /* dummy_enemy_1.png in Resources */ = {isa = PBXBuildFile; fileRef = 0374E23714619E8400B9EAF7 /* dummy_enemy_1.png */; };
 		0374E23C14619E8400B9EAF7 /* dummy_enemy_2.png in Resources */ = {isa = PBXBuildFile; fileRef = 0374E23814619E8400B9EAF7 /* dummy_enemy_2.png */; };
 		0374E23D14619E8400B9EAF7 /* dummy_enemy_3.png in Resources */ = {isa = PBXBuildFile; fileRef = 0374E23914619E8400B9EAF7 /* dummy_enemy_3.png */; };
+		0374E25714629B2200B9EAF7 /* flag.png in Resources */ = {isa = PBXBuildFile; fileRef = 0374E25614629B2200B9EAF7 /* flag.png */; };
+		0374E25B14629EA600B9EAF7 /* dokdo.png in Resources */ = {isa = PBXBuildFile; fileRef = 0374E25814629EA600B9EAF7 /* dokdo.png */; };
+		0374E25C14629EA600B9EAF7 /* sea.png in Resources */ = {isa = PBXBuildFile; fileRef = 0374E25914629EA600B9EAF7 /* sea.png */; };
+		0374E25D14629EA600B9EAF7 /* boat.png in Resources */ = {isa = PBXBuildFile; fileRef = 0374E25A14629EA600B9EAF7 /* boat.png */; };
 		037B5F36146039DB00074732 /* MainLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 037B5F35146039DB00074732 /* MainLayer.m */; };
 		037B5F3914603A6500074732 /* IntroLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 037B5F3814603A6500074732 /* IntroLayer.m */; };
 		037B5F3C14603A8900074732 /* TutorialLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 037B5F3B14603A8900074732 /* TutorialLayer.m */; };
@@ -385,6 +389,10 @@
 		0374E23814619E8400B9EAF7 /* dummy_enemy_2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = dummy_enemy_2.png; sourceTree = "<group>"; };
 		0374E23914619E8400B9EAF7 /* dummy_enemy_3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = dummy_enemy_3.png; sourceTree = "<group>"; };
 		0374E23F1461A65E00B9EAF7 /* Const.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Const.h; sourceTree = "<group>"; };
+		0374E25614629B2200B9EAF7 /* flag.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = flag.png; sourceTree = "<group>"; };
+		0374E25814629EA600B9EAF7 /* dokdo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = dokdo.png; path = Resources/dokdo.png; sourceTree = "<group>"; };
+		0374E25914629EA600B9EAF7 /* sea.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = sea.png; path = Resources/sea.png; sourceTree = "<group>"; };
+		0374E25A14629EA600B9EAF7 /* boat.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = boat.png; path = Resources/boat.png; sourceTree = "<group>"; };
 		037B5F34146039DB00074732 /* MainLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainLayer.h; sourceTree = "<group>"; };
 		037B5F35146039DB00074732 /* MainLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainLayer.m; sourceTree = "<group>"; };
 		037B5F3714603A6500074732 /* IntroLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IntroLayer.h; sourceTree = "<group>"; };
@@ -487,7 +495,11 @@
 		03398946146001FD002AAAA3 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				0374E25814629EA600B9EAF7 /* dokdo.png */,
+				0374E25914629EA600B9EAF7 /* sea.png */,
+				0374E25A14629EA600B9EAF7 /* boat.png */,
 				0374E23514619E8400B9EAF7 /* enemies */,
+				0374E25514629B2200B9EAF7 /* flags */,
 				03398947146001FD002AAAA3 /* Default.png */,
 				03398949146001FD002AAAA3 /* fps_images.png */,
 				0339894B146001FD002AAAA3 /* Icon-72.png */,
@@ -825,6 +837,15 @@
 			path = Resources/enemies;
 			sourceTree = "<group>";
 		};
+		0374E25514629B2200B9EAF7 /* flags */ = {
+			isa = PBXGroup;
+			children = (
+				0374E25614629B2200B9EAF7 /* flag.png */,
+			);
+			name = flags;
+			path = DefendDokdo/Resources/flags;
+			sourceTree = SOURCE_ROOT;
+		};
 		037B5F30146038F000074732 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
@@ -957,6 +978,10 @@
 				0374E23B14619E8400B9EAF7 /* dummy_enemy_1.png in Resources */,
 				0374E23C14619E8400B9EAF7 /* dummy_enemy_2.png in Resources */,
 				0374E23D14619E8400B9EAF7 /* dummy_enemy_3.png in Resources */,
+				0374E25714629B2200B9EAF7 /* flag.png in Resources */,
+				0374E25B14629EA600B9EAF7 /* dokdo.png in Resources */,
+				0374E25C14629EA600B9EAF7 /* sea.png in Resources */,
+				0374E25D14629EA600B9EAF7 /* boat.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1103,7 +1128,7 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
-				SDKROOT = iphoneos;
+				SDKROOT = iphoneos5.0;
 			};
 			name = Debug;
 		};
@@ -1119,7 +1144,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
-				SDKROOT = iphoneos;
+				SDKROOT = iphoneos5.0;
 			};
 			name = Release;
 		};

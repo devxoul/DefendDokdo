@@ -32,8 +32,7 @@
 {
 	for( Enemy *enemy in _gameScene.enemies )
 	{
-		[enemy applyForce:0 :-GRAVITY];
-		[enemy applyForce:0 :0];
+		[enemy applyForce:0 :-0.1];
 		[enemy update];
 	}
 }
@@ -41,13 +40,9 @@
 - (void)createEnemy:(NSInteger)type level:(NSInteger)level
 {
 	Enemy *enemy = [[Enemy alloc] initWithType:type level:level];
-//	enemy.x = arc4random() % 2 ? 0 : 480;
-	enemy.x = 0;
-	enemy.y = 320;
-	enemy.speed = 5;
 	[_gameScene.enemies addObject:enemy];
-	[_gameScene.gameLayer addChild:enemy.enemySpr];
-	[enemy applyForce:10 :0];
+	[_gameScene.gameLayer addChild:enemy.enemySpr z:Z_ENEMY];
+	[enemy.enemySpr addChild:enemy.boatSpr];
 }
 
 @end

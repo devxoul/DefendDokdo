@@ -10,29 +10,33 @@
 #import "cocos2d.h"
 
 @interface Enemy : NSObject {
-	NSInteger *type;
-	NSInteger *level;
-    NSInteger *power;
-	NSInteger *maxHp;
-	NSInteger *hp;
-	NSInteger *speed;
+	NSInteger type;
+	NSInteger level;
+    NSInteger power;
+	NSInteger maxHp;
+	NSInteger hp;
+	NSInteger speed;
 	
 	CCSprite *enemySpr;
+	CCSprite *boatSpr;
 	
 	float _x;
 	float _y;
 	float dx;
 	float dy;
+	
+	NSInteger state;
 }
 
-@property (nonatomic) NSInteger *type;
-@property (nonatomic) NSInteger *level;
-@property (nonatomic) NSInteger *power;
-@property (nonatomic) NSInteger *maxHp;
-@property (nonatomic) NSInteger *hp;
-@property (nonatomic) NSInteger *speed;
+@property (nonatomic) NSInteger type;
+@property (nonatomic) NSInteger level;
+@property (nonatomic) NSInteger power;
+@property (nonatomic) NSInteger maxHp;
+@property (nonatomic) NSInteger hp;
+@property (nonatomic) NSInteger speed;
 
 @property (nonatomic, retain) CCSprite *enemySpr;
+@property (nonatomic, retain) CCSprite *boatSpr;
 
 @property (nonatomic) float x;
 @property (nonatomic) float y;
