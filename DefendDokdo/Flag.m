@@ -14,10 +14,10 @@
 @synthesize level, maxHp, hp;
 @synthesize flagSpr;
 
-- (id)init:(CCScene*)scene
+- (void)init:(CCScene*)scene
 {
-	flagSpr = [[CCSprite alloc]initWithFile:@".png"];
-	[flagSpr setPosition:ccp(240, 320)];
+	flagSpr = [[CCSprite alloc]initWithFile:@"sun.png"];
+	[flagSpr setPosition:ccp(-80, 100)];
 	[flagSpr setAnchorPoint:ccp(0.5f, 0.0f)];
 	
 	[scene addChild:flagSpr z:Z_FLAG];
