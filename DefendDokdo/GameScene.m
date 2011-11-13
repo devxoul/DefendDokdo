@@ -82,8 +82,7 @@
 {
 	[super draw];
 	
-	if( arc4random() % 100 < 4 )
-		[enemyManager createEnemy:0 level:0];
+	if( arc4random() % 50 < 1 ) [enemyManager createEnemy:0 level:0]; // temp
 	
 	[enemyManager update];
     [gameUILayer update];

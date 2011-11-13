@@ -10,17 +10,22 @@
 #define DefendDokdo_Const_h
 
 #define GRAVITY				0.6
+#define AIR_RESISTANCE		0.01
+#define WATER_RESISTANCE	0.6
+#define BUOYANCY			0.4
+
 #define SEA_Y				30
 #define DOKDO_LEFT_X		110
 #define DOKDO_RIGHT_X		360
 #define FLAG_LEFT_X			225
 #define FLAG_RIGHT_X		260
 #define FLAG_X				240
+#define TOP_Y				205
 
 #define ENEMY_STATE_BOAT	0
 #define ENEMY_STATE_SWIM	1
 #define ENEMY_STATE_WALK	2
-#define ENEMY_STATE_FLAG	3
+#define ENEMY_STATE_ATTACK	3
 #define ENEMY_STATE_CATCH	4
 #define ENEMY_STATE_FALL	5
 #define ENEMY_STATE_HIT		6

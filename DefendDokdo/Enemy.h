@@ -9,16 +9,51 @@
 #import <Foundation/Foundation.h>
 #import "cocos2d.h"
 
+@class GameLayer;
+
 @interface Enemy : NSObject {
+	GameLayer *gameLayer;
+	
 	NSInteger type;
 	NSInteger level;
     NSInteger power;
 	NSInteger maxHp;
 	NSInteger hp;
-	NSInteger speed;
+	float speed;
 	
 	CCSprite *enemySpr;
-	CCSprite *boatSpr;
+	
+	CCSpriteBatchNode *boatBatchNode;
+	CCSprite *boatEnemySpr;
+	CCAnimate *boatAnimation;
+	
+	CCSpriteBatchNode *swimBatchNode;
+	CCSprite *swimEnemySpr;
+	CCAnimate *swimAnimation;
+	
+	CCSpriteBatchNode *walkBatchNode;
+	CCSprite *walkEnemySpr;
+	CCAnimate *walkAnimation;
+	
+	CCSpriteBatchNode *attackBatchNode;
+	CCSprite *attackEnemySpr;
+	CCAnimate *attackAnimation;
+	
+	CCSpriteBatchNode *catchBatchNode;
+	CCSprite *catchEnemySpr;
+	CCAnimate *catchAnimation;
+	
+	CCSpriteBatchNode *fallBatchNode;
+	CCSprite *fallEnemySpr;
+	CCAnimate *fallAnimation;
+	
+	CCSpriteBatchNode *hitBatchNode;
+	CCSprite *hitEnemySpr;
+	CCAnimate *hitAnimation;
+	
+	CCSpriteBatchNode *dieBatchNode;
+	CCSprite *dieEnemySpr;
+	CCAnimate *dieAnimation;
 	
 	float _x;
 	float _y;
@@ -33,19 +68,16 @@
 @property (nonatomic) NSInteger power;
 @property (nonatomic) NSInteger maxHp;
 @property (nonatomic) NSInteger hp;
-@property (nonatomic) NSInteger speed;
-
-@property (nonatomic, retain) CCSprite *enemySpr;
-@property (nonatomic, retain) CCSprite *boatSpr;
+@property (nonatomic) float speed;
 
 @property (nonatomic) float x;
 @property (nonatomic) float y;
 @property (nonatomic) float dx;
 @property (nonatomic) float dy;
 
-- (id)initWithType:(NSInteger)type level:(NSInteger)level;
-- (void)applyForce:(float)force direction:(float)direction;
-- (void)applyForce:(float)x:(float)y;
+- (id)initWithGameLayer:(GameLayer *)layer type:(NSInteger)type level:(NSInteger)level;
 - (void)update;
+- (void)applyForce:(float)x:(float)y;
+
 
 @end

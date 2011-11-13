@@ -18,11 +18,11 @@
 
 @implementation EnemyManager
 
-- (id)initWithGameScene:(GameScene *)gameScene
+- (id)initWithGameScene:(GameScene *)scene
 {
-	if( self == [self init] )
+	if( self = [self init] )
 	{
-		_gameScene = gameScene;
+		gameScene = scene;
 	}
 	
 	return self;
@@ -30,19 +30,18 @@
 
 - (void)update
 {
-	for( Enemy *enemy in _gameScene.enemies )
+	for( Enemy *enemy in gameScene.enemies )
 	{
-		[enemy applyForce:0 :-0.1];
+		if( arc4random() % 50 < 1 ) [enemy applyForce:(float)((NSInteger)(arc4random() % 20) - 10) :(float)(arc4random() % 10 + 5)]; // temp
+		
 		[enemy update];
 	}
 }
 
 - (void)createEnemy:(NSInteger)type level:(NSInteger)level
 {
-	Enemy *enemy = [[Enemy alloc] initWithType:type level:level];
-	[_gameScene.enemies addObject:enemy];
-	[_gameScene.gameLayer addChild:enemy.enemySpr z:Z_ENEMY];
-	[enemy.enemySpr addChild:enemy.boatSpr];
+	Enemy *enemy = [[[Enemy alloc] initWithGameLayer:gameScene.gameLayer type:type level:level] autorelease];
+	[gameScene.enemies addObject:enemy];
 }
 
 @end

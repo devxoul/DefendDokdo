@@ -12,7 +12,7 @@
 @class GameScene;
 
 @interface EnemyManager : NSObject {
-	GameScene *_gameScene;
+	GameScene *gameScene;
 }
 
 - (id)initWithGameScene:(GameScene *)gameScene;
