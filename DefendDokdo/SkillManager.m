@@ -66,6 +66,7 @@ enum{
 }
 
 -(void) createEarthQuake{
+    //적들 체크 ~
     AudioServicesPlaySystemSound(kSystemSoundID_Vibrate);
 }
 

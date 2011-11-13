@@ -25,6 +25,12 @@
     CGFloat grade;
     CGFloat arrowSpeed;
 
+    CGFloat incremental;
+    CGFloat rawIncremental;
+    
+    CCCallFunc* arrowDeadEndCallBack;
+    CCFiniteTimeAction *action;
+    
 }
 
 
@@ -45,5 +51,6 @@
 -(void) runDisappearAnimation;
 -(void) runCrashAnimation;
 -(void) draw;
+-(void) selfRelease:(id)sender;
 
 @end

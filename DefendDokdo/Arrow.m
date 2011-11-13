@@ -35,6 +35,7 @@
         //적 충돌 체크  - 및 상태 변환
         ArrowObject *current = [[[ArrowObject alloc] init:fileName :touchPoint:10 :gameScene] retain];
         [current draw]; 
+//<<<<<<< HEAD
     /*   
         switch ([current arrowState]) {
             case ARROW_STATE_MOVING:
@@ -62,7 +63,11 @@
  //   removedArrowArray = nil;
   //  [removedArrowArray release];
 
-    [self performSelector:@selector(draw) withObject:nil afterDelay:0.2];
+//    [self performSelector:@selector(draw) withObject:nil afterDelay:0.2];
+//=======
+
+    [self performSelector:@selector(draw) withObject:nil afterDelay:0.4];
+//>>>>>>> CrowDroid
 }
 
 -(id) init:(NSString*)_fileName :(CGPoint)_touchPoint :(NSInteger)_level :(GameScene*)_gameScene{    

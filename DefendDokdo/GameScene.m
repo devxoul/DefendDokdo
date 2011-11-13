@@ -82,7 +82,12 @@
 {
 	[super draw];
 	
+//<<<<<<< HEAD
 	if( arc4random() % 50 < 1 ) [enemyManager createEnemy:0 level:0]; // temp
+//=======
+//	if( arc4random() % 100 < 4 )
+//		[enemyManager createEnemy:0 level:0];
+//>>>>>>> CrowDroid
 	
 	[enemyManager update];
     [gameUILayer update];
