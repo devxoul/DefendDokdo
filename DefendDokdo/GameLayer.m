@@ -13,11 +13,13 @@
 
 - (id)init
 {
-	if( self == [super initWithColor:ccc4( 255, 255, 255, 255 )] )
-	{
-		
+	if( self == [super init] )
+	{   
+        [self setContentSize:CGSizeMake(480.f, 290.f)];
+        [self setAnchorPoint:ccp(0.0, 1.0)];
+		self.isTouchEnabled = YES;
 	}
-	
+
 	return self;
 }
 

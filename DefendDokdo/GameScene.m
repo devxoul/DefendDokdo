@@ -26,6 +26,13 @@
 @synthesize flag, enemies;
 @synthesize skillManager;
 
+enum{
+	BACKGROUND_1,
+	BACKGROUND_2,
+	BACKGROUND_3,
+	BACKGROUND_4
+};
+
 - (id)init
 {
 	if( self == [super init] )
@@ -52,10 +59,21 @@
 
 - (void)initStage
 {
-//	CCSprite *bg = [[CCSprite alloc] initWithFile:@".png"];
-//	[self.gameLayer addChild:bg z:Z_BACKGROUND];
+	for (int i = 0; i < 4; i++) {
+		arryBg[i] = [[CCSprite alloc] initWithFile:[NSString stringWithFormat:@"game_bg_%d.png", i]];
+		[arryBg[i] setAnchorPoint:CGPointZero];
+		[arryBg[i] setPosition:CGPointZero];
+		[arryBg[i] setVisible:NO];
+		[self.gameLayer addChild:arryBg[i] z:Z_BACKGROUND];
+	}
+	
+	[arryBg[BACKGROUND_1] setVisible:YES];
+	nBgState = BACKGROUND_1;
+	nCount = 0;
 	
 	sun = [[CCSprite alloc] initWithFile:@"sun.png"];
+	[sun setPosition:ccp(-40.0f, 100.0f)];
+	[sun setAnchorPoint:ccp(0.5f, 0.0f)];
 	[self.gameLayer addChild:sun z:Z_SUN];
 	
 	CCSprite *dokdo = [[CCSprite alloc] initWithFile:@"dokdo.png"];
@@ -82,15 +100,32 @@
 {
 	[super draw];
 	
-//<<<<<<< HEAD
+	if (nCount % 50 == 0) {
+
+		[arryBg[nBgState] setVisible:NO];
+		nBgState++;
+		
+		if (nBgState == 4) {
+			//gameover
+			nBgState = 0;
+			nCount = 0;
+			[arryBg[nBgState] setVisible:YES];
+		}
+		else {
+			[arryBg[nBgState] setVisible:YES];
+		}		
+	}
+	
+	NSInteger sunX = sun.position.x + 1;
+	NSInteger sunY = ((-1/200)*sunX*sunX) - ((14/5)*sunX) - 104;
+	[sun setPosition:ccp(sunX, sunY)];
+	
 	if( arc4random() % 50 < 1 ) [enemyManager createEnemy:0 level:0]; // temp
-//=======
-//	if( arc4random() % 100 < 4 )
-//		[enemyManager createEnemy:0 level:0];
-//>>>>>>> CrowDroid
 	
 	[enemyManager update];
     [gameUILayer update];
+	
+	nCount++;
 }
 
 @end

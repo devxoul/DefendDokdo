@@ -24,10 +24,13 @@
 	ControlManager *controlManager;
 	SkillManager *skillManager;
 	
+	CCSprite *arryBg[4];
 	CCSprite *sun;
 	Flag *flag;
 	NSMutableArray *enemies;
-
+	
+	NSInteger nCount;
+	NSInteger nBgState;
 }
 
 @property (nonatomic, retain) GameLayer *gameLayer;
