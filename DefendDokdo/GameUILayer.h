@@ -8,9 +8,28 @@
 
 #import <Foundation/Foundation.h>
 #import "cocos2d.h"
+#import "GameScene.h"
 
 @interface GameUILayer : CCLayer {
     
+    //CCSPrite* hpgague;
+    NSMutableArray* skills;
+    CCSprite* hpBar;
+    CCSprite* hpBarBg;
+
+    CCSprite* mpBar;
+    CCSprite* mpBarBg;
+    
+    NSInteger maxHp;
+    NSInteger maxMp;
+    
+    NSInteger currentHp;
+    NSInteger currentMp;
+    
+    GameScene* _gameScene;
+    
 }
 
+- (id)initWithScene:(GameScene* )gameScene;
+- (void) update;
 @end

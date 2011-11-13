@@ -8,14 +8,26 @@
 
 #import <Foundation/Foundation.h>
 #import "cocos2d.h"
+#import "Const.h"
 
-@class GameScene;
 
-@interface SkillManager : NSObject {
+@class GameScene, Arrow, Stone;
+
+@interface SkillManager : CCNode {
 	GameScene *_gameScene;
+    Stone* stone;    
+    Arrow* arrow;
+    NSInteger skillState;
 }
 
-- (id)initWithGameScene:(GameScene *)gameScene;
-- (void)update;
+@property (readwrite) NSInteger skillState;
+@property (nonatomic, retain) Stone* stone;
+@property (nonatomic, retain) Arrow* arrow;
+
+- (void) createStone:(CGPoint)location;
+- (void) createArrow:(CGPoint)location;
+- (void) createEarthQuake;
+- (id) initWithGameScene:(GameScene *)gameScene;
+- (void) update;
 
 @end

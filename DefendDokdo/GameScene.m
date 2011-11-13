@@ -8,6 +8,7 @@
 
 #import "GameScene.h"
 #import "GameLayer.h"
+#import "SkillLayer.h"
 #import "GameUILayer.h"
 #import "Const.h"
 #import "Flag.h"
@@ -21,8 +22,9 @@
 
 @implementation GameScene
 
-@synthesize gameLayer, gameUILayer;
+@synthesize gameLayer, gameUILayer, skillLayer;
 @synthesize flag, enemies;
+@synthesize skillManager;
 
 - (id)init
 {
@@ -40,8 +42,11 @@
 {
 	gameLayer = [[GameLayer alloc] init];
 	[self addChild:gameLayer];
+    
+    skillLayer = [[SkillLayer alloc] initWithScene:self];
+    [self addChild:skillLayer];
 	
-	gameUILayer = [[GameUILayer alloc] init];
+	gameUILayer = [[GameUILayer alloc] initWithScene:self];
 	[self addChild:gameUILayer];
 }
 
@@ -77,10 +82,11 @@
 {
 	[super draw];
 	
-	if( arc4random() % 10 < 1 )
+	if( arc4random() % 100 < 4 )
 		[enemyManager createEnemy:0 level:0];
 	
 	[enemyManager update];
+    [gameUILayer update];
 }
 
 @end

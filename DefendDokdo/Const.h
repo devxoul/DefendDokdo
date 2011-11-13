@@ -24,7 +24,7 @@
 #define ENEMY_STATE_CATCH	4
 #define ENEMY_STATE_FALL	5
 #define ENEMY_STATE_HIT		6
-#define ENEMY_STATE_DEAD	7
+#define ENEMY_STATE_DIE     7
 
 #define Z_BACKGROUND		0
 #define Z_SUN				1
@@ -32,5 +32,28 @@
 #define Z_SEA				3
 #define Z_FLAG				4
 #define Z_ENEMY				5
+
+//상훈 추가, 스킬 부분
+
+#define SKILL_STATE_NORMAL      0
+#define SKILL_STATE_STONE       1
+#define SKILL_STATE_ARROW       2
+#define SKILL_STATE_HEALING     3
+#define SKILL_STATE_EARTHQUAKE  4
+#define SKILL_STATE_LOCK        5
+
+#define STONE_STATE_DOWN    0
+#define STONE_STATE_ROLLING 1
+#define STONE_STATE_STOP    2
+#define STONE_STATE_DEAD    3
+
+#define ARROW_STATE_MOVING  0
+#define ARROW_STATE_STOP    1
+#define ARROW_STATE_DEAD    2
+
+#define DIRECTION_STATE_LEFT    0
+#define DIRECTION_STATE_RIGHT   1
+
+
 
 #endif

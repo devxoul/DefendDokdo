@@ -147,6 +147,15 @@
 		037B5F671460427B00074732 /* SkillManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 037B5F661460427B00074732 /* SkillManager.m */; };
 		037B5F6A146042B000074732 /* UserData.m in Sources */ = {isa = PBXBuildFile; fileRef = 037B5F69146042B000074732 /* UserData.m */; };
 		BA68257714645B680014DEB6 /* sun.png in Resources */ = {isa = PBXBuildFile; fileRef = BA68257614645B680014DEB6 /* sun.png */; };
+		CF1D205D1464E43A007F95C9 /* stone_0.png in Resources */ = {isa = PBXBuildFile; fileRef = CF1D205C1464E43A007F95C9 /* stone_0.png */; };
+		CF3F668614697C51003F4E51 /* Arrow.m in Sources */ = {isa = PBXBuildFile; fileRef = CF3F668514697C51003F4E51 /* Arrow.m */; };
+		CF3F668A146AAB8F003F4E51 /* ArrowObject.m in Sources */ = {isa = PBXBuildFile; fileRef = CF3F6689146AAB8F003F4E51 /* ArrowObject.m */; };
+		CF73B4D71466C0D800CE8D2E /* Stone.m in Sources */ = {isa = PBXBuildFile; fileRef = CF73B4D61466C0D800CE8D2E /* Stone.m */; };
+		CFB216521467D1E50011E4E2 /* gauge.png in Resources */ = {isa = PBXBuildFile; fileRef = CFB216501467D1E50011E4E2 /* gauge.png */; };
+		CFB216531467D1E50011E4E2 /* gaugebg.png in Resources */ = {isa = PBXBuildFile; fileRef = CFB216511467D1E50011E4E2 /* gaugebg.png */; };
+		CFB21657146824490011E4E2 /* Slot.m in Sources */ = {isa = PBXBuildFile; fileRef = CFB21656146824490011E4E2 /* Slot.m */; };
+		CFB2165D14682D170011E4E2 /* arrow.png in Resources */ = {isa = PBXBuildFile; fileRef = CFB2165C14682D170011E4E2 /* arrow.png */; };
+		CFD13404146518BB00F9E2B8 /* SkillLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = CFD13403146518BB00F9E2B8 /* SkillLayer.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -427,6 +436,20 @@
 		037B5F68146042B000074732 /* UserData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserData.h; sourceTree = "<group>"; };
 		037B5F69146042B000074732 /* UserData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserData.m; sourceTree = "<group>"; };
 		BA68257614645B680014DEB6 /* sun.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = sun.png; path = Resources/sun.png; sourceTree = "<group>"; };
+		CF1D205C1464E43A007F95C9 /* stone_0.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = stone_0.png; sourceTree = "<group>"; };
+		CF3F668414697C51003F4E51 /* Arrow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Arrow.h; sourceTree = "<group>"; };
+		CF3F668514697C51003F4E51 /* Arrow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Arrow.m; sourceTree = "<group>"; };
+		CF3F6688146AAB8E003F4E51 /* ArrowObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ArrowObject.h; sourceTree = "<group>"; };
+		CF3F6689146AAB8F003F4E51 /* ArrowObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ArrowObject.m; sourceTree = "<group>"; };
+		CF73B4D51466C0D800CE8D2E /* Stone.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Stone.h; sourceTree = "<group>"; };
+		CF73B4D61466C0D800CE8D2E /* Stone.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Stone.m; sourceTree = "<group>"; };
+		CFB216501467D1E50011E4E2 /* gauge.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gauge.png; sourceTree = "<group>"; };
+		CFB216511467D1E50011E4E2 /* gaugebg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gaugebg.png; sourceTree = "<group>"; };
+		CFB21655146824490011E4E2 /* Slot.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Slot.h; sourceTree = "<group>"; };
+		CFB21656146824490011E4E2 /* Slot.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Slot.m; sourceTree = "<group>"; };
+		CFB2165C14682D170011E4E2 /* arrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = arrow.png; sourceTree = "<group>"; };
+		CFD13402146518BB00F9E2B8 /* SkillLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SkillLayer.h; sourceTree = "<group>"; };
+		CFD13403146518BB00F9E2B8 /* SkillLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SkillLayer.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -485,6 +508,7 @@
 			children = (
 				037B5F30146038F000074732 /* Scenes */,
 				037B5F331460393000074732 /* Objects */,
+				CF3F668B146AAD69003F4E51 /* SkillObject */,
 				037B5F581460422F00074732 /* Managers */,
 				037B5F32146038FE00074732 /* Others */,
 				03398946146001FD002AAAA3 /* Resources */,
@@ -498,6 +522,8 @@
 			isa = PBXGroup;
 			children = (
 				BA68257614645B680014DEB6 /* sun.png */,
+				CFB2165B1468290A0011E4E2 /* UILayer */,
+				CFB2165A146828FD0011E4E2 /* Skill */,
 				0374E25814629EA600B9EAF7 /* dokdo.png */,
 				0374E25914629EA600B9EAF7 /* sea.png */,
 				0374E25A14629EA600B9EAF7 /* boat.png */,
@@ -864,6 +890,8 @@
 				037B5F3E14603A9400074732 /* GameScene.m */,
 				037B5F4014603AA000074732 /* GameLayer.h */,
 				037B5F4114603AA000074732 /* GameLayer.m */,
+				CFD13402146518BB00F9E2B8 /* SkillLayer.h */,
+				CFD13403146518BB00F9E2B8 /* SkillLayer.m */,
 				037B5F4314603AA600074732 /* GameUILayer.h */,
 				037B5F4414603AA600074732 /* GameUILayer.m */,
 				037B5F4614603ABB00074732 /* ResultLayer.h */,
@@ -915,6 +943,39 @@
 				037B5F631460427400074732 /* ControlManager.m */,
 			);
 			name = Managers;
+			sourceTree = "<group>";
+		};
+		CF3F668B146AAD69003F4E51 /* SkillObject */ = {
+			isa = PBXGroup;
+			children = (
+				CF73B4D51466C0D800CE8D2E /* Stone.h */,
+				CF73B4D61466C0D800CE8D2E /* Stone.m */,
+				CFB21655146824490011E4E2 /* Slot.h */,
+				CFB21656146824490011E4E2 /* Slot.m */,
+				CF3F668414697C51003F4E51 /* Arrow.h */,
+				CF3F668514697C51003F4E51 /* Arrow.m */,
+				CF3F6688146AAB8E003F4E51 /* ArrowObject.h */,
+				CF3F6689146AAB8F003F4E51 /* ArrowObject.m */,
+			);
+			name = SkillObject;
+			sourceTree = "<group>";
+		};
+		CFB2165A146828FD0011E4E2 /* Skill */ = {
+			isa = PBXGroup;
+			children = (
+				CFB2165C14682D170011E4E2 /* arrow.png */,
+				CF1D205C1464E43A007F95C9 /* stone_0.png */,
+			);
+			name = Skill;
+			sourceTree = "<group>";
+		};
+		CFB2165B1468290A0011E4E2 /* UILayer */ = {
+			isa = PBXGroup;
+			children = (
+				CFB216501467D1E50011E4E2 /* gauge.png */,
+				CFB216511467D1E50011E4E2 /* gaugebg.png */,
+			);
+			name = UILayer;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -986,6 +1047,10 @@
 				0374E25C14629EA600B9EAF7 /* sea.png in Resources */,
 				0374E25D14629EA600B9EAF7 /* boat.png in Resources */,
 				BA68257714645B680014DEB6 /* sun.png in Resources */,
+				CF1D205D1464E43A007F95C9 /* stone_0.png in Resources */,
+				CFB216521467D1E50011E4E2 /* gauge.png in Resources */,
+				CFB216531467D1E50011E4E2 /* gaugebg.png in Resources */,
+				CFB2165D14682D170011E4E2 /* arrow.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1110,6 +1175,11 @@
 				037B5F641460427400074732 /* ControlManager.m in Sources */,
 				037B5F671460427B00074732 /* SkillManager.m in Sources */,
 				037B5F6A146042B000074732 /* UserData.m in Sources */,
+				CFD13404146518BB00F9E2B8 /* SkillLayer.m in Sources */,
+				CF73B4D71466C0D800CE8D2E /* Stone.m in Sources */,
+				CFB21657146824490011E4E2 /* Slot.m in Sources */,
+				CF3F668614697C51003F4E51 /* Arrow.m in Sources */,
+				CF3F668A146AAB8F003F4E51 /* ArrowObject.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
