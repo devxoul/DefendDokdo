@@ -11,8 +11,14 @@
 
 @interface IntroLayer : CCLayer {
     
+    CCMenuItemImage * intromenu[3];
+    CCMenu *intro_menu;    
 }
 
 + (CCScene *)scene;
+
+-(void)moveNext:(id)sender;
+-(void)moveNext2:(id)sender;
+-(void)moveNext3:(id)sender;
 
 @end

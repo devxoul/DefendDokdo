@@ -146,6 +146,26 @@
 		037B5F641460427400074732 /* ControlManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 037B5F631460427400074732 /* ControlManager.m */; };
 		037B5F671460427B00074732 /* SkillManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 037B5F661460427B00074732 /* SkillManager.m */; };
 		037B5F6A146042B000074732 /* UserData.m in Sources */ = {isa = PBXBuildFile; fileRef = 037B5F69146042B000074732 /* UserData.m */; };
+		170082271466DC7000D792F8 /* dokdo_bg.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 170082261466DC7000D792F8 /* dokdo_bg.jpg */; };
+		1700822A1466F9B700D792F8 /* dokdo_logo.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 170082291466F9B700D792F8 /* dokdo_logo.jpeg */; };
+		1700822C146702CA00D792F8 /* touchthescreen.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1700822B146702C900D792F8 /* touchthescreen.jpg */; };
+		179BFCF21467F3B400B5294B /* InfoLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 179BFCF11467F3B400B5294B /* InfoLayer.m */; };
+		179BFCF71468009800B5294B /* game_btn.gif in Resources */ = {isa = PBXBuildFile; fileRef = 179BFCF41468009800B5294B /* game_btn.gif */; };
+		179BFCF81468009800B5294B /* intro_btn.gif in Resources */ = {isa = PBXBuildFile; fileRef = 179BFCF51468009800B5294B /* intro_btn.gif */; };
+		179BFCF91468009800B5294B /* setting_btn.gif in Resources */ = {isa = PBXBuildFile; fileRef = 179BFCF61468009800B5294B /* setting_btn.gif */; };
+		179BFCFB14682C4800B5294B /* info_blue.png in Resources */ = {isa = PBXBuildFile; fileRef = 179BFCFA14682C4800B5294B /* info_blue.png */; };
+		179BFCFD14682C5900B5294B /* facebook_blue.png in Resources */ = {isa = PBXBuildFile; fileRef = 179BFCFC14682C5900B5294B /* facebook_blue.png */; };
+		179BFCFF14682C7800B5294B /* gamecenter.png in Resources */ = {isa = PBXBuildFile; fileRef = 179BFCFE14682C7800B5294B /* gamecenter.png */; };
+		179BFD031468322400B5294B /* intro1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 179BFD001468322400B5294B /* intro1.jpg */; };
+		179BFD041468322400B5294B /* intro2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 179BFD011468322400B5294B /* intro2.jpg */; };
+		179BFD051468322400B5294B /* intro3.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 179BFD021468322400B5294B /* intro3.jpg */; };
+		179BFD071468342900B5294B /* arrow.gif in Resources */ = {isa = PBXBuildFile; fileRef = 179BFD061468342900B5294B /* arrow.gif */; };
+		17CECCA414698A0E00859CA3 /* back_blue.png in Resources */ = {isa = PBXBuildFile; fileRef = 17CECCA314698A0E00859CA3 /* back_blue.png */; };
+		17CECCA7146A7C3100859CA3 /* NanumScript.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 17CECCA6146A7C3100859CA3 /* NanumScript.ttf */; };
+		17CECCA9146A7CAD00859CA3 /* big_alert.png in Resources */ = {isa = PBXBuildFile; fileRef = 17CECCA8146A7CAD00859CA3 /* big_alert.png */; };
+		17CECCAB146A80DE00859CA3 /* flag.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 17CECCAA146A80DE00859CA3 /* flag.jpg */; };
+		17CECCAD146AAB0B00859CA3 /* result_upgrade.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 17CECCAC146AAB0B00859CA3 /* result_upgrade.jpg */; };
+		17CECCAF146AAB1200859CA3 /* result_start.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 17CECCAE146AAB1200859CA3 /* result_start.jpg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -425,6 +445,27 @@
 		037B5F661460427B00074732 /* SkillManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SkillManager.m; sourceTree = "<group>"; };
 		037B5F68146042B000074732 /* UserData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserData.h; sourceTree = "<group>"; };
 		037B5F69146042B000074732 /* UserData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserData.m; sourceTree = "<group>"; };
+		170082261466DC7000D792F8 /* dokdo_bg.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = dokdo_bg.jpg; sourceTree = "<group>"; };
+		170082291466F9B700D792F8 /* dokdo_logo.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = dokdo_logo.jpeg; sourceTree = "<group>"; };
+		1700822B146702C900D792F8 /* touchthescreen.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = touchthescreen.jpg; sourceTree = "<group>"; };
+		179BFCF01467F3B400B5294B /* InfoLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InfoLayer.h; sourceTree = "<group>"; };
+		179BFCF11467F3B400B5294B /* InfoLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InfoLayer.m; sourceTree = "<group>"; };
+		179BFCF41468009800B5294B /* game_btn.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = game_btn.gif; sourceTree = "<group>"; };
+		179BFCF51468009800B5294B /* intro_btn.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = intro_btn.gif; sourceTree = "<group>"; };
+		179BFCF61468009800B5294B /* setting_btn.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = setting_btn.gif; sourceTree = "<group>"; };
+		179BFCFA14682C4800B5294B /* info_blue.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = info_blue.png; sourceTree = "<group>"; };
+		179BFCFC14682C5900B5294B /* facebook_blue.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = facebook_blue.png; sourceTree = "<group>"; };
+		179BFCFE14682C7800B5294B /* gamecenter.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gamecenter.png; sourceTree = "<group>"; };
+		179BFD001468322400B5294B /* intro1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = intro1.jpg; sourceTree = "<group>"; };
+		179BFD011468322400B5294B /* intro2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = intro2.jpg; sourceTree = "<group>"; };
+		179BFD021468322400B5294B /* intro3.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = intro3.jpg; sourceTree = "<group>"; };
+		179BFD061468342900B5294B /* arrow.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = arrow.gif; sourceTree = "<group>"; };
+		17CECCA314698A0E00859CA3 /* back_blue.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = back_blue.png; sourceTree = "<group>"; };
+		17CECCA6146A7C3100859CA3 /* NanumScript.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = NanumScript.ttf; sourceTree = "<group>"; };
+		17CECCA8146A7CAD00859CA3 /* big_alert.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = big_alert.png; sourceTree = "<group>"; };
+		17CECCAA146A80DE00859CA3 /* flag.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = flag.jpg; sourceTree = "<group>"; };
+		17CECCAC146AAB0B00859CA3 /* result_upgrade.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = result_upgrade.jpg; sourceTree = "<group>"; };
+		17CECCAE146AAB1200859CA3 /* result_start.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = result_start.jpg; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -495,9 +536,28 @@
 		03398946146001FD002AAAA3 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				17CECCAE146AAB1200859CA3 /* result_start.jpg */,
+				17CECCAC146AAB0B00859CA3 /* result_upgrade.jpg */,
+				17CECCAA146A80DE00859CA3 /* flag.jpg */,
+				17CECCA8146A7CAD00859CA3 /* big_alert.png */,
+				17CECCA6146A7C3100859CA3 /* NanumScript.ttf */,
+				179BFD061468342900B5294B /* arrow.gif */,
+				17CECCA314698A0E00859CA3 /* back_blue.png */,
+				179BFD001468322400B5294B /* intro1.jpg */,
+				179BFD011468322400B5294B /* intro2.jpg */,
+				179BFD021468322400B5294B /* intro3.jpg */,
+				179BFCFA14682C4800B5294B /* info_blue.png */,
+				179BFCFC14682C5900B5294B /* facebook_blue.png */,
+				179BFCFE14682C7800B5294B /* gamecenter.png */,
+				1700822B146702C900D792F8 /* touchthescreen.jpg */,
+				170082261466DC7000D792F8 /* dokdo_bg.jpg */,
+				170082291466F9B700D792F8 /* dokdo_logo.jpeg */,
 				0374E25814629EA600B9EAF7 /* dokdo.png */,
 				0374E25914629EA600B9EAF7 /* sea.png */,
 				0374E25A14629EA600B9EAF7 /* boat.png */,
+				179BFCF41468009800B5294B /* game_btn.gif */,
+				179BFCF51468009800B5294B /* intro_btn.gif */,
+				179BFCF61468009800B5294B /* setting_btn.gif */,
 				0374E23514619E8400B9EAF7 /* enemies */,
 				0374E25514629B2200B9EAF7 /* flags */,
 				03398947146001FD002AAAA3 /* Default.png */,
@@ -853,6 +913,8 @@
 				03398A9E146001FF002AAAA3 /* TitleLayer.m */,
 				037B5F34146039DB00074732 /* MainLayer.h */,
 				037B5F35146039DB00074732 /* MainLayer.m */,
+				179BFCF01467F3B400B5294B /* InfoLayer.h */,
+				179BFCF11467F3B400B5294B /* InfoLayer.m */,
 				037B5F3714603A6500074732 /* IntroLayer.h */,
 				037B5F3814603A6500074732 /* IntroLayer.m */,
 				037B5F3A14603A8900074732 /* TutorialLayer.h */,
@@ -982,6 +1044,25 @@
 				0374E25B14629EA600B9EAF7 /* dokdo.png in Resources */,
 				0374E25C14629EA600B9EAF7 /* sea.png in Resources */,
 				0374E25D14629EA600B9EAF7 /* boat.png in Resources */,
+				170082271466DC7000D792F8 /* dokdo_bg.jpg in Resources */,
+				1700822A1466F9B700D792F8 /* dokdo_logo.jpeg in Resources */,
+				1700822C146702CA00D792F8 /* touchthescreen.jpg in Resources */,
+				179BFCF71468009800B5294B /* game_btn.gif in Resources */,
+				179BFCF81468009800B5294B /* intro_btn.gif in Resources */,
+				179BFCF91468009800B5294B /* setting_btn.gif in Resources */,
+				179BFCFB14682C4800B5294B /* info_blue.png in Resources */,
+				179BFCFD14682C5900B5294B /* facebook_blue.png in Resources */,
+				179BFCFF14682C7800B5294B /* gamecenter.png in Resources */,
+				179BFD031468322400B5294B /* intro1.jpg in Resources */,
+				179BFD041468322400B5294B /* intro2.jpg in Resources */,
+				179BFD051468322400B5294B /* intro3.jpg in Resources */,
+				179BFD071468342900B5294B /* arrow.gif in Resources */,
+				17CECCA414698A0E00859CA3 /* back_blue.png in Resources */,
+				17CECCA7146A7C3100859CA3 /* NanumScript.ttf in Resources */,
+				17CECCA9146A7CAD00859CA3 /* big_alert.png in Resources */,
+				17CECCAB146A80DE00859CA3 /* flag.jpg in Resources */,
+				17CECCAD146AAB0B00859CA3 /* result_upgrade.jpg in Resources */,
+				17CECCAF146AAB1200859CA3 /* result_start.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1106,6 +1187,7 @@
 				037B5F641460427400074732 /* ControlManager.m in Sources */,
 				037B5F671460427B00074732 /* SkillManager.m in Sources */,
 				037B5F6A146042B000074732 /* UserData.m in Sources */,
+				179BFCF21467F3B400B5294B /* InfoLayer.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

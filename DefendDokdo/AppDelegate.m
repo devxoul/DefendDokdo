@@ -10,7 +10,8 @@
 
 #import "AppDelegate.h"
 #import "GameConfig.h"
-#import "GameScene.h"
+//#import "GameScene.h"
+#import "TitleLayer.h"
 #import "RootViewController.h"
 
 @implementation AppDelegate
@@ -110,7 +111,8 @@
 	[self removeStartupFlicker];
 	
 	// Run the intro Scene
-	[[CCDirector sharedDirector] runWithScene: [GameScene node]];
+//	[[CCDirector sharedDirector] runWithScene: [GameScene node]];
+    [[CCDirector sharedDirector] runWithScene: [TitleLayer node]];
 }
 
 

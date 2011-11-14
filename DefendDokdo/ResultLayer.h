@@ -10,9 +10,16 @@
 #import "cocos2d.h"
 
 @interface ResultLayer : CCLayer {
+ 
+    CCLabelTTF *moneyLabel;
+    CCMenuItemImage *result_start;
+    CCMenuItemImage *result_upgrade;
     
 }
 
 + (CCScene *)scene;
+
+-(void)moveGame:(id)sender;
+-(void)moveUpgrade:(id)sender;
 
 @end
