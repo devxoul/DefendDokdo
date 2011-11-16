@@ -108,33 +108,33 @@ enum{
 	
 	if (nGameState == GAMESTATE_START)
 	{
-		if (nCount % 250 == 0) {
-			
-			[arryBg[nBgState] setVisible:NO];
-			nBgState++;
-			
-			if (nBgState == 4) {
-				//gameover
-				nBgState = 0;
-				nCount = 0;
-				[arryBg[nBgState] setVisible:YES];
-			}
-			else {
-				[arryBg[nBgState] setVisible:YES];
-			}		
-		}
-		
-		CGFloat sunX = sun.position.x + 0.5;
-		//	NSInteger sunY = sun.position.y;
-		//	NSInteger sunY = ((-1/200)*sunX*sunX) - ((14/5)*sunX) - 104;
-		CGFloat sunY = ((-1/280)*sunX*sunX) + ((12/7)*sunX) + (520/7);
-		
-		if (sunX > 240) {
-			int i = 0;
-			i++;
-		}
-		
-		[sun setPosition:ccp(sunX, sunY)];
+//		if (nCount % 250 == 0) {
+//			
+//			[arryBg[nBgState] setVisible:NO];
+//			nBgState++;
+//			
+//			if (nBgState == 4) {
+//				//gameover
+//				nBgState = 0;
+//				nCount = 0;
+//				[arryBg[nBgState] setVisible:YES];
+//			}
+//			else {
+//				[arryBg[nBgState] setVisible:YES];
+//			}		
+//		}
+//		
+//		CGFloat sunX = sun.position.x + 0.5;
+//		//	NSInteger sunY = sun.position.y;
+//		//	NSInteger sunY = ((-1/200)*sunX*sunX) - ((14/5)*sunX) - 104;
+//		CGFloat sunY = ((-1/280)*sunX*sunX) + ((12/7)*sunX) + (520/7);
+//		
+//		if (sunX > 240) {
+//			int i = 0;
+//			i++;
+//		}
+//		
+//		[sun setPosition:ccp(sunX, sunY)];
 		
 		if( arc4random() % 50 < 1 ) [enemyManager createEnemy:0 level:0]; // temp
 		
@@ -150,7 +150,7 @@ enum{
 		label.position = ccp( 240, 480 );
 		label.string = @"Clear!";
 		[label runAction:[CCEaseBackInOut actionWithAction:[CCMoveTo actionWithDuration:0.5 position:ccp( 240, 160 )]]];
-		[self schedule:@selector(onClearLabelEnd:) interval:2.0];
+		[self schedule:@selector(onLabelEnd:) interval:2.0];
 		
 		//		if ([UserData userData].backSound) 
 		//            [[SimpleAudioEngine sharedEngine] playBackgroundMusic:@"clear.mp3"];
@@ -162,11 +162,11 @@ enum{
 		label.position = ccp( 240, 480 );
 		label.string = @"Game Over!";
 		[label runAction:[CCEaseBackInOut actionWithAction:[CCMoveTo actionWithDuration:0.5 position:ccp( 240, 160 )]]];
-		[self schedule:@selector(onClearLabelEnd:) interval:2.0];		
+		[self schedule:@selector(onLabelEnd:) interval:2.0];		
 	}	
 }
 
-- (void)onClearLabelEnd:(id)sender
+- (void)onLabelEnd:(id)sender
 {
 	[[CCDirector sharedDirector] pushScene:[CCTransitionSlideInL transitionWithDuration:0.3 scene:[[[ResultLayer node] scene] autorelease]]];
 }

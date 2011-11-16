@@ -17,7 +17,6 @@
 	{   
         [self setContentSize:CGSizeMake(480.f, 290.f)];
         [self setAnchorPoint:CGPointZero];
-//        [self setAnchorPoint:ccp(0.0, 1.0)];
 		self.isTouchEnabled = YES;
 	}
 

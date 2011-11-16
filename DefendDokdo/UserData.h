@@ -12,7 +12,18 @@
 {
 @public
     // game state 
-    NSUInteger money;
+    NSUInteger point;
+	NSUInteger stageLevel;
+
+	// user skill
+	NSMutableArray* skillSlot;
+	NSDictionary* userSkill;	// 구매한 스킬과 레벨
+	
+	// user upgrade levels
+	NSUInteger flagLevel;
+	NSUInteger userAtkLevel;
+	NSUInteger userMaxMpLevel;
+	NSUInteger userMPspeedLevel;
 
     // user setting value
     BOOL backSound;         // back ground sound
@@ -21,10 +32,21 @@
     NSDictionary *stageInfo;
 }
 
-//@property (readwrite) NSUInteger money;
-//@property (readwrite) BOOL backSound;
-//@property (readwrite) BOOL vibration;
-//@property (readonly) NSDictionary *stageInfo;
+@property (readwrite) NSUInteger point;
+@property (readwrite) NSUInteger stageLevel;
+
+@property (nonatomic, retain) NSMutableArray* skillSlot;
+@property (nonatomic, retain) NSDictionary* userSkill;
+
+@property (readwrite) NSUInteger flagLevel;
+@property (readwrite) NSUInteger userAtkLevel;
+@property (readwrite) NSUInteger userMaxMpLevel;
+@property (readwrite) NSUInteger UserMpspeedLevel;
+
+@property (readwrite) BOOL backSound;
+@property (readwrite) BOOL vibration;
+
+@property (nonatomic, retain) NSDictionary* stageInfo;
 
 + (UserData *)userData;
 
@@ -32,6 +54,6 @@
 - (BOOL)removeToFile;
 - (BOOL)setToFile;
 
-- (BOOL)buyStage:(NSNumber *)stage;
+//- (BOOL)buyStage:(NSNumber *)stage;
 
 @end

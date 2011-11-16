@@ -9,6 +9,7 @@
 #import "Flag.h"
 #import "Const.h"
 #import "GameLayer.h"
+#import "UserData.h"
 
 @implementation Flag
 
@@ -17,11 +18,17 @@
 
 - (void)init:(GameLayer*)scene
 {
+	
+	hp = maxHp;
+	
 	flagSpr = [[CCSprite alloc]initWithFile:@"flag.png"];
 	[flagSpr setPosition:ccp(245, 210)];
 	[flagSpr setAnchorPoint:ccp(0.5f, 0.0f)];
 	
 	[scene addChild:flagSpr z:Z_FLAG];
 }
+
+
+
 
 @end

@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "cocos2d.h"
 
-@class GameLayer;
+@class GameLayer, UserData;
 
 @interface Flag : NSObject {
 	NSInteger level;
