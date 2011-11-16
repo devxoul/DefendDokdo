@@ -8,16 +8,17 @@
 
 #import "Flag.h"
 #import "Const.h"
+#import "GameLayer.h"
 
 @implementation Flag
 
 @synthesize level, maxHp, hp;
 @synthesize flagSpr;
 
-- (void)init:(CCScene*)scene
+- (void)init:(GameLayer*)scene
 {
-	flagSpr = [[CCSprite alloc]initWithFile:@"sun.png"];
-	[flagSpr setPosition:ccp(-80, 100)];
+	flagSpr = [[CCSprite alloc]initWithFile:@"flag.png"];
+	[flagSpr setPosition:ccp(245, 210)];
 	[flagSpr setAnchorPoint:ccp(0.5f, 0.0f)];
 	
 	[scene addChild:flagSpr z:Z_FLAG];

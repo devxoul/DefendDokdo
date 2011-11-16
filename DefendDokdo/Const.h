@@ -38,6 +38,11 @@
 #define Z_FLAG				4
 #define Z_ENEMY				5
 
+//성은 추가, 게임 State
+#define GAMESTATE_START		0
+#define GAMESTATE_CLEAR		1
+#define GAMESTAET_OVER		2
+
 //상훈 추가, 스킬 부분
 
 #define SKILL_STATE_NORMAL      0

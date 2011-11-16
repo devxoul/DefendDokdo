@@ -13,7 +13,7 @@
 #import "SkillManager.h"
 
 
-@class GameLayer, GameUILayer, Flag, SkillLayer;
+@class GameLayer, GameUILayer, Flag, SkillLayer, ResultLayer;
 
 @interface GameScene : CCScene {
 	GameLayer *gameLayer;
@@ -31,6 +31,11 @@
 	
 	NSInteger nCount;
 	NSInteger nBgState;
+	
+	CCLabelTTF *label;
+	
+@public
+	NSInteger nGameState;
 }
 
 @property (nonatomic, retain) GameLayer *gameLayer;
@@ -41,6 +46,7 @@
 @property (nonatomic, retain) NSMutableArray *enemies;
 
 @property (nonatomic, retain) SkillManager *skillManager;
+@property (readwrite) NSInteger nGameState;
 
 
 @end

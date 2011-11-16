@@ -9,19 +9,21 @@
 #import <Foundation/Foundation.h>
 #import "cocos2d.h"
 
+@class GameLayer;
+
 @interface Flag : NSObject {
-	NSInteger *level;
-    NSInteger *maxHp;
-	NSInteger *hp;
+	NSInteger level;
+    NSInteger maxHp;
+	NSInteger hp;
 	
 	CCSprite *flagSpr;
 }
 
-- (void)init:(CCScene*)scene;
+- (void)init:(GameLayer*)scene;
 
-@property (nonatomic) NSInteger *level;
-@property (nonatomic) NSInteger *maxHp;
-@property (nonatomic) NSInteger *hp;
+@property (nonatomic) NSInteger level;
+@property (nonatomic) NSInteger maxHp;
+@property (nonatomic) NSInteger hp;
 
 @property (nonatomic, retain) CCSprite *flagSpr;
 
