@@ -596,7 +596,7 @@
 	
 	[gameLayer removeChild:enemySpr cleanup:YES];
 	
-	[self release];
+    //	[self release];
 }
 
 - (void)stopDying:(id)sender

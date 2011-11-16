@@ -17,7 +17,7 @@
 
 @implementation SkillManager
 
-@synthesize skillState;
+@synthesize skillState, arrow;
 
 enum{
      skill_stone_tag=1
@@ -25,10 +25,12 @@ enum{
 
 - (id)initWithGameScene:(GameScene *)gameScene
 {
-	if( self == [self init] )
+	if( self == [super init] )
 	{
 		_gameScene = gameScene;
         skillState = SKILL_STATE_NORMAL;
+        arrow = [[Arrow alloc] initWithInfo:_gameScene];
+        
 	}
 	
 	return self;
@@ -49,7 +51,8 @@ enum{
 }
 
 -(void)createStone:(CGPoint)location{
-    Stone* stone = [[[Stone alloc] initWithInfo:location :100.0 :_gameScene] retain];
+    Stone* stone = [[Stone alloc] initWithInfo:location :100.0 :_gameScene];
+
     if(stone!=nil){
         skillState = SKILL_STATE_NORMAL;
         [_gameScene.skillLayer addChild:[stone stoneSprite] z:1 tag:skill_stone_tag];
@@ -58,10 +61,15 @@ enum{
 }
 
 -(void)createArrow:(CGPoint)location{
-    Arrow* arrow = [[[Arrow alloc] initWithInfo :location :_gameScene] retain];
-    NSLog(@"arrow Create");
-    if(arrow!=nil){
-        skillState = SKILL_STATE_NORMAL;
+//<<<<<<< HEAD
+//    Arrow* arrow = [[[Arrow alloc] initWithInfo :location :_gameScene] retain];
+//    NSLog(@"arrow Create");
+//    if(arrow!=nil){
+//        skillState = SKILL_STATE_NORMAL;
+//=======
+    skillState = SKILL_STATE_NORMAL;
+    
+    if([arrow arrowShot:location]){
         [arrow draw];
     }
 }
@@ -76,10 +84,10 @@ enum{
     NSInteger power = [[[[SkillData skillData] getSkillInfo:SKILL_STATE_EARTHQUAKE] objectForKey:@"effectPower"] integerValue];
     
     for(Enemy* current in _gameScene.enemies){
-        if([current x] <= DOKDO_LEFT_X)
-            [current beDamaged:damage forceX:-power forceY:power];
+        if([current x] <= FLAG_X)
+            [current beDamaged:damage forceX:-power/2.0 forceY:power/10.0];
         else
-            [current beDamaged:damage forceX:power forceY:power];            
+            [current beDamaged:damage forceX:power/2.0 forceY:power/10.0];            
     }
 
     AudioServicesPlaySystemSound(kSystemSoundID_Vibrate);

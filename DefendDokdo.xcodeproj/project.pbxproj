@@ -224,6 +224,15 @@
 		CF73B4D71466C0D800CE8D2E /* Stone.m in Sources */ = {isa = PBXBuildFile; fileRef = CF73B4D61466C0D800CE8D2E /* Stone.m */; };
 		CFB21657146824490011E4E2 /* Slot.m in Sources */ = {isa = PBXBuildFile; fileRef = CFB21656146824490011E4E2 /* Slot.m */; };
 		CFBB561A1470488D00E7A7FF /* SkillData.m in Sources */ = {isa = PBXBuildFile; fileRef = CFBB56191470488D00E7A7FF /* SkillData.m */; };
+		CF1D205D1464E43A007F95C9 /* stone_0.png in Resources */ = {isa = PBXBuildFile; fileRef = CF1D205C1464E43A007F95C9 /* stone_0.png */; };
+		CF3F668614697C51003F4E51 /* Arrow.m in Sources */ = {isa = PBXBuildFile; fileRef = CF3F668514697C51003F4E51 /* Arrow.m */; };
+		CF3F668A146AAB8F003F4E51 /* ArrowObject.m in Sources */ = {isa = PBXBuildFile; fileRef = CF3F6689146AAB8F003F4E51 /* ArrowObject.m */; };
+		CF73B4D71466C0D800CE8D2E /* Stone.m in Sources */ = {isa = PBXBuildFile; fileRef = CF73B4D61466C0D800CE8D2E /* Stone.m */; };
+		CFB216521467D1E50011E4E2 /* gauge.png in Resources */ = {isa = PBXBuildFile; fileRef = CFB216501467D1E50011E4E2 /* gauge.png */; };
+		CFB216531467D1E50011E4E2 /* gaugebg.png in Resources */ = {isa = PBXBuildFile; fileRef = CFB216511467D1E50011E4E2 /* gaugebg.png */; };
+		CFB21657146824490011E4E2 /* Slot.m in Sources */ = {isa = PBXBuildFile; fileRef = CFB21656146824490011E4E2 /* Slot.m */; };
+		CFB2165D14682D170011E4E2 /* arrow.png in Resources */ = {isa = PBXBuildFile; fileRef = CFB2165C14682D170011E4E2 /* arrow.png */; };
+		CFBB561A1470488D00E7A7FF /* SkillData.m in Sources */ = {isa = PBXBuildFile; fileRef = CFBB56191470488D00E7A7FF /* SkillData.m */; };
 		CFBB56211470585500E7A7FF /* SkillInfoList.plist in Resources */ = {isa = PBXBuildFile; fileRef = CFBB56201470585500E7A7FF /* SkillInfoList.plist */; };
 		CFD13404146518BB00F9E2B8 /* SkillLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = CFD13403146518BB00F9E2B8 /* SkillLayer.m */; };
 /* End PBXBuildFile section */
@@ -578,6 +587,7 @@
 		BA6EA1B3147042CE00949786 /* game_bg_1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = game_bg_1.png; path = Resources/game_bg_1.png; sourceTree = "<group>"; };
 		BA6EA1B4147042CE00949786 /* game_bg_2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = game_bg_2.png; path = Resources/game_bg_2.png; sourceTree = "<group>"; };
 		BA6EA1B5147042CE00949786 /* game_bg_3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = game_bg_3.png; path = Resources/game_bg_3.png; sourceTree = "<group>"; };
+		CF1D205C1464E43A007F95C9 /* stone_0.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = stone_0.png; sourceTree = "<group>"; };
 		CF3F668414697C51003F4E51 /* Arrow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Arrow.h; sourceTree = "<group>"; };
 		CF3F668514697C51003F4E51 /* Arrow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Arrow.m; sourceTree = "<group>"; };
 		CF3F6688146AAB8E003F4E51 /* ArrowObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ArrowObject.h; sourceTree = "<group>"; };
@@ -586,6 +596,13 @@
 		CF73B4D61466C0D800CE8D2E /* Stone.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Stone.m; sourceTree = "<group>"; };
 		CFB21655146824490011E4E2 /* Slot.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Slot.h; sourceTree = "<group>"; };
 		CFB21656146824490011E4E2 /* Slot.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Slot.m; sourceTree = "<group>"; };
+		CFBB56181470488D00E7A7FF /* SkillData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SkillData.h; sourceTree = "<group>"; };
+		CFBB56191470488D00E7A7FF /* SkillData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SkillData.m; sourceTree = "<group>"; };
+		CFB216501467D1E50011E4E2 /* gauge.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gauge.png; sourceTree = "<group>"; };
+		CFB216511467D1E50011E4E2 /* gaugebg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gaugebg.png; sourceTree = "<group>"; };
+		CFB21655146824490011E4E2 /* Slot.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Slot.h; sourceTree = "<group>"; };
+		CFB21656146824490011E4E2 /* Slot.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Slot.m; sourceTree = "<group>"; };
+		CFB2165C14682D170011E4E2 /* arrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = arrow.png; sourceTree = "<group>"; };
 		CFBB56181470488D00E7A7FF /* SkillData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SkillData.h; sourceTree = "<group>"; };
 		CFBB56191470488D00E7A7FF /* SkillData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SkillData.m; sourceTree = "<group>"; };
 		CFBB56201470585500E7A7FF /* SkillInfoList.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = SkillInfoList.plist; sourceTree = "<group>"; };

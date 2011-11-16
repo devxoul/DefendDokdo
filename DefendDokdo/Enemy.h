@@ -68,6 +68,7 @@
 @property (nonatomic) NSInteger power;
 @property (nonatomic) NSInteger maxHp;
 @property (nonatomic) NSInteger hp;
+
 @property (nonatomic) float speed;
 
 @property (nonatomic) float x;

@@ -15,14 +15,14 @@
 @interface Arrow : NSObject
 {
     NSMutableArray* arrowArray;
-    
+    NSMutableArray* unusedArrowArray;
     CGPoint touchPoint;
     CGPoint startPoint;
     
     NSInteger damage;
     NSInteger number;
+    NSInteger count;
     
-    NSInteger direction;
     NSString* fileName;
     GameScene* gameScene;
     
@@ -38,9 +38,12 @@
 @property (readwrite) CGPoint startPoint;
 
 @property (nonatomic, retain) NSMutableArray* arrowArray; 
+@property (nonatomic, retain) NSMutableArray* unusedArrowArray; 
+
 @property (nonatomic, retain) NSString* fileName;
 
 -(void) draw;
--(id) initWithInfo:(CGPoint)_touchPoint :(GameScene*)_gameScene;
+-(id) initWithInfo:(GameScene*)_gameScene;
+-(BOOL) arrowShot:(CGPoint)_touchPoint;
 
 @end

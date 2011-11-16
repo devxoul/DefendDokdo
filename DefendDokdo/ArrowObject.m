@@ -11,6 +11,7 @@
 #import "GameScene.h"
 #import "SkillLayer.h"
 #import "Enemy.h"
+#import "Arrow.h"
 
 @implementation ArrowObject
 
@@ -22,15 +23,17 @@
 @synthesize location;
 @synthesize arrowSpeed;
 
--(id) init:(NSString*)_fileName :(CGPoint)_touchPoint :(NSInteger)_damage :(GameScene*)_gameScene{    
+
+//-(id) init:(NSString*)_fileName :(CGPoint)_touchPoint :(NSInteger)_damage :(GameScene*)_gameScene{    
+-(id) init:(NSString*)_fileName:(NSInteger)_damage :(GameScene*)_gameScene
+{
     
     if( self == [super init] )
     {
-        
-        touchPoint = _touchPoint;
         arrowSprite = [CCSprite spriteWithFile:_fileName];
         gameScene = _gameScene;
         damage = _damage;
+
         if(0 <= touchPoint.x && touchPoint.x <= 240){
             x = 0;
             y = 320;
@@ -49,45 +52,75 @@
         
         //그레이드 계산 후 로테이트 해야함
         rawIncremental = incremental;
-        arrowSpeed = 50;
-        arrowState = ARROW_STATE_MOVING;
-
-        [arrowSprite setAnchorPoint:ccp(1.0, 0.5)];
-        [arrowSprite setPosition:ccp(x,y)];
+//        arrowSpeed = 50;
+//        arrowState = ARROW_STATE_MOVING;
+//
+//        [arrowSprite setAnchorPoint:ccp(1.0, 0.5)];
+//        [arrowSprite setPosition:ccp(x,y)];
+//        
+//		[_gameScene.skillLayer addChild:arrowSprite z:1];
+//=======
         
+        [arrowSprite setAnchorPoint:ccp(1.0, 0.5)];
+        [arrowSprite setPosition:ccp(0,0)];
+        [arrowSprite setVisible:NO];
 		[_gameScene.skillLayer addChild:arrowSprite z:1];
+        arrowState = ARROW_STATE_STOP;
+//>>>>>>> CrowDroid
         
     }
     return self;
 }
 
 -(void) selfRelease:(id)sender{
-    [arrowSprite removeFromParentAndCleanup:YES];
-    [self release];
+    [arrowSprite setVisible:NO];
+    [arrowSprite setPosition:ccp(0,0)];
+    [gameScene.skillManager.arrow.unusedArrowArray addObject:self];
+}
+
+-(void)setReady:(CGPoint)_touchPoint{
+    arrowSprite.opacity = 255;
+    arrowSprite.rotation = 0;
+    touchPoint=_touchPoint;
+    if(0 <= touchPoint.x && touchPoint.x <= 240){
+        x = 0;
+        y = 320;
+        direction = DIRECTION_STATE_LEFT;
+        grade = (320.0 - (float) touchPoint.y)/(0.0-(float)touchPoint.x);
+        incremental = 2.0 * (-grade) / (touchPoint.x);
+    }
+    else if(240 < touchPoint.x && touchPoint.x <= 480){
+        x = 480;
+        y = 320;
+        direction = DIRECTION_STATE_RIGHT;
+        grade = (320.0 - (float) touchPoint.y)/(480.0-(float)touchPoint.x) ;
+        incremental = 2.0 * grade / (480 - touchPoint.x);
+    }
+    
+    rawIncremental = incremental;
+    arrowSpeed = 50;
+    
+    [arrowSprite setPosition:ccp(x,y)];
+    
+}
+
+-(void)drawAtDelay:(CGFloat)delay{
+    arrowState = ARROW_STATE_MOVING;
+    [self performSelector:@selector(draw) withObject:nil afterDelay:delay];
 }
 
 -(void) draw{
+    [arrowSprite setVisible:YES];
     arrowSpeed += 2;
-    
-//    CCSprite *temp;
-    
     switch (arrowState) {
         case ARROW_STATE_MOVING:
-           // temp = [CCSprite spriteWithFile:@"arrow.png"];
-           // [temp setAnchorPoint:ccp(1.0, 0.5)];
-           // [temp setPosition:ccp(x,y)];
-           // [gameScene.skillLayer addChild:temp];
+            
             //충돌 체크, 데미지 체크 - 
-
             for(Enemy* current in gameScene.enemies){
-//              if(CGRectContainsPoint([current getBoundingBox],[[CCDirector sharedDirector] convertToUI:arrowSprite.position])){
-//            if(CGRectIntersectsRect([current getBoundingBox],CGRectMake(x, y, arrowSprite.boundingBox.size.width, arrowSprite.boundingBox.size.height))){
-            //if(CGRectContainsPoint([current getBoundingBox], [[CCDirector sharedDirector] convertToGL:ccp(x, y)])){
-
-                if(CGRectIntersectsRect(CGRectMake([current x], [current y], 10, 30),[arrowSprite boundingBox])){
+                if(CGRectContainsPoint([current getBoundingBox],arrowSprite.position)){
                     [current beDamaged:damage];
-                arrowState = ARROW_STATE_STOP;
-                break;
+                    arrowState = ARROW_STATE_STOP;
+                    break;
                 }
             }
             
