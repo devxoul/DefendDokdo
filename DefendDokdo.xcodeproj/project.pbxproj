@@ -235,6 +235,7 @@
 		CFBB561A1470488D00E7A7FF /* SkillData.m in Sources */ = {isa = PBXBuildFile; fileRef = CFBB56191470488D00E7A7FF /* SkillData.m */; };
 		CFBB56211470585500E7A7FF /* SkillInfoList.plist in Resources */ = {isa = PBXBuildFile; fileRef = CFBB56201470585500E7A7FF /* SkillInfoList.plist */; };
 		CFD13404146518BB00F9E2B8 /* SkillLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = CFD13403146518BB00F9E2B8 /* SkillLayer.m */; };
+		3C6BDF6014724A38000117E1 /* GameKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C6BDF5F14724A38000117E1 /* GameKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -608,6 +609,7 @@
 		CFBB56201470585500E7A7FF /* SkillInfoList.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = SkillInfoList.plist; sourceTree = "<group>"; };
 		CFD13402146518BB00F9E2B8 /* SkillLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SkillLayer.h; sourceTree = "<group>"; };
 		CFD13403146518BB00F9E2B8 /* SkillLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SkillLayer.m; sourceTree = "<group>"; };
+		3C6BDF5F14724A38000117E1 /* GameKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameKit.framework; path = System/Library/Frameworks/GameKit.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -615,6 +617,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3C6BDF6014724A38000117E1 /* GameKit.framework in Frameworks */,
 				03398936146001FD002AAAA3 /* QuartzCore.framework in Frameworks */,
 				03398938146001FD002AAAA3 /* OpenGLES.framework in Frameworks */,
 				0339893A146001FD002AAAA3 /* OpenAL.framework in Frameworks */,
@@ -632,6 +635,7 @@
 		03398926146001FC002AAAA3 = {
 			isa = PBXGroup;
 			children = (
+				3C6BDF5F14724A38000117E1 /* GameKit.framework */,
 				03398945146001FD002AAAA3 /* DefendDokdo */,
 				03398934146001FD002AAAA3 /* Frameworks */,
 				03398932146001FD002AAAA3 /* Products */,

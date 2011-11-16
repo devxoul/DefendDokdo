@@ -11,7 +11,7 @@
 
 @interface Player : NSObject {
 	NSInteger *power;
-    NSInteger *maxMp;
+	NSInteger *maxMp;
 	NSInteger *mp;
 	
 	NSMutableArray *slots;

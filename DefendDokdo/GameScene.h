@@ -42,6 +42,8 @@
 @property (nonatomic, retain) GameUILayer *gameUILayer;
 @property (nonatomic, retain) SkillLayer *skillLayer;
 
+@property (readonly) ControlManager *controlManager;
+
 @property (nonatomic, retain) Flag *flag;
 @property (nonatomic, retain) NSMutableArray *enemies;
 

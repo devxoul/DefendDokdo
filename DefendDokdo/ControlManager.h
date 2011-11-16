@@ -9,8 +9,16 @@
 #import <Foundation/Foundation.h>
 #import "cocos2d.h"
 
+@class Enemy;
+
 @interface ControlManager : NSObject {
-    
+	NSMutableArray *touchArray;
+	NSMutableArray *managedObjectsArray;
+	NSMutableArray *originalPositionArray;
 }
+
+- (bool)manageObject:(NSObject *)object WithTouch:(UITouch *)touch;
+- (bool)moveManagedObjectOfTouch:(UITouch *)touch;
+- (Enemy *)stopManagingObjectOfTouch:(UITouch *)touch;
 
 @end

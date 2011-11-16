@@ -24,6 +24,7 @@
 @implementation GameScene
 
 @synthesize gameLayer, gameUILayer, skillLayer;
+@synthesize controlManager;
 @synthesize flag, enemies;
 @synthesize skillManager;
 @synthesize nGameState;
@@ -39,11 +40,11 @@ enum{
 
 - (id)init
 {
-	if( self == [super init] )
+	if( self = [super init] )
 	{
 		[self initLayers];
-		[self initStage];
 		[self initManagers];
+		[self initStage];
 	}
 	
 	return self;
@@ -51,7 +52,7 @@ enum{
 
 - (void)initLayers
 {
-	gameLayer = [[GameLayer alloc] init];
+	gameLayer = [[GameLayer alloc] initWithScene:self];
 	[self addChild:gameLayer];
     
     skillLayer = [[SkillLayer alloc] initWithScene:self];
@@ -100,6 +101,7 @@ enum{
 {
 	enemyManager = [[EnemyManager alloc] initWithGameScene:self];
 	skillManager = [[SkillManager alloc] initWithGameScene:self];
+	controlManager = [[ControlManager alloc] init];
 }
 
 - (void)draw
@@ -108,40 +110,40 @@ enum{
 	
 	if (nGameState == GAMESTATE_START)
 	{
-//		if (nCount % 250 == 0) {
-//			
-//			[arryBg[nBgState] setVisible:NO];
-//			nBgState++;
-//			
-//			if (nBgState == 4) {
-//				//gameover
-//				nBgState = 0;
-//				nCount = 0;
-//				[arryBg[nBgState] setVisible:YES];
-//			}
-//			else {
-//				[arryBg[nBgState] setVisible:YES];
-//			}		
-//		}
-//		
-//		CGFloat sunX = sun.position.x + 0.5;
-//		//	NSInteger sunY = sun.position.y;
-//		//	NSInteger sunY = ((-1/200)*sunX*sunX) - ((14/5)*sunX) - 104;
-//		CGFloat sunY = ((-1/280)*sunX*sunX) + ((12/7)*sunX) + (520/7);
-//		
-//		if (sunX > 240) {
-//			int i = 0;
-//			i++;
-//		}
-//		
-//		[sun setPosition:ccp(sunX, sunY)];
+		//		if (nCount % 250 == 0) {
+		//			
+		//			[arryBg[nBgState] setVisible:NO];
+		//			nBgState++;
+		//			
+		//			if (nBgState == 4) {
+		//				//gameover
+		//				nBgState = 0;
+		//				nCount = 0;
+		//				[arryBg[nBgState] setVisible:YES];
+		//			}
+		//			else {
+		//				[arryBg[nBgState] setVisible:YES];
+		//			}		
+		//		}
+		//		
+		//		CGFloat sunX = sun.position.x + 0.5;
+		//		//	NSInteger sunY = sun.position.y;
+		//		//	NSInteger sunY = ((-1/200)*sunX*sunX) - ((14/5)*sunX) - 104;
+		//		CGFloat sunY = ((-1/280)*sunX*sunX) + ((12/7)*sunX) + (520/7);
+		//		
+		//		if (sunX > 240) {
+		//			int i = 0;
+		//			i++;
+		//		}
+		//		
+		//		[sun setPosition:ccp(sunX, sunY)];
 		
 		if( arc4random() % 50 < 1 ) [enemyManager createEnemy:0 level:0]; // temp
 		
 		[enemyManager update];
 		[gameUILayer update];
 		
-//		nCount++;
+		//		nCount++;
 		
 	}
 	else if (nGameState == GAMESTATE_CLEAR)

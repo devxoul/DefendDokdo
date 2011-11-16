@@ -9,8 +9,18 @@
 #import <Foundation/Foundation.h>
 #import "cocos2d.h"
 
+@class ControlManager;
+@class GameScene;
+
 @interface GameLayer : CCLayer {
     
+
+//@interface GameLayer : CCLayerColor<CCStandardTouchDelegate> {
+  GameScene *scene;
+  ControlManager *controlManager;
+//>>>>>>> omniavinco
 }
+
+- (id)initWithScene:(GameScene *)scene_;
 
 @end
