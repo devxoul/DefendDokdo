@@ -141,7 +141,7 @@ enum{
 		[enemyManager update];
 		[gameUILayer update];
 		
-		nCount++;
+//		nCount++;
 		
 	}
 	else if (nGameState == GAMESTATE_CLEAR)

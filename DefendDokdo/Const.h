@@ -11,8 +11,8 @@
 
 #define GRAVITY				0.6
 #define AIR_RESISTANCE		0.01
-#define WATER_RESISTANCE	0.6
-#define BUOYANCY			0.4
+#define WATER_RESISTANCE	0.5
+#define BUOYANCY			0.2
 
 #define SEA_Y				30
 #define DOKDO_LEFT_X		110

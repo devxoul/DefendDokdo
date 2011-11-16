@@ -10,30 +10,25 @@
 #import "GameScene.h"
 #import "ArrowObject.h"
 #import "SkillLayer.h"
+#import "SkillData.h"
 
 @implementation Arrow
 
 @synthesize touchPoint;
 @synthesize startPoint;
 
-@synthesize damage;
-@synthesize level;
-@synthesize quantity;
 @synthesize arrowArray; 
 
 @synthesize fileName;
 
 -(void) draw{
-
-  //  NSMutableIndexSet* removedArrowArray = [[NSMutableIndexSet alloc] init];
     
-    if(count == 0)
+    if(number == 0)
         return;
     else
-        count--;
+        number--;
     
-        //적 충돌 체크  - 및 상태 변환
-        ArrowObject *current = [[[ArrowObject alloc] init:fileName :touchPoint:10 :gameScene] retain];
+        ArrowObject *current = [[[ArrowObject alloc] init:fileName :touchPoint :damage :gameScene] retain];
         [current draw]; 
 //<<<<<<< HEAD
     /*   
@@ -67,18 +62,22 @@
 //=======
 
     [self performSelector:@selector(draw) withObject:nil afterDelay:0.4];
-//>>>>>>> CrowDroid
 }
 
--(id) init:(NSString*)_fileName :(CGPoint)_touchPoint :(NSInteger)_level :(GameScene*)_gameScene{    
-
+-(id) initWithInfo:(CGPoint)_touchPoint :(GameScene*)_gameScene{
+    
     if( self = [super init] )
     {
         
-        fileName = _fileName;
+        NSDictionary *skillInfo = [[SkillData skillData] getSkillInfo:SKILL_STATE_ARROW];
+        
+        fileName = @"arrow.png";
         gameScene = _gameScene;
         touchPoint = _touchPoint;
-        level = _level;
+
+        number = [[skillInfo objectForKey:@"number"] integerValue];
+        damage = [[skillInfo objectForKey:@"damage"] integerValue];
+        //NSLog([NSString stringWithFormat:@" damage : %d", damage]);
         
         if(touchPoint.y <=40 || touchPoint.x == 240)
             return nil;
@@ -91,14 +90,7 @@
         }
 
         arrowArray = [[NSMutableArray alloc] init];
-        
-        /*for(int index=0;index < level*3; index++){
-            [arrowArray addObject:[[ArrowObject alloc] init:fileName :touchPoint:10 :gameScene]];
-            NSLog(@"create Arrow Object");
-        }
-         */
-        count = level *3;
-        
+                
     }
     
     return self;

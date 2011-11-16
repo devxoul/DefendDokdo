@@ -74,10 +74,14 @@
 @property (nonatomic) float y;
 @property (nonatomic) float dx;
 @property (nonatomic) float dy;
+@property (nonatomic, readonly, getter = getBoundingBox) CGRect boundingBox;
+
 
 - (id)initWithGameLayer:(GameLayer *)layer type:(NSInteger)type level:(NSInteger)level;
 - (void)update;
 - (void)applyForce:(float)x:(float)y;
 
+- (void)beDamaged:(NSInteger)damage;
+- (void)beDamaged:(NSInteger)damage forceX:(NSInteger)forceX forceY:(NSInteger)forceY;
 
 @end

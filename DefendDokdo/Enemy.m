@@ -36,7 +36,9 @@
 - (void)stopBeingCaught;
 - (void)stopFalling;
 - (void)stopBeingHit;
+- (void)stopBeingHit:(id)sender;
 - (void)stopDying;
+- (void)stopDying:(id)sender;
 
 - (void)stopCurrentAction;
 
@@ -47,8 +49,7 @@
 @implementation Enemy
 
 @synthesize type, level, power, maxHp, hp, speed;
-@synthesize x = _x, y = _y, dx, dy;
-
+@synthesize x = _x, y = _y, dx, dy, boundingBox;
 
 #pragma mark - initialize
 
@@ -60,7 +61,8 @@
 		
 		self.type = _type;
 		self.level = _level;
-		
+		self.power = 10; // temp
+		self.hp = self.maxHp = 100; // temp
 		self.x = arc4random() % 2 ? 0 : 480;
 		self.y = 320;
 		self.speed = 1;
@@ -171,7 +173,7 @@
 }
 
 - (void)initCatchAnimation
-{return;
+{
 	[[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:[NSString stringWithFormat:@"enemy_%d_%d_catch.plist", type, level]];
 	
 	catchEnemySpr = [CCSprite spriteWithSpriteFrameName:[NSString stringWithFormat:@"enemy_%d_%d_catch_0.png", type, level]];
@@ -181,7 +183,7 @@
 	[catchBatchNode addChild:catchEnemySpr];
 	
 	NSMutableArray *aniFrames = [[NSMutableArray alloc] init];
-	for( NSInteger i = 0; i < 7; i++ )
+	for( NSInteger i = 0; i < 10; i++ )
 	{
 		CCSpriteFrame *frame = [[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:[NSString stringWithFormat:@"enemy_%d_%d_catch_%d.png", type, level, i]];
 		[aniFrames addObject:frame];
@@ -213,7 +215,7 @@
 }
 
 - (void)initHitAnimation
-{return;
+{
 	[[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:[NSString stringWithFormat:@"enemy_%d_%d_hit.plist", type, level]];
 	
 	hitEnemySpr = [CCSprite spriteWithSpriteFrameName:[NSString stringWithFormat:@"enemy_%d_%d_hit_0.png", type, level]];
@@ -223,18 +225,18 @@
 	[hitBatchNode addChild:hitEnemySpr];
 	
 	NSMutableArray *aniFrames = [[NSMutableArray alloc] init];
-	for( NSInteger i = 0; i < 7; i++ )
+	for( NSInteger i = 0; i < 1; i++ )
 	{
 		CCSpriteFrame *frame = [[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:[NSString stringWithFormat:@"enemy_%d_%d_hit_%d.png", type, level, i]];
 		[aniFrames addObject:frame];
 	}
 	
-	CCAnimation *animation = [CCAnimation animationWithFrames:aniFrames delay:0.08f];
+	CCAnimation *animation = [CCAnimation animationWithFrames:aniFrames delay:0.3f];
 	hitAnimation = [[CCAnimate alloc] initWithAnimation:animation restoreOriginalFrame:NO];
 }
 
 - (void)initDieAnimation
-{return;
+{
 	[[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:[NSString stringWithFormat:@"enemy_%d_%d_die.plist", type, level]];
 	
 	dieEnemySpr = [CCSprite spriteWithSpriteFrameName:[NSString stringWithFormat:@"enemy_%d_%d_die_0.png", type, level]];
@@ -244,7 +246,7 @@
 	[dieBatchNode addChild:dieEnemySpr];
 	
 	NSMutableArray *aniFrames = [[NSMutableArray alloc] init];
-	for( NSInteger i = 0; i < 7; i++ )
+	for( NSInteger i = 0; i < 8; i++ )
 	{
 		CCSpriteFrame *frame = [[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:[NSString stringWithFormat:@"enemy_%d_%d_die_%d.png", type, level, i]];
 		[aniFrames addObject:frame];
@@ -277,15 +279,17 @@
 	enemySpr.position = ccp( _x, _y = y );
 }
 
+- (CGRect)getBoundingBox
+{
+	return CGRectMake( self.x - 20, self.y - 40, 40, 40 );
+}
+
 - (float)getGroundY
 {
-//	if( self.x < DOKDO_LEFT_X || DOKDO_RIGHT_X < self.x )
-//		return SEA_Y;
-	
-	if( /*DOKDO_LEFT_X <= self.x &&*/ self.x < FLAG_LEFT_X )
+	if( self.x < FLAG_LEFT_X )
 		return ( self.x - 110 ) * 31 / 23 + 50 + sinf( self.x / 10 ) * 3;
 	
-	if( FLAG_RIGHT_X < self.x /*&& self.x <= DOKDO_RIGHT_X*/ )
+	if( FLAG_RIGHT_X < self.x )
 		return -1 * ( self.x - 360 ) * 31 / 20 + 50 + cosf( self.x / 10 ) * 3;
 	
 	return TOP_Y;
@@ -322,13 +326,13 @@
 			if( self.x < DOKDO_LEFT_X )
 			{
 				swimEnemySpr.flipX = NO;
-				self.x += self.speed / 4;
+				self.x += self.speed / 2;
 				self.y = SEA_Y;
 			}
 			else if( self.x > DOKDO_RIGHT_X )
 			{
 				swimEnemySpr.flipX = YES;
-				self.x -= self.speed / 4;
+				self.x -= self.speed / 2;
 				self.y = SEA_Y;
 			}
 			else
@@ -377,7 +381,7 @@
 			break;
 			
 		case ENEMY_STATE_FALL:
-			if( self.y > SEA_Y )
+			if( self.y >= SEA_Y )
 			{
 				dx -= AIR_RESISTANCE * dx;
 				dy -= GRAVITY;
@@ -389,7 +393,7 @@
 				if( self.y < [self getGroundY] )
 				{
 					[self stopFalling];
-					[self startWalking];
+					[self beDamaged:-1 * dy]; // temp
 				}
 				
 				// 입수
@@ -397,10 +401,19 @@
 				{
 					dx = 0;
 					dy *= WATER_RESISTANCE;
+					
+					self.hp -= 25;
+					
+					if( self.hp <= 0 )
+					{
+						[self stopFalling];
+						[self startDying];
+					}
 				}
 			}
 			else
 			{
+				// 물 위로
 				if( self.y + dy <= SEA_Y )
 				{
 					dy += BUOYANCY;
@@ -415,9 +428,26 @@
 			break;
 			
 		case ENEMY_STATE_HIT:
+			if( self.x < FLAG_X )
+				hitEnemySpr.flipX = NO;
+			else
+				hitEnemySpr.flipX = YES;
 			break;
 			
 		case ENEMY_STATE_DIE:
+			if( self.x < FLAG_X )
+				dieEnemySpr.flipX = NO;
+			else
+				dieEnemySpr.flipX = YES;
+			
+			// 물에서 죽으면 꼬르륵 하면서 물 밑으로 내려감
+			if( self.x < DOKDO_LEFT_X || DOKDO_RIGHT_X < self.x )
+			{
+				self.y += dy;
+				
+				if( self.y + fallEnemySpr.contentSize.height < 0 )
+					[self stopDying];
+			}
 			break;
 	}
 }
@@ -471,14 +501,28 @@
 {
 	state = ENEMY_STATE_HIT;
 	[enemySpr addChild:hitBatchNode];
-	[hitEnemySpr runAction:[CCRepeatForever actionWithAction:hitAnimation]];
+	[hitEnemySpr runAction:[CCSequence actions:hitAnimation, [CCCallFunc actionWithTarget:self selector:@selector(stopBeingHit:)], nil]];
 }
 
 - (void)startDying
 {
+	if( state == ENEMY_STATE_DIE ) return;
+	
+	NSLog( @"die" );
+	
 	state = ENEMY_STATE_DIE;
-	[enemySpr addChild:dieBatchNode];
-	[dieEnemySpr runAction:[CCRepeatForever actionWithAction:dieAnimation]];
+	
+	if( self.x < DOKDO_LEFT_X || DOKDO_RIGHT_X < self.x )
+	{
+		dy = -1 * GRAVITY;
+		[enemySpr addChild:fallBatchNode];
+		[fallEnemySpr runAction:[CCRepeatForever actionWithAction:fallAnimation]];
+	}
+	else
+	{
+		[enemySpr addChild:dieBatchNode];
+		[dieEnemySpr runAction:[CCSequence actions:dieAnimation, [CCCallFunc actionWithTarget:self selector:@selector(stopDying:)], nil]];
+	}
 }
 
 
@@ -527,13 +571,37 @@
 	[enemySpr removeChild:hitBatchNode cleanup:NO];
 }
 
-- (void)stopDying
+- (void)stopBeingHit:(id)sender
 {
-	[dieEnemySpr stopAllActions];
-	[enemySpr removeChild:dieBatchNode cleanup:YES];
+	[self stopBeingHit];
+	
+	if( self.x < DOKDO_LEFT_X || DOKDO_RIGHT_X < self.x )
+		[self startSwimming];
+	else
+		[self startWalking];
+}
+
+- (void)stopDying
+{	
+	if( self.x < DOKDO_LEFT_X || DOKDO_RIGHT_X < self.x )
+	{
+		[fallEnemySpr stopAllActions];
+		[enemySpr removeChild:fallBatchNode cleanup:NO];
+	}
+	else
+	{
+		[dieEnemySpr stopAllActions];
+		[enemySpr removeChild:dieBatchNode cleanup:YES];
+	}
+	
 	[gameLayer removeChild:enemySpr cleanup:YES];
 	
 	[self release];
+}
+
+- (void)stopDying:(id)sender
+{
+	[self stopDying];
 }
 
 - (void)stopCurrentAction
@@ -579,16 +647,17 @@
 
 - (void)applyForce:(float)x:(float)y
 {
-	if( state != ENEMY_STATE_WALK && state != ENEMY_STATE_ATTACK ) return; // temp
-	
-	dx += x;
-	dy += y;
+	if( state == ENEMY_STATE_CATCH || state == ENEMY_STATE_FALL || state == ENEMY_STATE_DIE )
+		return;
 	
 	if( state != ENEMY_STATE_FALL )
 	{
 		[self stopCurrentAction];
 		[self startFalling];
 	}
+	
+	dx += x;
+	dy += y;
 }
 
 - (void)beCaught
@@ -597,9 +666,34 @@
 	[self startBeingCaught];
 }
 
-- (void)beHitByStone
+- (void)beDamaged:(NSInteger)damage
 {
+	if( state == ENEMY_STATE_DIE ) return;
 	
+	if( state != ENEMY_STATE_HIT )
+		self.hp -= damage;
+	
+	[self stopCurrentAction];
+	
+	if( self.hp <= 0 )
+		[self startDying];
+	else
+		[self startBeingHit];
+}
+
+- (void)beDamaged:(NSInteger)damage forceX:(NSInteger)forceX forceY:(NSInteger)forceY
+{
+	if( state == ENEMY_STATE_FALL || state == ENEMY_STATE_DIE ) return;
+	
+	if( state != ENEMY_STATE_HIT )
+		self.hp -= damage;
+	
+	[self stopCurrentAction];
+	
+	if( self.hp <= 0 )
+		[self startDying];
+	else
+		[self applyForce:forceX :forceY];
 }
 
 @end

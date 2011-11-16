@@ -30,6 +30,9 @@
     
 }
 
+@property (retain, nonatomic) NSMutableArray* skills;
+
+
 - (id)initWithScene:(GameScene* )gameScene;
 - (void) update;
 @end

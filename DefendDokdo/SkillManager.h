@@ -11,18 +11,14 @@
 #import "Const.h"
 
 
-@class GameScene, Arrow, Stone;
+@class GameScene;
 
 @interface SkillManager : CCNode {
 	GameScene *_gameScene;
-    Stone* stone;    
-    Arrow* arrow;
     NSInteger skillState;
 }
 
 @property (readwrite) NSInteger skillState;
-@property (nonatomic, retain) Stone* stone;
-@property (nonatomic, retain) Arrow* arrow;
 
 - (void) createStone:(CGPoint)location;
 - (void) createArrow:(CGPoint)location;

@@ -32,7 +32,7 @@
 {
 	for( Enemy *enemy in gameScene.enemies )
 	{
-		if( arc4random() % 50 < 1 ) [enemy applyForce:(float)((NSInteger)(arc4random() % 20) - 10) :(float)(arc4random() % 10 + 5)]; // temp
+		//if( arc4random() % 50 < 1 ) [enemy applyForce:(float)((NSInteger)(arc4random() % 20) - 10) :(float)(arc4random() % 10 + 5)]; // temp
 		
 		[enemy update];
 	}

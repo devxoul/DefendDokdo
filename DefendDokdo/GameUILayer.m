@@ -11,6 +11,7 @@
 
 @implementation GameUILayer
 
+@synthesize skills;
 
 -(void)update{
     //HP, MP Gage Bar 그리기
@@ -34,6 +35,7 @@
     skills = [[NSMutableArray alloc] init];
     [skills addObject:[[Slot alloc] initWithInfo:SKILL_STATE_STONE :self :ccp(380,25)]];
     [skills addObject:[[Slot alloc] initWithInfo:SKILL_STATE_ARROW :self :ccp(340,25)]];
+    [skills addObject:[[Slot alloc] initWithInfo:SKILL_STATE_EARTHQUAKE :self :ccp(420,25)]];
 
     
     hpBarBg = [[CCSprite alloc] initWithFile:@"gaugebg.png"];
@@ -94,10 +96,18 @@
                     switch ([slot skillType]) {
                         case SKILL_STATE_STONE:
                             NSLog(@"Stone Skill Selected");
+                            for(Slot* slot in skills){
+                                slot.skillSprite.opacity = 255;
+                            }
+                            slot.skillSprite.opacity = 150;
                             _gameScene.skillManager.skillState = SKILL_STATE_STONE;
                             break;
                         case SKILL_STATE_ARROW:
                             NSLog(@"Arrow Skill Selected");
+                            for(Slot* slot in skills){
+                                slot.skillSprite.opacity = 255;
+                            }
+                            slot.skillSprite.opacity = 150;
                             _gameScene.skillManager.skillState = SKILL_STATE_ARROW;
                             break;
                         case SKILL_STATE_HEALING:

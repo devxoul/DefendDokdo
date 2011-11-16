@@ -14,6 +14,7 @@
 @interface ArrowObject : NSObject{
 
     NSInteger direction;
+    NSInteger damage;
     CCSprite* arrowSprite;
     
     NSInteger arrowState;
@@ -30,7 +31,7 @@
     
     CCCallFunc* arrowDeadEndCallBack;
     CCFiniteTimeAction *action;
-    
+    GameScene* gameScene;
 }
 
 
@@ -47,7 +48,7 @@
 @property (readwrite) CGFloat y;
 @property (readwrite) CGFloat arrowSpeed;
 
--(id) init:(NSString*)_fileName :(CGPoint)_touchPoint :(NSInteger)_demage :(GameScene*)_gameScene;    
+-(id) init:(NSString*)_fileName :(CGPoint)_touchPoint :(NSInteger)_damage :(GameScene*)_gameScene;    
 -(void) runDisappearAnimation;
 -(void) runCrashAnimation;
 -(void) draw;

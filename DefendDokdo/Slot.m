@@ -14,20 +14,23 @@
 
 @synthesize slotSprite;
 @synthesize skillType;
+@synthesize skillSprite;
 
 -(id) initWithInfo:(NSInteger)_skillType :(GameUILayer*)_layer :(CGPoint)location{
     if(self==[super init]){
+        slotSprite = [CCSprite spriteWithFile:@"stone_0.png"];
         skillType = _skillType;
         switch (skillType) {
             case SKILL_STATE_STONE: 
-                slotSprite = [CCSprite spriteWithFile:@"stone_0.png"];
+                skillSprite = [CCSprite spriteWithFile:@"stone_0.png"];
                 break;
             case SKILL_STATE_ARROW: 
-                slotSprite = [CCSprite spriteWithFile:@"arrow.png"];
+                skillSprite = [CCSprite spriteWithFile:@"arrow.png"];
                 break;
             case SKILL_STATE_HEALING: 
                 break;
             case SKILL_STATE_EARTHQUAKE: 
+                skillSprite = [CCSprite spriteWithFile:@"stone_0.png"];
                 break;
             case SKILL_STATE_LOCK: 
                 //스킬 잠김
@@ -37,6 +40,9 @@
         [slotSprite setAnchorPoint:ccp(0.5f, 0.5f)];
         [slotSprite setPosition:location];
         [_layer addChild:slotSprite];
+        [skillSprite setAnchorPoint:ccp(0.5f, 0.5f)];
+        [skillSprite setPosition:location];
+        [_layer addChild:skillSprite];
         
         return self;
     }

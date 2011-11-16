@@ -14,11 +14,13 @@
 @interface Slot : NSObject
 {
     CCSprite* slotSprite;
+    CCSprite* skillSprite;
     NSInteger skillType;
 }
 
 
 @property (nonatomic, retain) CCSprite* slotSprite;
+@property (nonatomic, retain) CCSprite* skillSprite;
 @property (readwrite) NSInteger skillType;
 
 -(id) initWithInfo:(NSInteger)_skillType :(GameUILayer*)_layer :(CGPoint)location;

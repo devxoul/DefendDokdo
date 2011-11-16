@@ -19,9 +19,8 @@
     CGPoint touchPoint;
     CGPoint startPoint;
     
-    NSInteger level;
     NSInteger damage;
-    NSInteger quantity;
+    NSInteger number;
     
     NSInteger direction;
     NSString* fileName;
@@ -32,22 +31,16 @@
     NSInteger constGrade;
     
     NSInteger arrowState;
-    
-    NSInteger count;
-     
+         
 }
 
 @property (readwrite) CGPoint touchPoint;
 @property (readwrite) CGPoint startPoint;
 
-@property (readwrite) NSInteger damage;
-@property (readwrite) NSInteger level;
-@property (readwrite) NSInteger quantity;
-
 @property (nonatomic, retain) NSMutableArray* arrowArray; 
 @property (nonatomic, retain) NSString* fileName;
 
 -(void) draw;
--(id) init:(NSString*)_fileName :(CGPoint)_touchPoint :(NSInteger)_level :(GameScene*)_gameScene;
+-(id) initWithInfo:(CGPoint)_touchPoint :(GameScene*)_gameScene;
 
 @end

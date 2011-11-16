@@ -9,6 +9,8 @@
 #import <Foundation/Foundation.h>
 #import "cocos2d.h"
 
+@class GameScene;
+
 @interface Stone : NSObject
 {
     CCSprite* stoneSprite;
@@ -22,7 +24,12 @@
     int stoneState;
     
     int direction;
+    int effectPower;
     
+    BOOL isEffect;
+    
+    GameScene* gameScene;
+
 }
 
 @property (readwrite) float x;
@@ -37,6 +44,6 @@
 @property (nonatomic, retain) CCSprite* stoneSprite; 
 
 -(void) draw;
--(id) init:(NSString*)fileName :(CGPoint)location :(float)_speed;
+-(id) initWithInfo:(CGPoint)location :(float)_speed :(GameScene*)_gameScene;
 
 @end

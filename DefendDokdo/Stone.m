@@ -8,19 +8,30 @@
 
 #import "Stone.h"
 #import "Const.h"
+#import "SkillData.h"
+#import "GameScene.h"
+#import "Enemy.h"
 
 @implementation Stone
 
 @synthesize x, y, speed, damage, level, stoneSprite,downPoint,stoneState;
 
 
--(id) init:(NSString*)fileName :(CGPoint)location :(float)_speed{
+
+-(id) initWithInfo :(CGPoint)location :(float)_speed :(GameScene*)_gameScene{    
+
     if( self = [self init] )
     {
+        NSDictionary *skillInfo = [[SkillData skillData] getSkillInfo:SKILL_STATE_STONE];
+
+        gameScene = _gameScene;
         x = location.x;
         y = location.y;
         speed = _speed;
-        stoneSprite = [CCSprite spriteWithFile:fileName];
+        stoneSprite = [CCSprite spriteWithFile:[skillInfo objectForKey:@"spriteName"]];
+        damage = [[skillInfo objectForKey:@"damage"] integerValue];
+        isEffect = [[skillInfo objectForKey:@"effect"] boolValue];
+        (isEffect==YES) ? (effectPower = [[skillInfo objectForKey:@"effectPower"] integerValue]) : (effectPower =0);
         if(110 < x && x < 225){
             downPoint = 31.f/23.f * x - 98.3;
             direction = DIRECTION_STATE_LEFT;
@@ -53,8 +64,21 @@
 
 -(void) draw{
     @synchronized(self){
-        if(stoneState!=STONE_STATE_STOP){
+        
+        if(stoneState==STONE_STATE_DOWN || stoneState == STONE_STATE_ROLLING){
             //적 충돌 체크!
+            for(Enemy* current in gameScene.enemies){
+                if(CGRectIntersectsRect([current getBoundingBox], stoneSprite.boundingBox)){
+                    switch (direction) {
+                        case DIRECTION_STATE_LEFT:
+                            [current beDamaged:damage forceX:-5.0 forceY:-5.0];
+                            break;
+                        case DIRECTION_STATE_RIGHT:
+                            [current beDamaged:damage forceX:5.0 forceY:-5.0];
+                            break;
+                    }
+                }
+            }
         }
         switch (stoneState) {
             case STONE_STATE_DOWN:
@@ -83,6 +107,7 @@
                 switch(direction){
                         //굴러가는 애니메이션 추가
                     case DIRECTION_STATE_LEFT:
+                        stoneSprite.rotation -= 10;
                         x = x-1;
                         y = y - 31.f/23.f;
                         [stoneSprite setPosition:ccp(x,y)];
@@ -90,6 +115,7 @@
                         [self performSelector:@selector(draw) withObject:nil afterDelay:1.0/speed];
                         break;
                     case DIRECTION_STATE_RIGHT:
+                        stoneSprite.rotation += 10;
                         x = x+1;
                         y = y - 31.f/20.f;
                         [stoneSprite setPosition:ccp(x,y)];

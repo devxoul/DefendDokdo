@@ -12,11 +12,12 @@
 #import "AudioToolbox/AudioServices.h"
 #import "Stone.h"
 #import "Arrow.h"
+#import "Enemy.h"
+#import "SkillData.h"
 
 @implementation SkillManager
 
-@synthesize skillState, stone;
-@synthesize arrow;
+@synthesize skillState;
 
 enum{
      skill_stone_tag=1
@@ -48,7 +49,7 @@ enum{
 }
 
 -(void)createStone:(CGPoint)location{
-    stone = [[Stone alloc] init:@"stone_0.png" :location :100.0];
+    Stone* stone = [[[Stone alloc] initWithInfo:location :100.0 :_gameScene] retain];
     if(stone!=nil){
         skillState = SKILL_STATE_NORMAL;
         [_gameScene.skillLayer addChild:[stone stoneSprite] z:1 tag:skill_stone_tag];
@@ -57,7 +58,7 @@ enum{
 }
 
 -(void)createArrow:(CGPoint)location{
-    arrow = [[Arrow alloc] init:@"arrow.png" :location :10 :_gameScene];
+    Arrow* arrow = [[[Arrow alloc] initWithInfo :location :_gameScene] retain];
     NSLog(@"arrow Create");
     if(arrow!=nil){
         skillState = SKILL_STATE_NORMAL;
@@ -67,6 +68,20 @@ enum{
 
 -(void) createEarthQuake{
     //적들 체크 ~
+    skillState = SKILL_STATE_NORMAL;
+    //애니메이션 효과 주기 - 일정 시간 동안
+    
+    //구현!
+    NSInteger damage = [[[[SkillData skillData] getSkillInfo:SKILL_STATE_EARTHQUAKE] objectForKey:@"damage"] integerValue];
+    NSInteger power = [[[[SkillData skillData] getSkillInfo:SKILL_STATE_EARTHQUAKE] objectForKey:@"effectPower"] integerValue];
+    
+    for(Enemy* current in _gameScene.enemies){
+        if([current x] <= DOKDO_LEFT_X)
+            [current beDamaged:damage forceX:-power forceY:power];
+        else
+            [current beDamaged:damage forceX:power forceY:power];            
+    }
+
     AudioServicesPlaySystemSound(kSystemSoundID_Vibrate);
 }
 
