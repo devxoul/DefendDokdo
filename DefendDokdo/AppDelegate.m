@@ -12,6 +12,7 @@
 #import "GameConfig.h"
 #import "GameScene.h"
 #import "RootViewController.h"
+#import "UserData.h"
 
 @implementation AppDelegate
 
@@ -135,6 +136,9 @@
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application {
+// 홈키 버튼을 누르면 오는 곳
+//	[[UserData userData] saveToFile];
+	
 	CCDirector *director = [CCDirector sharedDirector];
 	
 	[[director openGLView] removeFromSuperview];

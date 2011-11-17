@@ -16,8 +16,9 @@
 	NSUInteger stageLevel;
 
 	// user skill
-	NSMutableArray* skillSlot;
-	NSDictionary* userSkill;	// 구매한 스킬과 레벨
+	NSMutableArray* skillSlot;				// 슬롯 갯수 확인
+	NSMutableArray* userSkillSlot;	// 슬롯 내부 스킬 확인
+	NSMutableArray* userSkill;				// 스킬 레벨
 	
 	// user upgrade levels
 	NSUInteger flagLevel;
@@ -36,7 +37,8 @@
 @property (readwrite) NSUInteger stageLevel;
 
 @property (nonatomic, retain) NSMutableArray* skillSlot;
-@property (nonatomic, retain) NSDictionary* userSkill;
+@property (nonatomic, retain) NSMutableArray* userSkillSlot;
+@property (nonatomic, retain) NSMutableArray* userSkill;
 
 @property (readwrite) NSUInteger flagLevel;
 @property (readwrite) NSUInteger userAtkLevel;

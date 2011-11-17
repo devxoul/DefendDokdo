@@ -26,15 +26,10 @@
 
 - (id)init
 {
-	//<<<<<<< HEAD
 	if( self == [super init] )
 	{   
         [self setContentSize:CGSizeMake(480.f, 290.f)];
         [self setAnchorPoint:CGPointZero];
-		//=======
-		//	if( self == [super initWithColor:ccc4( 255, 255, 255, 255 )] )
-		//	{
-		//>>>>>>> omniavinco
 		self.isTouchEnabled = YES;
 	}
 	

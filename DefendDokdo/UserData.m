@@ -12,7 +12,7 @@
 @implementation UserData
 
 @synthesize point, stageLevel;
-@synthesize skillSlot, userSkill;
+@synthesize skillSlot, userSkill, userSkillSlot;
 @synthesize flagLevel, userAtkLevel, userMaxMpLevel, UserMpspeedLevel;
 @synthesize backSound, vibration;
 @synthesize stageInfo;
@@ -47,7 +47,6 @@
 			stageLevel = 0;
 		}
 		
-		skillSlot = [dict objectForKey:@"skillSlot"];
 		
 				
 		stageInfo = [[NSDictionary dictionaryWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"StageList" ofType:@"plist"]] retain];
