@@ -22,11 +22,6 @@
 
 @synthesize fileName;
 
--(void) draw
-{
-    
-}
-
 
 -(id) initWithInfo:(GameScene*)_gameScene
 {
@@ -41,7 +36,6 @@
 
         number = [[skillInfo objectForKey:@"number"] integerValue];
         damage = [[skillInfo objectForKey:@"damage"] integerValue];
-        count=number;
         
         unusedArrowArray = [[NSMutableArray alloc] init];
         arrowArray = [[NSMutableArray alloc] init];
@@ -54,23 +48,21 @@
 
 }
 
--(BOOL) arrowShot:(CGPoint)_touchPoint{
+-(BOOL) addArrow:(CGPoint)_touchPoint{
     if(_touchPoint.y <=40 || _touchPoint.x == 240)
         return NO;
-    CGFloat delay=0.0f;
-    @synchronized(self){
+        NSInteger count = number*15;
         for(int i=0; i<number; i++){
             if([unusedArrowArray count]==0){
                 [unusedArrowArray addObject:[[ArrowObject alloc] init:fileName :damage :gameScene]];        
             }
             ArrowObject* current = [unusedArrowArray lastObject];
-            [current setReady:_touchPoint];
-            [unusedArrowArray removeLastObject];
-            [current drawAtDelay:delay];
-            delay+=0.4f;
-            
+            [current setReady:_touchPoint :count];
+            count-=15;
+            [arrowArray addObject:current];
+            [unusedArrowArray removeLastObject];            
         }
-    }
+
     return YES;
 }
 

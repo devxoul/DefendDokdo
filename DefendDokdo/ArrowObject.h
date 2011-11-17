@@ -11,13 +11,14 @@
 
 @class GameScene;
 
-@interface ArrowObject : NSObject{
+@interface ArrowObject : CCNode{
 
     NSInteger direction;
     NSInteger damage;
     CCSprite* arrowSprite;
     
     NSInteger arrowState;
+    NSInteger count;
     CGPoint touchPoint;
     CGPoint location;
 
@@ -32,6 +33,8 @@
     CCCallFunc* arrowDeadEndCallBack;
     CCFiniteTimeAction *action;
     GameScene* gameScene;
+    
+    
 }
 
 
@@ -48,16 +51,11 @@
 @property (readwrite) CGFloat y;
 @property (readwrite) CGFloat arrowSpeed;
 
-//<<<<<<< HEAD
-//-(id) init:(NSString*)_fileName :(CGPoint)_touchPoint :(NSInteger)_damage :(GameScene*)_gameScene;    
-//=======
 -(id) init:(NSString*)_fileName:(NSInteger)_damage :(GameScene*)_gameScene;    
-//>>>>>>> CrowDroid
 -(void) runDisappearAnimation;
 -(void) runCrashAnimation;
 -(void) draw;
 -(void) selfRelease:(id)sender;
--(void)setReady:(CGPoint)_touchPoint;
--(void)drawAtDelay:(CGFloat)delay;
+-(void)setReady:(CGPoint)_touchPoint :(NSInteger)_count;
 
 @end

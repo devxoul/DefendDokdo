@@ -142,7 +142,7 @@ enum{
 		
 		[enemyManager update];
 		[gameUILayer update];
-		
+		[skillManager update];
 		//		nCount++;
 		
 	}
