@@ -17,10 +17,12 @@
 	GameScene *_gameScene;
     NSInteger skillState;
     Arrow *arrow;
+    NSMutableArray *stoneArray;
 }
 
 @property (readwrite) NSInteger skillState;
 @property (readonly, retain) Arrow *arrow;
+@property (readonly, retain) NSMutableArray *stoneArray;
 
 - (void) createStone:(CGPoint)location;
 - (void) createArrow:(CGPoint)location;

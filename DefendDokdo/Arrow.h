@@ -21,7 +21,6 @@
     
     NSInteger damage;
     NSInteger number;
-    NSInteger count;
     
     NSString* fileName;
     GameScene* gameScene;
@@ -42,8 +41,7 @@
 
 @property (nonatomic, retain) NSString* fileName;
 
--(void) draw;
 -(id) initWithInfo:(GameScene*)_gameScene;
--(BOOL) arrowShot:(CGPoint)_touchPoint;
+-(BOOL) addArrow:(CGPoint)_touchPoint;
 
 @end

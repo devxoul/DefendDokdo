@@ -62,67 +62,7 @@
     return self;
 }
 
-//<<<<<<< HEAD
-//-(void) draw{
-//    @synchronized(self){
-//        
-//        if(stoneState==STONE_STATE_DOWN || stoneState == STONE_STATE_ROLLING){
-//            //적 충돌 체크!
-//            for(Enemy* current in gameScene.enemies){
-//                if(CGRectIntersectsRect([current getBoundingBox], stoneSprite.boundingBox)){
-//                    switch (direction) {
-//                        case DIRECTION_STATE_LEFT:
-//                            [current beDamaged:damage forceX:-5.0 forceY:-5.0];
-//                            break;
-//                        case DIRECTION_STATE_RIGHT:
-//                            [current beDamaged:damage forceX:5.0 forceY:-5.0];
-//                            break;
-//                    }
-//                }
-//            }
-//        }
-//        switch (stoneState) {
-//            case STONE_STATE_DOWN:
-//                if(downPoint <= y){
-//                    y=y-1;
-//                    if(y<40){
-//                        stoneState = STONE_STATE_STOP;
-//                    }
-//                }
-//                else{
-//                    //돌이 부딪히는 애니메이션 구현
-//                    stoneState = STONE_STATE_ROLLING;
-//                    speed = speed/15;
-//                }
-//                [stoneSprite setPosition:ccp(x,y)];
-//                speed+=GRAVITY*10;
-//                [self performSelector:@selector(draw) withObject:nil afterDelay:1.0/speed];
-//                break;
-//            case STONE_STATE_ROLLING:{
-//                if(y<40){
-//                    //돌이 물에 떨어지는 애니메이션 구현
-//                    stoneState = STONE_STATE_STOP;
-//                    [self performSelector:@selector(draw) withObject:nil afterDelay:1.0];
-//                    break;
-//                }
-//                switch(direction){
-//                        //굴러가는 애니메이션 추가
-//                    case DIRECTION_STATE_LEFT:
-//                        stoneSprite.rotation -= 10;
-//                        x = x-1;
-//                        y = y - 31.f/23.f;
-//                        [stoneSprite setPosition:ccp(x,y)];
-//                        speed+=GRAVITY*10;
-//                        [self performSelector:@selector(draw) withObject:nil afterDelay:1.0/speed];
-//                        break;
-//                    case DIRECTION_STATE_RIGHT:
-//                        stoneSprite.rotation += 10;
-//                        x = x+1;
-//                        y = y - 31.f/20.f;
-//                        [stoneSprite setPosition:ccp(x,y)];
-//                        speed+=GRAVITY*10;
-//                        [self performSelector:@selector(draw) withObject:nil afterDelay:1.0/speed];
-//=======
+
 
 
 -(void) draw{        
@@ -136,7 +76,6 @@
                         break;
                     case DIRECTION_STATE_RIGHT:
                         [current beDamaged:damage forceX:5.0 forceY:-5.0];
-//>>>>>>> CrowDroid
                         break;
                 }
             }
@@ -145,52 +84,49 @@
     switch (stoneState) {
         case STONE_STATE_DOWN:
             if(downPoint <= y){
-                y=y-1;
+                y=y-speed;
                 if(y<40){
                     stoneState = STONE_STATE_STOP;
                 }
             }
             else{
-                //돌이 부딪히는 애니메이션 구현
+                //돌이 부딪히는 애니메이션 구현// 돌이 바닥에 부딪힐 때 이펙트
                 stoneState = STONE_STATE_ROLLING;
                 speed = speed/15;
             }
             [stoneSprite setPosition:ccp(x,y)];
-            speed+=GRAVITY*20.0;
-            [self performSelector:@selector(draw) withObject:nil afterDelay:1.0/speed];
+            speed+=GRAVITY/3.0;
+            //[self performSelector:@selector(draw) withObject:nil afterDelay:1.0/speed];
             break;
         case STONE_STATE_ROLLING:{
             if(y<40){
-                //돌이 물에 떨어지는 애니메이션 구현
+                //돌이 물에 떨어지는 이펙트
                 stoneState = STONE_STATE_STOP;
-                [self performSelector:@selector(draw) withObject:nil afterDelay:1.0];
+                //[self performSelector:@selector(draw) withObject:nil afterDelay:1.0];
                 break;
             }
             switch(direction){
-                    //굴러가는 애니메이션 추가
+                    //굴러가는 애니메이션 추가 - 는 할필요 없나?이대로 로테이트? 이펙트는 추가?
                 case DIRECTION_STATE_LEFT:
-                    stoneSprite.rotation -= 10;
-                    x = x-1;
-                    y = y - 31.f/23.f;
+                    stoneSprite.rotation -= 10*speed;
+                    x = x-speed;
+                    y = y - speed*31.f/23.f;
                     [stoneSprite setPosition:ccp(x,y)];
-                    speed+=GRAVITY*10;
-                    [self performSelector:@selector(draw) withObject:nil afterDelay:1.0/speed];
+                    speed+=GRAVITY/3.0;
+                    //[self performSelector:@selector(draw) withObject:nil afterDelay:1.0/speed];
                     break;
                 case DIRECTION_STATE_RIGHT:
-                    stoneSprite.rotation += 10;
-                    x = x+1;
-                    y = y - 31.f/20.f;
+                    stoneSprite.rotation += 10*speed;
+                    x = x+speed;
+                    y = y - speed*31.f/20.f;
                     [stoneSprite setPosition:ccp(x,y)];
-                    speed+=GRAVITY*10;
-                    [self performSelector:@selector(draw) withObject:nil afterDelay:1.0/speed];
+                    speed+=GRAVITY/3.0;
+                    //[self performSelector:@selector(draw) withObject:nil afterDelay:1.0/speed];
                     break;
             }
         }
             break;
         case STONE_STATE_STOP:
-            [stoneSprite setVisible:NO];
-            [stoneSprite removeFromParentAndCleanup:YES];
-            [self release];
             break;
             
     }

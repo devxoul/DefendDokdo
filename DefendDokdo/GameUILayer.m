@@ -112,11 +112,9 @@
                             break;
                         case SKILL_STATE_HEALING:
                             _gameScene.skillManager.skillState = SKILL_STATE_HEALING;
-                            [_gameScene.skillManager update];
                             break;
                         case SKILL_STATE_EARTHQUAKE:
                             _gameScene.skillManager.skillState = SKILL_STATE_EARTHQUAKE;
-                            [_gameScene.skillManager update];
                             break;
                         case SKILL_STATE_LOCK:
                             //doNothing

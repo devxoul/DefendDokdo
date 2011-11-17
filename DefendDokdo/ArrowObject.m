@@ -52,21 +52,12 @@
         
         //그레이드 계산 후 로테이트 해야함
         rawIncremental = incremental;
-//        arrowSpeed = 50;
-//        arrowState = ARROW_STATE_MOVING;
-//
-//        [arrowSprite setAnchorPoint:ccp(1.0, 0.5)];
-//        [arrowSprite setPosition:ccp(x,y)];
-//        
-//		[_gameScene.skillLayer addChild:arrowSprite z:1];
-//=======
-        
+
         [arrowSprite setAnchorPoint:ccp(1.0, 0.5)];
         [arrowSprite setPosition:ccp(0,0)];
         [arrowSprite setVisible:NO];
 		[_gameScene.skillLayer addChild:arrowSprite z:1];
         arrowState = ARROW_STATE_STOP;
-//>>>>>>> CrowDroid
         
     }
     return self;
@@ -75,13 +66,13 @@
 -(void) selfRelease:(id)sender{
     [arrowSprite setVisible:NO];
     [arrowSprite setPosition:ccp(0,0)];
-    [gameScene.skillManager.arrow.unusedArrowArray addObject:self];
+    arrowState = ARROW_STATE_UNUSED;
 }
 
--(void)setReady:(CGPoint)_touchPoint{
+-(void)setReady:(CGPoint)_touchPoint :(NSInteger)_count{
     arrowSprite.opacity = 255;
     arrowSprite.rotation = 0;
-    touchPoint=_touchPoint;
+    touchPoint = _touchPoint;
     if(0 <= touchPoint.x && touchPoint.x <= 240){
         x = 0;
         y = 320;
@@ -98,20 +89,21 @@
     }
     
     rawIncremental = incremental;
-    arrowSpeed = 50;
+    arrowSpeed = 1;
     
     [arrowSprite setPosition:ccp(x,y)];
-    
-}
-
--(void)drawAtDelay:(CGFloat)delay{
     arrowState = ARROW_STATE_MOVING;
-    [self performSelector:@selector(draw) withObject:nil afterDelay:delay];
+    count = _count;
+    
 }
 
 -(void) draw{
+    if(count!=0){
+        count--;
+        return;
+    }
     [arrowSprite setVisible:YES];
-    arrowSpeed += 2;
+    arrowSpeed += 0.1;
     switch (arrowState) {
         case ARROW_STATE_MOVING:
             
@@ -126,9 +118,9 @@
             
             switch (direction) {
                 case DIRECTION_STATE_LEFT:
-                    x++;
-                    y = y - incremental;
-                    incremental +=rawIncremental;
+                    x+=arrowSpeed;
+                    y = y - arrowSpeed*incremental;
+                    incremental +=arrowSpeed*rawIncremental;
                     arrowSprite.rotation = atan(incremental) * 180 / M_PI;
 
                     if(y < ((31.f/23.f * x - 98.3)-10.0) && x < 240)
@@ -136,9 +128,9 @@
                     break;
                     
                 case DIRECTION_STATE_RIGHT:
-                    x--;
-                    y = y - incremental;
-                    incremental +=rawIncremental;
+                    x-=arrowSpeed;
+                    y = y - arrowSpeed*incremental;
+                    incremental +=arrowSpeed*rawIncremental;
                     arrowSprite.rotation = atan(-incremental) * 180 / M_PI + 180;
                     if(y < ((-31.f/20.f * x  + 608)-10.0) && x > 240)
                         arrowState = ARROW_STATE_STOP;
@@ -149,14 +141,15 @@
                 arrowState = ARROW_STATE_STOP;
             }
             
-            [self performSelector:@selector(draw) withObject:nil afterDelay:1.0/arrowSpeed];
+           // [self performSelector:@selector(draw) withObject:nil afterDelay:1.0/arrowSpeed];
             break;
         case ARROW_STATE_STOP:
             //맞는 애니메이션, 쾅
             arrowState = ARROW_STATE_DEAD;
-            [self performSelector:@selector(draw) withObject:nil afterDelay:1.0/arrowSpeed];
+           // [self performSelector:@selector(draw) withObject:nil afterDelay:1.0/arrowSpeed];
             break;
         case ARROW_STATE_DEAD:
+            arrowState = ARROW_STATE_DEADING;
             arrowDeadEndCallBack = [[CCCallFunc actionWithTarget:self selector:@selector(selfRelease:)] retain];
             action = [CCFadeOut actionWithDuration:0.3f];    
             [arrowSprite runAction:[CCSequence actions:action, arrowDeadEndCallBack,nil]];

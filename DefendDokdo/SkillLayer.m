@@ -49,6 +49,9 @@
                     case SKILL_STATE_ARROW:
                         [_gameScene.skillManager createArrow:location];
                         break;
+                    case SKILL_STATE_EARTHQUAKE:
+                        [_gameScene.skillManager createEarthQuake];
+                        break;
                 }
             }
         }           
