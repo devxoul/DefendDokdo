@@ -9,6 +9,7 @@
 #import "Enemy.h"
 #import "Const.h"
 #import "GameScene.h"
+#import "Flag.h"
 
 @interface Enemy(Private)
 - (void)initBoatAnimation;
@@ -48,7 +49,7 @@
 
 @implementation Enemy
 
-//@synthesize type, level;
+@synthesize type, level;
 @synthesize maxHp, hp, power, speed;
 @synthesize x = _x, y = _y, dx, dy, boundingBox;
 
@@ -60,15 +61,17 @@
 	{
 		gameScene = scene;
 		
-		gap = -1 * (NSInteger)( arc4random() % 20 );
+		gapX = (NSInteger)( arc4random() % 20 ) - 10;
+		gapY = -1 * (NSInteger)( arc4random() % 20 );
 		
 		type = _type;
 		level = _level;
 		self.hp = self.maxHp = _hp;
 		self.power = _power;
 		self.speed = _speed;
-		self.x = arc4random() % 2 ? 0 : 480;
-		self.y = 320 + gap;
+		self.x = arc4random() % 2 ? -50 : 530;
+		self.x += gapX;
+		self.y = 320 + gapY;
 		
 		enemySpr = [[CCSprite alloc] init];
 		enemySpr.anchorPoint = ccp( 0.5f, 0 );
@@ -289,11 +292,11 @@
 
 - (float)getGroundY
 {
-	if( self.x < FLAG_LEFT_X )
-		return ( self.x - 110 ) * 31 / 23 + 50 + sinf( self.x / 10 ) * 3;
+	if( self.x + gapX < FLAG_LEFT_X )
+		return ( self.x + gapX - 110 ) * 31 / 23 + 50 + sinf( ( self.x + gapX ) / 10 ) * 3;
 	
-	if( FLAG_RIGHT_X < self.x )
-		return -1 * ( self.x - 360 ) * 31 / 20 + 50 + cosf( self.x / 10 ) * 3;
+	if( FLAG_RIGHT_X < self.x + gapX )
+		return -1 * ( self.x + gapX - 360 ) * 31 / 20 + 50 + cosf( ( self.x + gapX ) / 10 ) * 3;
 	
 	return TOP_Y;
 }
@@ -306,17 +309,17 @@
 	switch( state )
 	{
 		case ENEMY_STATE_BOAT:
-			if( self.x < DOKDO_LEFT_X )
+			if( self.x + gapX < DOKDO_LEFT_X )
 			{
 				boatEnemySpr.flipX = NO;
 				self.x += self.speed;
-				self.y = SEA_Y + gap;
+				self.y = SEA_Y + gapY;
 			}
-			else if( self.x > DOKDO_RIGHT_X )
+			else if( self.x + gapX > DOKDO_RIGHT_X )
 			{
 				boatEnemySpr.flipX = YES;
 				self.x -= self.speed;
-				self.y = SEA_Y + gap;
+				self.y = SEA_Y + gapY;
 			}
 			else
 			{
@@ -326,17 +329,17 @@
 			break;
 			
 		case ENEMY_STATE_SWIM:
-			if( self.x < DOKDO_LEFT_X )
+			if( self.x + gapX < DOKDO_LEFT_X )
 			{
 				swimEnemySpr.flipX = NO;
 				self.x += self.speed / 2;
-				self.y = SEA_Y + gap;
+				self.y = SEA_Y + gapY;
 			}
-			else if( self.x > DOKDO_RIGHT_X )
+			else if( self.x + gapX > DOKDO_RIGHT_X )
 			{
 				swimEnemySpr.flipX = YES;
 				self.x -= self.speed / 2;
-				self.y = SEA_Y + gap;
+				self.y = SEA_Y + gapY;
 			}
 			else
 			{
@@ -346,17 +349,17 @@
 			break;
 			
 		case ENEMY_STATE_WALK:			
-			if( DOKDO_LEFT_X <= self.x && self.x < FLAG_LEFT_X )
+			if( DOKDO_LEFT_X <= self.x + gapX && self.x + gapX < FLAG_LEFT_X )
 			{
 				walkEnemySpr.flipX = NO;
 				self.x += self.speed / 2;
-				self.y = ( self.x - 110 ) * 31 / 23 + 50 + sinf( self.x / 10 ) * 3 + gap;
+				self.y = ( self.x + gapX - 110 ) * 31 / 23 + 50 + sinf( ( self.x + gapX ) / 10 ) * 3 + gapY;
 			}
-			else if( FLAG_RIGHT_X < self.x && self.x <= DOKDO_RIGHT_X )
+			else if( FLAG_RIGHT_X < self.x + gapX && self.x + gapX <= DOKDO_RIGHT_X )
 			{
 				walkEnemySpr.flipX = YES;
 				self.x -= self.speed / 2;
-				self.y = -1 * ( self.x - 360 ) * 31 / 20 + 50 + cosf( self.x / 10 ) * 3 + gap;
+				self.y = -1 * ( self.x + gapX - 360 ) * 31 / 20 + 50 + cosf( ( self.x + gapX ) / 10 ) * 3 + gapY;
 			}
 			else
 			{
@@ -366,14 +369,15 @@
 			break;
 			
 		case ENEMY_STATE_ATTACK:
-			if( FLAG_LEFT_X <= self.x && self.x <= FLAG_X )
+			if( FLAG_LEFT_X <= self.x + gapX && self.x + gapX <= FLAG_X )
 			{
 				attackEnemySpr.flipX = NO;
-//				gameScene.flag.hp
+				gameScene.flag.hp -= self.power;
 			}
-			else if( FLAG_X <= self.x && self.x <= FLAG_RIGHT_X )
+			else if( FLAG_X <= self.x + gapX && self.x + gapX <= FLAG_RIGHT_X )
 			{
 				attackEnemySpr.flipX = YES;
+				gameScene.flag.hp -= self.power;
 			}
 			else
 			{
@@ -385,7 +389,7 @@
 			break;
 			
 		case ENEMY_STATE_FALL:
-			if( self.y + gap >= SEA_Y )
+			if( self.y - gapY >= SEA_Y )
 			{
 				dx -= AIR_RESISTANCE * dx;
 				dy -= GRAVITY;
@@ -394,19 +398,20 @@
 				self.y += dy;
 				
 				// 땅에 철푸덕
-				if( self.y + gap < [self getGroundY] )
+				if( self.y - gapY < [self getGroundY] )
 				{
 					[self stopFalling];
 					[self beDamaged:-1 * dy]; // temp
 				}
 				
 				// 입수
-				else if( self.y + gap <= SEA_Y )
+				else if( self.y - gapY <= SEA_Y )
 				{
 					dx = 0;
 					dy *= WATER_RESISTANCE;
 					
-					self.hp -= 25;
+					[self beDamaged:-1 * dy];
+					NSLog( @"%f", dy );
 					
 					if( self.hp <= 0 )
 					{
@@ -418,7 +423,7 @@
 			else
 			{
 				// 물 위로
-				if( self.y + dy + gap <= SEA_Y )
+				if( self.y + dy <= SEA_Y )
 				{
 					dy += BUOYANCY;
 					self.y += dy;
@@ -432,24 +437,24 @@
 			break;
 			
 		case ENEMY_STATE_HIT:
-			if( self.x < FLAG_X )
+			if( self.x + gapX < FLAG_X )
 				hitEnemySpr.flipX = NO;
 			else
 				hitEnemySpr.flipX = YES;
 			break;
 			
 		case ENEMY_STATE_DIE:
-			if( self.x < FLAG_X )
+			if( self.x + gapX < FLAG_X )
 				dieEnemySpr.flipX = NO;
 			else
 				dieEnemySpr.flipX = YES;
 			
 			// 물에서 죽으면 꼬르륵 하면서 물 밑으로 내려감
-			if( self.x < DOKDO_LEFT_X || DOKDO_RIGHT_X < self.x )
+			if( self.x + gapX < DOKDO_LEFT_X || DOKDO_RIGHT_X < self.x + gapX )
 			{
 				self.y += dy;
 				
-				if( self.y + fallEnemySpr.contentSize.height + gap < 0 )
+				if( self.y + fallEnemySpr.contentSize.height + gapY < 0 )
 					[self stopDying];
 			}
 			break;
@@ -506,17 +511,17 @@
 	state = ENEMY_STATE_HIT;
 	[enemySpr addChild:hitBatchNode];
 	[hitEnemySpr runAction:[CCSequence actions:hitAnimation, [CCCallFunc actionWithTarget:self selector:@selector(stopBeingHit:)], nil]];
+//	[hitEnemySpr runAction:[CCRepeatForever actionWithAction:hitAnimation]];
+//	[self performSelector:@selector(stopBeingHit:) withObject:nil afterDelay:((NSInteger)( arc4random() % 100 )) / 100 + 0.5f];
 }
 
 - (void)startDying
 {
 	if( state == ENEMY_STATE_DIE ) return;
 	
-	NSLog( @"die" );
-	
 	state = ENEMY_STATE_DIE;
 	
-	if( self.x < DOKDO_LEFT_X || DOKDO_RIGHT_X < self.x )
+	if( self.x + gapX < DOKDO_LEFT_X || DOKDO_RIGHT_X < self.x + gapX )
 	{
 		dy = -1 * GRAVITY;
 		[enemySpr addChild:fallBatchNode];
@@ -579,7 +584,7 @@
 {
 	[self stopBeingHit];
 	
-	if( self.x < DOKDO_LEFT_X || DOKDO_RIGHT_X < self.x )
+	if( self.x + gapX < DOKDO_LEFT_X || DOKDO_RIGHT_X < self.x + gapX )
 		[self startSwimming];
 	else
 		[self startWalking];
@@ -587,7 +592,7 @@
 
 - (void)stopDying
 {	
-	if( self.x < DOKDO_LEFT_X || DOKDO_RIGHT_X < self.x )
+	if( self.x + gapX < DOKDO_LEFT_X || DOKDO_RIGHT_X < self.x + gapX )
 	{
 		[fallEnemySpr stopAllActions];
 		[enemySpr removeChild:fallBatchNode cleanup:NO];
@@ -681,9 +686,20 @@
 	[self stopCurrentAction];
 	
 	if( self.hp <= 0 )
+	{
 		[self startDying];
+	}
 	else
-		[self startBeingHit];
+	{
+		if( self.x + gapX < DOKDO_LEFT_X || DOKDO_RIGHT_X < self.x + gapX )
+		{
+			[self startSwimming];
+		}
+		else
+		{
+			[self startBeingHit];
+		}
+	}
 }
 
 - (void)beDamaged:(NSInteger)damage forceX:(NSInteger)forceX forceY:(NSInteger)forceY

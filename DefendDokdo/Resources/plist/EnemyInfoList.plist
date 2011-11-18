@@ -7,7 +7,7 @@
 		<array>
 			<dict>
 				<key>hp</key>
-				<integer>1</integer>
+				<integer>100</integer>
 				<key>power</key>
 				<integer>0</integer>
 				<key>speed</key>

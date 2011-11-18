@@ -11,7 +11,7 @@
 				<key>damage</key>
 				<integer>0</integer>
 				<key>spriteName</key>
-				<string>0</string>
+				<string>stone_0.png</string>
 				<key>mp</key>
 				<integer>0</integer>
 				<key>effect</key>

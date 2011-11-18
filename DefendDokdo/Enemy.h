@@ -63,11 +63,12 @@
 	
 	NSInteger state;
 	
-	CGFloat gap;
+	CGFloat gapX;
+	CGFloat gapY;
 }
 
-//@property (nonatomic) NSInteger type;
-//@property (nonatomic) NSInteger level;
+@property (nonatomic) NSInteger type;
+@property (nonatomic) NSInteger level;
 
 @property (nonatomic) NSInteger maxHp;
 @property (nonatomic) NSInteger hp;
