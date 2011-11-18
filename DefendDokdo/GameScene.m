@@ -102,11 +102,9 @@ enum{
 	[player init:self.gameLayer];
 	
 	enemies = [[NSMutableArray alloc] init];
-	
-	label = [CCLabelTTF alloc];
-	label.string = @" ";
-	label.position = ccp( 240, 480 );
-	label.color = ccBLACK;
+
+	label = [[CCLabelTTF alloc] initWithString:@"" fontName:@"NanumScript.ttf" fontSize:100];
+	label.color = ccBLACK;	
 	label.visible = NO;
 	
 	[self addChild:label z:Z_Label];
@@ -158,31 +156,28 @@ enum{
 		
 		CGFloat sunY = ((-1.0/280.0) * (sunX*sunX)) + (((12.0/7.0)*sunX) + (520.0/7.0));
 		
-		if (sunX > 240) {
-			int i = 0;
-			i++;
-		}
+//		if (sunX > 480) {
+//			int i = 0;
+//			i++;
+//		}
 		
 		[sun setPosition:ccp(sunX, sunY)];
 		
-		if (sunX > 100) {
-			nGameState = GAMESTATE_CLEAR;
-		}
+//		if (sunX > 5) {
+//			nGameState = GAMESTATE_CLEAR;
+//		}
 		
 		nCount++;
 		
 	}
 	else if (nGameState == GAMESTATE_CLEAR)
 	{
+		[label setString:@"Clear!"];
 		label.visible = YES;
-		label.string = @"Clear!";
 		[label runAction:[CCEaseBackInOut actionWithAction:[CCMoveTo actionWithDuration:0.5 position:ccp( 240, 160 )]]];
 		[self schedule:@selector(onLabelEnd:) interval:2.0];
 		
-		nGameState = GAMESTATE_ENDING;
-		
-		//		if ([UserData userData].backSound) 
-		//            [[SimpleAudioEngine sharedEngine] playBackgroundMusic:@"clear.mp3"];
+		nGameState = GAMESTATE_ENDING;		
 		
 	}
 	else if (nGameState == GAMESTATE_OVER)
