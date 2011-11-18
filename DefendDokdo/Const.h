@@ -53,6 +53,10 @@
 #define SKILL_STATE_HEALING     3
 #define SKILL_STATE_EARTHQUAKE  4
 #define SKILL_STATE_LOCK        5
+#define UPGRADE_TYPE_FLAG       6
+#define UPGRADE_TYPE_MAXMP      7
+#define UPGRADE_TYPE_REGENMP    8
+#define UPGRADE_TYPE_ATTACK     9
 
 #define STONE_STATE_DOWN    0
 #define STONE_STATE_ROLLING 1

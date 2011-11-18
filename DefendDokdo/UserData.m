@@ -12,8 +12,9 @@
 @implementation UserData
 
 @synthesize point, stageLevel;
-@synthesize skillSlot, userSkill, userSkillSlot;
-@synthesize flagLevel, userAtkLevel, userMaxMpLevel, UserMpspeedLevel;
+@synthesize skillSlot, userSkillSlot;
+@synthesize flagLevel, userAtkLevel, userMaxMpLevel, userMPspeedLevel;
+@synthesize stoneLevel, hillLevel, earthquakeLevel, arrowLevel;
 @synthesize backSound, vibration;
 @synthesize stageInfo;
 
@@ -71,6 +72,30 @@
 			userMPspeedLevel = 0;
 		}
 		
+		stoneLevel = [[dict objectForKey:@"StoneLevel"] integerValue];
+		
+		if (!stoneLevel) {
+			stoneLevel = 0;
+		}
+		
+		arrowLevel = [[dict objectForKey:@"ArrowLevel"] integerValue];
+		
+		if (!arrowLevel) {
+			arrowLevel = 0;
+		}
+		
+		hillLevel = [[dict objectForKey:@"HillingLevel"] integerValue];
+		
+		if (!hillLevel) {
+			hillLevel = 0;
+		}
+		
+		earthquakeLevel = [[dict objectForKey:@"EarthQuakeLevel"] integerValue];
+		
+		if (!earthquakeLevel) {
+			earthquakeLevel = 0;
+		}
+		
 		skillSlot = [dict objectForKey:@"BuySkillSlot"];
 		
 		if (!skillSlot) {
@@ -90,18 +115,6 @@
 			[userSkillSlot addObject:[NSNumber numberWithInteger:-1]];
 			[userSkillSlot addObject:[NSNumber numberWithInteger:-1]];
 		}
-		
-		userSkill = [dict objectForKey:@"UserSkillLevel"];
-		
-		if (!userSkill) {
-			userSkill = [NSMutableArray array];
-			
-			[userSkill addObject:[NSNumber numberWithInteger:1]];
-			[userSkill addObject:[NSNumber numberWithInteger:1]];
-			[userSkill addObject:[NSNumber numberWithInteger:1]];
-			[userSkill addObject:[NSNumber numberWithInteger:1]];
-		}
-		
 		
 		stageInfo = [[NSDictionary dictionaryWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"StageList" ofType:@"plist"]] retain];
 		
@@ -131,14 +144,19 @@
     
 	[dict setObject:[NSNumber numberWithInteger:point] forKey:@"Point"];
 	[dict setObject:[NSNumber numberWithInteger:stageLevel] forKey:@"UserStageLevel"];
+	
 	[dict setObject:[NSNumber numberWithInteger:flagLevel] forKey:@"FlagLevel"];
 	[dict setObject:[NSNumber numberWithInteger:userAtkLevel] forKey:@"UserAtkLevel"];
 	[dict setObject:[NSNumber numberWithInteger:userMaxMpLevel] forKey:@"UserMaxMPLevel"];
 	[dict setObject:[NSNumber numberWithInteger:userMPspeedLevel] forKey:@"UserMPSpeedLevel"];
 	
+	[dict setObject:[NSNumber numberWithInteger:stoneLevel] forKey:@"StoneLevel"];
+	[dict setObject:[NSNumber numberWithInteger:arrowLevel] forKey:@"ArrowLevel"];
+	[dict setObject:[NSNumber numberWithInteger:hillLevel] forKey:@"HillingLevel"];
+	[dict setObject:[NSNumber numberWithInteger:earthquakeLevel] forKey:@"EarthQuakeLevel"];
+		
 	[dict setObject:skillSlot forKey:@"BuySkillSlot"];
 	[dict setObject:userSkillSlot forKey:@"SlotInSkill"];	
-	[dict setObject:userSkill forKey:@"UserSkillLevel"];
 	
     return [dict writeToFile:[[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0] stringByAppendingPathComponent:@"UserData.plist"] atomically:YES];
 	
@@ -155,19 +173,22 @@
 	point = 0;
 	
 	stageLevel = 0;
-	flagLevel = 0;
 	
+	flagLevel = 0;
 	userAtkLevel = 0;
 	userMaxMpLevel = 0;
 	userMPspeedLevel = 0;
+	
+	stoneLevel = 0;
+	arrowLevel = 0;
+	hillLevel = 0;
+	earthquakeLevel = 0;
+
 	skillSlot = [NSMutableArray arrayWithObjects:[NSNumber numberWithBool:YES], [NSNumber numberWithBool:NO], [NSNumber numberWithBool:NO], nil];
 	
 	userSkillSlot = [NSMutableArray arrayWithObjects:[NSNumber numberWithInteger:-1], 
 					 [NSNumber numberWithInteger:-1], [NSNumber numberWithInteger:-1], nil];
-	
-	userSkill = [NSMutableArray arrayWithObjects:[NSNumber numberWithInteger:1], [NSNumber numberWithInteger:1], [NSNumber numberWithInteger:1], 
-				 [NSNumber numberWithInteger:1], nil];
-	
+		
 	stageInfo = [[NSDictionary dictionaryWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"StageList" ofType:@"plist"]] retain];
 	
     return YES;	

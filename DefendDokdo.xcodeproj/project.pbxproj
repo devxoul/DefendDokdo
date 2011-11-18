@@ -221,6 +221,8 @@
 		BA6EA1B8147042CE00949786 /* game_bg_2.png in Resources */ = {isa = PBXBuildFile; fileRef = BA6EA1B4147042CE00949786 /* game_bg_2.png */; };
 		BA6EA1B9147042CE00949786 /* game_bg_3.png in Resources */ = {isa = PBXBuildFile; fileRef = BA6EA1B5147042CE00949786 /* game_bg_3.png */; };
 		BAC3A759147696E0006EE315 /* NanumScript.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BAC3A758147696E0006EE315 /* NanumScript.ttf */; };
+		03F5644114765039008BB468 /* EnemyInfoList.plist in Resources */ = {isa = PBXBuildFile; fileRef = 03F5644014765039008BB468 /* EnemyInfoList.plist */; };
+		BA68257714645B680014DEB6 /* sun.png in Resources */ = {isa = PBXBuildFile; fileRef = BA68257614645B680014DEB6 /* sun.png */; };
 		CF3F668614697C51003F4E51 /* Arrow.m in Sources */ = {isa = PBXBuildFile; fileRef = CF3F668514697C51003F4E51 /* Arrow.m */; };
 		CF3F668A146AAB8F003F4E51 /* ArrowObject.m in Sources */ = {isa = PBXBuildFile; fileRef = CF3F6689146AAB8F003F4E51 /* ArrowObject.m */; };
 		CF73B4D71466C0D800CE8D2E /* Stone.m in Sources */ = {isa = PBXBuildFile; fileRef = CF73B4D61466C0D800CE8D2E /* Stone.m */; };
@@ -582,6 +584,8 @@
 		BA6EA1B4147042CE00949786 /* game_bg_2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = game_bg_2.png; path = Resources/game_bg_2.png; sourceTree = "<group>"; };
 		BA6EA1B5147042CE00949786 /* game_bg_3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = game_bg_3.png; path = Resources/game_bg_3.png; sourceTree = "<group>"; };
 		BAC3A758147696E0006EE315 /* NanumScript.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = NanumScript.ttf; path = Resources/NanumScript.ttf; sourceTree = "<group>"; };
+		03F5644014765039008BB468 /* EnemyInfoList.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = EnemyInfoList.plist; sourceTree = "<group>"; };
+		BA68257614645B680014DEB6 /* sun.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = sun.png; path = Resources/sun.png; sourceTree = "<group>"; };
 		CF3F668414697C51003F4E51 /* Arrow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Arrow.h; sourceTree = "<group>"; };
 		CF3F668514697C51003F4E51 /* Arrow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Arrow.m; sourceTree = "<group>"; };
 		CF3F6688146AAB8E003F4E51 /* ArrowObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ArrowObject.h; sourceTree = "<group>"; };
@@ -680,6 +684,12 @@
 				CFB2165A146828FD0011E4E2 /* Skill */,
 				034562FF1466CF9F00FE9724 /* enemies */,
 				CFB2165A146828FD0011E4E2 /* Skill */,
+				034562FF1466CF9F00FE9724 /* enemies */,
+				034E182F1472D20400B9EE64 /* plist */,
+				034E18311472D20400B9EE64 /* skills */,
+				034E18341472D20400B9EE64 /* ui */,
+				0374E25514629B2200B9EAF7 /* flags */,
+				BA68257614645B680014DEB6 /* sun.png */,
 				0374E25814629EA600B9EAF7 /* dokdo.png */,
 				0374E25914629EA600B9EAF7 /* sea.png */,
 				03398947146001FD002AAAA3 /* Default.png */,
@@ -1088,6 +1098,7 @@
 			isa = PBXGroup;
 			children = (
 				034E18301472D20400B9EE64 /* SkillInfoList.plist */,
+				03F5644014765039008BB468 /* EnemyInfoList.plist */,
 			);
 			name = plist;
 			path = DefendDokdo/Resources/plist;
@@ -1385,6 +1396,7 @@
 				034E183B1472D20400B9EE64 /* gaugebg.png in Resources */,
 				CFBB56211470585500E7A7FF /* SkillInfoList.plist in Resources */,
 				BAC3A759147696E0006EE315 /* NanumScript.ttf in Resources */,
+				03F5644114765039008BB468 /* EnemyInfoList.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -11,14 +11,6 @@
 
 @implementation SkillData
 
-@synthesize stoneLv;
-@synthesize arrowLv;
-@synthesize earthLv;
-@synthesize healLv;
-@synthesize skillInfo;
-@synthesize skillLvInfo;
-
-
 + (SkillData *)skillData
 {
     static SkillData *ret;
@@ -36,16 +28,8 @@
 {
     if (self = [super init])
     {
-        skillLvInfo = [NSDictionary dictionaryWithContentsOfFile:[(NSString *)[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0] stringByAppendingPathComponent:@"SkillData.plist"]];
-        
-        stoneLv = [[skillLvInfo objectForKey:@"stoneLv"] integerValue];
-        arrowLv = [[skillLvInfo objectForKey:@"arrowLv"] integerValue];
-        earthLv = [[skillLvInfo objectForKey:@"healLv"] integerValue];
-        healLv  = [[skillLvInfo objectForKey:@"earthLv"] integerValue];
-        
         skillInfo = [[[NSDictionary dictionaryWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"SkillInfoList" ofType:@"plist"]] objectForKey:@"SkillInfoList"] retain];
-
-        
+        upgradeInfo = [[NSDictionary dictionaryWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"UpgradeInfoList" ofType:@"plist"]] retain];
         
         return self;
     }
@@ -53,59 +37,71 @@
     return nil;
 }
 
-- (BOOL) saveToFile{
+-(NSDictionary *)getSkillInfo:(NSInteger)skillType :(NSInteger)skillLevel{
     
-    NSMutableDictionary *dict = [NSMutableDictionary dictionary];
-    
-    [dict setObject:[NSNumber numberWithInteger:stoneLv] forKey:@"stoneLv"];
-    [dict setObject:[NSNumber numberWithInteger:arrowLv] forKey:@"arrowLv"];
-    [dict setObject:[NSNumber numberWithInteger:healLv] forKey:@"healLv"];
-    [dict setObject:[NSNumber numberWithInteger:earthLv] forKey:@"earthLv"];
-    
-    return [dict writeToFile:[[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0] stringByAppendingPathComponent:@"SkillData.plist"] atomically:YES];
-}
-
-
--(BOOL) buySkill:(NSInteger)skillType{
-
-    switch (skillType) {
-        case SKILL_STATE_STONE:            
-            stoneLv++;
-            break;
-        case SKILL_STATE_ARROW:            
-            arrowLv++;
-            break;
-        case SKILL_STATE_HEALING:            
-            healLv++;
-            break;
-        case SKILL_STATE_EARTHQUAKE:            
-            earthLv++;
-            break;
-        }
-    
-    return [self saveToFile];
-    
-}
-
--(NSDictionary *)getSkillInfo:(NSInteger)skillType{
-
     
     switch (skillType) {
         case SKILL_STATE_STONE:            
-            return [[skillInfo objectForKey:@"StoneInfoList"] objectForKey:[NSString stringWithFormat:@"%d", stoneLv]];
+            return [[skillInfo objectForKey:@"StoneInfoList"] objectForKey:[NSString stringWithFormat:@"%d", skillLevel]];
             break;
         case SKILL_STATE_ARROW:            
-            return [[skillInfo objectForKey:@"ArrowInfoList"] objectForKey:[NSString stringWithFormat:@"%d", arrowLv]];
+            return [[skillInfo objectForKey:@"ArrowInfoList"] objectForKey:[NSString stringWithFormat:@"%d", skillLevel]];
             break;
         case SKILL_STATE_HEALING:            
-            return [[skillInfo objectForKey:@"HealInfoList"] objectForKey:[NSString stringWithFormat:@"%d", healLv]];
+            return [[skillInfo objectForKey:@"HealInfoList"] objectForKey:[NSString stringWithFormat:@"%d", skillLevel]];
             break;
         case SKILL_STATE_EARTHQUAKE:            
-            return [[skillInfo objectForKey:@"EarthInfoList"] objectForKey:[NSString stringWithFormat:@"%d", earthLv]];
+            return [[skillInfo objectForKey:@"EarthInfoList"] objectForKey:[NSString stringWithFormat:@"%d", skillLevel]];
+            break;
+        case UPGRADE_TYPE_FLAG:
+            return [[upgradeInfo objectForKey:@"flaghp"] objectForKey:[NSString stringWithFormat:@"%d", skillLevel]];
+            break;
+        case UPGRADE_TYPE_ATTACK:
+            return [[upgradeInfo objectForKey:@"userattack"] objectForKey:[NSString stringWithFormat:@"%d", skillLevel]];
+            break;
+        case UPGRADE_TYPE_MAXMP:
+            return [[upgradeInfo objectForKey:@"maxmp"] objectForKey:[NSString stringWithFormat:@"%d", skillLevel]];
+            break;
+        case UPGRADE_TYPE_REGENMP:
+            return [[upgradeInfo objectForKey:@"regenmp"] objectForKey:[NSString stringWithFormat:@"%d", skillLevel]];
             break;
     }
     
     return nil;
+}
+
+-(NSInteger)getSkillPrice:(NSInteger)skillType :(NSInteger)skillLevel{
+    
+    
+    switch (skillType) {
+        case SKILL_STATE_STONE:            
+            return [[[[skillInfo objectForKey:@"StoneInfoList"] objectForKey:[NSString stringWithFormat:@"%d", skillLevel]] objectForKey:@"price"] integerValue];
+            break;
+        case SKILL_STATE_ARROW:            
+            return [[[[skillInfo objectForKey:@"ArrowInfoList"] objectForKey:[NSString stringWithFormat:@"%d", skillLevel]] objectForKey:@"price"] integerValue];
+            break;
+        case SKILL_STATE_HEALING:            
+            return [[[[skillInfo objectForKey:@"HealInfoList"] objectForKey:[NSString stringWithFormat:@"%d", skillLevel]] objectForKey:@"price"] integerValue];
+            break;
+        case SKILL_STATE_EARTHQUAKE:            
+            return [[[[skillInfo objectForKey:@"EarthInfoList"] objectForKey:[NSString stringWithFormat:@"%d", skillLevel]] objectForKey:@"price"] integerValue];
+            break;  
+        case UPGRADE_TYPE_FLAG:
+            return [[[[upgradeInfo objectForKey:@"flaghp"] objectForKey:[NSString stringWithFormat:@"%d", skillLevel]] objectForKey:@"price"] integerValue];
+            break;
+        case UPGRADE_TYPE_ATTACK:
+            return [[[[upgradeInfo objectForKey:@"userattack"] objectForKey:[NSString stringWithFormat:@"%d", skillLevel]] objectForKey:@"price"] integerValue];
+            break;
+        case UPGRADE_TYPE_MAXMP:
+            return [[[[upgradeInfo objectForKey:@"maxmp"] objectForKey:[NSString stringWithFormat:@"%d", skillLevel]] objectForKey:@"price"] integerValue];
+            break;
+        case UPGRADE_TYPE_REGENMP:
+            return [[[[upgradeInfo objectForKey:@"regenmp"] objectForKey:[NSString stringWithFormat:@"%d", skillLevel]] objectForKey:@"price"] integerValue];
+            break;
+            
+    }
+    
+    return 0;
 }
 
 

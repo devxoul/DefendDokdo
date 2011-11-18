@@ -23,6 +23,7 @@
 	if( self = [self init] )
 	{
 		gameScene = scene;
+		enemyInfoList = [[[NSDictionary dictionaryWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"EnemyInfoList" ofType:@"plist"]] retain] objectForKey:@"EnemyInfoList"];
 	}
 	
 	return self;
@@ -40,7 +41,8 @@
 
 - (void)createEnemy:(NSInteger)type level:(NSInteger)level
 {
-	Enemy *enemy = [[[Enemy alloc] initWithGameLayer:gameScene.gameLayer type:type level:level] autorelease];
+	NSDictionary *enemyInfo = [[enemyInfoList objectAtIndex:type] objectAtIndex:level];
+	Enemy *enemy = [[[Enemy alloc] initWithGameScene:gameScene type:type level:level hp:[[enemyInfo objectForKey:@"hp"] integerValue] power:[[enemyInfo objectForKey:@"power"] integerValue] speed:[[enemyInfo objectForKey:@"speed"] floatValue]] autorelease];
 	[gameScene.enemies addObject:enemy];
 }
 

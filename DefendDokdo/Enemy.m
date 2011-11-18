@@ -8,7 +8,7 @@
 
 #import "Enemy.h"
 #import "Const.h"
-#import "GameLayer.h"
+#import "GameScene.h"
 
 @interface Enemy(Private)
 - (void)initBoatAnimation;
@@ -48,28 +48,31 @@
 
 @implementation Enemy
 
-@synthesize type, level, power, maxHp, hp, speed;
+//@synthesize type, level;
+@synthesize maxHp, hp, power, speed;
 @synthesize x = _x, y = _y, dx, dy, boundingBox;
 
 #pragma mark - initialize
 
-- (id)initWithGameLayer:(GameLayer *)layer type:(NSInteger)_type level:(NSInteger)_level
+- (id)initWithGameScene:(GameScene *)scene type:(NSInteger)_type level:(NSInteger)_level hp:(NSInteger)_hp power:(NSInteger)_power speed:(CGFloat)_speed
 {
 	if( self = [self init] )
 	{
-		gameLayer = layer;
+		gameScene = scene;
 		
-		self.type = _type;
-		self.level = _level;
-		self.power = 10; // temp
-		self.hp = self.maxHp = 100; // temp
+		gap = -1 * (NSInteger)( arc4random() % 20 );
+		
+		type = _type;
+		level = _level;
+		self.hp = self.maxHp = _hp;
+		self.power = _power;
+		self.speed = _speed;
 		self.x = arc4random() % 2 ? 0 : 480;
-		self.y = 320;
-		self.speed = 1;
+		self.y = 320 + gap;
 		
 		enemySpr = [[CCSprite alloc] init];
 		enemySpr.anchorPoint = ccp( 0.5f, 0 );
-		[gameLayer addChild:enemySpr z:Z_ENEMY];
+		[gameScene.gameLayer addChild:enemySpr z:Z_ENEMY];
 		
 		[self initBoatAnimation];
 		[self initSwimAnimation];
@@ -307,13 +310,13 @@
 			{
 				boatEnemySpr.flipX = NO;
 				self.x += self.speed;
-				self.y = SEA_Y;
+				self.y = SEA_Y + gap;
 			}
 			else if( self.x > DOKDO_RIGHT_X )
 			{
 				boatEnemySpr.flipX = YES;
 				self.x -= self.speed;
-				self.y = SEA_Y;
+				self.y = SEA_Y + gap;
 			}
 			else
 			{
@@ -327,13 +330,13 @@
 			{
 				swimEnemySpr.flipX = NO;
 				self.x += self.speed / 2;
-				self.y = SEA_Y;
+				self.y = SEA_Y + gap;
 			}
 			else if( self.x > DOKDO_RIGHT_X )
 			{
 				swimEnemySpr.flipX = YES;
 				self.x -= self.speed / 2;
-				self.y = SEA_Y;
+				self.y = SEA_Y + gap;
 			}
 			else
 			{
@@ -347,13 +350,13 @@
 			{
 				walkEnemySpr.flipX = NO;
 				self.x += self.speed / 2;
-				self.y = ( self.x - 110 ) * 31 / 23 + 50 + sinf( self.x / 10 ) * 3;
+				self.y = ( self.x - 110 ) * 31 / 23 + 50 + sinf( self.x / 10 ) * 3 + gap;
 			}
 			else if( FLAG_RIGHT_X < self.x && self.x <= DOKDO_RIGHT_X )
 			{
 				walkEnemySpr.flipX = YES;
 				self.x -= self.speed / 2;
-				self.y = -1 * ( self.x - 360 ) * 31 / 20 + 50 + cosf( self.x / 10 ) * 3;
+				self.y = -1 * ( self.x - 360 ) * 31 / 20 + 50 + cosf( self.x / 10 ) * 3 + gap;
 			}
 			else
 			{
@@ -366,6 +369,7 @@
 			if( FLAG_LEFT_X <= self.x && self.x <= FLAG_X )
 			{
 				attackEnemySpr.flipX = NO;
+//				gameScene.flag.hp
 			}
 			else if( FLAG_X <= self.x && self.x <= FLAG_RIGHT_X )
 			{
@@ -381,7 +385,7 @@
 			break;
 			
 		case ENEMY_STATE_FALL:
-			if( self.y >= SEA_Y )
+			if( self.y + gap >= SEA_Y )
 			{
 				dx -= AIR_RESISTANCE * dx;
 				dy -= GRAVITY;
@@ -390,14 +394,14 @@
 				self.y += dy;
 				
 				// 땅에 철푸덕
-				if( self.y < [self getGroundY] )
+				if( self.y + gap < [self getGroundY] )
 				{
 					[self stopFalling];
 					[self beDamaged:-1 * dy]; // temp
 				}
 				
 				// 입수
-				else if( self.y <= SEA_Y )
+				else if( self.y + gap <= SEA_Y )
 				{
 					dx = 0;
 					dy *= WATER_RESISTANCE;
@@ -414,7 +418,7 @@
 			else
 			{
 				// 물 위로
-				if( self.y + dy <= SEA_Y )
+				if( self.y + dy + gap <= SEA_Y )
 				{
 					dy += BUOYANCY;
 					self.y += dy;
@@ -445,7 +449,7 @@
 			{
 				self.y += dy;
 				
-				if( self.y + fallEnemySpr.contentSize.height < 0 )
+				if( self.y + fallEnemySpr.contentSize.height + gap < 0 )
 					[self stopDying];
 			}
 			break;
@@ -594,7 +598,7 @@
 		[enemySpr removeChild:dieBatchNode cleanup:YES];
 	}
 	
-	[gameLayer removeChild:enemySpr cleanup:YES];
+	[gameScene.gameLayer removeChild:enemySpr cleanup:YES];
 	
     //	[self release];
 }
@@ -603,6 +607,7 @@
 {
 	[self stopDying];
 }
+
 
 - (void)stopCurrentAction
 {

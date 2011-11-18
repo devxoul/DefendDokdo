@@ -13,6 +13,7 @@
 
 @interface EnemyManager : NSObject {
 	GameScene *gameScene;
+	NSArray *enemyInfoList;
 }
 
 - (id)initWithGameScene:(GameScene *)gameScene;

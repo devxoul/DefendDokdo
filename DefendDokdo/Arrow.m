@@ -11,6 +11,7 @@
 #import "ArrowObject.h"
 #import "SkillLayer.h"
 #import "SkillData.h"
+#import "UserData.h"
 
 @implementation Arrow
 
@@ -29,7 +30,7 @@
     if( self = [super init] )
     {
         
-        NSDictionary *skillInfo = [[SkillData skillData] getSkillInfo:SKILL_STATE_ARROW];
+        NSDictionary *skillInfo = [[SkillData skillData] getSkillInfo:SKILL_STATE_ARROW :[[UserData userData] arrowLevel]];
         
         fileName = @"arrow.png";
         gameScene = _gameScene;

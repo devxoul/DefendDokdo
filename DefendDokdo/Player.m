@@ -21,7 +21,7 @@
 {
 	NSInteger powerLevel = [[UserData userData] userAtkLevel];
 	NSInteger maxMpLevel = [[UserData userData] userMaxMpLevel];
-	NSInteger mpSpeedLevel = [[UserData userData] UserMpspeedLevel];
+	NSInteger mpSpeedLevel = [[UserData userData] userMPspeedLevel];
 	mp = 0;
 	
 	slots = [[UserData userData] userSkillSlot];

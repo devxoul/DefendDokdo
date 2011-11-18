@@ -11,6 +11,7 @@
 #import "SkillData.h"
 #import "GameScene.h"
 #import "Enemy.h"
+#import "UserData.h"
 
 @implementation Stone
 
@@ -22,7 +23,7 @@
     
     if( self = [self init] )
     {
-        NSDictionary *skillInfo = [[SkillData skillData] getSkillInfo:SKILL_STATE_STONE];
+        NSDictionary *skillInfo = [[SkillData skillData] getSkillInfo:SKILL_STATE_STONE :[[UserData userData] stoneLevel]];
         
         gameScene = _gameScene;
         x = location.x;
@@ -85,6 +86,15 @@
         case STONE_STATE_DOWN:
             if(downPoint <= y){
                 y=y-speed;
+                switch(direction){
+                    case DIRECTION_STATE_LEFT:
+                        stoneSprite.rotation -= 3;
+                        break;
+                    case DIRECTION_STATE_RIGHT:
+                        stoneSprite.rotation += 3;
+                        break;
+                }
+
                 if(y<40){
                     stoneState = STONE_STATE_STOP;
                 }

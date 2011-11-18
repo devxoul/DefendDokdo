@@ -18,7 +18,11 @@
 	// user skill
 	NSMutableArray* skillSlot;				// 슬롯 갯수 확인
 	NSMutableArray* userSkillSlot;			// 슬롯 내부 스킬 확인
-	NSMutableArray* userSkill;				// 스킬 레벨
+	
+	NSUInteger stoneLevel;
+	NSUInteger arrowLevel;
+	NSUInteger hillLevel;
+	NSUInteger earthquakeLevel; 
 	
 	// user upgrade levels
 	NSUInteger flagLevel;
@@ -38,12 +42,16 @@
 
 @property (nonatomic, retain) NSMutableArray* skillSlot;
 @property (nonatomic, retain) NSMutableArray* userSkillSlot;
-@property (nonatomic, retain) NSMutableArray* userSkill;
 
 @property (readwrite) NSUInteger flagLevel;
 @property (readwrite) NSUInteger userAtkLevel;
 @property (readwrite) NSUInteger userMaxMpLevel;
-@property (readwrite) NSUInteger UserMpspeedLevel;
+@property (readwrite) NSUInteger userMPspeedLevel;
+
+@property (readwrite) NSUInteger stoneLevel;
+@property (readwrite) NSUInteger arrowLevel;
+@property (readwrite) NSUInteger hillLevel;
+@property (readwrite) NSUInteger earthquakeLevel;
 
 @property (readwrite) BOOL backSound;
 @property (readwrite) BOOL vibration;

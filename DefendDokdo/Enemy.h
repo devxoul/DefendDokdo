@@ -9,17 +9,18 @@
 #import <Foundation/Foundation.h>
 #import "cocos2d.h"
 
-@class GameLayer;
+@class GameScene;
 
 @interface Enemy : NSObject {
-	GameLayer *gameLayer;
+	GameScene *gameScene;
 	
 	NSInteger type;
 	NSInteger level;
-    NSInteger power;
+	
 	NSInteger maxHp;
 	NSInteger hp;
-	float speed;
+    NSInteger power;
+	CGFloat speed;
 	
 	CCSprite *enemySpr;
 	
@@ -55,32 +56,33 @@
 	CCSprite *dieEnemySpr;
 	CCAnimate *dieAnimation;
 	
-	float _x;
-	float _y;
-	float dx;
-	float dy;
+	CGFloat _x;
+	CGFloat _y;
+	CGFloat dx;
+	CGFloat dy;
 	
 	NSInteger state;
+	
+	CGFloat gap;
 }
 
-@property (nonatomic) NSInteger type;
-@property (nonatomic) NSInteger level;
-@property (nonatomic) NSInteger power;
+//@property (nonatomic) NSInteger type;
+//@property (nonatomic) NSInteger level;
+
 @property (nonatomic) NSInteger maxHp;
 @property (nonatomic) NSInteger hp;
+@property (nonatomic) NSInteger power;
+@property (nonatomic) CGFloat speed;
 
-@property (nonatomic) float speed;
-
-@property (nonatomic) float x;
-@property (nonatomic) float y;
-@property (nonatomic) float dx;
-@property (nonatomic) float dy;
+@property (nonatomic) CGFloat x;
+@property (nonatomic) CGFloat y;
+@property (nonatomic) CGFloat dx;
+@property (nonatomic) CGFloat dy;
 @property (nonatomic, readonly, getter = getBoundingBox) CGRect boundingBox;
 
-
-- (id)initWithGameLayer:(GameLayer *)layer type:(NSInteger)type level:(NSInteger)level;
+- (id)initWithGameScene:(GameScene *)scene type:(NSInteger)_type level:(NSInteger)_level hp:(NSInteger)_hp power:(NSInteger)_power speed:(CGFloat)_speed;
 - (void)update;
-- (void)applyForce:(float)x:(float)y;
+- (void)applyForce:(CGFloat)x:(CGFloat)y;
 
 - (void)beDamaged:(NSInteger)damage;
 - (void)beDamaged:(NSInteger)damage forceX:(NSInteger)forceX forceY:(NSInteger)forceY;
