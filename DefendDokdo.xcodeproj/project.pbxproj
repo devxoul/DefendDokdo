@@ -224,6 +224,7 @@
 		03D7DA6F1476A40D0044FEEE /* gauge.png in Resources */ = {isa = PBXBuildFile; fileRef = 03D7DA111476A40D0044FEEE /* gauge.png */; };
 		03D7DA701476A40D0044FEEE /* gaugebg.png in Resources */ = {isa = PBXBuildFile; fileRef = 03D7DA121476A40D0044FEEE /* gaugebg.png */; };
 		3C6BDF6014724A38000117E1 /* GameKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C6BDF5F14724A38000117E1 /* GameKit.framework */; };
+		BA68257714645B680014DEB6 /* sun.png in Resources */ = {isa = PBXBuildFile; fileRef = BA68257614645B680014DEB6 /* sun.png */; };
 		CF3F668614697C51003F4E51 /* Arrow.m in Sources */ = {isa = PBXBuildFile; fileRef = CF3F668514697C51003F4E51 /* Arrow.m */; };
 		CF3F668A146AAB8F003F4E51 /* ArrowObject.m in Sources */ = {isa = PBXBuildFile; fileRef = CF3F6689146AAB8F003F4E51 /* ArrowObject.m */; };
 		CF73B4D71466C0D800CE8D2E /* Stone.m in Sources */ = {isa = PBXBuildFile; fileRef = CF73B4D61466C0D800CE8D2E /* Stone.m */; };
@@ -586,6 +587,7 @@
 		03D7DA111476A40D0044FEEE /* gauge.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gauge.png; sourceTree = "<group>"; };
 		03D7DA121476A40D0044FEEE /* gaugebg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gaugebg.png; sourceTree = "<group>"; };
 		3C6BDF5F14724A38000117E1 /* GameKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameKit.framework; path = System/Library/Frameworks/GameKit.framework; sourceTree = SDKROOT; };
+		BA68257614645B680014DEB6 /* sun.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = sun.png; path = Resources/sun.png; sourceTree = "<group>"; };
 		CF3F668414697C51003F4E51 /* Arrow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Arrow.h; sourceTree = "<group>"; };
 		CF3F668514697C51003F4E51 /* Arrow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Arrow.m; sourceTree = "<group>"; };
 		CF3F6688146AAB8E003F4E51 /* ArrowObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ArrowObject.h; sourceTree = "<group>"; };
@@ -691,6 +693,7 @@
 				03D7DA0C1476A40D0044FEEE /* skills */,
 				03D7DA0F1476A40D0044FEEE /* sun.png */,
 				03D7DA101476A40D0044FEEE /* ui */,
+				BA68257614645B680014DEB6 /* sun.png */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -1375,6 +1378,7 @@
 				03D7DA6E1476A40D0044FEEE /* sun.png in Resources */,
 				03D7DA6F1476A40D0044FEEE /* gauge.png in Resources */,
 				03D7DA701476A40D0044FEEE /* gaugebg.png in Resources */,
+				BA68257714645B680014DEB6 /* sun.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

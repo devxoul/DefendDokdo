@@ -46,10 +46,11 @@ enum{
     switch (skillState) {            
         case SKILL_STATE_EARTHQUAKE:
             skillState = SKILL_STATE_NORMAL;
-
             [self createEarthQuake];
             break;
         case SKILL_STATE_HEALING:
+            skillState = SKILL_STATE_NORMAL;
+
             break;
     }
       
@@ -86,8 +87,9 @@ enum{
     Stone* stone = [[Stone alloc] initWithInfo:location :0.1 :_gameScene];
 
     if(stone!=nil){
-        //마나소비
         skillState = SKILL_STATE_NORMAL;
+        
+        //마나소비
         [_gameScene.skillLayer addChild:[stone stoneSprite] z:1 tag:skill_stone_tag];
         [stoneArray addObject:stone];
     }
@@ -113,9 +115,9 @@ enum{
     
     for(Enemy* current in _gameScene.enemies){
         if([current x] <= FLAG_X)
-            [current beDamaged:damage forceX:-power/2.0 forceY:power/2.0];
+            [current beDamaged:damage forceX:-power forceY:power];
         else
-            [current beDamaged:damage forceX:power/2.0 forceY:power/2.0];            
+            [current beDamaged:damage forceX:power forceY:power];            
     }
     
     AudioServicesPlaySystemSound(kSystemSoundID_Vibrate);

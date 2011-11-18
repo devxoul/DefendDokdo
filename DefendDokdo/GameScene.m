@@ -196,4 +196,6 @@ enum{
 	[[CCDirector sharedDirector] pushScene:[CCTransitionSlideInL transitionWithDuration:0.3 scene:[[[ResultLayer node] scene] autorelease]]];
 }
 
+
+
 @end
