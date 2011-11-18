@@ -9,6 +9,8 @@
 #import <Foundation/Foundation.h>
 #import "cocos2d.h"
 
+@class UserData;
+
 @interface SettingsLayer : CCLayer {
     
 }

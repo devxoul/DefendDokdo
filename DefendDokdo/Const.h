@@ -37,11 +37,13 @@
 #define Z_SEA				3
 #define Z_FLAG				4
 #define Z_ENEMY				5
+#define Z_Label				6
 
 //성은 추가, 게임 State
 #define GAMESTATE_START		0
 #define GAMESTATE_CLEAR		1
-#define GAMESTAET_OVER		2
+#define GAMESTATE_OVER		2
+#define GAMESTATE_ENDING	3
 
 //상훈 추가, 스킬 부분
 

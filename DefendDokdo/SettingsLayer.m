@@ -7,6 +7,7 @@
 //
 
 #import "SettingsLayer.h"
+#import "UserData.h"
 
 
 @implementation SettingsLayer

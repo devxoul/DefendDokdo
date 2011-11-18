@@ -12,6 +12,7 @@
 @class GameLayer, UserData;
 
 @interface Flag : NSObject {
+
 	NSInteger level;
     NSInteger maxHp;
 	NSInteger hp;

@@ -9,18 +9,23 @@
 #import <Foundation/Foundation.h>
 #import "cocos2d.h"
 
+@class UserData;
+
 @interface Player : NSObject {
-	NSInteger *power;
-	NSInteger *maxMp;
-	NSInteger *mp;
+	NSInteger power;
+	NSInteger maxMp;
+	NSInteger mp;
+	NSInteger mpSpeed;
 	
 	NSMutableArray *slots;
 }
 
-@property (nonatomic) NSInteger *power;
-@property (nonatomic) NSInteger *maxMp;
-@property (nonatomic) NSInteger *mp;
+@property (nonatomic) NSInteger power;
+@property (nonatomic) NSInteger maxMp;
+@property (nonatomic) NSInteger mp;
+@property (nonatomic) NSInteger mpSpeed;
 
 @property (nonatomic, retain) NSMutableArray *slots;
 
+- (void)update;
 @end

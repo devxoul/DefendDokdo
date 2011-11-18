@@ -95,6 +95,14 @@ enum{
 	[flag init:self.gameLayer];
 	
 	enemies = [[NSMutableArray alloc] init];
+	
+	label = [CCLabelTTF alloc];
+	label.string = @" ";
+	label.position = ccp( 240, 480 );
+	label.color = ccBLACK;
+	label.visible = NO;
+	
+	[self addChild:label z:Z_Label];
 }
 
 - (void)initManagers
@@ -109,7 +117,13 @@ enum{
 	[super draw];
 	
 	if (nGameState == GAMESTATE_START)
-	{
+	{		
+		if( arc4random() % 50 < 1 ) [enemyManager createEnemy:0 level:0]; // temp
+		
+		[enemyManager update];
+		[gameUILayer update];
+		[skillManager update];
+		
 		//		if (nCount % 250 == 0) {
 		//			
 		//			[arryBg[nBgState] setVisible:NO];
@@ -126,45 +140,51 @@ enum{
 		//			}		
 		//		}
 		//		
-		//		CGFloat sunX = sun.position.x + 0.5;
-		//		//	NSInteger sunY = sun.position.y;
-		//		//	NSInteger sunY = ((-1/200)*sunX*sunX) - ((14/5)*sunX) - 104;
-		//		CGFloat sunY = ((-1/280)*sunX*sunX) + ((12/7)*sunX) + (520/7);
-		//		
-		//		if (sunX > 240) {
-		//			int i = 0;
-		//			i++;
-		//		}
-		//		
-		//		[sun setPosition:ccp(sunX, sunY)];
+		//		CGFloat sunX = sun.position.x + 0.1; // 2분 42초 
+		//		CGFloat sunX = sun.position.x + 0.15; // 1분 23초
+		//		CGFloat sunX = sun.position.x + 0.12; // 1분 46초
+		//		CGFloat sunX = sun.position.x + 0.11; // 2분 24초
+		//		CGFloat sunX = sun.position.x + 0.115; // 1분 34초
+		//		CGFloat sunX = sun.position.x + 0.112; // 2분 18초
+		CGFloat sunX = sun.position.x + 0.113; // 1분 56초
 		
-		if( arc4random() % 50 < 1 ) [enemyManager createEnemy:0 level:0]; // temp
 		
-		[enemyManager update];
-		[gameUILayer update];
-		[skillManager update];
+		CGFloat sunY = ((-1.0/280.0) * (sunX*sunX)) + (((12.0/7.0)*sunX) + (520.0/7.0));
+		
+		if (sunX > 240) {
+			int i = 0;
+			i++;
+		}
+		
+		[sun setPosition:ccp(sunX, sunY)];
+		
+		if (sunX > 480) {
+			nGameState = GAMESTATE_CLEAR;
+		}
+		
 		//		nCount++;
 		
 	}
 	else if (nGameState == GAMESTATE_CLEAR)
 	{
-		[self addChild:label];
-		label.position = ccp( 240, 480 );
+		label.visible = YES;
 		label.string = @"Clear!";
 		[label runAction:[CCEaseBackInOut actionWithAction:[CCMoveTo actionWithDuration:0.5 position:ccp( 240, 160 )]]];
 		[self schedule:@selector(onLabelEnd:) interval:2.0];
 		
+		nGameState = GAMESTATE_ENDING;
 		//		if ([UserData userData].backSound) 
 		//            [[SimpleAudioEngine sharedEngine] playBackgroundMusic:@"clear.mp3"];
 		
 	}
-	else if (nGameState == GAMESTAET_OVER)
+	else if (nGameState == GAMESTATE_OVER)
 	{
-		[self addChild:label];
-		label.position = ccp( 240, 480 );
+		label.visible = YES;
 		label.string = @"Game Over!";
 		[label runAction:[CCEaseBackInOut actionWithAction:[CCMoveTo actionWithDuration:0.5 position:ccp( 240, 160 )]]];
 		[self schedule:@selector(onLabelEnd:) interval:2.0];		
+		
+		nGameState = GAMESTATE_ENDING;
 	}	
 }
 

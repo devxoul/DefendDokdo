@@ -18,7 +18,7 @@
 
 - (void)init:(GameLayer*)scene
 {
-	
+	level = [[UserData userData] flagLevel];
 	hp = maxHp;
 	
 	flagSpr = [[CCSprite alloc]initWithFile:@"flag.png"];
