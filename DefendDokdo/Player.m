@@ -8,6 +8,7 @@
 
 #import "Player.h"
 #import "UserData.h"
+#import "GameLayer.h"
 
 
 @implementation Player
@@ -15,19 +16,15 @@
 @synthesize power, maxMp, mp, mpSpeed;
 @synthesize slots;
 
-- (id)init
+
+- (void)init:(GameLayer*)scene
 {
-	if( self == [self init] )
-	{
-		NSInteger powerLevel = [[UserData userData] userAtkLevel];
-		NSInteger maxMpLevel = [[UserData userData] userMaxMpLevel];
-		NSInteger mpSpeedLevel = [[UserData userData] UserMpspeedLevel];
-		mp = 0;
-		
-		slots = [[UserData userData] userSkillSlot];
-	}
+	NSInteger powerLevel = [[UserData userData] userAtkLevel];
+	NSInteger maxMpLevel = [[UserData userData] userMaxMpLevel];
+	NSInteger mpSpeedLevel = [[UserData userData] UserMpspeedLevel];
+	mp = 0;
 	
-	return self;
+	slots = [[UserData userData] userSkillSlot];
 }
 
 - (void)update

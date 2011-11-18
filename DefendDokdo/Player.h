@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "cocos2d.h"
 
-@class UserData;
+@class UserData, GameLayer;
 
 @interface Player : NSObject {
 	NSInteger power;
@@ -27,5 +27,6 @@
 
 @property (nonatomic, retain) NSMutableArray *slots;
 
+- (void)init:(GameLayer*)scene;
 - (void)update;
 @end

@@ -14,11 +14,8 @@
 
 @interface GameLayer : CCLayer {
     
-
-//@interface GameLayer : CCLayerColor<CCStandardTouchDelegate> {
-  GameScene *scene;
-  ControlManager *controlManager;
-//>>>>>>> omniavinco
+	GameScene *scene;
+	ControlManager *controlManager;
 }
 
 - (id)initWithScene:(GameScene *)scene_;

@@ -8,12 +8,14 @@
 
 #import <Foundation/Foundation.h>
 #import "cocos2d.h"
+
 #import "EnemyManager.h"
 #import "ControlManager.h"
 #import "SkillManager.h"
 
 
-@class GameLayer, GameUILayer, Flag, SkillLayer, ResultLayer;
+
+@class GameLayer, GameUILayer, Flag, SkillLayer, ResultLayer, Player;
 
 @interface GameScene : CCScene {
 	GameLayer *gameLayer;
@@ -26,7 +28,10 @@
 	
 	CCSprite *arryBg[4];
 	CCSprite *sun;
+	
 	Flag *flag;
+	Player *player;	
+	
 	NSMutableArray *enemies;
 	
 	NSInteger nCount;

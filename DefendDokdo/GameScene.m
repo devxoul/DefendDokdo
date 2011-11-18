@@ -7,12 +7,16 @@
 //
 
 #import "GameScene.h"
+#import "Const.h"
+
 #import "GameLayer.h"
 #import "SkillLayer.h"
 #import "GameUILayer.h"
-#import "Const.h"
-#import "Flag.h"
 #import "ResultLayer.h"
+
+#import "Flag.h"
+#import "Player.h"
+
 
 @interface GameScene(Private)
 - (void)initLayers;
@@ -94,6 +98,9 @@ enum{
 	flag = [Flag alloc];
 	[flag init:self.gameLayer];
 	
+	player = [Player alloc];
+	[player init:self.gameLayer];
+	
 	enemies = [[NSMutableArray alloc] init];
 	
 	label = [CCLabelTTF alloc];
@@ -158,11 +165,11 @@ enum{
 		
 		[sun setPosition:ccp(sunX, sunY)];
 		
-		if (sunX > 480) {
+		if (sunX > 100) {
 			nGameState = GAMESTATE_CLEAR;
 		}
 		
-		//		nCount++;
+		nCount++;
 		
 	}
 	else if (nGameState == GAMESTATE_CLEAR)
@@ -173,6 +180,7 @@ enum{
 		[self schedule:@selector(onLabelEnd:) interval:2.0];
 		
 		nGameState = GAMESTATE_ENDING;
+		
 		//		if ([UserData userData].backSound) 
 		//            [[SimpleAudioEngine sharedEngine] playBackgroundMusic:@"clear.mp3"];
 		
