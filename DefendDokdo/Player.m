@@ -7,8 +7,11 @@
 //
 
 #import "Player.h"
-#import "UserData.h"
 #import "GameLayer.h"
+
+#import "UserData.h"
+#import "SkillData.h"
+#import "Const.h"
 
 
 @implementation Player
@@ -20,10 +23,15 @@
 - (void)init:(GameLayer*)scene
 {
 	NSInteger powerLevel = [[UserData userData] userAtkLevel];
-	NSInteger maxMpLevel = [[UserData userData] userMaxMpLevel];
-	NSInteger mpSpeedLevel = [[UserData userData] userMPspeedLevel];
-	mp = 0;
+	power = [[SkillData skillData] getUpgradeInfo: UPGRADE_TYPE_ATTACK:powerLevel];
 	
+	NSInteger maxMpLevel = [[UserData userData] userMaxMpLevel];
+	maxMp = [[SkillData skillData] getUpgradeInfo:UPGRADE_TYPE_MAXMP :maxMpLevel];
+	
+	NSInteger mpSpeedLevel = [[UserData userData] userMPspeedLevel];
+	mpSpeed = [[SkillData skillData] getUpgradeInfo:UPGRADE_TYPE_REGENMP :mpSpeedLevel];
+
+	mp = 0;
 	slots = [[UserData userData] userSkillSlot];
 }
 

@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "cocos2d.h"
 
-@class UserData, GameLayer;
+@class UserData, GameLayer, SkillData;
 
 @interface Player : NSObject {
 	NSInteger power;

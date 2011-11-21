@@ -18,5 +18,5 @@
 + (SkillData *)skillData;
 - (NSDictionary *)getSkillInfo:(NSInteger)skillType :(NSInteger)skillLevel;
 - (NSInteger)getSkillPrice:(NSInteger)skillType :(NSInteger)skillLevel;
-
+- (NSInteger)getUpgradeInfo:(NSInteger)skillType :(NSInteger)skillLevel;
 @end

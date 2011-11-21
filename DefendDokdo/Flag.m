@@ -9,7 +9,9 @@
 #import "Flag.h"
 #import "Const.h"
 #import "GameLayer.h"
+
 #import "UserData.h"
+#import "SkillData.h"
 
 @implementation Flag
 
@@ -19,6 +21,7 @@
 - (void)init:(GameLayer*)scene
 {
 	level = [[UserData userData] flagLevel];
+	maxHp = [[SkillData skillData] getUpgradeInfo:UPGRADE_TYPE_FLAG :level];
 	hp = maxHp;
 	
 	flagSpr = [[CCSprite alloc]initWithFile:@"flag.png"];

@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "cocos2d.h"
 
-@class GameLayer, UserData;
+@class GameLayer, UserData, SkillData;
 
 @interface Flag : NSObject {
 

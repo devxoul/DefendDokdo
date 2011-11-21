@@ -37,6 +37,27 @@
     return nil;
 }
 
+-(NSInteger)getUpgradeInfo:(NSInteger)skillType :(NSInteger)skillLevel{
+    switch (skillType) {
+        case UPGRADE_TYPE_FLAG:
+            return [[[[upgradeInfo objectForKey:@"flaghp"] objectForKey:[NSString stringWithFormat:@"%d", skillLevel]] objectForKey:@"hp"] integerValue];
+            break;
+        case UPGRADE_TYPE_ATTACK:
+            return [[[[upgradeInfo objectForKey:@"userattack"] objectForKey:[NSString stringWithFormat:@"%d", skillLevel]] objectForKey:@"damage"] integerValue];
+            break;
+        case UPGRADE_TYPE_MAXMP:
+            return [[[[upgradeInfo objectForKey:@"maxmp"] objectForKey:[NSString stringWithFormat:@"%d", skillLevel]] objectForKey:@"mp"] integerValue];
+            break;
+        case UPGRADE_TYPE_REGENMP:
+            return [[[[upgradeInfo objectForKey:@"regenmp"] objectForKey:[NSString stringWithFormat:@"%d", skillLevel]] objectForKey:@"regen"] integerValue];
+            break;
+    }
+    
+    
+    return 0;
+    
+}
+
 -(NSDictionary *)getSkillInfo:(NSInteger)skillType :(NSInteger)skillLevel{
     
     
