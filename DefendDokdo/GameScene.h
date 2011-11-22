@@ -27,6 +27,7 @@
 	SkillManager *skillManager;
 	
 	CCSprite *arryBg[4];
+	CCSprite *sea[3];
 	CCSprite *sun;
 	
 	Flag *flag;

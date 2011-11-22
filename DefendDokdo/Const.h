@@ -43,10 +43,12 @@
 #define Z_SUN				1
 #define Z_PLANE				2
 #define Z_DOKDO				3
-#define Z_SEA				4
-#define Z_FLAG				5
-#define Z_ENEMY				6
-#define Z_Label				7
+#define Z_SEA1				4
+#define Z_SEA2				5
+#define Z_SEA3				6
+#define Z_FLAG				7
+#define Z_ENEMY				8
+#define Z_LABEL				9
 
 //성은 추가, 게임 State
 #define GAMESTATE_START		0

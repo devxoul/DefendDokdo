@@ -220,11 +220,75 @@
 		03D7DA6B1476A40D0044FEEE /* sea.png in Resources */ = {isa = PBXBuildFile; fileRef = 03D7DA0B1476A40D0044FEEE /* sea.png */; };
 		03D7DA6C1476A40D0044FEEE /* arrow.png in Resources */ = {isa = PBXBuildFile; fileRef = 03D7DA0D1476A40D0044FEEE /* arrow.png */; };
 		03D7DA6D1476A40D0044FEEE /* stone_0.png in Resources */ = {isa = PBXBuildFile; fileRef = 03D7DA0E1476A40D0044FEEE /* stone_0.png */; };
-		03D7DA6E1476A40D0044FEEE /* sun.png in Resources */ = {isa = PBXBuildFile; fileRef = 03D7DA0F1476A40D0044FEEE /* sun.png */; };
 		03D7DA6F1476A40D0044FEEE /* gauge.png in Resources */ = {isa = PBXBuildFile; fileRef = 03D7DA111476A40D0044FEEE /* gauge.png */; };
 		03D7DA701476A40D0044FEEE /* gaugebg.png in Resources */ = {isa = PBXBuildFile; fileRef = 03D7DA121476A40D0044FEEE /* gaugebg.png */; };
 		3C6BDF6014724A38000117E1 /* GameKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C6BDF5F14724A38000117E1 /* GameKit.framework */; };
 		BA68257714645B680014DEB6 /* sun.png in Resources */ = {isa = PBXBuildFile; fileRef = BA68257614645B680014DEB6 /* sun.png */; };
+		BAB96CAD147B7EEC00D18062 /* enemy_3_0_catch_0.png in Resources */ = {isa = PBXBuildFile; fileRef = BAB96C6F147B7EE700D18062 /* enemy_3_0_catch_0.png */; };
+		BAB96CAE147B7EEC00D18062 /* enemy_3_0_catch_1.png in Resources */ = {isa = PBXBuildFile; fileRef = BAB96C70147B7EE700D18062 /* enemy_3_0_catch_1.png */; };
+		BAB96CAF147B7EEC00D18062 /* enemy_3_0_catch_2.png in Resources */ = {isa = PBXBuildFile; fileRef = BAB96C71147B7EE700D18062 /* enemy_3_0_catch_2.png */; };
+		BAB96CB0147B7EEC00D18062 /* enemy_3_0_catch_3.png in Resources */ = {isa = PBXBuildFile; fileRef = BAB96C72147B7EE700D18062 /* enemy_3_0_catch_3.png */; };
+		BAB96CB1147B7EEC00D18062 /* enemy_3_0_catch_4.png in Resources */ = {isa = PBXBuildFile; fileRef = BAB96C73147B7EE700D18062 /* enemy_3_0_catch_4.png */; };
+		BAB96CB2147B7EEC00D18062 /* enemy_3_0_catch_5.png in Resources */ = {isa = PBXBuildFile; fileRef = BAB96C74147B7EE700D18062 /* enemy_3_0_catch_5.png */; };
+		BAB96CB3147B7EEC00D18062 /* enemy_3_0_catch_6.png in Resources */ = {isa = PBXBuildFile; fileRef = BAB96C75147B7EE800D18062 /* enemy_3_0_catch_6.png */; };
+		BAB96CB4147B7EEC00D18062 /* enemy_3_0_catch_7.png in Resources */ = {isa = PBXBuildFile; fileRef = BAB96C76147B7EE800D18062 /* enemy_3_0_catch_7.png */; };
+		BAB96CB5147B7EEC00D18062 /* enemy_3_0_catch_8.png in Resources */ = {isa = PBXBuildFile; fileRef = BAB96C77147B7EE800D18062 /* enemy_3_0_catch_8.png */; };
+		BAB96CB6147B7EEC00D18062 /* enemy_3_0_catch_9.png in Resources */ = {isa = PBXBuildFile; fileRef = BAB96C78147B7EE800D18062 /* enemy_3_0_catch_9.png */; };
+		BAB96CB7147B7EEC00D18062 /* enemy_3_0_catch.plist in Resources */ = {isa = PBXBuildFile; fileRef = BAB96C79147B7EE800D18062 /* enemy_3_0_catch.plist */; };
+		BAB96CB8147B7EEC00D18062 /* enemy_3_0_catch.png in Resources */ = {isa = PBXBuildFile; fileRef = BAB96C7A147B7EE800D18062 /* enemy_3_0_catch.png */; };
+		BAB96CB9147B7EEC00D18062 /* enemy_3_0_explosion_00.png in Resources */ = {isa = PBXBuildFile; fileRef = BAB96C7B147B7EE900D18062 /* enemy_3_0_explosion_00.png */; };
+		BAB96CBA147B7EEC00D18062 /* enemy_3_0_explosion_01.png in Resources */ = {isa = PBXBuildFile; fileRef = BAB96C7C147B7EE900D18062 /* enemy_3_0_explosion_01.png */; };
+		BAB96CBB147B7EEC00D18062 /* enemy_3_0_explosion_02.png in Resources */ = {isa = PBXBuildFile; fileRef = BAB96C7D147B7EE900D18062 /* enemy_3_0_explosion_02.png */; };
+		BAB96CBC147B7EEC00D18062 /* enemy_3_0_explosion_03.png in Resources */ = {isa = PBXBuildFile; fileRef = BAB96C7E147B7EE900D18062 /* enemy_3_0_explosion_03.png */; };
+		BAB96CBD147B7EEC00D18062 /* enemy_3_0_explosion_04.png in Resources */ = {isa = PBXBuildFile; fileRef = BAB96C7F147B7EE900D18062 /* enemy_3_0_explosion_04.png */; };
+		BAB96CBE147B7EEC00D18062 /* enemy_3_0_explosion_05.png in Resources */ = {isa = PBXBuildFile; fileRef = BAB96C80147B7EE900D18062 /* enemy_3_0_explosion_05.png */; };
+		BAB96CBF147B7EEC00D18062 /* enemy_3_0_explosion_06.png in Resources */ = {isa = PBXBuildFile; fileRef = BAB96C81147B7EE900D18062 /* enemy_3_0_explosion_06.png */; };
+		BAB96CC0147B7EEC00D18062 /* enemy_3_0_explosion_07.png in Resources */ = {isa = PBXBuildFile; fileRef = BAB96C82147B7EE900D18062 /* enemy_3_0_explosion_07.png */; };
+		BAB96CC1147B7EEC00D18062 /* enemy_3_0_explosion_08.png in Resources */ = {isa = PBXBuildFile; fileRef = BAB96C83147B7EE900D18062 /* enemy_3_0_explosion_08.png */; };
+		BAB96CC2147B7EEC00D18062 /* enemy_3_0_explosion_09.png in Resources */ = {isa = PBXBuildFile; fileRef = BAB96C84147B7EE900D18062 /* enemy_3_0_explosion_09.png */; };
+		BAB96CC3147B7EEC00D18062 /* enemy_3_0_explosion_10.png in Resources */ = {isa = PBXBuildFile; fileRef = BAB96C85147B7EE900D18062 /* enemy_3_0_explosion_10.png */; };
+		BAB96CC4147B7EEC00D18062 /* enemy_3_0_explosion_11.png in Resources */ = {isa = PBXBuildFile; fileRef = BAB96C86147B7EEA00D18062 /* enemy_3_0_explosion_11.png */; };
+		BAB96CC5147B7EEC00D18062 /* enemy_3_0_explosion_12.png in Resources */ = {isa = PBXBuildFile; fileRef = BAB96C87147B7EEA00D18062 /* enemy_3_0_explosion_12.png */; };
+		BAB96CC6147B7EEC00D18062 /* enemy_3_0_explosion_13.png in Resources */ = {isa = PBXBuildFile; fileRef = BAB96C88147B7EEA00D18062 /* enemy_3_0_explosion_13.png */; };
+		BAB96CC7147B7EEC00D18062 /* enemy_3_0_explosion_14.png in Resources */ = {isa = PBXBuildFile; fileRef = BAB96C89147B7EEA00D18062 /* enemy_3_0_explosion_14.png */; };
+		BAB96CC8147B7EEC00D18062 /* enemy_3_0_explosion_15.png in Resources */ = {isa = PBXBuildFile; fileRef = BAB96C8A147B7EEA00D18062 /* enemy_3_0_explosion_15.png */; };
+		BAB96CC9147B7EEC00D18062 /* enemy_3_0_explosion_16.png in Resources */ = {isa = PBXBuildFile; fileRef = BAB96C8B147B7EEA00D18062 /* enemy_3_0_explosion_16.png */; };
+		BAB96CCA147B7EEC00D18062 /* enemy_3_0_explosion_17.png in Resources */ = {isa = PBXBuildFile; fileRef = BAB96C8C147B7EEA00D18062 /* enemy_3_0_explosion_17.png */; };
+		BAB96CCB147B7EEC00D18062 /* enemy_3_0_explosion_18.png in Resources */ = {isa = PBXBuildFile; fileRef = BAB96C8D147B7EEA00D18062 /* enemy_3_0_explosion_18.png */; };
+		BAB96CCC147B7EEC00D18062 /* enemy_3_0_explosion_19.png in Resources */ = {isa = PBXBuildFile; fileRef = BAB96C8E147B7EEA00D18062 /* enemy_3_0_explosion_19.png */; };
+		BAB96CCD147B7EEC00D18062 /* enemy_3_0_explosion_20.png in Resources */ = {isa = PBXBuildFile; fileRef = BAB96C8F147B7EEA00D18062 /* enemy_3_0_explosion_20.png */; };
+		BAB96CCE147B7EEC00D18062 /* enemy_3_0_explosion_21.png in Resources */ = {isa = PBXBuildFile; fileRef = BAB96C90147B7EEA00D18062 /* enemy_3_0_explosion_21.png */; };
+		BAB96CCF147B7EEC00D18062 /* enemy_3_0_explosion_22.png in Resources */ = {isa = PBXBuildFile; fileRef = BAB96C91147B7EEA00D18062 /* enemy_3_0_explosion_22.png */; };
+		BAB96CD0147B7EEC00D18062 /* enemy_3_0_explosion_23.png in Resources */ = {isa = PBXBuildFile; fileRef = BAB96C92147B7EEB00D18062 /* enemy_3_0_explosion_23.png */; };
+		BAB96CD1147B7EEC00D18062 /* enemy_3_0_explosion_24.png in Resources */ = {isa = PBXBuildFile; fileRef = BAB96C93147B7EEB00D18062 /* enemy_3_0_explosion_24.png */; };
+		BAB96CD2147B7EEC00D18062 /* enemy_3_0_explosion_25.png in Resources */ = {isa = PBXBuildFile; fileRef = BAB96C94147B7EEB00D18062 /* enemy_3_0_explosion_25.png */; };
+		BAB96CD3147B7EEC00D18062 /* enemy_3_0_explosion_26.png in Resources */ = {isa = PBXBuildFile; fileRef = BAB96C95147B7EEB00D18062 /* enemy_3_0_explosion_26.png */; };
+		BAB96CD4147B7EEC00D18062 /* enemy_3_0_explosion_27.png in Resources */ = {isa = PBXBuildFile; fileRef = BAB96C96147B7EEB00D18062 /* enemy_3_0_explosion_27.png */; };
+		BAB96CD5147B7EEC00D18062 /* enemy_3_0_explosion_28.png in Resources */ = {isa = PBXBuildFile; fileRef = BAB96C97147B7EEB00D18062 /* enemy_3_0_explosion_28.png */; };
+		BAB96CD6147B7EEC00D18062 /* enemy_3_0_explosion_29.png in Resources */ = {isa = PBXBuildFile; fileRef = BAB96C98147B7EEB00D18062 /* enemy_3_0_explosion_29.png */; };
+		BAB96CD7147B7EEC00D18062 /* enemy_3_0_explosion.plist in Resources */ = {isa = PBXBuildFile; fileRef = BAB96C99147B7EEB00D18062 /* enemy_3_0_explosion.plist */; };
+		BAB96CD8147B7EEC00D18062 /* enemy_3_0_explosion.png in Resources */ = {isa = PBXBuildFile; fileRef = BAB96C9A147B7EEB00D18062 /* enemy_3_0_explosion.png */; };
+		BAB96CD9147B7EEC00D18062 /* enemy_3_0_fall_0.png in Resources */ = {isa = PBXBuildFile; fileRef = BAB96C9B147B7EEB00D18062 /* enemy_3_0_fall_0.png */; };
+		BAB96CDA147B7EEC00D18062 /* enemy_3_0_fall_1.png in Resources */ = {isa = PBXBuildFile; fileRef = BAB96C9C147B7EEB00D18062 /* enemy_3_0_fall_1.png */; };
+		BAB96CDB147B7EEC00D18062 /* enemy_3_0_fall_2.png in Resources */ = {isa = PBXBuildFile; fileRef = BAB96C9D147B7EEB00D18062 /* enemy_3_0_fall_2.png */; };
+		BAB96CDC147B7EEC00D18062 /* enemy_3_0_fall_3.png in Resources */ = {isa = PBXBuildFile; fileRef = BAB96C9E147B7EEB00D18062 /* enemy_3_0_fall_3.png */; };
+		BAB96CDD147B7EEC00D18062 /* enemy_3_0_fall.plist in Resources */ = {isa = PBXBuildFile; fileRef = BAB96C9F147B7EEB00D18062 /* enemy_3_0_fall.plist */; };
+		BAB96CDE147B7EEC00D18062 /* enemy_3_0_fall.png in Resources */ = {isa = PBXBuildFile; fileRef = BAB96CA0147B7EEC00D18062 /* enemy_3_0_fall.png */; };
+		BAB96CDF147B7EEC00D18062 /* enemy_3_0_flight_0.png in Resources */ = {isa = PBXBuildFile; fileRef = BAB96CA1147B7EEC00D18062 /* enemy_3_0_flight_0.png */; };
+		BAB96CE0147B7EEC00D18062 /* enemy_3_0_flight_1.png in Resources */ = {isa = PBXBuildFile; fileRef = BAB96CA2147B7EEC00D18062 /* enemy_3_0_flight_1.png */; };
+		BAB96CE1147B7EEC00D18062 /* enemy_3_0_flight_2.png in Resources */ = {isa = PBXBuildFile; fileRef = BAB96CA3147B7EEC00D18062 /* enemy_3_0_flight_2.png */; };
+		BAB96CE2147B7EEC00D18062 /* enemy_3_0_flight_3.png in Resources */ = {isa = PBXBuildFile; fileRef = BAB96CA4147B7EEC00D18062 /* enemy_3_0_flight_3.png */; };
+		BAB96CE3147B7EEC00D18062 /* enemy_3_0_flight.plist in Resources */ = {isa = PBXBuildFile; fileRef = BAB96CA5147B7EEC00D18062 /* enemy_3_0_flight.plist */; };
+		BAB96CE4147B7EEC00D18062 /* enemy_3_0_flight.png in Resources */ = {isa = PBXBuildFile; fileRef = BAB96CA6147B7EEC00D18062 /* enemy_3_0_flight.png */; };
+		BAB96CE5147B7EEC00D18062 /* enemy_3_0_walk_0.png in Resources */ = {isa = PBXBuildFile; fileRef = BAB96CA7147B7EEC00D18062 /* enemy_3_0_walk_0.png */; };
+		BAB96CE6147B7EEC00D18062 /* enemy_3_0_walk_1.png in Resources */ = {isa = PBXBuildFile; fileRef = BAB96CA8147B7EEC00D18062 /* enemy_3_0_walk_1.png */; };
+		BAB96CE7147B7EEC00D18062 /* enemy_3_0_walk_2.png in Resources */ = {isa = PBXBuildFile; fileRef = BAB96CA9147B7EEC00D18062 /* enemy_3_0_walk_2.png */; };
+		BAB96CE8147B7EEC00D18062 /* enemy_3_0_walk_3.png in Resources */ = {isa = PBXBuildFile; fileRef = BAB96CAA147B7EEC00D18062 /* enemy_3_0_walk_3.png */; };
+		BAB96CE9147B7EEC00D18062 /* enemy_3_0_walk.plist in Resources */ = {isa = PBXBuildFile; fileRef = BAB96CAB147B7EEC00D18062 /* enemy_3_0_walk.plist */; };
+		BAB96CEA147B7EEC00D18062 /* enemy_3_0_walk.png in Resources */ = {isa = PBXBuildFile; fileRef = BAB96CAC147B7EEC00D18062 /* enemy_3_0_walk.png */; };
+		BAB96CEE147B841200D18062 /* pado01.png in Resources */ = {isa = PBXBuildFile; fileRef = BAB96CEB147B840F00D18062 /* pado01.png */; };
+		BAB96CEF147B841200D18062 /* pado02.png in Resources */ = {isa = PBXBuildFile; fileRef = BAB96CEC147B841000D18062 /* pado02.png */; };
+		BAB96CF0147B841200D18062 /* pado03.png in Resources */ = {isa = PBXBuildFile; fileRef = BAB96CED147B841100D18062 /* pado03.png */; };
 		CF3F668614697C51003F4E51 /* Arrow.m in Sources */ = {isa = PBXBuildFile; fileRef = CF3F668514697C51003F4E51 /* Arrow.m */; };
 		CF3F668A146AAB8F003F4E51 /* ArrowObject.m in Sources */ = {isa = PBXBuildFile; fileRef = CF3F6689146AAB8F003F4E51 /* ArrowObject.m */; };
 		CF73B4D71466C0D800CE8D2E /* Stone.m in Sources */ = {isa = PBXBuildFile; fileRef = CF73B4D61466C0D800CE8D2E /* Stone.m */; };
@@ -583,11 +647,75 @@
 		03D7DA0B1476A40D0044FEEE /* sea.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = sea.png; path = Resources/sea.png; sourceTree = "<group>"; };
 		03D7DA0D1476A40D0044FEEE /* arrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = arrow.png; sourceTree = "<group>"; };
 		03D7DA0E1476A40D0044FEEE /* stone_0.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = stone_0.png; sourceTree = "<group>"; };
-		03D7DA0F1476A40D0044FEEE /* sun.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = sun.png; path = Resources/sun.png; sourceTree = "<group>"; };
 		03D7DA111476A40D0044FEEE /* gauge.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gauge.png; sourceTree = "<group>"; };
 		03D7DA121476A40D0044FEEE /* gaugebg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gaugebg.png; sourceTree = "<group>"; };
 		3C6BDF5F14724A38000117E1 /* GameKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameKit.framework; path = System/Library/Frameworks/GameKit.framework; sourceTree = SDKROOT; };
 		BA68257614645B680014DEB6 /* sun.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = sun.png; path = Resources/sun.png; sourceTree = "<group>"; };
+		BAB96C6F147B7EE700D18062 /* enemy_3_0_catch_0.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = enemy_3_0_catch_0.png; sourceTree = "<group>"; };
+		BAB96C70147B7EE700D18062 /* enemy_3_0_catch_1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = enemy_3_0_catch_1.png; sourceTree = "<group>"; };
+		BAB96C71147B7EE700D18062 /* enemy_3_0_catch_2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = enemy_3_0_catch_2.png; sourceTree = "<group>"; };
+		BAB96C72147B7EE700D18062 /* enemy_3_0_catch_3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = enemy_3_0_catch_3.png; sourceTree = "<group>"; };
+		BAB96C73147B7EE700D18062 /* enemy_3_0_catch_4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = enemy_3_0_catch_4.png; sourceTree = "<group>"; };
+		BAB96C74147B7EE700D18062 /* enemy_3_0_catch_5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = enemy_3_0_catch_5.png; sourceTree = "<group>"; };
+		BAB96C75147B7EE800D18062 /* enemy_3_0_catch_6.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = enemy_3_0_catch_6.png; sourceTree = "<group>"; };
+		BAB96C76147B7EE800D18062 /* enemy_3_0_catch_7.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = enemy_3_0_catch_7.png; sourceTree = "<group>"; };
+		BAB96C77147B7EE800D18062 /* enemy_3_0_catch_8.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = enemy_3_0_catch_8.png; sourceTree = "<group>"; };
+		BAB96C78147B7EE800D18062 /* enemy_3_0_catch_9.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = enemy_3_0_catch_9.png; sourceTree = "<group>"; };
+		BAB96C79147B7EE800D18062 /* enemy_3_0_catch.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = enemy_3_0_catch.plist; sourceTree = "<group>"; };
+		BAB96C7A147B7EE800D18062 /* enemy_3_0_catch.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = enemy_3_0_catch.png; sourceTree = "<group>"; };
+		BAB96C7B147B7EE900D18062 /* enemy_3_0_explosion_00.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = enemy_3_0_explosion_00.png; sourceTree = "<group>"; };
+		BAB96C7C147B7EE900D18062 /* enemy_3_0_explosion_01.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = enemy_3_0_explosion_01.png; sourceTree = "<group>"; };
+		BAB96C7D147B7EE900D18062 /* enemy_3_0_explosion_02.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = enemy_3_0_explosion_02.png; sourceTree = "<group>"; };
+		BAB96C7E147B7EE900D18062 /* enemy_3_0_explosion_03.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = enemy_3_0_explosion_03.png; sourceTree = "<group>"; };
+		BAB96C7F147B7EE900D18062 /* enemy_3_0_explosion_04.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = enemy_3_0_explosion_04.png; sourceTree = "<group>"; };
+		BAB96C80147B7EE900D18062 /* enemy_3_0_explosion_05.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = enemy_3_0_explosion_05.png; sourceTree = "<group>"; };
+		BAB96C81147B7EE900D18062 /* enemy_3_0_explosion_06.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = enemy_3_0_explosion_06.png; sourceTree = "<group>"; };
+		BAB96C82147B7EE900D18062 /* enemy_3_0_explosion_07.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = enemy_3_0_explosion_07.png; sourceTree = "<group>"; };
+		BAB96C83147B7EE900D18062 /* enemy_3_0_explosion_08.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = enemy_3_0_explosion_08.png; sourceTree = "<group>"; };
+		BAB96C84147B7EE900D18062 /* enemy_3_0_explosion_09.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = enemy_3_0_explosion_09.png; sourceTree = "<group>"; };
+		BAB96C85147B7EE900D18062 /* enemy_3_0_explosion_10.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = enemy_3_0_explosion_10.png; sourceTree = "<group>"; };
+		BAB96C86147B7EEA00D18062 /* enemy_3_0_explosion_11.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = enemy_3_0_explosion_11.png; sourceTree = "<group>"; };
+		BAB96C87147B7EEA00D18062 /* enemy_3_0_explosion_12.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = enemy_3_0_explosion_12.png; sourceTree = "<group>"; };
+		BAB96C88147B7EEA00D18062 /* enemy_3_0_explosion_13.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = enemy_3_0_explosion_13.png; sourceTree = "<group>"; };
+		BAB96C89147B7EEA00D18062 /* enemy_3_0_explosion_14.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = enemy_3_0_explosion_14.png; sourceTree = "<group>"; };
+		BAB96C8A147B7EEA00D18062 /* enemy_3_0_explosion_15.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = enemy_3_0_explosion_15.png; sourceTree = "<group>"; };
+		BAB96C8B147B7EEA00D18062 /* enemy_3_0_explosion_16.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = enemy_3_0_explosion_16.png; sourceTree = "<group>"; };
+		BAB96C8C147B7EEA00D18062 /* enemy_3_0_explosion_17.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = enemy_3_0_explosion_17.png; sourceTree = "<group>"; };
+		BAB96C8D147B7EEA00D18062 /* enemy_3_0_explosion_18.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = enemy_3_0_explosion_18.png; sourceTree = "<group>"; };
+		BAB96C8E147B7EEA00D18062 /* enemy_3_0_explosion_19.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = enemy_3_0_explosion_19.png; sourceTree = "<group>"; };
+		BAB96C8F147B7EEA00D18062 /* enemy_3_0_explosion_20.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = enemy_3_0_explosion_20.png; sourceTree = "<group>"; };
+		BAB96C90147B7EEA00D18062 /* enemy_3_0_explosion_21.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = enemy_3_0_explosion_21.png; sourceTree = "<group>"; };
+		BAB96C91147B7EEA00D18062 /* enemy_3_0_explosion_22.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = enemy_3_0_explosion_22.png; sourceTree = "<group>"; };
+		BAB96C92147B7EEB00D18062 /* enemy_3_0_explosion_23.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = enemy_3_0_explosion_23.png; sourceTree = "<group>"; };
+		BAB96C93147B7EEB00D18062 /* enemy_3_0_explosion_24.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = enemy_3_0_explosion_24.png; sourceTree = "<group>"; };
+		BAB96C94147B7EEB00D18062 /* enemy_3_0_explosion_25.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = enemy_3_0_explosion_25.png; sourceTree = "<group>"; };
+		BAB96C95147B7EEB00D18062 /* enemy_3_0_explosion_26.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = enemy_3_0_explosion_26.png; sourceTree = "<group>"; };
+		BAB96C96147B7EEB00D18062 /* enemy_3_0_explosion_27.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = enemy_3_0_explosion_27.png; sourceTree = "<group>"; };
+		BAB96C97147B7EEB00D18062 /* enemy_3_0_explosion_28.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = enemy_3_0_explosion_28.png; sourceTree = "<group>"; };
+		BAB96C98147B7EEB00D18062 /* enemy_3_0_explosion_29.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = enemy_3_0_explosion_29.png; sourceTree = "<group>"; };
+		BAB96C99147B7EEB00D18062 /* enemy_3_0_explosion.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = enemy_3_0_explosion.plist; sourceTree = "<group>"; };
+		BAB96C9A147B7EEB00D18062 /* enemy_3_0_explosion.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = enemy_3_0_explosion.png; sourceTree = "<group>"; };
+		BAB96C9B147B7EEB00D18062 /* enemy_3_0_fall_0.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = enemy_3_0_fall_0.png; sourceTree = "<group>"; };
+		BAB96C9C147B7EEB00D18062 /* enemy_3_0_fall_1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = enemy_3_0_fall_1.png; sourceTree = "<group>"; };
+		BAB96C9D147B7EEB00D18062 /* enemy_3_0_fall_2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = enemy_3_0_fall_2.png; sourceTree = "<group>"; };
+		BAB96C9E147B7EEB00D18062 /* enemy_3_0_fall_3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = enemy_3_0_fall_3.png; sourceTree = "<group>"; };
+		BAB96C9F147B7EEB00D18062 /* enemy_3_0_fall.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = enemy_3_0_fall.plist; sourceTree = "<group>"; };
+		BAB96CA0147B7EEC00D18062 /* enemy_3_0_fall.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = enemy_3_0_fall.png; sourceTree = "<group>"; };
+		BAB96CA1147B7EEC00D18062 /* enemy_3_0_flight_0.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = enemy_3_0_flight_0.png; sourceTree = "<group>"; };
+		BAB96CA2147B7EEC00D18062 /* enemy_3_0_flight_1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = enemy_3_0_flight_1.png; sourceTree = "<group>"; };
+		BAB96CA3147B7EEC00D18062 /* enemy_3_0_flight_2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = enemy_3_0_flight_2.png; sourceTree = "<group>"; };
+		BAB96CA4147B7EEC00D18062 /* enemy_3_0_flight_3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = enemy_3_0_flight_3.png; sourceTree = "<group>"; };
+		BAB96CA5147B7EEC00D18062 /* enemy_3_0_flight.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = enemy_3_0_flight.plist; sourceTree = "<group>"; };
+		BAB96CA6147B7EEC00D18062 /* enemy_3_0_flight.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = enemy_3_0_flight.png; sourceTree = "<group>"; };
+		BAB96CA7147B7EEC00D18062 /* enemy_3_0_walk_0.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = enemy_3_0_walk_0.png; sourceTree = "<group>"; };
+		BAB96CA8147B7EEC00D18062 /* enemy_3_0_walk_1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = enemy_3_0_walk_1.png; sourceTree = "<group>"; };
+		BAB96CA9147B7EEC00D18062 /* enemy_3_0_walk_2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = enemy_3_0_walk_2.png; sourceTree = "<group>"; };
+		BAB96CAA147B7EEC00D18062 /* enemy_3_0_walk_3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = enemy_3_0_walk_3.png; sourceTree = "<group>"; };
+		BAB96CAB147B7EEC00D18062 /* enemy_3_0_walk.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = enemy_3_0_walk.plist; sourceTree = "<group>"; };
+		BAB96CAC147B7EEC00D18062 /* enemy_3_0_walk.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = enemy_3_0_walk.png; sourceTree = "<group>"; };
+		BAB96CEB147B840F00D18062 /* pado01.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = pado01.png; path = Resources/pado01.png; sourceTree = "<group>"; };
+		BAB96CEC147B841000D18062 /* pado02.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = pado02.png; path = Resources/pado02.png; sourceTree = "<group>"; };
+		BAB96CED147B841100D18062 /* pado03.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = pado03.png; path = Resources/pado03.png; sourceTree = "<group>"; };
 		CF3F668414697C51003F4E51 /* Arrow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Arrow.h; sourceTree = "<group>"; };
 		CF3F668514697C51003F4E51 /* Arrow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Arrow.m; sourceTree = "<group>"; };
 		CF3F6688146AAB8E003F4E51 /* ArrowObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ArrowObject.h; sourceTree = "<group>"; };
@@ -673,6 +801,9 @@
 		03398946146001FD002AAAA3 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				BAB96CEB147B840F00D18062 /* pado01.png */,
+				BAB96CEC147B841000D18062 /* pado02.png */,
+				BAB96CED147B841100D18062 /* pado03.png */,
 				03D7D9AE1476A40D0044FEEE /* Default.png */,
 				03D7D9AF1476A40D0044FEEE /* dokdo.png */,
 				03D7D9B01476A40D0044FEEE /* enemies */,
@@ -691,7 +822,6 @@
 				03D7DA071476A40D0044FEEE /* plist */,
 				03D7DA0B1476A40D0044FEEE /* sea.png */,
 				03D7DA0C1476A40D0044FEEE /* skills */,
-				03D7DA0F1476A40D0044FEEE /* sun.png */,
 				03D7DA101476A40D0044FEEE /* ui */,
 				BA68257614645B680014DEB6 /* sun.png */,
 			);
@@ -1150,6 +1280,68 @@
 				03D7D9F21476A40D0044FEEE /* enemy_0_0_walk_1.png */,
 				03D7D9F31476A40D0044FEEE /* enemy_0_0_walk_2.png */,
 				03D7D9F41476A40D0044FEEE /* enemy_0_0_walk_3.png */,
+				BAB96C6F147B7EE700D18062 /* enemy_3_0_catch_0.png */,
+				BAB96C70147B7EE700D18062 /* enemy_3_0_catch_1.png */,
+				BAB96C71147B7EE700D18062 /* enemy_3_0_catch_2.png */,
+				BAB96C72147B7EE700D18062 /* enemy_3_0_catch_3.png */,
+				BAB96C73147B7EE700D18062 /* enemy_3_0_catch_4.png */,
+				BAB96C74147B7EE700D18062 /* enemy_3_0_catch_5.png */,
+				BAB96C75147B7EE800D18062 /* enemy_3_0_catch_6.png */,
+				BAB96C76147B7EE800D18062 /* enemy_3_0_catch_7.png */,
+				BAB96C77147B7EE800D18062 /* enemy_3_0_catch_8.png */,
+				BAB96C78147B7EE800D18062 /* enemy_3_0_catch_9.png */,
+				BAB96C79147B7EE800D18062 /* enemy_3_0_catch.plist */,
+				BAB96C7A147B7EE800D18062 /* enemy_3_0_catch.png */,
+				BAB96C7B147B7EE900D18062 /* enemy_3_0_explosion_00.png */,
+				BAB96C7C147B7EE900D18062 /* enemy_3_0_explosion_01.png */,
+				BAB96C7D147B7EE900D18062 /* enemy_3_0_explosion_02.png */,
+				BAB96C7E147B7EE900D18062 /* enemy_3_0_explosion_03.png */,
+				BAB96C7F147B7EE900D18062 /* enemy_3_0_explosion_04.png */,
+				BAB96C80147B7EE900D18062 /* enemy_3_0_explosion_05.png */,
+				BAB96C81147B7EE900D18062 /* enemy_3_0_explosion_06.png */,
+				BAB96C82147B7EE900D18062 /* enemy_3_0_explosion_07.png */,
+				BAB96C83147B7EE900D18062 /* enemy_3_0_explosion_08.png */,
+				BAB96C84147B7EE900D18062 /* enemy_3_0_explosion_09.png */,
+				BAB96C85147B7EE900D18062 /* enemy_3_0_explosion_10.png */,
+				BAB96C86147B7EEA00D18062 /* enemy_3_0_explosion_11.png */,
+				BAB96C87147B7EEA00D18062 /* enemy_3_0_explosion_12.png */,
+				BAB96C88147B7EEA00D18062 /* enemy_3_0_explosion_13.png */,
+				BAB96C89147B7EEA00D18062 /* enemy_3_0_explosion_14.png */,
+				BAB96C8A147B7EEA00D18062 /* enemy_3_0_explosion_15.png */,
+				BAB96C8B147B7EEA00D18062 /* enemy_3_0_explosion_16.png */,
+				BAB96C8C147B7EEA00D18062 /* enemy_3_0_explosion_17.png */,
+				BAB96C8D147B7EEA00D18062 /* enemy_3_0_explosion_18.png */,
+				BAB96C8E147B7EEA00D18062 /* enemy_3_0_explosion_19.png */,
+				BAB96C8F147B7EEA00D18062 /* enemy_3_0_explosion_20.png */,
+				BAB96C90147B7EEA00D18062 /* enemy_3_0_explosion_21.png */,
+				BAB96C91147B7EEA00D18062 /* enemy_3_0_explosion_22.png */,
+				BAB96C92147B7EEB00D18062 /* enemy_3_0_explosion_23.png */,
+				BAB96C93147B7EEB00D18062 /* enemy_3_0_explosion_24.png */,
+				BAB96C94147B7EEB00D18062 /* enemy_3_0_explosion_25.png */,
+				BAB96C95147B7EEB00D18062 /* enemy_3_0_explosion_26.png */,
+				BAB96C96147B7EEB00D18062 /* enemy_3_0_explosion_27.png */,
+				BAB96C97147B7EEB00D18062 /* enemy_3_0_explosion_28.png */,
+				BAB96C98147B7EEB00D18062 /* enemy_3_0_explosion_29.png */,
+				BAB96C99147B7EEB00D18062 /* enemy_3_0_explosion.plist */,
+				BAB96C9A147B7EEB00D18062 /* enemy_3_0_explosion.png */,
+				BAB96C9B147B7EEB00D18062 /* enemy_3_0_fall_0.png */,
+				BAB96C9C147B7EEB00D18062 /* enemy_3_0_fall_1.png */,
+				BAB96C9D147B7EEB00D18062 /* enemy_3_0_fall_2.png */,
+				BAB96C9E147B7EEB00D18062 /* enemy_3_0_fall_3.png */,
+				BAB96C9F147B7EEB00D18062 /* enemy_3_0_fall.plist */,
+				BAB96CA0147B7EEC00D18062 /* enemy_3_0_fall.png */,
+				BAB96CA1147B7EEC00D18062 /* enemy_3_0_flight_0.png */,
+				BAB96CA2147B7EEC00D18062 /* enemy_3_0_flight_1.png */,
+				BAB96CA3147B7EEC00D18062 /* enemy_3_0_flight_2.png */,
+				BAB96CA4147B7EEC00D18062 /* enemy_3_0_flight_3.png */,
+				BAB96CA5147B7EEC00D18062 /* enemy_3_0_flight.plist */,
+				BAB96CA6147B7EEC00D18062 /* enemy_3_0_flight.png */,
+				BAB96CA7147B7EEC00D18062 /* enemy_3_0_walk_0.png */,
+				BAB96CA8147B7EEC00D18062 /* enemy_3_0_walk_1.png */,
+				BAB96CA9147B7EEC00D18062 /* enemy_3_0_walk_2.png */,
+				BAB96CAA147B7EEC00D18062 /* enemy_3_0_walk_3.png */,
+				BAB96CAB147B7EEC00D18062 /* enemy_3_0_walk.plist */,
+				BAB96CAC147B7EEC00D18062 /* enemy_3_0_walk.png */,
 			);
 			name = enemies;
 			path = Resources/enemies;
@@ -1375,10 +1567,74 @@
 				03D7DA6B1476A40D0044FEEE /* sea.png in Resources */,
 				03D7DA6C1476A40D0044FEEE /* arrow.png in Resources */,
 				03D7DA6D1476A40D0044FEEE /* stone_0.png in Resources */,
-				03D7DA6E1476A40D0044FEEE /* sun.png in Resources */,
 				03D7DA6F1476A40D0044FEEE /* gauge.png in Resources */,
 				03D7DA701476A40D0044FEEE /* gaugebg.png in Resources */,
 				BA68257714645B680014DEB6 /* sun.png in Resources */,
+				BAB96CAD147B7EEC00D18062 /* enemy_3_0_catch_0.png in Resources */,
+				BAB96CAE147B7EEC00D18062 /* enemy_3_0_catch_1.png in Resources */,
+				BAB96CAF147B7EEC00D18062 /* enemy_3_0_catch_2.png in Resources */,
+				BAB96CB0147B7EEC00D18062 /* enemy_3_0_catch_3.png in Resources */,
+				BAB96CB1147B7EEC00D18062 /* enemy_3_0_catch_4.png in Resources */,
+				BAB96CB2147B7EEC00D18062 /* enemy_3_0_catch_5.png in Resources */,
+				BAB96CB3147B7EEC00D18062 /* enemy_3_0_catch_6.png in Resources */,
+				BAB96CB4147B7EEC00D18062 /* enemy_3_0_catch_7.png in Resources */,
+				BAB96CB5147B7EEC00D18062 /* enemy_3_0_catch_8.png in Resources */,
+				BAB96CB6147B7EEC00D18062 /* enemy_3_0_catch_9.png in Resources */,
+				BAB96CB7147B7EEC00D18062 /* enemy_3_0_catch.plist in Resources */,
+				BAB96CB8147B7EEC00D18062 /* enemy_3_0_catch.png in Resources */,
+				BAB96CB9147B7EEC00D18062 /* enemy_3_0_explosion_00.png in Resources */,
+				BAB96CBA147B7EEC00D18062 /* enemy_3_0_explosion_01.png in Resources */,
+				BAB96CBB147B7EEC00D18062 /* enemy_3_0_explosion_02.png in Resources */,
+				BAB96CBC147B7EEC00D18062 /* enemy_3_0_explosion_03.png in Resources */,
+				BAB96CBD147B7EEC00D18062 /* enemy_3_0_explosion_04.png in Resources */,
+				BAB96CBE147B7EEC00D18062 /* enemy_3_0_explosion_05.png in Resources */,
+				BAB96CBF147B7EEC00D18062 /* enemy_3_0_explosion_06.png in Resources */,
+				BAB96CC0147B7EEC00D18062 /* enemy_3_0_explosion_07.png in Resources */,
+				BAB96CC1147B7EEC00D18062 /* enemy_3_0_explosion_08.png in Resources */,
+				BAB96CC2147B7EEC00D18062 /* enemy_3_0_explosion_09.png in Resources */,
+				BAB96CC3147B7EEC00D18062 /* enemy_3_0_explosion_10.png in Resources */,
+				BAB96CC4147B7EEC00D18062 /* enemy_3_0_explosion_11.png in Resources */,
+				BAB96CC5147B7EEC00D18062 /* enemy_3_0_explosion_12.png in Resources */,
+				BAB96CC6147B7EEC00D18062 /* enemy_3_0_explosion_13.png in Resources */,
+				BAB96CC7147B7EEC00D18062 /* enemy_3_0_explosion_14.png in Resources */,
+				BAB96CC8147B7EEC00D18062 /* enemy_3_0_explosion_15.png in Resources */,
+				BAB96CC9147B7EEC00D18062 /* enemy_3_0_explosion_16.png in Resources */,
+				BAB96CCA147B7EEC00D18062 /* enemy_3_0_explosion_17.png in Resources */,
+				BAB96CCB147B7EEC00D18062 /* enemy_3_0_explosion_18.png in Resources */,
+				BAB96CCC147B7EEC00D18062 /* enemy_3_0_explosion_19.png in Resources */,
+				BAB96CCD147B7EEC00D18062 /* enemy_3_0_explosion_20.png in Resources */,
+				BAB96CCE147B7EEC00D18062 /* enemy_3_0_explosion_21.png in Resources */,
+				BAB96CCF147B7EEC00D18062 /* enemy_3_0_explosion_22.png in Resources */,
+				BAB96CD0147B7EEC00D18062 /* enemy_3_0_explosion_23.png in Resources */,
+				BAB96CD1147B7EEC00D18062 /* enemy_3_0_explosion_24.png in Resources */,
+				BAB96CD2147B7EEC00D18062 /* enemy_3_0_explosion_25.png in Resources */,
+				BAB96CD3147B7EEC00D18062 /* enemy_3_0_explosion_26.png in Resources */,
+				BAB96CD4147B7EEC00D18062 /* enemy_3_0_explosion_27.png in Resources */,
+				BAB96CD5147B7EEC00D18062 /* enemy_3_0_explosion_28.png in Resources */,
+				BAB96CD6147B7EEC00D18062 /* enemy_3_0_explosion_29.png in Resources */,
+				BAB96CD7147B7EEC00D18062 /* enemy_3_0_explosion.plist in Resources */,
+				BAB96CD8147B7EEC00D18062 /* enemy_3_0_explosion.png in Resources */,
+				BAB96CD9147B7EEC00D18062 /* enemy_3_0_fall_0.png in Resources */,
+				BAB96CDA147B7EEC00D18062 /* enemy_3_0_fall_1.png in Resources */,
+				BAB96CDB147B7EEC00D18062 /* enemy_3_0_fall_2.png in Resources */,
+				BAB96CDC147B7EEC00D18062 /* enemy_3_0_fall_3.png in Resources */,
+				BAB96CDD147B7EEC00D18062 /* enemy_3_0_fall.plist in Resources */,
+				BAB96CDE147B7EEC00D18062 /* enemy_3_0_fall.png in Resources */,
+				BAB96CDF147B7EEC00D18062 /* enemy_3_0_flight_0.png in Resources */,
+				BAB96CE0147B7EEC00D18062 /* enemy_3_0_flight_1.png in Resources */,
+				BAB96CE1147B7EEC00D18062 /* enemy_3_0_flight_2.png in Resources */,
+				BAB96CE2147B7EEC00D18062 /* enemy_3_0_flight_3.png in Resources */,
+				BAB96CE3147B7EEC00D18062 /* enemy_3_0_flight.plist in Resources */,
+				BAB96CE4147B7EEC00D18062 /* enemy_3_0_flight.png in Resources */,
+				BAB96CE5147B7EEC00D18062 /* enemy_3_0_walk_0.png in Resources */,
+				BAB96CE6147B7EEC00D18062 /* enemy_3_0_walk_1.png in Resources */,
+				BAB96CE7147B7EEC00D18062 /* enemy_3_0_walk_2.png in Resources */,
+				BAB96CE8147B7EEC00D18062 /* enemy_3_0_walk_3.png in Resources */,
+				BAB96CE9147B7EEC00D18062 /* enemy_3_0_walk.plist in Resources */,
+				BAB96CEA147B7EEC00D18062 /* enemy_3_0_walk.png in Resources */,
+				BAB96CEE147B841200D18062 /* pado01.png in Resources */,
+				BAB96CEF147B841200D18062 /* pado02.png in Resources */,
+				BAB96CF0147B841200D18062 /* pado03.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

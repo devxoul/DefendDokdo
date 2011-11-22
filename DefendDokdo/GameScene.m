@@ -88,12 +88,15 @@ enum{
 	[self.gameLayer addChild:sun z:Z_SUN];
 	
 	CCSprite *dokdo = [[CCSprite alloc] initWithFile:@"dokdo.png"];
-	dokdo.position = ccp( 222, 116 );
+	[dokdo setAnchorPoint:ccp(0.5f, 0.5f)];
+	[dokdo setPosition:ccp(248, 125)];
 	[self.gameLayer addChild:dokdo z:Z_DOKDO];
 	
-	CCSprite *sea = [[CCSprite alloc] initWithFile:@"sea.png"];
-	sea.anchorPoint = CGPointZero;
-	[self.gameLayer addChild:sea z:Z_SEA];
+	for (int i = 0; i < 3; i++) {
+		sea[i] = [[CCSprite alloc] initWithFile:[NSString stringWithFormat:@"pado0%d.png", i+1]];
+		sea[i].anchorPoint = CGPointZero;
+		[self.gameLayer addChild:sea[i] z:Z_SEA3 - i];
+	}
 	
 	flag = [Flag alloc];
 	[flag init:self.gameLayer];
@@ -107,7 +110,7 @@ enum{
 	label.color = ccBLACK;	
 	label.visible = NO;
 	
-	[self addChild:label z:Z_Label];
+	[self addChild:label z:Z_LABEL];
 }
 
 - (void)initManagers
@@ -129,21 +132,23 @@ enum{
 		[gameUILayer update];
 		[skillManager update];
 		
-		//		if (nCount % 250 == 0) {
-		//			
-		//			[arryBg[nBgState] setVisible:NO];
-		//			nBgState++;
-		//			
-		//			if (nBgState == 4) {
-		//				//gameover
-		//				nBgState = 0;
-		//				nCount = 0;
-		//				[arryBg[nBgState] setVisible:YES];
-		//			}
-		//			else {
-		//				[arryBg[nBgState] setVisible:YES];
-		//			}		
-		//		}
+		if (nCount % 250 == 0 && nCount > 0) {
+					
+			[arryBg[nBgState] setVisible:NO];
+			nBgState++;
+					
+			if (nBgState == 4) 
+			{
+			//gameover
+				nBgState = 0;
+				nCount = 0;
+				[arryBg[nBgState] setVisible:YES];
+			}
+			else 
+			{
+				[arryBg[nBgState] setVisible:YES];
+			}		
+		}
 		//		
 		//		CGFloat sunX = sun.position.x + 0.1; // 2분 42초 
 		//		CGFloat sunX = sun.position.x + 0.15; // 1분 23초
@@ -152,20 +157,13 @@ enum{
 		//		CGFloat sunX = sun.position.x + 0.115; // 1분 34초
 		//		CGFloat sunX = sun.position.x + 0.112; // 2분 18초
 		CGFloat sunX = sun.position.x + 0.113; // 1분 56초
-		
-		
 		CGFloat sunY = ((-1.0/280.0) * (sunX*sunX)) + (((12.0/7.0)*sunX) + (520.0/7.0));
-		
-//		if (sunX > 480) {
-//			int i = 0;
-//			i++;
-//		}
-		
+				
 		[sun setPosition:ccp(sunX, sunY)];
 		
-//		if (sunX > 5) {
-//			nGameState = GAMESTATE_CLEAR;
-//		}
+		if (sunX > 480) {
+			nGameState = GAMESTATE_CLEAR;
+		}
 		
 		nCount++;
 		
