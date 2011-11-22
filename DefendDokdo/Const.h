@@ -15,6 +15,7 @@
 #define BUOYANCY			0.2
 
 #define SEA_Y				30
+#define PLANE_Y				250
 #define DOKDO_LEFT_X		110
 #define DOKDO_RIGHT_X		360
 #define FLAG_LEFT_X			225
@@ -22,22 +23,30 @@
 #define FLAG_X				240
 #define TOP_Y				205
 
-#define ENEMY_STATE_BOAT	0
-#define ENEMY_STATE_SWIM	1
-#define ENEMY_STATE_WALK	2
-#define ENEMY_STATE_ATTACK	3
-#define ENEMY_STATE_CATCH	4
-#define ENEMY_STATE_FALL	5
-#define ENEMY_STATE_HIT		6
-#define ENEMY_STATE_DIE     7
+#define ENEMY_TYPE_NORMAL		0
+#define ENEMY_TYPE_SAMURAI		1
+#define ENEMY_TYPE_NINJA		2
+#define ENEMY_TYPE_KAMIKAZE		3
+
+#define ENEMY_STATE_BOAT		0
+#define ENEMY_STATE_FLIGHT		1
+#define ENEMY_STATE_SWIM		2
+#define ENEMY_STATE_WALK		3
+#define ENEMY_STATE_ATTACK		4
+#define ENEMY_STATE_CATCH		5
+#define ENEMY_STATE_FALL		6
+#define ENEMY_STATE_HIT			7
+#define ENEMY_STATE_DIE			8
+#define ENEMY_STATE_EXPLOSION	9
 
 #define Z_BACKGROUND		0
 #define Z_SUN				1
-#define Z_DOKDO				2
-#define Z_SEA				3
-#define Z_FLAG				4
-#define Z_ENEMY				5
-#define Z_Label				6
+#define Z_PLANE				2
+#define Z_DOKDO				3
+#define Z_SEA				4
+#define Z_FLAG				5
+#define Z_ENEMY				6
+#define Z_Label				7
 
 //성은 추가, 게임 State
 #define GAMESTATE_START		0

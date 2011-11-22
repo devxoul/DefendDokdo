@@ -13,6 +13,7 @@
 
 @interface Enemy(Private)
 - (void)initBoatAnimation;
+- (void)initFlightAnimation;
 - (void)initSwimAnimation;
 - (void)initWalkAnimation;
 - (void)initAttackAnimation;
@@ -20,8 +21,10 @@
 - (void)initFallAnimation;
 - (void)initHitAnimation;
 - (void)initDieAnimation;
+- (void)initExplosionAnimation;
 
 - (void)startBoating;
+- (void)startFlight;
 - (void)startSwimming;
 - (void)startWalking;
 - (void)startAttack;
@@ -29,8 +32,10 @@
 - (void)startFalling;
 - (void)startBeingHit;
 - (void)startDying;
+- (void)startExplosion;
 
 - (void)stopBoating;
+- (void)stopFlight;
 - (void)stopSwimming;
 - (void)stopWalking;
 - (void)stopAttack;
@@ -40,10 +45,14 @@
 - (void)stopBeingHit:(id)sender;
 - (void)stopDying;
 - (void)stopDying:(id)sender;
+- (void)stopExplosion;
+- (void)stopExplosion:(id)sender;
 
 - (void)stopCurrentAction;
 
 - (float)getGroundY;
+- (BOOL)getPlaneExists;
+- (void)setPlaneExists;
 @end
 
 
@@ -61,34 +70,59 @@
 	{
 		gameScene = scene;
 		
+		type = _type;
+		level = _level;
+		
 		gapX = (NSInteger)( arc4random() % 20 ) - 10;
 		gapY = -1 * (NSInteger)( arc4random() % 20 );
 		
-		type = _type;
-		level = _level;
 		self.hp = self.maxHp = _hp;
 		self.power = _power;
 		self.speed = _speed;
-		self.x = arc4random() % 2 ? -50 : 530;
+		
+		// 처음 방향 - 비행기 계속 날아갈 때 필요
+		if( arc4random() % 2 )
+		{
+			self.x = -50;
+			firstDirection = DIRECTION_STATE_LEFT;
+		}
+		else
+		{
+			self.x = 530;
+			firstDirection = DIRECTION_STATE_RIGHT;
+		}
 		self.x += gapX;
 		self.y = 320 + gapY;
+		
+		dx = dy = 0;
 		
 		enemySpr = [[CCSprite alloc] init];
 		enemySpr.anchorPoint = ccp( 0.5f, 0 );
 		[gameScene.gameLayer addChild:enemySpr z:Z_ENEMY];
 		
-		[self initBoatAnimation];
-		[self initSwimAnimation];
+		// 공통 애니메이션
 		[self initWalkAnimation];
-		[self initAttackAnimation];
 		[self initCatchAnimation];
 		[self initFallAnimation];
-		[self initHitAnimation];
-		[self initDieAnimation];
 		
-		dx = dy = 0;
-		
-		[self startBoating];
+		// 카미카제에만 해당하는 애니메이션
+		if( type == ENEMY_TYPE_KAMIKAZE )
+		{
+			[self initFlightAnimation];
+			[self initExplosionAnimation];
+			
+			[self startFlight];
+		}
+		else
+		{
+			[self initBoatAnimation];
+			[self initSwimAnimation];
+			[self initAttackAnimation];
+			[self initHitAnimation];
+			[self initDieAnimation];
+			
+			[self startBoating];
+		}
 	}
 	
 	return self;
@@ -113,6 +147,27 @@
 	
 	CCAnimation *animation = [CCAnimation animationWithFrames:aniFrames delay:0.1f];
 	boatAnimation = [[CCAnimate alloc] initWithAnimation:animation restoreOriginalFrame:NO];
+}
+
+- (void)initFlightAnimation
+{
+	[[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:[NSString stringWithFormat:@"enemy_%d_%d_flight.plist", ENEMY_TYPE_KAMIKAZE, level]];
+	
+	flightEnemySpr = [CCSprite spriteWithSpriteFrameName:[NSString stringWithFormat:@"enemy_%d_%d_flight_0.png", ENEMY_TYPE_KAMIKAZE, level]];
+	flightEnemySpr.anchorPoint = ccp( 0.5f, 0 );
+	
+	flightBatchNode = [[CCSpriteBatchNode batchNodeWithFile:[NSString stringWithFormat:@"enemy_%d_%d_flight.png", ENEMY_TYPE_KAMIKAZE, level]] retain];
+	[flightBatchNode addChild:flightEnemySpr];
+	
+	NSMutableArray *aniFrames = [[NSMutableArray alloc] init];
+	for( NSInteger i = 0; i < 4; i++ )
+	{
+		CCSpriteFrame *frame = [[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:[NSString stringWithFormat:@"enemy_%d_%d_flight_%d.png", ENEMY_TYPE_KAMIKAZE, level, i]];
+		[aniFrames addObject:frame];
+	}
+	
+	CCAnimation *animation = [CCAnimation animationWithFrames:aniFrames delay:0.04f];
+	flightAnimation = [[CCAnimate alloc] initWithAnimation:animation restoreOriginalFrame:NO];
 }
 
 - (void)initSwimAnimation
@@ -262,6 +317,27 @@
 	dieAnimation = [[CCAnimate alloc] initWithAnimation:animation restoreOriginalFrame:NO];
 }
 
+- (void)initExplosionAnimation
+{
+	[[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:[NSString stringWithFormat:@"enemy_%d_%d_explosion.plist", ENEMY_TYPE_KAMIKAZE, level]];
+	
+	explosionEnemySpr = [CCSprite spriteWithSpriteFrameName:[NSString stringWithFormat:@"enemy_%d_%d_explosion_00.png", ENEMY_TYPE_KAMIKAZE, level]];
+	explosionEnemySpr.anchorPoint = ccp( 0.5f, 0.2f );
+	
+	explosionBatchNode = [[CCSpriteBatchNode batchNodeWithFile:[NSString stringWithFormat:@"enemy_%d_%d_explosion.png", ENEMY_TYPE_KAMIKAZE, level]] retain];
+	[explosionBatchNode addChild:explosionEnemySpr];
+	
+	NSMutableArray *aniFrames = [[NSMutableArray alloc] init];
+	for( NSInteger i = 0; i < 30; i++ )
+	{
+		CCSpriteFrame *frame = [[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:[NSString stringWithFormat:@"enemy_%d_%d_explosion_%02d.png", ENEMY_TYPE_KAMIKAZE, level, i]];
+		[aniFrames addObject:frame];
+	}
+	
+	CCAnimation *animation = [CCAnimation animationWithFrames:aniFrames delay:0.03f];
+	explosionAnimation = [[CCAnimate alloc] initWithAnimation:animation restoreOriginalFrame:NO];
+}
+
 
 #pragma mark - getter/setter
 
@@ -301,11 +377,52 @@
 	return TOP_Y;
 }
 
+- (BOOL)getPlaneExists
+{
+	return isFlightExists;
+}
+
+- (void)setPlaneExists:(BOOL)isExists
+{
+	isFlightExists = isExists;
+	
+	// 더이상 날아가지 않게
+	if( !isExists )
+	{
+		[flightEnemySpr stopAllActions];
+		[gameScene.gameLayer removeChild:flightBatchNode cleanup:YES];
+		[flightBatchNode release];
+		[flightEnemySpr release];
+		[flightAnimation release];
+	}
+}
+
 
 #pragma mark - update
 
 - (void)update
 {
+	// 비행기 계속 날아가게
+	if( isFlightExists && type == ENEMY_TYPE_KAMIKAZE && state != ENEMY_STATE_FLIGHT )
+	{
+		if( firstDirection == DIRECTION_STATE_LEFT ) // 왼쪽에서 시작
+		{
+			flightEnemySpr.position = ccp( flightEnemySpr.position.x + self.speed, PLANE_Y + gapY * 3 );
+			
+			// 화면 밖으로 나가면 제거
+			if( flightEnemySpr.position.x < -50 )
+				[self setPlaneExists:NO];
+		}
+		else // 오른쪽에서 시작
+		{
+			flightEnemySpr.position = ccp( flightEnemySpr.position.x - self.speed, PLANE_Y + gapY * 3 );
+
+			// 화면 밖으로 나가면 제거
+			if( flightEnemySpr.position.x > 530 )
+				[self setPlaneExists:NO];
+		}
+	}
+	
 	switch( state )
 	{
 		case ENEMY_STATE_BOAT:
@@ -325,6 +442,32 @@
 			{
 				[self stopBoating];
 				[self startWalking];
+			}
+			break;
+			
+		case ENEMY_STATE_FLIGHT:
+			// 떨어뜨리기
+			if( self.y + gapY - [self getGroundY] < 110 && ( DOKDO_LEFT_X < self.x + gapX && self.x + gapX < DOKDO_RIGHT_X ) )
+			{
+				fallWithNoDamage = YES;
+				[self stopFlight];
+				[self startFalling];
+			}
+			else
+			{
+				if( self.x + gapX < FLAG_X )
+				{
+					flightEnemySpr.flipX = NO;
+					self.x += self.speed;
+					self.y = PLANE_Y + gapY;
+				}
+				else
+				{
+					flightEnemySpr.flipX = YES;
+					self.x -= self.speed;
+					self.y = PLANE_Y + gapY;
+				}
+
 			}
 			break;
 			
@@ -348,7 +491,7 @@
 			}
 			break;
 			
-		case ENEMY_STATE_WALK:			
+		case ENEMY_STATE_WALK:		
 			if( DOKDO_LEFT_X <= self.x + gapX && self.x + gapX < FLAG_LEFT_X )
 			{
 				walkEnemySpr.flipX = NO;
@@ -364,7 +507,12 @@
 			else
 			{
 				[self stopWalking];
-				[self startAttack];
+				
+				// 카미카제는 공격 없이 바로 폭발
+				if( type != ENEMY_TYPE_KAMIKAZE )
+					[self startAttack];
+				else
+					[self startExplosion];
 			}
 			break;
 			
@@ -372,12 +520,12 @@
 			if( FLAG_LEFT_X <= self.x + gapX && self.x + gapX <= FLAG_X )
 			{
 				attackEnemySpr.flipX = NO;
-				gameScene.flag.hp -= self.power;
+//				gameScene.flag.hp -= self.power;
 			}
 			else if( FLAG_X <= self.x + gapX && self.x + gapX <= FLAG_RIGHT_X )
 			{
 				attackEnemySpr.flipX = YES;
-				gameScene.flag.hp -= self.power;
+//				gameScene.flag.hp -= self.power;
 			}
 			else
 			{
@@ -401,7 +549,18 @@
 				if( self.y - gapY < [self getGroundY] )
 				{
 					[self stopFalling];
-					[self beDamaged:-1 * dy]; // temp
+					
+					// 데미지 없이 떨어지는게 아니면 데미지를 입음
+					if( !fallWithNoDamage )
+					{
+						[self beDamaged:-1 * dy]; // temp damage
+					}
+					// 데미지 없이 떨어짐
+					else
+					{
+						[self startWalking];
+						fallWithNoDamage = NO;
+					}
 				}
 				
 				// 입수
@@ -410,26 +569,31 @@
 					dx = 0;
 					dy *= WATER_RESISTANCE;
 					
-					[self beDamaged:-1 * dy];
-					NSLog( @"%f", dy );
-					
-					if( self.hp <= 0 )
+					// 데미지 없이 떨어지는게 아니면 데미지를 입음
+					if( !fallWithNoDamage )
 					{
-						[self stopFalling];
-						[self startDying];
+						[self beDamaged:-1 * dy]; // temp damage
+						if( self.hp <= 0 )
+						{
+							[self stopFalling];
+							[self startDying];
+						}
 					}
 				}
 			}
 			else
 			{
-				// 물 위로
-				if( self.y + dy <= SEA_Y )
+				// 물에서 위로 올라가기
+				if( self.y + dy - gapY <= SEA_Y )
 				{
+					NSLog( @"물 위로 올라가자 어푸어푸" );
 					dy += BUOYANCY;
 					self.y += dy;
 				}
+				// 수면 위로 뿅
 				else
 				{
+					NSLog( @"수면위로 뿅" );
 					[self stopFalling];
 					[self startSwimming];
 				}
@@ -469,6 +633,14 @@
 	state = ENEMY_STATE_BOAT;
 	[enemySpr addChild:boatBatchNode];
 	[boatEnemySpr runAction:[CCRepeatForever actionWithAction:boatAnimation]];
+}
+
+- (void)startFlight
+{
+	state = ENEMY_STATE_FLIGHT;
+	[enemySpr addChild:flightBatchNode];
+	[flightEnemySpr runAction:[CCRepeatForever actionWithAction:flightAnimation]];
+	isFlightExists = YES;
 }
 
 - (void)startSwimming
@@ -511,8 +683,6 @@
 	state = ENEMY_STATE_HIT;
 	[enemySpr addChild:hitBatchNode];
 	[hitEnemySpr runAction:[CCSequence actions:hitAnimation, [CCCallFunc actionWithTarget:self selector:@selector(stopBeingHit:)], nil]];
-//	[hitEnemySpr runAction:[CCRepeatForever actionWithAction:hitAnimation]];
-//	[self performSelector:@selector(stopBeingHit:) withObject:nil afterDelay:((NSInteger)( arc4random() % 100 )) / 100 + 0.5f];
 }
 
 - (void)startDying
@@ -521,6 +691,7 @@
 	
 	state = ENEMY_STATE_DIE;
 	
+	// 물에서 죽으면 Fall 애니메이션으로 꼬르륵 거리면서 물 밑으로 내려감
 	if( self.x + gapX < DOKDO_LEFT_X || DOKDO_RIGHT_X < self.x + gapX )
 	{
 		dy = -1 * GRAVITY;
@@ -534,6 +705,13 @@
 	}
 }
 
+- (void)startExplosion
+{
+	state = ENEMY_STATE_EXPLOSION;
+	[enemySpr addChild:explosionBatchNode];
+	[explosionEnemySpr runAction:[CCSequence actions:explosionAnimation, [CCCallFunc actionWithTarget:self selector:@selector(stopExplosion:)], nil]];
+}
+
 
 #pragma mark - stop actions
 
@@ -541,6 +719,14 @@
 {
 	[boatEnemySpr stopAllActions];
 	[enemySpr removeChild:boatBatchNode cleanup:YES];
+}
+
+- (void)stopFlight
+{
+	// enemySpr에서 제거하고 gameLayer에 추가해서 내린 후에도 계속 날아가게
+	[enemySpr removeChild:flightBatchNode cleanup:NO];
+	[gameScene.gameLayer addChild:flightBatchNode z:Z_PLANE];
+	flightEnemySpr.position = ccp( self.x, PLANE_Y + gapY * 3 );
 }
 
 - (void)stopSwimming
@@ -591,7 +777,7 @@
 }
 
 - (void)stopDying
-{	
+{
 	if( self.x + gapX < DOKDO_LEFT_X || DOKDO_RIGHT_X < self.x + gapX )
 	{
 		[fallEnemySpr stopAllActions];
@@ -605,7 +791,7 @@
 	
 	[gameScene.gameLayer removeChild:enemySpr cleanup:YES];
 	
-    //	[self release];
+//	[self release];
 }
 
 - (void)stopDying:(id)sender
@@ -613,6 +799,16 @@
 	[self stopDying];
 }
 
+- (void)stopExplosion
+{
+	[explosionEnemySpr stopAllActions];
+	[enemySpr removeChild:explosionBatchNode cleanup:YES];
+}
+
+- (void)stopExplosion:(id)sender
+{
+	[self stopExplosion];
+}
 
 - (void)stopCurrentAction
 {
@@ -620,6 +816,10 @@
 	{
 		case ENEMY_STATE_BOAT:
 			[self stopBoating];
+			break;
+			
+		case ENEMY_STATE_FLIGHT:
+			[self stopFlight];
 			break;
 			
 		case ENEMY_STATE_SWIM:
@@ -648,6 +848,10 @@
 			
 		case ENEMY_STATE_DIE:
 			[self stopDying];
+			break;
+			
+		case ENEMY_STATE_EXPLOSION:
+			[self stopExplosion];
 			break;
 	}
 }
@@ -678,7 +882,16 @@
 
 - (void)beDamaged:(NSInteger)damage
 {
-	if( state == ENEMY_STATE_DIE ) return;
+	if( state == ENEMY_STATE_FLIGHT || state == ENEMY_STATE_DIE || state == ENEMY_STATE_EXPLOSION ) return;
+	
+	// 카미카제는 폭발
+	if( type == ENEMY_TYPE_KAMIKAZE )
+	{
+		self.hp = 0;
+		[self stopCurrentAction];
+		[self startExplosion];
+		return;
+	}
 	
 	if( state != ENEMY_STATE_HIT )
 		self.hp -= damage;
@@ -704,7 +917,16 @@
 
 - (void)beDamaged:(NSInteger)damage forceX:(NSInteger)forceX forceY:(NSInteger)forceY
 {
-	if( state == ENEMY_STATE_FALL || state == ENEMY_STATE_DIE ) return;
+	if( state == ENEMY_STATE_FLIGHT || state == ENEMY_STATE_FALL || state == ENEMY_STATE_DIE || state == ENEMY_STATE_EXPLOSION ) return;
+	
+	// 카미카제는 폭발
+	if( type == ENEMY_TYPE_KAMIKAZE )
+	{		
+		self.hp = 0;
+		[self stopCurrentAction];
+		[self startExplosion];
+		return;
+	}
 	
 	if( state != ENEMY_STATE_HIT )
 		self.hp -= damage;
@@ -712,9 +934,14 @@
 	[self stopCurrentAction];
 	
 	if( self.hp <= 0 )
+	{
 		[self startDying];
+	}
 	else
+	{
+		fallWithNoDamage = YES;
 		[self applyForce:forceX :forceY];
+	}
 }
 
 @end
