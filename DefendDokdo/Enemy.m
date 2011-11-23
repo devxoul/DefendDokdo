@@ -23,6 +23,8 @@
 - (void)initDieAnimation;
 - (void)initExplosionAnimation;
 
+- (void)initWaterEffectAnimation;
+
 - (void)startBoating;
 - (void)startFlight;
 - (void)startSwimming;
@@ -124,6 +126,8 @@
 			[self initAttackAnimation];
 			[self initHitAnimation];
 			[self initDieAnimation];
+			
+			[self initWaterEffectAnimation];
 			
 			[self startBoating];
 		}
@@ -344,6 +348,7 @@
 	CCAnimation *animation = [CCAnimation animationWithFrames:aniFrames delay:0.03f];
 	explosionAnimation = [[CCAnimate alloc] initWithAnimation:animation restoreOriginalFrame:NO];
 }
+
 
 #pragma mark - init effects
 

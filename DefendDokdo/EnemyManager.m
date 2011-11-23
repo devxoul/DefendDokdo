@@ -42,7 +42,7 @@
 - (void)createEnemy:(NSInteger)type level:(NSInteger)level
 {
 #warning temp
-	type = arc4random() % 2 == 1 ? 0 : 3;
+//	type = arc4random() % 2 == 1 ? 0 : 3;
 	
 	NSDictionary *enemyInfo = [[enemyInfoList objectAtIndex:type] objectAtIndex:level];
 	Enemy *enemy = [[[Enemy alloc] initWithGameScene:gameScene type:type level:level hp:[[enemyInfo objectForKey:@"hp"] integerValue] power:[[enemyInfo objectForKey:@"power"] integerValue] speed:[[enemyInfo objectForKey:@"speed"] floatValue]] autorelease];
