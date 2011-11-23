@@ -27,7 +27,7 @@
 
 - (id)init
 {
-	if( self == [super init] )
+	if( self = [super init] )
 	{
 		// Initialization code here.
 		self.isTouchEnabled = YES;

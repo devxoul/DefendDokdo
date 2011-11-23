@@ -223,7 +223,8 @@ NSInteger arryWaveEffect3[22] =
 	[super draw];
 	
 	if (nGameState == GAMESTATE_START)
-	{		
+	{
+#warning temp
 		if( arc4random() % 50 < 1 ) [enemyManager createEnemy:0 level:0]; // temp
 		
 		[enemyManager update];

@@ -24,6 +24,7 @@
 	
 	CCSprite *enemySpr;
 	
+	CCSprite *boatSpr;
 	CCSpriteBatchNode *boatBatchNode;
 	CCSprite *boatEnemySpr;
 	CCAnimate *boatAnimation;

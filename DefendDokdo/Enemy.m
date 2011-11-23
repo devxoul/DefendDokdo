@@ -79,7 +79,7 @@
 		type = _type;
 		level = _level;
 		
-		gapX = (NSInteger)( arc4random() % 20 ) - 10;
+		gapX = (NSInteger)( arc4random() % 10 ) - 5;
 		gapY = -1 * (NSInteger)( arc4random() % 20 );
 		
 		self.hp = self.maxHp = _hp;
@@ -141,43 +141,46 @@
 
 - (void)initBoatAnimation
 {
-	[[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:[NSString stringWithFormat:@"enemy_%d_%d_boat.plist", type, level]];
+	[[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:[NSString stringWithFormat:@"enemy_%d_%d_idle.plist", type, level]];
 	
-	boatEnemySpr = [CCSprite spriteWithSpriteFrameName:[NSString stringWithFormat:@"enemy_%d_%d_boat_0.png", type, level]];
+	boatEnemySpr = [CCSprite spriteWithSpriteFrameName:[NSString stringWithFormat:@"enemy_%d_%d_idle_0.png", type, level]];
 	boatEnemySpr.anchorPoint = ccp( 0.5f, 0 );
 	
-	boatBatchNode = [[CCSpriteBatchNode batchNodeWithFile:[NSString stringWithFormat:@"enemy_%d_%d_boat.png", type, level]] retain];
+	boatBatchNode = [[CCSpriteBatchNode batchNodeWithFile:[NSString stringWithFormat:@"enemy_%d_%d_idle.png", type, level]] retain];
 	[boatBatchNode addChild:boatEnemySpr];
 	
 	NSMutableArray *aniFrames = [[NSMutableArray alloc] init];
-	for( NSInteger i = 0; i < 7; i++ )
+	for( NSInteger i = 0; i < 1; i++ )
 	{
-		CCSpriteFrame *frame = [[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:[NSString stringWithFormat:@"enemy_%d_%d_boat_%d.png", type, level, i]];
+		CCSpriteFrame *frame = [[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:[NSString stringWithFormat:@"enemy_%d_%d_idle_%d.png", type, level, i]];
 		[aniFrames addObject:frame];
 	}
 	
 	CCAnimation *animation = [CCAnimation animationWithFrames:aniFrames delay:0.1f];
 	boatAnimation = [[CCAnimate alloc] initWithAnimation:animation restoreOriginalFrame:NO];
+	
+	boatSpr = [[CCSprite alloc] initWithFile:@"boat.png"];
+	boatSpr.anchorPoint = ccp( 0.5f, -0.5f );
 }
 
 - (void)initFlightAnimation
 {
-	[[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:[NSString stringWithFormat:@"enemy_%d_%d_flight.plist", ENEMY_TYPE_KAMIKAZE, level]];
+	[[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:@"plane.plist"];
 	
-	flightEnemySpr = [CCSprite spriteWithSpriteFrameName:[NSString stringWithFormat:@"enemy_%d_%d_flight_0.png", ENEMY_TYPE_KAMIKAZE, level]];
+	flightEnemySpr = [CCSprite spriteWithSpriteFrameName:@"plane.png"];
 	flightEnemySpr.anchorPoint = ccp( 0.5f, 0 );
 	
-	flightBatchNode = [[CCSpriteBatchNode batchNodeWithFile:[NSString stringWithFormat:@"enemy_%d_%d_flight.png", ENEMY_TYPE_KAMIKAZE, level]] retain];
+	flightBatchNode = [[CCSpriteBatchNode batchNodeWithFile:@"plane.png"] retain];
 	[flightBatchNode addChild:flightEnemySpr];
 	
 	NSMutableArray *aniFrames = [[NSMutableArray alloc] init];
-	for( NSInteger i = 0; i < 4; i++ )
+	for( NSInteger i = 0; i < 1; i++ )
 	{
-		CCSpriteFrame *frame = [[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:[NSString stringWithFormat:@"enemy_%d_%d_flight_%d.png", ENEMY_TYPE_KAMIKAZE, level, i]];
+		CCSpriteFrame *frame = [[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:[NSString stringWithFormat:@"plane.png", ENEMY_TYPE_KAMIKAZE, level, i]];
 		[aniFrames addObject:frame];
 	}
 	
-	CCAnimation *animation = [CCAnimation animationWithFrames:aniFrames delay:0.04f];
+	CCAnimation *animation = [CCAnimation animationWithFrames:aniFrames delay:0.08f];
 	flightAnimation = [[CCAnimate alloc] initWithAnimation:animation restoreOriginalFrame:NO];
 }
 
@@ -185,16 +188,16 @@
 {
 	[[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:[NSString stringWithFormat:@"enemy_%d_%d_swim.plist", type, level]];
 	
-	swimEnemySpr = [CCSprite spriteWithSpriteFrameName:[NSString stringWithFormat:@"enemy_%d_%d_swim_00.png", type, level]];
+	swimEnemySpr = [CCSprite spriteWithSpriteFrameName:[NSString stringWithFormat:@"enemy_%d_%d_swim_0.png", type, level]];
 	swimEnemySpr.anchorPoint = ccp( 0.5f, 0 );
 	
 	swimBatchNode = [[CCSpriteBatchNode batchNodeWithFile:[NSString stringWithFormat:@"enemy_%d_%d_swim.png", type, level]] retain];
 	[swimBatchNode addChild:swimEnemySpr];
 	
 	NSMutableArray *aniFrames = [[NSMutableArray alloc] init];
-	for( int i = 0; i < 11; i++ )
+	for( int i = 0; i < 8; i++ )
 	{
-		CCSpriteFrame *frame = [[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:[NSString stringWithFormat:@"enemy_%d_%d_swim_%02d.png", type, level, i]];
+		CCSpriteFrame *frame = [[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:[NSString stringWithFormat:@"enemy_%d_%d_swim_%d.png", type, level, i]];
 		[aniFrames addObject:frame];
 	}
 	
@@ -213,7 +216,7 @@
 	[walkBatchNode addChild:walkEnemySpr];
 	
 	NSMutableArray *aniFrames = [[NSMutableArray alloc] init];
-	for( NSInteger i = 0; i < 4; i++ )
+	for( NSInteger i = 0; i < 8; i++ )
 	{
 		CCSpriteFrame *frame = [[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:[NSString stringWithFormat:@"enemy_%d_%d_walk_%d.png", type, level, i]];
 		[aniFrames addObject:frame];
@@ -234,7 +237,7 @@
 	[attackBatchNode addChild:attackEnemySpr];
 	
 	NSMutableArray *aniFrames = [[NSMutableArray alloc] init];
-	for( NSInteger i = 0; i < 7; i++ )
+	for( NSInteger i = 0; i < 4; i++ )
 	{
 		CCSpriteFrame *frame = [[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:[NSString stringWithFormat:@"enemy_%d_%d_attack_%d.png", type, level, i]];
 		[aniFrames addObject:frame];
@@ -255,7 +258,7 @@
 	[catchBatchNode addChild:catchEnemySpr];
 	
 	NSMutableArray *aniFrames = [[NSMutableArray alloc] init];
-	for( NSInteger i = 0; i < 10; i++ )
+	for( NSInteger i = 0; i < 4; i++ )
 	{
 		CCSpriteFrame *frame = [[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:[NSString stringWithFormat:@"enemy_%d_%d_catch_%d.png", type, level, i]];
 		[aniFrames addObject:frame];
@@ -276,13 +279,13 @@
 	[fallBatchNode addChild:fallEnemySpr];
 	
 	NSMutableArray *aniFrames = [[NSMutableArray alloc] init];
-	for( NSInteger i = 0; i < 4; i++ )
+	for( NSInteger i = 0; i < 3; i++ )
 	{
 		CCSpriteFrame *frame = [[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:[NSString stringWithFormat:@"enemy_%d_%d_fall_%d.png", type, level, i]];
 		[aniFrames addObject:frame];
 	}
 	
-	CCAnimation *animation = [CCAnimation animationWithFrames:aniFrames delay:0.06f];
+	CCAnimation *animation = [CCAnimation animationWithFrames:aniFrames delay:0.08f];
 	fallAnimation = [[CCAnimate alloc] initWithAnimation:animation restoreOriginalFrame:NO];
 }
 
@@ -297,34 +300,34 @@
 	[hitBatchNode addChild:hitEnemySpr];
 	
 	NSMutableArray *aniFrames = [[NSMutableArray alloc] init];
-	for( NSInteger i = 0; i < 1; i++ )
+	for( NSInteger i = 0; i < 6; i++ )
 	{
 		CCSpriteFrame *frame = [[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:[NSString stringWithFormat:@"enemy_%d_%d_hit_%d.png", type, level, i]];
 		[aniFrames addObject:frame];
 	}
 	
-	CCAnimation *animation = [CCAnimation animationWithFrames:aniFrames delay:0.3f];
+	CCAnimation *animation = [CCAnimation animationWithFrames:aniFrames delay:0.08f];
 	hitAnimation = [[CCAnimate alloc] initWithAnimation:animation restoreOriginalFrame:NO];
 }
 
 - (void)initDieAnimation
 {
-	[[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:[NSString stringWithFormat:@"enemy_%d_%d_die.plist", type, level]];
+	[[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:[NSString stringWithFormat:@"enemy_%d_%d_idle.plist", type, level]];
 	
-	dieEnemySpr = [CCSprite spriteWithSpriteFrameName:[NSString stringWithFormat:@"enemy_%d_%d_die_0.png", type, level]];
+	dieEnemySpr = [CCSprite spriteWithSpriteFrameName:[NSString stringWithFormat:@"enemy_%d_%d_idle_0.png", type, level]];
 	dieEnemySpr.anchorPoint = ccp( 0.5f, 0 );
 	
-	dieBatchNode = [[CCSpriteBatchNode batchNodeWithFile:[NSString stringWithFormat:@"enemy_%d_%d_die.png", type, level]] retain];
+	dieBatchNode = [[CCSpriteBatchNode batchNodeWithFile:[NSString stringWithFormat:@"enemy_%d_%d_idle.png", type, level]] retain];
 	[dieBatchNode addChild:dieEnemySpr];
 	
 	NSMutableArray *aniFrames = [[NSMutableArray alloc] init];
-	for( NSInteger i = 0; i < 8; i++ )
+	for( NSInteger i = 0; i < 1; i++ )
 	{
-		CCSpriteFrame *frame = [[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:[NSString stringWithFormat:@"enemy_%d_%d_die_%d.png", type, level, i]];
+		CCSpriteFrame *frame = [[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:[NSString stringWithFormat:@"enemy_%d_%d_idle_%d.png", type, level, i]];
 		[aniFrames addObject:frame];
 	}
 	
-	CCAnimation *animation = [CCAnimation animationWithFrames:aniFrames delay:0.08f];
+	CCAnimation *animation = [CCAnimation animationWithFrames:aniFrames delay:2.0f];
 	dieAnimation = [[CCAnimate alloc] initWithAnimation:animation restoreOriginalFrame:NO];
 }
 
@@ -332,20 +335,20 @@
 {
 	[[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:[NSString stringWithFormat:@"enemy_%d_%d_explosion.plist", ENEMY_TYPE_KAMIKAZE, level]];
 	
-	explosionEnemySpr = [CCSprite spriteWithSpriteFrameName:[NSString stringWithFormat:@"enemy_%d_%d_explosion_00.png", ENEMY_TYPE_KAMIKAZE, level]];
+	explosionEnemySpr = [CCSprite spriteWithSpriteFrameName:[NSString stringWithFormat:@"enemy_%d_%d_explosion_0.png", ENEMY_TYPE_KAMIKAZE, level]];
 	explosionEnemySpr.anchorPoint = ccp( 0.5f, 0.2f );
 	
 	explosionBatchNode = [[CCSpriteBatchNode batchNodeWithFile:[NSString stringWithFormat:@"enemy_%d_%d_explosion.png", ENEMY_TYPE_KAMIKAZE, level]] retain];
 	[explosionBatchNode addChild:explosionEnemySpr];
 	
 	NSMutableArray *aniFrames = [[NSMutableArray alloc] init];
-	for( NSInteger i = 0; i < 30; i++ )
+	for( NSInteger i = 0; i < 9; i++ )
 	{
-		CCSpriteFrame *frame = [[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:[NSString stringWithFormat:@"enemy_%d_%d_explosion_%02d.png", ENEMY_TYPE_KAMIKAZE, level, i]];
+		CCSpriteFrame *frame = [[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:[NSString stringWithFormat:@"enemy_%d_%d_explosion_%d.png", ENEMY_TYPE_KAMIKAZE, level, i]];
 		[aniFrames addObject:frame];
 	}
 	
-	CCAnimation *animation = [CCAnimation animationWithFrames:aniFrames delay:0.03f];
+	CCAnimation *animation = [CCAnimation animationWithFrames:aniFrames delay:0.08f];
 	explosionAnimation = [[CCAnimate alloc] initWithAnimation:animation restoreOriginalFrame:NO];
 }
 
@@ -403,14 +406,14 @@
 
 + (CGFloat)getGroundY:(CGFloat)x
 {
-	if( x < DOKDO_LEFT_X )
-		return ( x - 110 ) * 34 / 23 + 60 + sinf( x / 10 ) * 3;
+	if( x < FLAG_LEFT_X )
+		return ( x - 110 ) * 34 / 27 + 60 + sinf( x / 10 ) * 3;
 	
-	else if( DOKDO_LEFT_X <= x && x <= DOKDO_RIGHT_X )
+	else if( FLAG_LEFT_X <= x && x <= FLAG_RIGHT_X )
 		return FLAG_Y;
 	
 	else
-		return -1 * ( x - 360 ) * 31 / 20 + 70 + cosf( x / 10 ) * 3;
+		return -1 * ( x - 360 ) * 31 / 25 + 70 + cosf( x / 10 ) * 3;
 	
 	return SEA_Y;
 }
@@ -472,14 +475,16 @@
 			if( self.x + gapX < DOKDO_LEFT_X )
 			{
 				boatEnemySpr.flipX = NO;
+				boatSpr.flipX = NO;
 				self.x += self.speed;
-				self.y = SEA_Y + gapY;
+				self.y = SEA_Y + sinf( self.x / 8 ) * 3 + gapY;
 			}
 			else if( self.x + gapX > DOKDO_RIGHT_X )
 			{
 				boatEnemySpr.flipX = YES;
+				boatSpr.flipX = YES;
 				self.x -= self.speed;
-				self.y = SEA_Y + gapY;
+				self.y = SEA_Y + sinf( self.x / 8 ) * 3 + gapY;
 			}
 			else
 			{
@@ -579,6 +584,11 @@
 			break;
 			
 		case ENEMY_STATE_FALL:
+			if( self.x < FLAG_X )
+				fallEnemySpr.flipX = NO;
+			else
+				fallEnemySpr.flipX = YES;
+			
 			if( self.y - gapY >= SEA_Y )
 			{
 				dx -= AIR_RESISTANCE * dx;
@@ -696,6 +706,7 @@
 	state = ENEMY_STATE_BOAT;
 	[enemySpr addChild:boatBatchNode];
 	[boatEnemySpr runAction:[CCRepeatForever actionWithAction:boatAnimation]];
+	[enemySpr addChild:boatSpr];
 }
 
 - (void)startFlight
@@ -807,6 +818,7 @@
 {
 	[boatEnemySpr stopAllActions];
 	[enemySpr removeChild:boatBatchNode cleanup:YES];
+	[enemySpr removeChild:boatSpr cleanup:NO];
 }
 
 - (void)stopFlight

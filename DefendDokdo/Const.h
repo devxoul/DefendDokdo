@@ -17,11 +17,11 @@
 #define SEA_Y				65
 #define PLANE_Y				280
 #define DOKDO_LEFT_X		125
-#define DOKDO_RIGHT_X		370
-#define FLAG_LEFT_X			225
-#define FLAG_RIGHT_X		260
+#define DOKDO_RIGHT_X		365
+#define FLAG_LEFT_X			235
+#define FLAG_RIGHT_X		252
 #define FLAG_X				250
-#define FLAG_Y				230
+#define FLAG_Y				215
 
 #define ENEMY_TYPE_NORMAL		0
 #define ENEMY_TYPE_SAMURAI		1

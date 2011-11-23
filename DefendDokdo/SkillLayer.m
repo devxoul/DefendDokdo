@@ -13,7 +13,7 @@
 
 - (id)init
 {
-	if( self == [super init] )
+	if( self = [super init] )
 	{   
         [self setContentSize:CGSizeMake(480.f, 290.f)];
         [self setAnchorPoint:ccp(0.0, 1.0)];
