@@ -1,10 +1,10 @@
-//
-//  UserData.m
-//  DefendDokdo
-//
-//  Created by 전 수열 on 11. 11. 2..
-//  Copyright 2011년 Joyfl. All rights reserved.
-//
+	//
+	//  UserData.m
+	//  DefendDokdo
+	//
+	//  Created by 전 수열 on 11. 11. 2..
+	//  Copyright 2011년 Joyfl. All rights reserved.
+	//
 
 #import "UserData.h"
 
@@ -20,27 +20,27 @@
 
 + (UserData *)userData
 {
-    static UserData *ret;
-    
-    if (!ret)
-    {
-        ret = [[UserData alloc] init];
-    }
-    
-    return ret;
+	static UserData *ret;
+	
+	if (!ret)
+	{
+		ret = [[UserData alloc] init];
+	}
+	
+	return ret;
 }
 
 - (id)init
 {
-    if (self = [super init])
-    {
-        NSDictionary *dict = [NSDictionary dictionaryWithContentsOfFile:[(NSString *)[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0] stringByAppendingPathComponent:@"UserData.plist"]];
+	if (self = [super init])
+	{
+		NSDictionary *dict = [NSDictionary dictionaryWithContentsOfFile:[(NSString *)[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0] stringByAppendingPathComponent:@"UserData.plist"]];
 		
 		point = [[dict objectForKey:@"Point"] integerValue];
-        
-        if (!point) {
-            point = 0;
-        }
+		
+		if (!point) {
+			point = 0;
+		}
 		
 		stageLevel = [[dict objectForKey:@"UserStageLevel"] integerValue];
 		
@@ -128,20 +128,20 @@
 			backSound = [[dict objectForKey:@"sound"] boolValue];        
 			vibration = [[dict objectForKey:@"vibration"] boolValue];				
 		}
-        
+		
 		
 		[self saveToFile];
-        
-        return self;
-    }
-    
-    return nil;
+		
+		return self;
+	}
+	
+	return nil;
 }
 
 - (BOOL)saveToFile
 {
-    NSMutableDictionary *dict = [NSMutableDictionary dictionary];
-    
+	NSMutableDictionary *dict = [NSMutableDictionary dictionary];
+	
 	[dict setObject:[NSNumber numberWithInteger:point] forKey:@"Point"];
 	[dict setObject:[NSNumber numberWithInteger:stageLevel] forKey:@"UserStageLevel"];
 	
@@ -154,21 +154,21 @@
 	[dict setObject:[NSNumber numberWithInteger:arrowLevel] forKey:@"ArrowLevel"];
 	[dict setObject:[NSNumber numberWithInteger:hillLevel] forKey:@"HillingLevel"];
 	[dict setObject:[NSNumber numberWithInteger:earthquakeLevel] forKey:@"EarthQuakeLevel"];
-		
+	
 	[dict setObject:skillSlot forKey:@"BuySkillSlot"];
 	[dict setObject:userSkillSlot forKey:@"SlotInSkill"];	
 	
-    return [dict writeToFile:[[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0] stringByAppendingPathComponent:@"UserData.plist"] atomically:YES];
+	return [dict writeToFile:[[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0] stringByAppendingPathComponent:@"UserData.plist"] atomically:YES];
 	
 }
 
 - (BOOL)removeToFile
 {
-    NSString* path = [[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0] 
-                      stringByAppendingFormat:@"/UserData.plist"];
-    
-    if ([[NSFileManager defaultManager] fileExistsAtPath:path])
-        [[NSFileManager defaultManager] removeItemAtPath:path error:nil];
+	NSString* path = [[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0] 
+										stringByAppendingFormat:@"/UserData.plist"];
+	
+	if ([[NSFileManager defaultManager] fileExistsAtPath:path])
+		[[NSFileManager defaultManager] removeItemAtPath:path error:nil];
 	
 	point = 0;
 	
@@ -183,25 +183,25 @@
 	arrowLevel = 0;
 	hillLevel = 0;
 	earthquakeLevel = 0;
-
+	
 	skillSlot = [NSMutableArray arrayWithObjects:[NSNumber numberWithBool:YES], [NSNumber numberWithBool:NO], [NSNumber numberWithBool:NO], nil];
 	
 	userSkillSlot = [NSMutableArray arrayWithObjects:[NSNumber numberWithInteger:-1], 
-					 [NSNumber numberWithInteger:-1], [NSNumber numberWithInteger:-1], nil];
-		
+									 [NSNumber numberWithInteger:-1], [NSNumber numberWithInteger:-1], nil];
+	
 	stageInfo = [[NSDictionary dictionaryWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"StageList" ofType:@"plist"]] retain];
 	
-    return YES;	
+	return YES;	
 }
 
 - (BOOL)setToFile
 {
-    NSMutableDictionary *dict = [NSMutableDictionary dictionary];
-    
-    [dict setObject:[NSNumber numberWithBool:backSound] forKey:@"sound"];
-    [dict setObject:[NSNumber numberWithBool:vibration] forKey:@"vibration"];
-    
-    return [dict writeToFile:[[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0] stringByAppendingPathComponent:@"UserData.plist"] atomically:YES];    	
+	NSMutableDictionary *dict = [NSMutableDictionary dictionary];
+	
+	[dict setObject:[NSNumber numberWithBool:backSound] forKey:@"sound"];
+	[dict setObject:[NSNumber numberWithBool:vibration] forKey:@"vibration"];
+	
+	return [dict writeToFile:[[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0] stringByAppendingPathComponent:@"UserData.plist"] atomically:YES];
 }
 
 

@@ -16,17 +16,17 @@
     NSMutableArray* skills;
     CCSprite* hpBar;
     CCSprite* hpBarBg;
-
+    
     CCSprite* mpBar;
     CCSprite* mpBarBg;
-    
-    NSInteger maxHp;
-    NSInteger maxMp;
-    
-    NSInteger currentHp;
-    NSInteger currentMp;
+
+    CCSprite* hplabel;
+    CCSprite* mplabel;
     
     GameScene* _gameScene;
+
+    CCLabelTTF* hp;
+    CCLabelTTF* mp;
     
 }
 

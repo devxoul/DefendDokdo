@@ -15,11 +15,11 @@
 
 @implementation Stone
 
-@synthesize x, y, speed, damage, level, stoneSprite,downPoint,stoneState;
+@synthesize stoneState, mp, stoneSprite;
 
 
 
--(id) initWithInfo :(CGPoint)location :(float)_speed :(GameScene*)_gameScene{    
+-(id) initWithInfo :(CGPoint)location :(CGFloat)_speed :(GameScene*)_gameScene{    
     
     if( self = [self init] )
     {
@@ -32,6 +32,8 @@
         stoneSprite = [CCSprite spriteWithFile:[skillInfo objectForKey:@"spriteName"]];
         damage = [[skillInfo objectForKey:@"damage"] integerValue];
         isEffect = [[skillInfo objectForKey:@"effect"] boolValue];
+        mp = [[skillInfo objectForKey:@"mp"] integerValue];
+        
         (isEffect==YES) ? (effectPower = [[skillInfo objectForKey:@"effectPower"] integerValue]) : (effectPower =0);
         if(110 < x && x < 225){
             downPoint = 31.f/23.f * x - 98.3;

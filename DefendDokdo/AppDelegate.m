@@ -67,6 +67,7 @@
 								   depthFormat:0						// GL_DEPTH_COMPONENT16_OES
 						];
 
+	[glView setMultipleTouchEnabled:YES];
 	// attach the openglView to the director
 	[director setOpenGLView:glView];
 	
@@ -83,6 +84,7 @@
 	// By default, this template only supports Landscape orientations.
 	// Edit the RootViewController.m file to edit the supported orientations.
 	//
+
 #if GAME_AUTOROTATION == kGameAutorotationUIViewController
 	[director setDeviceOrientation:kCCDeviceOrientationPortrait];
 #else

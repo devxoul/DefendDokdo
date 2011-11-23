@@ -19,7 +19,7 @@
 
 @interface GameScene : CCScene {
 	GameLayer *gameLayer;
-    SkillLayer *skillLayer;
+	SkillLayer *skillLayer;
 	GameUILayer *gameUILayer;
 	
 	EnemyManager *enemyManager;

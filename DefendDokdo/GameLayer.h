@@ -12,10 +12,9 @@
 @class ControlManager;
 @class GameScene;
 
-@interface GameLayer : CCLayer {
-    
-	GameScene *scene;
-	ControlManager *controlManager;
+@interface GameLayer : CCLayerColor<CCStandardTouchDelegate> {
+  GameScene *scene;
+  ControlManager *controlManager;
 }
 
 - (id)initWithScene:(GameScene *)scene_;

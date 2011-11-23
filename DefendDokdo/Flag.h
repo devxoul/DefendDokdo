@@ -14,8 +14,8 @@
 @interface Flag : NSObject {
 
 	NSInteger level;
-    NSInteger maxHp;
-	NSInteger hp;
+    CGFloat maxHp;
+	CGFloat hp;
 	
 	CCSpriteBatchNode *flagBatchNode;
 	CCSprite *flagSpr;
@@ -23,10 +23,10 @@
 }
 
 - (void)init:(GameLayer*)scene;
-
+- (void)update;
 @property (nonatomic) NSInteger level;
-@property (nonatomic) NSInteger maxHp;
-@property (nonatomic) NSInteger hp;
+@property (nonatomic) CGFloat maxHp;
+@property (nonatomic) CGFloat hp;
 
 @property (nonatomic, retain) CCSprite *flagSpr;
 

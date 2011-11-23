@@ -15,16 +15,17 @@
 {
     CCSprite* stoneSprite;
     
-    float x, y;
-    float speed;
-    float downPoint;
+    CGFloat x, y;
+    CGFloat speed;
+    CGFloat downPoint;
     
-    int damage;
-    int level;
-    int stoneState;
+    NSInteger damage;
+    NSInteger level;
+    NSInteger stoneState;
+    NSInteger mp;
     
-    int direction;
-    int effectPower;
+    NSInteger direction;
+    NSInteger effectPower;
     
     BOOL isEffect;
     
@@ -32,18 +33,12 @@
 
 }
 
-@property (readwrite) float x;
-@property (readwrite) float y;
-@property (readwrite) float speed;
-@property (readwrite) float downPoint;
-
-@property (readwrite) int damage;
-@property (readwrite) int level;
-@property (readwrite) int stoneState;
+@property (readonly)  NSInteger mp;
+@property (readwrite) NSInteger stoneState;
 
 @property (nonatomic, retain) CCSprite* stoneSprite; 
 
 -(void) draw;
--(id) initWithInfo:(CGPoint)location :(float)_speed :(GameScene*)_gameScene;
+-(id) initWithInfo:(CGPoint)location :(CGFloat)_speed :(GameScene*)_gameScene;
 
 @end

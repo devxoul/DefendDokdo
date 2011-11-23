@@ -9,26 +9,32 @@
 #import "ControlManager.h"
 #import "Enemy.h"
 
+#warning change CONSTANT
+#define ACC_CONSTANT 1000
+
 @interface pointObject:NSObject{
-	CGPoint p;
-	NSDate *time;
+  CGPoint p;
+	CGPoint acc;
+  NSDate *time;
 }
 @property CGPoint p;
+@property CGPoint acc;
 @property (nonatomic,copy) NSDate *time;
 + (pointObject *)pointWithCGPoint:(CGPoint)point andTime:(NSDate *)date;
 @end
 
 @implementation pointObject
-@synthesize p, time;
+@synthesize p, time, acc;
 + (pointObject *)pointWithCGPoint:(CGPoint)point andTime:(NSDate *)date
 {
-	pointObject *ret = nil;
-	if ((ret = [[pointObject alloc] init]))
-	{
-		ret.p = point;
-		ret.time = date;
-	}
-	return [ret autorelease];
+  pointObject *ret = nil;
+  if ((ret = [[pointObject alloc] init]))
+  {
+    ret.p = point;
+    ret.time = date;
+		ret.acc = CGPointMake(0.0f, 0.0f);
+  }
+  return [ret autorelease];
 }
 @end
 
@@ -38,74 +44,78 @@
 {
 	if( self = [super init] )
 	{
-		touchArray = [[NSMutableArray alloc] initWithCapacity:6];
-		managedObjectsArray = [[NSMutableArray alloc] initWithCapacity:6];
-		originalPositionArray = [[NSMutableArray alloc] initWithCapacity:6];
+    touchArray = [[NSMutableArray alloc] initWithCapacity:6];
+    managedObjectsArray = [[NSMutableArray alloc] initWithCapacity:6];
+    originalPositionArray = [[NSMutableArray alloc] initWithCapacity:6];
 	}
-	
+  
 	return self;
 }
 
 -(void)dealloc
 {
-	[touchArray dealloc];
-	touchArray = nil;
-	[managedObjectsArray dealloc];
-	managedObjectsArray = nil;
-	[originalPositionArray dealloc];
-	originalPositionArray = nil;
-	
-	[super dealloc];
+  [touchArray dealloc];
+  touchArray = nil;
+  [managedObjectsArray dealloc];
+  managedObjectsArray = nil;
+  [originalPositionArray dealloc];
+  originalPositionArray = nil;
+
+  [super dealloc];
 }
 
 - (bool)manageObject:(NSObject *)object WithTouch:(UITouch *)touch
 {
-	if ([touchArray indexOfObject:touch] == NSNotFound)
-	{
-		[touchArray addObject:touch];
-		[managedObjectsArray addObject:object];
-		CGPoint targetPoint = [[CCDirector sharedDirector] convertToGL:[touch locationInView: [touch view]]];
-		[originalPositionArray addObject:[pointObject pointWithCGPoint:targetPoint andTime:[NSDate date]]];
-		return true;
-	}
-	return false;
+  if ([touchArray indexOfObject:touch] == NSNotFound)
+  {
+    [touchArray addObject:touch];
+    [managedObjectsArray addObject:object];
+    CGPoint targetPoint = [[CCDirector sharedDirector] convertToGL:[touch locationInView: [touch view]]];
+    [originalPositionArray addObject:[pointObject pointWithCGPoint:targetPoint andTime:[NSDate date]]];
+    return true;
+  }
+  return false;
 }
 
 - (bool)moveManagedObjectOfTouch:(UITouch *)touch
 {
-	if ([touchArray indexOfObject:touch] != NSNotFound)
-	{
-		NSUInteger i = [touchArray indexOfObject:touch];
-		Enemy *object = [managedObjectsArray objectAtIndex:i];
-		CGPoint targetPoint = [[CCDirector sharedDirector] convertToGL:[touch locationInView: [touch view]]];
-		object.x = targetPoint.x;
-		object.y = targetPoint.y;
+  if ([touchArray indexOfObject:touch] != NSNotFound)
+  {
+    NSUInteger i = [touchArray indexOfObject:touch];
+    Enemy *object = [managedObjectsArray objectAtIndex:i];
+    CGPoint targetPoint = [[CCDirector sharedDirector] convertToGL:[touch locationInView: [touch view]]];
+    object.x = targetPoint.x - 20;
+    object.y = targetPoint.y - 20;
+		
+		NSTimeInterval interval = [[[originalPositionArray objectAtIndex:i] time] timeIntervalSinceNow];
+		CGPoint originalPoint = [[originalPositionArray objectAtIndex:i] p];
+		
+		[[originalPositionArray objectAtIndex:i] setAcc:CGPointMake((targetPoint.x - originalPoint.y)/ABS(interval)/ACC_CONSTANT, (targetPoint.y - originalPoint.y)/ABS(interval)/ACC_CONSTANT)];
 		
 		[[originalPositionArray objectAtIndex:i] setP:targetPoint];
-		[[originalPositionArray objectAtIndex:i] setTime:[NSDate date]];
-		return true;
-	}
-	return false;
+    [[originalPositionArray objectAtIndex:i] setTime:[NSDate date]];
+    return true;
+  }
+  return false;
 }
 
 - (Enemy *)stopManagingObjectOfTouch:(UITouch *)touch
 {
-	if ([touchArray indexOfObject:touch] != NSNotFound)
-	{
-		NSUInteger i = [touchArray indexOfObject:touch];
-		Enemy *object = [managedObjectsArray objectAtIndex:i];
-		CGPoint curPoint = [[CCDirector sharedDirector] convertToGL:[touch locationInView: [touch view]]];
-		CGPoint originalPoint = [[originalPositionArray objectAtIndex:i] p];
-		NSInteger interval = [[[originalPositionArray objectAtIndex:i] time] timeIntervalSinceNow];
-		
-		[object applyForce:(curPoint.x - originalPoint.x)/abs(interval) :(curPoint.y - originalPoint.y)/abs(interval)];
-		
-		[touchArray removeObjectAtIndex:i];
-		[managedObjectsArray removeObjectAtIndex:i];
-		[originalPositionArray removeObjectAtIndex:i];
-		return object;
-	}
-	return nil;
+  if ([touchArray indexOfObject:touch] != NSNotFound)
+  {
+    NSUInteger i = [touchArray indexOfObject:touch];
+    Enemy *object = [managedObjectsArray objectAtIndex:i];
+    CGPoint acc = [[originalPositionArray objectAtIndex:i] acc];
+    
+    [object applyForce:acc.x :acc.y];
+		NSLog(@"force : (%f, %f)", acc.x, acc.y);
+    
+    [touchArray removeObjectAtIndex:i];
+    [managedObjectsArray removeObjectAtIndex:i];
+    [originalPositionArray removeObjectAtIndex:i];
+    return object;
+  }
+  return nil;
 }
 
 @end

@@ -14,36 +14,44 @@
 
 @synthesize slotSprite;
 @synthesize skillType;
-@synthesize skillSprite;
+@synthesize selectedSprite;
 
--(id) initWithInfo:(NSInteger)_skillType :(GameUILayer*)_layer :(CGPoint)location{
+-(id) initWithSkillInfo:(NSInteger)_skillType :(GameUILayer*)_layer :(CGPoint)location{
     if(self==[super init]){
-        slotSprite = [CCSprite spriteWithFile:@"stone_0.png"];
         skillType = _skillType;
         switch (skillType) {
             case SKILL_STATE_STONE: 
-                skillSprite = [CCSprite spriteWithFile:@"stone_0.png"];
+                slotSprite = [CCSprite spriteWithFile:@"skill_stone_on_btn.png"];
+                selectedSprite = [CCSprite spriteWithFile:@"skill_stone_off_btn.png"];
                 break;
             case SKILL_STATE_ARROW: 
-                skillSprite = [CCSprite spriteWithFile:@"arrow.png"];
+                slotSprite = [CCSprite spriteWithFile:@"skill_arrow_on_btn.png"];
+                selectedSprite = [CCSprite spriteWithFile:@"skill_arrow_off_btn.png"];
                 break;
             case SKILL_STATE_HEALING: 
+                slotSprite = [CCSprite spriteWithFile:@"skill_hp_on_btn.png"];
+                selectedSprite = [CCSprite spriteWithFile:@"skill_hp_off_btn.png"];
                 break;
             case SKILL_STATE_EARTHQUAKE: 
-                skillSprite = [CCSprite spriteWithFile:@"stone_0.png"];
+                slotSprite = [CCSprite spriteWithFile:@"skill_earthquake_on_btn.png"];
+                selectedSprite = [CCSprite spriteWithFile:@"skill_earthquake_off_btn.png"];
                 break;
             case SKILL_STATE_LOCK: 
                 //스킬 잠김
                 break;
+            default:
+                slotSprite = [CCSprite spriteWithFile:@"skill_empty_on_btn.png"];
+                selectedSprite = [CCSprite spriteWithFile:@"skill_stone_off_btn.png"];
+                break;
         }
         
+        [selectedSprite setAnchorPoint:ccp(0.5f, 0.5f)];
+        [selectedSprite setPosition:location];
+        [_layer addChild:selectedSprite];
         [slotSprite setAnchorPoint:ccp(0.5f, 0.5f)];
         [slotSprite setPosition:location];
         [_layer addChild:slotSprite];
-        [skillSprite setAnchorPoint:ccp(0.5f, 0.5f)];
-        [skillSprite setPosition:location];
-        [_layer addChild:skillSprite];
-        
+              
         return self;
     }
     

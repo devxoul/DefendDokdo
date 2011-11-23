@@ -1,10 +1,10 @@
-//
-//  UserData.h
-//  MartRush
-//
-//  Created by omniavinco on 11. 10. 13..
-//  Copyright (c) 2011년 Joyfl. All rights reserved.
-//
+	//
+	//  UserData.h
+	//  MartRush
+	//
+	//  Created by omniavinco on 11. 10. 13..
+	//  Copyright (c) 2011년 Joyfl. All rights reserved.
+	//
 
 #import <Foundation/Foundation.h>
 
@@ -12,10 +12,10 @@
 {
 @public
     // game state 
-    NSUInteger point;
+	NSUInteger point;
 	NSUInteger stageLevel;
-
-	// user skill
+	
+		// user skill
 	NSMutableArray* skillSlot;				// 슬롯 갯수 확인
 	NSMutableArray* userSkillSlot;			// 슬롯 내부 스킬 확인
 	
@@ -24,17 +24,17 @@
 	NSUInteger hillLevel;
 	NSUInteger earthquakeLevel; 
 	
-	// user upgrade levels
+		// user upgrade levels
 	NSUInteger flagLevel;
 	NSUInteger userAtkLevel;
 	NSUInteger userMaxMpLevel;
 	NSUInteger userMPspeedLevel;
-
+	
     // user setting value
-    BOOL backSound;         // back ground sound
-    BOOL vibration;         // 진동
-    
-    NSDictionary *stageInfo;
+	BOOL backSound;         // back ground sound
+	BOOL vibration;         // 진동
+	
+	NSDictionary *stageInfo;
 }
 
 @property (readwrite) NSUInteger point;
@@ -64,6 +64,6 @@
 - (BOOL)removeToFile;
 - (BOOL)setToFile;
 
-//- (BOOL)buyStage:(NSNumber *)stage;
+	//- (BOOL)buyStage:(NSNumber *)stage;
 
 @end

@@ -15,14 +15,10 @@
 
 @implementation Arrow
 
-@synthesize touchPoint;
-@synthesize startPoint;
-
 @synthesize arrowArray; 
 @synthesize unusedArrowArray;
 
-@synthesize fileName;
-
+@synthesize mp;
 
 -(id) initWithInfo:(GameScene*)_gameScene
 {
@@ -37,6 +33,7 @@
 
         number = [[skillInfo objectForKey:@"number"] integerValue];
         damage = [[skillInfo objectForKey:@"damage"] integerValue];
+        mp = [[skillInfo objectForKey:@"mp"] integerValue];
         
         unusedArrowArray = [[NSMutableArray alloc] init];
         arrowArray = [[NSMutableArray alloc] init];

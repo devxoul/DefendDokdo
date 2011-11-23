@@ -33,23 +33,13 @@
     CCCallFunc* arrowDeadEndCallBack;
     CCFiniteTimeAction *action;
     GameScene* gameScene;
-    
-    
+        
 }
 
 
-@property (readwrite) NSInteger direction;
 @property (nonatomic, retain) CCSprite* arrowSprite;
 
 @property (readwrite) NSInteger arrowState;
-
-
-@property (readwrite) CGPoint touchPoint;
-@property (readwrite) CGPoint location;
-
-@property (readwrite) CGFloat x;
-@property (readwrite) CGFloat y;
-@property (readwrite) CGFloat arrowSpeed;
 
 -(id) init:(NSString*)_fileName:(NSInteger)_damage :(GameScene*)_gameScene;    
 -(void) runDisappearAnimation;

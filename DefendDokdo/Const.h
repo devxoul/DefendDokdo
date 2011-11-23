@@ -15,14 +15,13 @@
 #define BUOYANCY			0.2
 
 #define SEA_Y				65
-#define PLANE_Y				250
-#define DOKDO_LEFT_X		110
-#define DOKDO_RIGHT_X		400
+#define PLANE_Y				280
+#define DOKDO_LEFT_X		125
+#define DOKDO_RIGHT_X		370
 #define FLAG_LEFT_X			225
 #define FLAG_RIGHT_X		260
 #define FLAG_X				250
 #define FLAG_Y				230
-#define TOP_Y				205
 
 #define ENEMY_TYPE_NORMAL		0
 #define ENEMY_TYPE_SAMURAI		1
@@ -84,5 +83,9 @@
 #define DIRECTION_STATE_RIGHT   1
 
 
+#define EARTHQUAKE_MAX_POWER    3
+
+#define GAMEUILAYER_DEFAULT_X   10
+#define GAMEUILAYER_DEFAULT_Y   5
 
 #endif

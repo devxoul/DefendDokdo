@@ -64,6 +64,11 @@
 	CCSprite *explosionEnemySpr;
 	CCAnimate *explosionAnimation;
 	
+	CCSpriteBatchNode *waterEffectBatchNode;
+	CCSprite *waterEffectSpr;
+	CCAnimate *waterEffectAnimation;
+	BOOL isWaterEffectRunning;
+	
 	CGFloat _x;
 	CGFloat _y;
 	CGFloat dx;
@@ -87,6 +92,8 @@
 @property (nonatomic) NSInteger power;
 @property (nonatomic) CGFloat speed;
 
+@property (readonly) NSInteger state;
+
 @property (nonatomic) CGFloat x;
 @property (nonatomic) CGFloat y;
 @property (nonatomic) CGFloat dx;
@@ -99,5 +106,6 @@
 
 - (void)beDamaged:(NSInteger)damage;
 - (void)beDamaged:(NSInteger)damage forceX:(NSInteger)forceX forceY:(NSInteger)forceY;
+- (void)beCaught;
 
 @end

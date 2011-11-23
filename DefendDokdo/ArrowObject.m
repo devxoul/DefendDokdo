@@ -15,13 +15,8 @@
 
 @implementation ArrowObject
 
-@synthesize x, y;
-@synthesize direction;
 @synthesize arrowSprite;
 @synthesize arrowState;
-@synthesize touchPoint;
-@synthesize location;
-@synthesize arrowSpeed;
 
 
 //-(id) init:(NSString*)_fileName :(CGPoint)_touchPoint :(NSInteger)_damage :(GameScene*)_gameScene{    
@@ -33,7 +28,7 @@
         arrowSprite = [CCSprite spriteWithFile:_fileName];
         gameScene = _gameScene;
         damage = _damage;
-
+        
         if(0 <= touchPoint.x && touchPoint.x <= 240){
             x = 0;
             y = 320;
@@ -52,7 +47,7 @@
         
         //그레이드 계산 후 로테이트 해야함
         rawIncremental = incremental;
-
+        
         [arrowSprite setAnchorPoint:ccp(1.0, 0.5)];
         [arrowSprite setPosition:ccp(0,0)];
         [arrowSprite setVisible:NO];
@@ -104,27 +99,31 @@
     }
     [arrowSprite setVisible:YES];
     arrowSpeed += 0.1;
+    
+    CGRect ar;
     switch (arrowState) {
         case ARROW_STATE_MOVING:
             
             //충돌 체크, 데미지 체크 - 
-            for(Enemy* current in gameScene.enemies){
-                if(CGRectContainsPoint([current getBoundingBox],arrowSprite.position)){
-                    [current beDamaged:damage];
-                    arrowState = ARROW_STATE_STOP;
-                    break;
-                }
-            }
-            
+                        
             switch (direction) {
                 case DIRECTION_STATE_LEFT:
                     x+=arrowSpeed;
                     y = y - arrowSpeed*incremental;
                     incremental +=arrowSpeed*rawIncremental;
                     arrowSprite.rotation = atan(incremental) * 180 / M_PI;
-
-                    if(y < ((31.f/23.f * x - 98.3)-10.0) && x < 240)
+                    if(y < ((31.f/23.f * x - 98.3)-10.0) && x < FLAG_LEFT_X)
                         arrowState = ARROW_STATE_STOP;
+                    if(x <= FLAG_RIGHT_X && x >= FLAG_LEFT_X && y<=200)
+                        arrowState = ARROW_STATE_STOP;
+                    if(x >240){
+                        for(Enemy* current in gameScene.enemies){
+                            if(CGRectContainsPoint([current getBoundingBox], ccp(x,y))){
+                                arrowState = ARROW_STATE_STOP;
+                                break;
+                            }
+                        }
+                    }
                     break;
                     
                 case DIRECTION_STATE_RIGHT:
@@ -132,8 +131,18 @@
                     y = y - arrowSpeed*incremental;
                     incremental +=arrowSpeed*rawIncremental;
                     arrowSprite.rotation = atan(-incremental) * 180 / M_PI + 180;
-                    if(y < ((-31.f/20.f * x  + 608)-10.0) && x > 240)
+                    if(y < ((-31.f/20.f * x  + 608)-10.0) && x > FLAG_RIGHT_X)
                         arrowState = ARROW_STATE_STOP;
+                    if(x <= FLAG_RIGHT_X && x >= FLAG_LEFT_X && y<=200)
+                        arrowState = ARROW_STATE_STOP;
+                    if(x <240){
+                        for(Enemy* current in gameScene.enemies){
+                            if(CGRectContainsPoint([current getBoundingBox], ccp(x,y))){
+                                arrowState = ARROW_STATE_STOP;
+                                break;
+                            }
+                        }
+                    }
                     break;
             }
             
@@ -141,12 +150,27 @@
                 arrowState = ARROW_STATE_STOP;
             }
             
-           // [self performSelector:@selector(draw) withObject:nil afterDelay:1.0/arrowSpeed];
             break;
         case ARROW_STATE_STOP:
-            //맞는 애니메이션, 쾅
+            switch (direction) {
+                case DIRECTION_STATE_LEFT:
+                    ar = CGRectMake(x-arrowSprite.boundingBox.size.width/4, y, arrowSprite.boundingBox.size.width/2, arrowSprite.boundingBox.size.height/2);
+                    break;
+                case DIRECTION_STATE_RIGHT:
+                    ar = CGRectMake(x+arrowSprite.boundingBox.size.width/4, y, arrowSprite.boundingBox.size.width/2, arrowSprite.boundingBox.size.height/2);
+                    break;            
+            }
+            
+            for(Enemy* current in gameScene.enemies){
+            //    if(CGRectIntersectsRect([current getBoundingBox], ar)){
+            //        [current beDamaged:damage];
+            //    }
+                if(CGRectContainsPoint([current getBoundingBox], ccp(x,y))){
+                    [current beDamaged:damage];
+                }
+            }
+            //맞는 애니메이션, 쾅?
             arrowState = ARROW_STATE_DEAD;
-           // [self performSelector:@selector(draw) withObject:nil afterDelay:1.0/arrowSpeed];
             break;
         case ARROW_STATE_DEAD:
             arrowState = ARROW_STATE_DEADING;

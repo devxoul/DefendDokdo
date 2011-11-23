@@ -11,7 +11,7 @@
 				<key>damage</key>
 				<integer>25</integer>
 				<key>spriteName</key>
-				<string>stone_0.png</string>
+				<string>stone_biggest.png</string>
 				<key>mp</key>
 				<integer>0</integer>
 				<key>effect</key>
@@ -26,7 +26,7 @@
 				<key>damage</key>
 				<integer>1</integer>
 				<key>spriteName</key>
-				<string>stone_0.png</string>
+				<string>stone_small.png</string>
 				<key>mp</key>
 				<integer>10</integer>
 				<key>effect</key>
@@ -41,7 +41,7 @@
 				<key>damage</key>
 				<integer>2</integer>
 				<key>spriteName</key>
-				<string>stone_0.png</string>
+				<string>stone_small.png</string>
 				<key>mp</key>
 				<integer>15</integer>
 				<key>effect</key>
@@ -56,7 +56,7 @@
 				<key>damage</key>
 				<integer>3</integer>
 				<key>spriteName</key>
-				<string>stone_0.png</string>
+				<string>stone_small.png</string>
 				<key>mp</key>
 				<integer>20</integer>
 				<key>effect</key>
@@ -71,7 +71,7 @@
 				<key>damage</key>
 				<integer>4</integer>
 				<key>spriteName</key>
-				<string>stone_0.png</string>
+				<string>stone_small.png</string>
 				<key>mp</key>
 				<integer>25</integer>
 				<key>effect</key>
@@ -86,7 +86,7 @@
 				<key>damage</key>
 				<integer>5</integer>
 				<key>spriteName</key>
-				<string>stone_0.png</string>
+				<string>stone_small.png</string>
 				<key>mp</key>
 				<integer>30</integer>
 				<key>effect</key>
@@ -101,7 +101,7 @@
 				<key>damage</key>
 				<integer>6</integer>
 				<key>spriteName</key>
-				<string>stone_0.png</string>
+				<string>stone_middle.png</string>
 				<key>mp</key>
 				<integer>35</integer>
 				<key>effect</key>
@@ -116,7 +116,7 @@
 				<key>damage</key>
 				<integer>7</integer>
 				<key>spriteName</key>
-				<string>stone_0.png</string>
+				<string>stone_middle.png</string>
 				<key>mp</key>
 				<integer>40</integer>
 				<key>effect</key>
@@ -131,7 +131,7 @@
 				<key>damage</key>
 				<integer>8</integer>
 				<key>spriteName</key>
-				<string>stone_0.png</string>
+				<string>stone_middle.png</string>
 				<key>mp</key>
 				<integer>45</integer>
 				<key>effect</key>
@@ -146,7 +146,7 @@
 				<key>damage</key>
 				<integer>9</integer>
 				<key>spriteName</key>
-				<string>stone_0.png</string>
+				<string>stone_middle.png</string>
 				<key>mp</key>
 				<integer>50</integer>
 				<key>effect</key>
@@ -161,7 +161,7 @@
 				<key>damage</key>
 				<integer>10</integer>
 				<key>spriteName</key>
-				<string>stone_0.png</string>
+				<string>stone_middle.png</string>
 				<key>mp</key>
 				<integer>55</integer>
 				<key>effect</key>
@@ -176,7 +176,7 @@
 				<key>damage</key>
 				<integer>11</integer>
 				<key>spriteName</key>
-				<string>stone_0.png</string>
+				<string>stone_big.png</string>
 				<key>mp</key>
 				<integer>60</integer>
 				<key>effect</key>
@@ -191,7 +191,7 @@
 				<key>damage</key>
 				<integer>12</integer>
 				<key>spriteName</key>
-				<string>stone_0.png</string>
+				<string>stone_big.png</string>
 				<key>mp</key>
 				<integer>65</integer>
 				<key>effect</key>
@@ -206,7 +206,7 @@
 				<key>damage</key>
 				<integer>13</integer>
 				<key>spriteName</key>
-				<string>stone_0.png</string>
+				<string>stone_big.png</string>
 				<key>mp</key>
 				<integer>70</integer>
 				<key>effect</key>
@@ -221,7 +221,7 @@
 				<key>damage</key>
 				<integer>14</integer>
 				<key>spriteName</key>
-				<string>stone_0.png</string>
+				<string>stone_big.png</string>
 				<key>mp</key>
 				<integer>75</integer>
 				<key>effect</key>
@@ -236,7 +236,7 @@
 				<key>damage</key>
 				<integer>15</integer>
 				<key>spriteName</key>
-				<string>stone_0.png</string>
+				<string>stone_big.png</string>
 				<key>mp</key>
 				<integer>80</integer>
 				<key>effect</key>
@@ -251,7 +251,7 @@
 				<key>damage</key>
 				<integer>16</integer>
 				<key>spriteName</key>
-				<string>stone_0.png</string>
+				<string>stone_biggest.png</string>
 				<key>mp</key>
 				<integer>85</integer>
 				<key>effect</key>
@@ -266,7 +266,7 @@
 				<key>damage</key>
 				<integer>17</integer>
 				<key>spriteName</key>
-				<string>stone_0.png</string>
+				<string>stone_biggest.png</string>
 				<key>mp</key>
 				<integer>90</integer>
 				<key>effect</key>
@@ -281,7 +281,7 @@
 				<key>damage</key>
 				<integer>18</integer>
 				<key>spriteName</key>
-				<string>stone_0.png</string>
+				<string>stone_biggest.png</string>
 				<key>mp</key>
 				<integer>95</integer>
 				<key>effect</key>
@@ -296,7 +296,7 @@
 				<key>damage</key>
 				<integer>19</integer>
 				<key>spriteName</key>
-				<string>stone_0.png</string>
+				<string>stone_biggest.png</string>
 				<key>mp</key>
 				<integer>100</integer>
 				<key>effect</key>
@@ -311,7 +311,7 @@
 				<key>damage</key>
 				<integer>25</integer>
 				<key>spriteName</key>
-				<string>stone_0.png</string>
+				<string>stone_biggest.png</string>
 				<key>mp</key>
 				<integer>100</integer>
 				<key>effect</key>
@@ -327,11 +327,11 @@
 			<key>0</key>
 			<dict>
 				<key>damage</key>
-				<integer>0</integer>
+				<integer>50</integer>
 				<key>mp</key>
 				<integer>0</integer>
 				<key>number</key>
-				<integer>0</integer>
+				<integer>20</integer>
 				<key>price</key>
 				<integer>500</integer>
 			</dict>
@@ -755,7 +755,7 @@
 				<key>damage</key>
 				<integer>10</integer>
 				<key>effectPower</key>
-				<integer>20</integer>
+				<integer>4</integer>
 				<key>mp</key>
 				<integer>0</integer>
 				<key>price</key>

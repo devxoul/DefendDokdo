@@ -34,6 +34,8 @@
 - (void)startDying;
 - (void)startExplosion;
 
+- (void)startWaterEffect;
+
 - (void)stopBoating;
 - (void)stopFlight;
 - (void)stopSwimming;
@@ -47,8 +49,10 @@
 - (void)stopDying:(id)sender;
 - (void)stopExplosion;
 - (void)stopExplosion:(id)sender;
-
 - (void)stopCurrentAction;
+
+- (void)stopWaterEffect;
+- (void)stopWaterEffect:(id)sender;
 
 - (float)getGroundY;
 - (BOOL)getPlaneExists;
@@ -58,7 +62,7 @@
 
 @implementation Enemy
 
-@synthesize type, level;
+@synthesize type, level, state;
 @synthesize maxHp, hp, power, speed;
 @synthesize x = _x, y = _y, dx, dy, boundingBox;
 
@@ -127,6 +131,9 @@
 	
 	return self;
 }
+
+
+#pragma mark - init animations
 
 - (void)initBoatAnimation
 {
@@ -338,6 +345,28 @@
 	explosionAnimation = [[CCAnimate alloc] initWithAnimation:animation restoreOriginalFrame:NO];
 }
 
+#pragma mark - init effects
+
+- (void)initWaterEffectAnimation
+{
+	[[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:@"effect_water.plist"];
+	
+	waterEffectSpr = [CCSprite spriteWithSpriteFrameName:@"effect_water_0.png"];
+	waterEffectSpr.anchorPoint = ccp( 0.5f, 0 );
+	
+	waterEffectBatchNode = [[CCSpriteBatchNode batchNodeWithFile:@"effect_water.png"] retain];
+	[waterEffectBatchNode addChild:waterEffectSpr];
+	
+	NSMutableArray *aniFrames = [[NSMutableArray alloc] init];
+	for( NSInteger i = 0; i < 8; i++ )
+	{
+		CCSpriteFrame *frame = [[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:[NSString stringWithFormat:@"effect_water_%d.png", i]];
+		[aniFrames addObject:frame];
+	}
+	
+	CCAnimation *animation = [CCAnimation animationWithFrames:aniFrames delay:0.08f];
+	waterEffectAnimation = [[CCAnimate alloc] initWithAnimation:animation restoreOriginalFrame:NO];
+}
 
 #pragma mark - getter/setter
 
@@ -361,20 +390,21 @@
 	enemySpr.position = ccp( _x, _y = y );
 }
 
+
 - (CGRect)getBoundingBox
 {
-	return CGRectMake( self.x - 20, self.y - 40, 40, 40 );
+	return CGRectMake( self.x - 40, self.y - 30, 60, 60 );
 }
 
 - (float)getGroundY
 {
-	if( self.x + gapX < FLAG_LEFT_X )
-		return ( self.x + gapX - 110 ) * 31 / 23 + 50 + sinf( ( self.x + gapX ) / 10 ) * 3;
+	if( self.x + gapX < FLAG_X )
+		return ( self.x + gapX - 110 ) * 34 / 23 + 60 + sinf( ( self.x + gapX ) / 10 ) * 3;
 	
-	if( FLAG_RIGHT_X < self.x + gapX )
-		return -1 * ( self.x + gapX - 360 ) * 31 / 20 + 50 + cosf( ( self.x + gapX ) / 10 ) * 3;
+	else// if( FLAG_X < self.x + gapX )
+		return -1 * ( self.x + gapX - 360 ) * 31 / 20 + 70 + cosf( ( self.x + gapX ) / 10 ) * 3;
 	
-	return TOP_Y;
+	return SEA_Y;
 }
 
 - (BOOL)getPlaneExists
@@ -416,7 +446,7 @@
 		else // 오른쪽에서 시작
 		{
 			flightEnemySpr.position = ccp( flightEnemySpr.position.x - self.speed, PLANE_Y + gapY * 3 );
-
+			
 			// 화면 밖으로 나가면 제거
 			if( flightEnemySpr.position.x > 530 )
 				[self setPlaneExists:NO];
@@ -459,15 +489,14 @@
 				{
 					flightEnemySpr.flipX = NO;
 					self.x += self.speed;
-					self.y = PLANE_Y + gapY;
+					self.y = PLANE_Y + gapY * 3;
 				}
 				else
 				{
 					flightEnemySpr.flipX = YES;
 					self.x -= self.speed;
-					self.y = PLANE_Y + gapY;
+					self.y = PLANE_Y + gapY * 3;
 				}
-
 			}
 			break;
 			
@@ -496,13 +525,13 @@
 			{
 				walkEnemySpr.flipX = NO;
 				self.x += self.speed / 2;
-				self.y = ( self.x + gapX - 110 ) * 31 / 23 + 50 + sinf( ( self.x + gapX ) / 10 ) * 3 + gapY;
+				self.y = [self getGroundY] + gapY;
 			}
 			else if( FLAG_RIGHT_X < self.x + gapX && self.x + gapX <= DOKDO_RIGHT_X )
 			{
 				walkEnemySpr.flipX = YES;
 				self.x -= self.speed / 2;
-				self.y = -1 * ( self.x + gapX - 360 ) * 31 / 20 + 50 + cosf( ( self.x + gapX ) / 10 ) * 3 + gapY;
+				self.y = [self getGroundY] + gapY;
 			}
 			else
 			{
@@ -550,12 +579,23 @@
 				{
 					[self stopFalling];
 					
-					// 데미지 없이 떨어지는게 아니면 데미지를 입음
+					// 데미지 없이 떨어지는게 아니면
 					if( !fallWithNoDamage )
 					{
-						[self beDamaged:-1 * dy]; // temp damage
+						// 일반 타입의 경우 데미지를 입음
+						if( type != ENEMY_TYPE_KAMIKAZE )
+						{
+							[self beDamaged:-1 * dy]; // temp damage
+						}
+						
+						// 카미카제는 바로 폭발함
+						else
+						{
+							[self startExplosion];
+							return;
+						}
 					}
-					// 데미지 없이 떨어짐
+					// 데미지 없이 떨어짐 - 비행기에서 떨어질 때 등
 					else
 					{
 						[self startWalking];
@@ -569,16 +609,26 @@
 					dx = 0;
 					dy *= WATER_RESISTANCE;
 					
-					// 데미지 없이 떨어지는게 아니면 데미지를 입음
+					// 데미지 없이 떨어지는게 아니면
 					if( !fallWithNoDamage )
 					{
-						[self beDamaged:-1 * dy]; // temp damage
-						if( self.hp <= 0 )
+						// 일반 타입의 경우 데미지를 입음
+						if( type != ENEMY_TYPE_KAMIKAZE )
 						{
+							[self beDamaged:-1 * dy]; // temp damage
+						}
+						
+						// 카미카제는 바로 폭발함
+						else
+						{
+							NSLog( @"퍼엉" );
 							[self stopFalling];
-							[self startDying];
+							[self startExplosion];
+							return;
 						}
 					}
+					
+					[self startWaterEffect];
 				}
 			}
 			else
@@ -645,6 +695,8 @@
 
 - (void)startSwimming
 {
+	if( state == ENEMY_STATE_SWIM ) return;
+	
 	state = ENEMY_STATE_SWIM;
 	[enemySpr addChild:swimBatchNode];
 	[swimEnemySpr runAction:[CCRepeatForever actionWithAction:swimAnimation]];
@@ -652,6 +704,8 @@
 
 - (void)startWalking
 {
+	if( state == ENEMY_STATE_WALK ) return;
+	
 	state = ENEMY_STATE_WALK;
 	[enemySpr addChild:walkBatchNode];
 	[walkEnemySpr runAction:[CCRepeatForever actionWithAction:walkAnimation]];
@@ -659,6 +713,8 @@
 
 - (void)startAttack
 {
+	if( state == ENEMY_STATE_ATTACK ) return;
+	
 	state = ENEMY_STATE_ATTACK;
 	[enemySpr addChild:attackBatchNode];
 	[attackEnemySpr runAction:[CCRepeatForever actionWithAction:attackAnimation]];
@@ -666,6 +722,8 @@
 
 - (void)startBeingCaught
 {
+	if( state == ENEMY_STATE_CATCH ) return;
+	
 	state = ENEMY_STATE_CATCH;
 	[enemySpr addChild:catchBatchNode];
 	[catchEnemySpr runAction:[CCRepeatForever actionWithAction:catchAnimation]];
@@ -673,6 +731,8 @@
 
 - (void)startFalling
 {
+	if( state == ENEMY_STATE_FALL ) return;
+	
 	state = ENEMY_STATE_FALL;
 	[enemySpr addChild:fallBatchNode];
 	[fallEnemySpr runAction:[CCRepeatForever actionWithAction:fallAnimation]];
@@ -680,6 +740,8 @@
 
 - (void)startBeingHit
 {
+	if( state == ENEMY_STATE_HIT ) return;
+	
 	state = ENEMY_STATE_HIT;
 	[enemySpr addChild:hitBatchNode];
 	[hitEnemySpr runAction:[CCSequence actions:hitAnimation, [CCCallFunc actionWithTarget:self selector:@selector(stopBeingHit:)], nil]];
@@ -710,6 +772,19 @@
 	state = ENEMY_STATE_EXPLOSION;
 	[enemySpr addChild:explosionBatchNode];
 	[explosionEnemySpr runAction:[CCSequence actions:explosionAnimation, [CCCallFunc actionWithTarget:self selector:@selector(stopExplosion:)], nil]];
+}
+
+
+#pragma mark - start effects
+
+- (void)startWaterEffect
+{
+	NSLog( @"첨벙" );
+	if( isWaterEffectRunning ) return;
+	isWaterEffectRunning = YES;
+	waterEffectBatchNode.position = ccp( self.x, self.y );
+	[gameScene.gameLayer addChild:waterEffectBatchNode z:Z_ENEMY];
+	[waterEffectSpr runAction:[CCSequence actions:waterEffectAnimation, [CCCallFunc actionWithTarget:self selector:@selector(stopWaterEffect:)], nil]];
 }
 
 
@@ -857,11 +932,26 @@
 }
 
 
+#pragma mark - stop effects
+
+- (void)stopWaterEffect
+{
+	isWaterEffectRunning = NO;
+	[waterEffectSpr stopAllActions];
+	[gameScene.gameLayer removeChild:waterEffectBatchNode cleanup:NO];
+}
+
+- (void)stopWaterEffect:(id)sender
+{
+	[self stopWaterEffect];
+}
+
+
 #pragma mark - public methods
 
 - (void)applyForce:(float)x:(float)y
 {
-	if( state == ENEMY_STATE_CATCH || state == ENEMY_STATE_FALL || state == ENEMY_STATE_DIE )
+	if( state == ENEMY_STATE_FALL || state == ENEMY_STATE_DIE )
 		return;
 	
 	if( state != ENEMY_STATE_FALL )
@@ -876,6 +966,8 @@
 
 - (void)beCaught
 {
+	if( state == ENEMY_STATE_FLIGHT || state == ENEMY_STATE_DIE || state == ENEMY_STATE_EXPLOSION ) return;
+	
 	[self stopCurrentAction];
 	[self startBeingCaught];
 }

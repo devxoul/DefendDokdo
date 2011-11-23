@@ -9,7 +9,6 @@
 #import <Foundation/Foundation.h>
 
 @interface SkillData : NSObject{
-    
     NSDictionary* skillInfo;
     NSDictionary* upgradeInfo;
 }

@@ -12,9 +12,9 @@
 @class Enemy;
 
 @interface ControlManager : NSObject {
-	NSMutableArray *touchArray;
-	NSMutableArray *managedObjectsArray;
-	NSMutableArray *originalPositionArray;
+  NSMutableArray *touchArray;
+  NSMutableArray *managedObjectsArray;
+  NSMutableArray *originalPositionArray;
 }
 
 - (bool)manageObject:(NSObject *)object WithTouch:(UITouch *)touch;

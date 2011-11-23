@@ -21,6 +21,7 @@
     
     NSInteger damage;
     NSInteger number;
+    NSInteger mp;
     
     NSString* fileName;
     GameScene* gameScene;
@@ -33,13 +34,10 @@
          
 }
 
-@property (readwrite) CGPoint touchPoint;
-@property (readwrite) CGPoint startPoint;
-
 @property (nonatomic, retain) NSMutableArray* arrowArray; 
 @property (nonatomic, retain) NSMutableArray* unusedArrowArray; 
 
-@property (nonatomic, retain) NSString* fileName;
+@property (readonly) NSInteger mp;
 
 -(id) initWithInfo:(GameScene*)_gameScene;
 -(BOOL) addArrow:(CGPoint)_touchPoint;

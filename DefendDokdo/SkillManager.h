@@ -18,16 +18,28 @@
     NSInteger skillState;
     Arrow *arrow;
     NSMutableArray *stoneArray;
+    NSInteger earthQuakeCount;
+    
+    CCSprite* healSpr;
+    CCAnimate* healingAnimation;
 }
 
 @property (readwrite) NSInteger skillState;
 @property (readonly, retain) Arrow *arrow;
 @property (readonly, retain) NSMutableArray *stoneArray;
 
+- (id) initWithGameScene:(GameScene *)gameScene;
+
 - (void) createStone:(CGPoint)location;
 - (void) createArrow:(CGPoint)location;
 - (void) createEarthQuake;
-- (id) initWithGameScene:(GameScene *)gameScene;
 - (void) update;
+- (void) endQuake:(id)sender;
+- (void) shakyPlus:(id)sender;
+- (void) shakyMinus:(id)sender;
+- (void) doHeal;
+- (void) initHealingAnimation;
+
+- (BOOL) useMp:(CGFloat)mp;
 
 @end

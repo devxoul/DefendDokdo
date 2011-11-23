@@ -28,8 +28,8 @@
 {
 	if( self = [super init] )
 	{   
-        [self setContentSize:CGSizeMake(480.f, 290.f)];
-        [self setAnchorPoint:CGPointZero];
+		[self setContentSize:CGSizeMake(480.f, 290.f)];
+		[self setAnchorPoint:CGPointZero];
 		self.isTouchEnabled = YES;
 	}
 	
@@ -42,15 +42,16 @@
 	{
 		CGPoint targetPoint = [[CCDirector sharedDirector] convertToGL:[touch locationInView: [touch view]]];
 		Enemy *e = nil;
-		for (e in scene.enemies) {
-			if (CGRectContainsPoint(e.boundingBox, targetPoint))
+		for (NSUInteger i = 0, j = scene.enemies.count;i < j;i++) {
+			e = [scene.enemies objectAtIndex:i];
+			if (CGRectContainsPoint(e.boundingBox, targetPoint) && e.state != ENEMY_STATE_FLIGHT && e.state != ENEMY_STATE_DIE && e.state != ENEMY_STATE_EXPLOSION)
 			{
-				if (![controlManager manageObject:e WithTouch:touch]) return;
-#warning TODO: change enemy state to CATCH
+				if (![controlManager manageObject:e WithTouch:touch] )
+					i = j;
+				[e beCaught];
 				break;
 			}
 		}
-		//if (e) [enemies removeObject:e];
 	}
 }
 
@@ -68,8 +69,6 @@
 	{
 		Enemy *e = [controlManager stopManagingObjectOfTouch:touch];
 		if (!e) return;
-		[scene.enemies addObject:e];
-#warning TODO: change enemy state to FALL
 	}
 }
 

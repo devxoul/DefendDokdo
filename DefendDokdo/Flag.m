@@ -47,7 +47,9 @@
 	[flagSpr runAction:[CCRepeatForever actionWithAction:flagAnimation]];
 }
 
-
+- (void) update{
+    hp=hp-0.1;
+}
 
 
 @end

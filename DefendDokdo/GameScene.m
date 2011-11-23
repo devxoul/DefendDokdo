@@ -116,8 +116,8 @@ NSInteger arryWaveEffect3[22] =
 {
 	if( self = [super init] )
 	{
-		[self initLayers];
 		[self initManagers];
+		[self initLayers];
 		[self initStage];
 	}
 	
@@ -128,9 +128,9 @@ NSInteger arryWaveEffect3[22] =
 {
 	gameLayer = [[GameLayer alloc] initWithScene:self];
 	[self addChild:gameLayer];
-    
-    skillLayer = [[SkillLayer alloc] initWithScene:self];
-    [self addChild:skillLayer];
+	
+	skillLayer = [[SkillLayer alloc] initWithScene:self];
+	[self addChild:skillLayer];
 	
 	gameUILayer = [[GameUILayer alloc] initWithScene:self];
 	[self addChild:gameUILayer];
@@ -155,7 +155,7 @@ NSInteger arryWaveEffect3[22] =
 	
 	CCSprite *dokdo = [[CCSprite alloc] initWithFile:@"dokdo.png"];
 	[dokdo setAnchorPoint:ccp(0.5f, 0.5f)];
-	[dokdo setPosition:ccp(248, 140)];
+	[dokdo setPosition:ccp(240, 140)];
 	[self.gameLayer addChild:dokdo z:Z_DOKDO];
 	
 	for (NSInteger i = 0; i < 2; i++) {
@@ -203,7 +203,7 @@ NSInteger arryWaveEffect3[22] =
 	[player init:self.gameLayer];
 	
 	enemies = [[NSMutableArray alloc] init];
-
+	
 	label = [[CCLabelTTF alloc] initWithString:@"" fontName:@"NanumScript.ttf" fontSize:100];
 	label.color = ccBLACK;	
 	label.visible = NO;
@@ -234,6 +234,7 @@ NSInteger arryWaveEffect3[22] =
 		[backgroundSky setPosition:ccp(backgroundSky.position.x - 0.63, backgroundSky.position.y)];
 		
 		// 해이동
+
 		//		
 		//		CGFloat sunX = sun.position.x + 0.1; // 2분 42초 
 		//		CGFloat sunX = sun.position.x + 0.15; // 1분 23초
@@ -241,9 +242,10 @@ NSInteger arryWaveEffect3[22] =
 		//		CGFloat sunX = sun.position.x + 0.11; // 2분 24초
 		//		CGFloat sunX = sun.position.x + 0.115; // 1분 34초
 		//		CGFloat sunX = sun.position.x + 0.112; // 2분 18초
+		
 		CGFloat sunX = sun.position.x + 0.113; // 1분 56초
 		CGFloat sunY = ((-1.0/280.0) * (sunX*sunX)) + (((12.0/7.0)*sunX) + (520.0/7.0));
-				
+		
 		[sun setPosition:ccp(sunX, sunY)];
 		
 		if (sunX > 480) {
@@ -275,10 +277,10 @@ NSInteger arryWaveEffect3[22] =
 		label.visible = YES;
 		label.string = @"Game Over!";
 		[label runAction:[CCEaseBackInOut actionWithAction:[CCMoveTo actionWithDuration:0.5 position:ccp( 240, 160 )]]];
-		[self schedule:@selector(onLabelEnd:) interval:2.0];		
+		[self schedule:@selector(onLabelEnd:) interval:2.0];
 		
 		nGameState = GAMESTATE_ENDING;
-	}	
+	}
 }
 
 -(void)waveEffect:(NSInteger)_count
