@@ -34,13 +34,83 @@
 @synthesize nGameState;
 
 
-enum{
-	BACKGROUND_1,
-	BACKGROUND_2,
-	BACKGROUND_3,
-	BACKGROUND_4
+NSInteger arryWaveEffect1[18] = 
+{
+	0,
+	0.5,
+	1,
+	0,
+	1.5,
+	2,
+	2.5,
+	0,
+	0,
+	0,
+	0,
+	-2.5,
+	-2,
+	-1.5,
+	0,
+	-1,
+	-0.5,
+	0
 };
 
+NSInteger arryWaveEffect2[26] = 
+{
+	0,
+	0.5,
+	0.5,
+	1,
+	1,
+	0,
+	1,
+	1,
+	1.5,
+	1.5,
+	2,
+	0,
+	0,
+	0,
+	0,
+	-2,
+	-1.5,
+	-1.5,
+	-1,
+	-1,
+	0,
+	-1,
+	-1,
+	-0.5,
+	-0.5,
+	0
+};
+
+NSInteger arryWaveEffect3[22] = 
+{
+	0,
+	0.5,
+	0.5,
+	1,
+	1,
+	0,
+	1.5,
+	2,
+	2.5,
+	0,
+	0,
+	0,
+	0,
+	-2.5,
+	-2,
+	-1.5,
+	0,
+	-1,
+	-1,
+	-0.5,
+	-0.5,
+	0
+};
 
 - (id)init
 {
@@ -64,39 +134,67 @@ enum{
 	
 	gameUILayer = [[GameUILayer alloc] initWithScene:self];
 	[self addChild:gameUILayer];
+	
 }
 
 - (void)initStage
-{
-	for (int i = 0; i < 4; i++) {
-		arryBg[i] = [[CCSprite alloc] initWithFile:[NSString stringWithFormat:@"game_bg_%d.png", i]];
-		[arryBg[i] setAnchorPoint:CGPointZero];
-		[arryBg[i] setPosition:CGPointZero];
-		[arryBg[i] setVisible:NO];
-		[self.gameLayer addChild:arryBg[i] z:Z_BACKGROUND];
-	}
-	
-	[arryBg[BACKGROUND_1] setVisible:YES];
-	nBgState = BACKGROUND_1;
+{	
+	backgroundSky = [[CCSprite alloc] initWithFile:@"sky.png"];
+	[backgroundSky setAnchorPoint:CGPointZero];
+	[backgroundSky setPosition:CGPointZero];
+	[self.gameLayer addChild:backgroundSky z:Z_BACKGROUND];
 	
 	nGameState = GAMESTATE_START;
 	nCount = 0;
+	nWaveCount = 0;
 	
 	sun = [[CCSprite alloc] initWithFile:@"sun.png"];
 	[sun setPosition:ccp(-40.0f, 100.0f)];
-	[sun setAnchorPoint:ccp(0.5f, 0.0f)];
+	[sun setAnchorPoint:ccp(0.0f, 0.0f)];
 	[self.gameLayer addChild:sun z:Z_SUN];
 	
 	CCSprite *dokdo = [[CCSprite alloc] initWithFile:@"dokdo.png"];
 	[dokdo setAnchorPoint:ccp(0.5f, 0.5f)];
-	[dokdo setPosition:ccp(248, 125)];
+	[dokdo setPosition:ccp(248, 140)];
 	[self.gameLayer addChild:dokdo z:Z_DOKDO];
 	
-	for (int i = 0; i < 3; i++) {
-		sea[i] = [[CCSprite alloc] initWithFile:[NSString stringWithFormat:@"pado0%d.png", i+1]];
-		sea[i].anchorPoint = CGPointZero;
-		[self.gameLayer addChild:sea[i] z:Z_SEA3 - i];
+	for (NSInteger i = 0; i < 2; i++) {
+		sea1[i] = [[CCSprite alloc] initWithFile:@"pado01.png"];
+		sea1[i].anchorPoint = CGPointZero;
+		[self.gameLayer addChild:sea1[i] z:Z_SEA];
 	}
+	
+	sea1[0].position = ccp(0.0f, -10.0f);
+	sea1[1].position = ccp(sea1[0].position.x - 479.0f, -10.0f);
+
+	for (NSInteger i = 0; i < 2; i++) {
+		sea2[i] = [[CCSprite alloc] initWithFile:@"pado02.png"];
+		sea2[i].anchorPoint = CGPointZero;
+		[self.gameLayer addChild:sea2[i] z:(Z_DOKDO-1)];
+	}
+	
+	sea2[0].position = ccp(-40.0f, 5.0f);
+	sea2[1].position = ccp(440.0f, 5.0f);
+	
+	for (NSInteger i = 0; i < 2; i++) {
+		sea3[i] = [[CCSprite alloc] initWithFile:@"pado03.png"];
+		sea3[i].anchorPoint = CGPointZero;
+		[self.gameLayer addChild:sea3[i] z:(Z_DOKDO-2)];
+	}
+	
+	sea3[0].position = ccp(-100.0f, 13.0f);
+	sea3[1].position = ccp(380.0f, 13.0f);
+	
+	for (NSInteger i = 0; i < 0; i++) {
+		cloud[i] = [[CCSprite alloc] initWithFile:[NSString stringWithFormat:@"cloud0%d.png", i+1]];
+		[cloud[i] setAnchorPoint:ccp(0.0f, 0.0f)];
+		[self.gameLayer addChild:cloud[i] z:Z_CLOUDE];
+	}
+	
+	[cloud[0] setPosition:ccp(480, 200)];
+//	[cloud[1] setPosition:ccp(480, 200)];
+//	[cloud[2] setPosition:ccp(480, 200)];
+//	[cloud[3] setPosition:ccp(480, 200)];
 	
 	flag = [Flag alloc];
 	[flag init:self.gameLayer];
@@ -132,23 +230,10 @@ enum{
 		[gameUILayer update];
 		[skillManager update];
 		
-		if (nCount % 250 == 0 && nCount > 0) {
-					
-			[arryBg[nBgState] setVisible:NO];
-			nBgState++;
-					
-			if (nBgState == 4) 
-			{
-			//gameover
-				nBgState = 0;
-				nCount = 0;
-				[arryBg[nBgState] setVisible:YES];
-			}
-			else 
-			{
-				[arryBg[nBgState] setVisible:YES];
-			}		
-		}
+		// 배경변화
+		[backgroundSky setPosition:ccp(backgroundSky.position.x - 0.63, backgroundSky.position.y)];
+		
+		// 해이동
 		//		
 		//		CGFloat sunX = sun.position.x + 0.1; // 2분 42초 
 		//		CGFloat sunX = sun.position.x + 0.15; // 1분 23초
@@ -164,6 +249,13 @@ enum{
 		if (sunX > 480) {
 			nGameState = GAMESTATE_CLEAR;
 		}
+		
+		// 바다 이펙트
+		if (nCount % 3 == 0) {
+			[self waveEffect:nWaveCount];
+		}
+		
+		[cloud[0] setPosition:ccp(cloud[0].position.x - 1, cloud[0].position.y)];
 		
 		nCount++;
 		
@@ -189,9 +281,48 @@ enum{
 	}	
 }
 
+-(void)waveEffect:(NSInteger)_count
+{
+	[sea1[0] setPosition:ccp(sea1[0].position.x + 1, sea1[0].position.y + arryWaveEffect1[_count%18])];
+	[sea1[1] setPosition:ccp(sea1[1].position.x + 1, sea1[1].position.y + arryWaveEffect1[_count%18])];
+	
+	if (sea1[0].position.x >= 480) {
+		[sea1[0] setPosition:ccp(sea1[1].position.x - 479.0f, sea1[0].position.y)];
+	}
+	
+	if (sea1[1].position.x >= 480) {
+		[sea1[1] setPosition:ccp(sea1[0].position.x - 479.0f, sea1[1].position.y)];
+	}
+	
+	[sea2[0] setPosition:ccp(sea2[0].position.x + 1, sea2[0].position.y + arryWaveEffect2[_count%26])];
+	[sea2[1] setPosition:ccp(sea2[1].position.x + 1, sea2[1].position.y + arryWaveEffect2[_count%26])];
+	
+	if (sea2[0].position.x >= 480) {
+		[sea2[0] setPosition:ccp(sea2[1].position.x - 479.0f, sea2[0].position.y)];
+	}
+	
+	if (sea2[1].position.x >= 480) {
+		[sea2[1] setPosition:ccp(sea2[0].position.x - 479.0f, sea2[1].position.y)];
+	}
+	
+	[sea3[0] setPosition:ccp(sea3[0].position.x + 1, sea3[0].position.y + arryWaveEffect3[_count%22])];
+	[sea3[1] setPosition:ccp(sea3[1].position.x + 1, sea3[1].position.y + arryWaveEffect3[_count%22])];
+	
+	if (sea3[0].position.x >= 480) {
+		[sea3[0] setPosition:ccp(sea3[1].position.x - 479.0f, sea3[0].position.y)];
+	}
+	
+	if (sea3[1].position.x >= 480) {
+		[sea3[1] setPosition:ccp(sea3[0].position.x - 479.0f, sea3[1].position.y)];
+	}	
+	
+	nWaveCount++;
+}
+
+
 - (void)onLabelEnd:(id)sender
 {
-	[[CCDirector sharedDirector] pushScene:[CCTransitionSlideInL transitionWithDuration:0.3 scene:[[[ResultLayer node] scene] autorelease]]];
+//	[[CCDirector sharedDirector] pushScene:[CCTransitionSlideInL transitionWithDuration:0.3 scene:[[[ResultLayer node] scene] autorelease]]];
 }
 
 

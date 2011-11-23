@@ -26,8 +26,13 @@
 	ControlManager *controlManager;
 	SkillManager *skillManager;
 	
-	CCSprite *arryBg[4];
-	CCSprite *sea[3];
+	CCSprite *backgroundSky;
+	
+	CCSprite *sea1[2];
+	CCSprite *sea2[2];
+	CCSprite *sea3[2];
+	
+	CCSprite *cloud[4];
 	CCSprite *sun;
 	
 	Flag *flag;
@@ -36,7 +41,7 @@
 	NSMutableArray *enemies;
 	
 	NSInteger nCount;
-	NSInteger nBgState;
+	NSInteger nWaveCount;
 	
 	CCLabelTTF *label;
 	
@@ -56,5 +61,6 @@
 @property (nonatomic, retain) SkillManager *skillManager;
 @property (readwrite) NSInteger nGameState;
 
+-(void)waveEffect:(NSInteger)_count;
 
 @end

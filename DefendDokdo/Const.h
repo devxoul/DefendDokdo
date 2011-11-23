@@ -14,13 +14,14 @@
 #define WATER_RESISTANCE	0.5
 #define BUOYANCY			0.2
 
-#define SEA_Y				30
+#define SEA_Y				65
 #define PLANE_Y				250
 #define DOKDO_LEFT_X		110
-#define DOKDO_RIGHT_X		360
+#define DOKDO_RIGHT_X		400
 #define FLAG_LEFT_X			225
 #define FLAG_RIGHT_X		260
-#define FLAG_X				240
+#define FLAG_X				250
+#define FLAG_Y				230
 #define TOP_Y				205
 
 #define ENEMY_TYPE_NORMAL		0
@@ -41,14 +42,13 @@
 
 #define Z_BACKGROUND		0
 #define Z_SUN				1
-#define Z_PLANE				2
-#define Z_DOKDO				3
-#define Z_SEA1				4
-#define Z_SEA2				5
-#define Z_SEA3				6
-#define Z_FLAG				7
-#define Z_ENEMY				8
-#define Z_LABEL				9
+#define Z_CLOUDE			2
+#define Z_PLANE				3
+#define Z_DOKDO				4
+#define Z_FLAG				5
+#define Z_ENEMY				6
+#define Z_SEA				7
+#define Z_LABEL				8
 
 //성은 추가, 게임 State
 #define GAMESTATE_START		0

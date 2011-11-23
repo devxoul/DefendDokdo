@@ -17,7 +17,9 @@
     NSInteger maxHp;
 	NSInteger hp;
 	
+	CCSpriteBatchNode *flagBatchNode;
 	CCSprite *flagSpr;
+	CCAnimate *flagAnimation;
 }
 
 - (void)init:(GameLayer*)scene;

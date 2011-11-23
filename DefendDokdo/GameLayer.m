@@ -16,7 +16,7 @@
 
 - (id)initWithScene:(GameScene *)scene_
 {
-	if (self == [self init])
+	if (self = [self init])
 	{
 		scene = scene_;
 		controlManager = scene.controlManager;
@@ -26,7 +26,7 @@
 
 - (id)init
 {
-	if( self == [super init] )
+	if( self = [super init] )
 	{   
         [self setContentSize:CGSizeMake(480.f, 290.f)];
         [self setAnchorPoint:CGPointZero];
