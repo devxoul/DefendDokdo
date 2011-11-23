@@ -100,6 +100,8 @@
 @property (nonatomic) CGFloat dy;
 @property (nonatomic, readonly, getter = getBoundingBox) CGRect boundingBox;
 
++ (CGFloat)getGroundY:(CGFloat)x;
+
 - (id)initWithGameScene:(GameScene *)scene type:(NSInteger)_type level:(NSInteger)_level hp:(NSInteger)_hp power:(NSInteger)_power speed:(CGFloat)_speed;
 - (void)update;
 - (void)applyForce:(CGFloat)x:(CGFloat)y;

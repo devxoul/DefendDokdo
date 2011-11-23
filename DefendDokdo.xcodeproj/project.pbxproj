@@ -173,7 +173,6 @@
 		032350BF147D28DC003B13B2 /* Icon-Small@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 03234F22147D2731003B13B2 /* Icon-Small@2x.png */; };
 		032350C0147D28DC003B13B2 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 03234F23147D2731003B13B2 /* Icon.png */; };
 		032350C1147D28DC003B13B2 /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 03234F24147D2731003B13B2 /* Icon@2x.png */; };
-		032350C2147D28DC003B13B2 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 03234F25147D2731003B13B2 /* Info.plist */; };
 		032350C3147D28DC003B13B2 /* iTunesArtwork in Resources */ = {isa = PBXBuildFile; fileRef = 03234F26147D2731003B13B2 /* iTunesArtwork */; };
 		032350C4147D28DC003B13B2 /* pado01.png in Resources */ = {isa = PBXBuildFile; fileRef = 03234F27147D2731003B13B2 /* pado01.png */; };
 		032350C5147D28DC003B13B2 /* pado02.png in Resources */ = {isa = PBXBuildFile; fileRef = 03234F28147D2731003B13B2 /* pado02.png */; };
@@ -314,59 +313,31 @@
 		03398A8A146001FF002AAAA3 /* FontManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 03398A89146001FF002AAAA3 /* FontManager.m */; };
 		03398A8D146001FF002AAAA3 /* ZAttributedString.m in Sources */ = {isa = PBXBuildFile; fileRef = 03398A8C146001FF002AAAA3 /* ZAttributedString.m */; };
 		03398A91146001FF002AAAA3 /* ZFont.m in Sources */ = {isa = PBXBuildFile; fileRef = 03398A90146001FF002AAAA3 /* ZFont.m */; };
-		033D4678147CEDEC00E7044B /* TitleLayer.h in Sources */ = {isa = PBXBuildFile; fileRef = 03398A9D146001FF002AAAA3 /* TitleLayer.h */; };
 		033D4679147CEDEC00E7044B /* TitleLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 03398A9E146001FF002AAAA3 /* TitleLayer.m */; };
-		033D467A147CEDEC00E7044B /* MainLayer.h in Sources */ = {isa = PBXBuildFile; fileRef = 037B5F34146039DB00074732 /* MainLayer.h */; };
 		033D467B147CEDEC00E7044B /* MainLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 037B5F35146039DB00074732 /* MainLayer.m */; };
-		033D467C147CEDEC00E7044B /* IntroLayer.h in Sources */ = {isa = PBXBuildFile; fileRef = 037B5F3714603A6500074732 /* IntroLayer.h */; };
 		033D467D147CEDEC00E7044B /* IntroLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 037B5F3814603A6500074732 /* IntroLayer.m */; };
-		033D467E147CEDEC00E7044B /* TutorialLayer.h in Sources */ = {isa = PBXBuildFile; fileRef = 037B5F3A14603A8900074732 /* TutorialLayer.h */; };
 		033D467F147CEDEC00E7044B /* TutorialLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 037B5F3B14603A8900074732 /* TutorialLayer.m */; };
-		033D4680147CEDEC00E7044B /* GameScene.h in Sources */ = {isa = PBXBuildFile; fileRef = 037B5F3D14603A9400074732 /* GameScene.h */; };
 		033D4681147CEDEC00E7044B /* GameScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 037B5F3E14603A9400074732 /* GameScene.m */; };
-		033D4682147CEDEC00E7044B /* GameLayer.h in Sources */ = {isa = PBXBuildFile; fileRef = 037B5F4014603AA000074732 /* GameLayer.h */; };
 		033D4683147CEDEC00E7044B /* GameLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 037B5F4114603AA000074732 /* GameLayer.m */; };
-		033D4684147CEDEC00E7044B /* SkillLayer.h in Sources */ = {isa = PBXBuildFile; fileRef = 3CB4BED4147B760C00D8B7B4 /* SkillLayer.h */; };
 		033D4685147CEDEC00E7044B /* SkillLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CB4BED5147B760C00D8B7B4 /* SkillLayer.m */; };
-		033D4686147CEDEC00E7044B /* GameUILayer.h in Sources */ = {isa = PBXBuildFile; fileRef = 037B5F4314603AA600074732 /* GameUILayer.h */; };
 		033D4687147CEDEC00E7044B /* GameUILayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 037B5F4414603AA600074732 /* GameUILayer.m */; };
-		033D4688147CEDEC00E7044B /* ResultLayer.h in Sources */ = {isa = PBXBuildFile; fileRef = 037B5F4614603ABB00074732 /* ResultLayer.h */; };
 		033D4689147CEDEC00E7044B /* ResultLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 037B5F4714603ABB00074732 /* ResultLayer.m */; };
-		033D468A147CEDEC00E7044B /* UpgradeLayer.h in Sources */ = {isa = PBXBuildFile; fileRef = 037B5F4914603AD900074732 /* UpgradeLayer.h */; };
 		033D468B147CEDEC00E7044B /* UpgradeLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 037B5F4A14603AD900074732 /* UpgradeLayer.m */; };
-		033D468C147CEDEC00E7044B /* SettingsLayer.h in Sources */ = {isa = PBXBuildFile; fileRef = 037B5F4C14603AE900074732 /* SettingsLayer.h */; };
 		033D468D147CEDEC00E7044B /* SettingsLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 037B5F4D14603AE900074732 /* SettingsLayer.m */; };
-		033D468E147CEDEC00E7044B /* Flag.h in Sources */ = {isa = PBXBuildFile; fileRef = 037B5F52146040E900074732 /* Flag.h */; };
 		033D468F147CEDEC00E7044B /* Flag.m in Sources */ = {isa = PBXBuildFile; fileRef = 037B5F53146040E900074732 /* Flag.m */; };
-		033D4690147CEDEC00E7044B /* Player.h in Sources */ = {isa = PBXBuildFile; fileRef = 037B5F551460418400074732 /* Player.h */; };
 		033D4691147CEDEC00E7044B /* Player.m in Sources */ = {isa = PBXBuildFile; fileRef = 037B5F561460418400074732 /* Player.m */; };
-		033D4692147CEDEC00E7044B /* Enemy.h in Sources */ = {isa = PBXBuildFile; fileRef = 037B5F4F14603CE300074732 /* Enemy.h */; };
 		033D4693147CEDEC00E7044B /* Enemy.m in Sources */ = {isa = PBXBuildFile; fileRef = 037B5F5014603CE300074732 /* Enemy.m */; };
-		033D4694147CEDEC00E7044B /* UserData.h in Sources */ = {isa = PBXBuildFile; fileRef = 037B5F68146042B000074732 /* UserData.h */; };
 		033D4695147CEDEC00E7044B /* UserData.m in Sources */ = {isa = PBXBuildFile; fileRef = 037B5F69146042B000074732 /* UserData.m */; };
-		033D4696147CEDEC00E7044B /* Stone.h in Sources */ = {isa = PBXBuildFile; fileRef = CF73B4D51466C0D800CE8D2E /* Stone.h */; };
 		033D4697147CEDEC00E7044B /* Stone.m in Sources */ = {isa = PBXBuildFile; fileRef = CF73B4D61466C0D800CE8D2E /* Stone.m */; };
-		033D4698147CEDEC00E7044B /* Slot.h in Sources */ = {isa = PBXBuildFile; fileRef = CFB21655146824490011E4E2 /* Slot.h */; };
 		033D4699147CEDEC00E7044B /* Slot.m in Sources */ = {isa = PBXBuildFile; fileRef = CFB21656146824490011E4E2 /* Slot.m */; };
-		033D469A147CEDEC00E7044B /* Arrow.h in Sources */ = {isa = PBXBuildFile; fileRef = CF3F668414697C51003F4E51 /* Arrow.h */; };
 		033D469B147CEDEC00E7044B /* Arrow.m in Sources */ = {isa = PBXBuildFile; fileRef = CF3F668514697C51003F4E51 /* Arrow.m */; };
-		033D469C147CEDEC00E7044B /* ArrowObject.h in Sources */ = {isa = PBXBuildFile; fileRef = CF3F6688146AAB8E003F4E51 /* ArrowObject.h */; };
 		033D469D147CEDEC00E7044B /* ArrowObject.m in Sources */ = {isa = PBXBuildFile; fileRef = CF3F6689146AAB8F003F4E51 /* ArrowObject.m */; };
-		033D469E147CEDEC00E7044B /* SkillData.h in Sources */ = {isa = PBXBuildFile; fileRef = CFBB56181470488D00E7A7FF /* SkillData.h */; };
 		033D469F147CEDEC00E7044B /* SkillData.m in Sources */ = {isa = PBXBuildFile; fileRef = CFBB56191470488D00E7A7FF /* SkillData.m */; };
-		033D46A0147CEDEC00E7044B /* EnemyManager.h in Sources */ = {isa = PBXBuildFile; fileRef = 037B5F5F1460426D00074732 /* EnemyManager.h */; };
 		033D46A1147CEDEC00E7044B /* EnemyManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 037B5F601460426D00074732 /* EnemyManager.m */; };
-		033D46A2147CEDEC00E7044B /* SkillManager.h in Sources */ = {isa = PBXBuildFile; fileRef = 037B5F651460427B00074732 /* SkillManager.h */; };
 		033D46A3147CEDEC00E7044B /* SkillManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 037B5F661460427B00074732 /* SkillManager.m */; };
-		033D46A4147CEDEC00E7044B /* ControlManager.h in Sources */ = {isa = PBXBuildFile; fileRef = 037B5F621460427400074732 /* ControlManager.h */; };
 		033D46A5147CEDEC00E7044B /* ControlManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 037B5F631460427400074732 /* ControlManager.m */; };
-		033D46A6147CEDEC00E7044B /* Const.h in Sources */ = {isa = PBXBuildFile; fileRef = 0374E23F1461A65E00B9EAF7 /* Const.h */; };
-		033D46A7147CEDEC00E7044B /* AppDelegate.h in Sources */ = {isa = PBXBuildFile; fileRef = 03398A97146001FF002AAAA3 /* AppDelegate.h */; };
 		033D46A8147CEDEC00E7044B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 03398A98146001FF002AAAA3 /* AppDelegate.m */; };
-		033D46A9147CEDEC00E7044B /* RootViewController.h in Sources */ = {isa = PBXBuildFile; fileRef = 03398A9A146001FF002AAAA3 /* RootViewController.h */; };
 		033D46AA147CEDEC00E7044B /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 03398A9B146001FF002AAAA3 /* RootViewController.m */; };
-		033D46AB147CEDEC00E7044B /* GameConfig.h in Sources */ = {isa = PBXBuildFile; fileRef = 03398AA0146001FF002AAAA3 /* GameConfig.h */; };
-		033D46AC147CEE1000E7044B /* Prefix.pch in Sources */ = {isa = PBXBuildFile; fileRef = 03398A94146001FF002AAAA3 /* Prefix.pch */; };
 		033D46AD147CEE1000E7044B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 03398A95146001FF002AAAA3 /* main.m */; };
 /* End PBXBuildFile section */
 
@@ -1813,7 +1784,6 @@
 				032350BF147D28DC003B13B2 /* Icon-Small@2x.png in Resources */,
 				032350C0147D28DC003B13B2 /* Icon.png in Resources */,
 				032350C1147D28DC003B13B2 /* Icon@2x.png in Resources */,
-				032350C2147D28DC003B13B2 /* Info.plist in Resources */,
 				032350C3147D28DC003B13B2 /* iTunesArtwork in Resources */,
 				032350C4147D28DC003B13B2 /* pado01.png in Resources */,
 				032350C5147D28DC003B13B2 /* pado02.png in Resources */,
@@ -1862,60 +1832,32 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				033D46AC147CEE1000E7044B /* Prefix.pch in Sources */,
 				033D46AD147CEE1000E7044B /* main.m in Sources */,
-				033D4678147CEDEC00E7044B /* TitleLayer.h in Sources */,
 				033D4679147CEDEC00E7044B /* TitleLayer.m in Sources */,
-				033D467A147CEDEC00E7044B /* MainLayer.h in Sources */,
 				033D467B147CEDEC00E7044B /* MainLayer.m in Sources */,
-				033D467C147CEDEC00E7044B /* IntroLayer.h in Sources */,
 				033D467D147CEDEC00E7044B /* IntroLayer.m in Sources */,
-				033D467E147CEDEC00E7044B /* TutorialLayer.h in Sources */,
 				033D467F147CEDEC00E7044B /* TutorialLayer.m in Sources */,
-				033D4680147CEDEC00E7044B /* GameScene.h in Sources */,
 				033D4681147CEDEC00E7044B /* GameScene.m in Sources */,
-				033D4682147CEDEC00E7044B /* GameLayer.h in Sources */,
 				033D4683147CEDEC00E7044B /* GameLayer.m in Sources */,
-				033D4684147CEDEC00E7044B /* SkillLayer.h in Sources */,
 				033D4685147CEDEC00E7044B /* SkillLayer.m in Sources */,
-				033D4686147CEDEC00E7044B /* GameUILayer.h in Sources */,
 				033D4687147CEDEC00E7044B /* GameUILayer.m in Sources */,
-				033D4688147CEDEC00E7044B /* ResultLayer.h in Sources */,
 				033D4689147CEDEC00E7044B /* ResultLayer.m in Sources */,
-				033D468A147CEDEC00E7044B /* UpgradeLayer.h in Sources */,
 				033D468B147CEDEC00E7044B /* UpgradeLayer.m in Sources */,
-				033D468C147CEDEC00E7044B /* SettingsLayer.h in Sources */,
 				033D468D147CEDEC00E7044B /* SettingsLayer.m in Sources */,
-				033D468E147CEDEC00E7044B /* Flag.h in Sources */,
 				033D468F147CEDEC00E7044B /* Flag.m in Sources */,
-				033D4690147CEDEC00E7044B /* Player.h in Sources */,
 				033D4691147CEDEC00E7044B /* Player.m in Sources */,
-				033D4692147CEDEC00E7044B /* Enemy.h in Sources */,
 				033D4693147CEDEC00E7044B /* Enemy.m in Sources */,
-				033D4694147CEDEC00E7044B /* UserData.h in Sources */,
 				033D4695147CEDEC00E7044B /* UserData.m in Sources */,
-				033D4696147CEDEC00E7044B /* Stone.h in Sources */,
 				033D4697147CEDEC00E7044B /* Stone.m in Sources */,
-				033D4698147CEDEC00E7044B /* Slot.h in Sources */,
 				033D4699147CEDEC00E7044B /* Slot.m in Sources */,
-				033D469A147CEDEC00E7044B /* Arrow.h in Sources */,
 				033D469B147CEDEC00E7044B /* Arrow.m in Sources */,
-				033D469C147CEDEC00E7044B /* ArrowObject.h in Sources */,
 				033D469D147CEDEC00E7044B /* ArrowObject.m in Sources */,
-				033D469E147CEDEC00E7044B /* SkillData.h in Sources */,
 				033D469F147CEDEC00E7044B /* SkillData.m in Sources */,
-				033D46A0147CEDEC00E7044B /* EnemyManager.h in Sources */,
 				033D46A1147CEDEC00E7044B /* EnemyManager.m in Sources */,
-				033D46A2147CEDEC00E7044B /* SkillManager.h in Sources */,
 				033D46A3147CEDEC00E7044B /* SkillManager.m in Sources */,
-				033D46A4147CEDEC00E7044B /* ControlManager.h in Sources */,
 				033D46A5147CEDEC00E7044B /* ControlManager.m in Sources */,
-				033D46A6147CEDEC00E7044B /* Const.h in Sources */,
-				033D46A7147CEDEC00E7044B /* AppDelegate.h in Sources */,
 				033D46A8147CEDEC00E7044B /* AppDelegate.m in Sources */,
-				033D46A9147CEDEC00E7044B /* RootViewController.h in Sources */,
 				033D46AA147CEDEC00E7044B /* RootViewController.m in Sources */,
-				033D46AB147CEDEC00E7044B /* GameConfig.h in Sources */,
 				0339895E146001FD002AAAA3 /* CCAction.m in Sources */,
 				03398961146001FD002AAAA3 /* CCActionCamera.m in Sources */,
 				03398964146001FD002AAAA3 /* CCActionEase.m in Sources */,

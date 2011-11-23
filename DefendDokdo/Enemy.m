@@ -56,7 +56,7 @@
 - (void)stopWaterEffect;
 - (void)stopWaterEffect:(id)sender;
 
-- (float)getGroundY;
+- (CGFloat)getGroundY;
 - (BOOL)getPlaneExists;
 - (void)setPlaneExists;
 @end
@@ -375,22 +375,22 @@
 
 #pragma mark - getter/setter
 
-- (float)getX
+- (CGFloat)getX
 {
 	return _x;
 }
 
-- (void)setX:(float)x
+- (void)setX:(CGFloat)x
 {
 	enemySpr.position = ccp( _x = x, _y );
 }
 
-- (float)getY
+- (CGFloat)getY
 {
 	return _y;
 }
 
-- (void)setY:(float)y
+- (void)setY:(CGFloat)y
 {
 	enemySpr.position = ccp( _x, _y = y );
 }
@@ -401,15 +401,23 @@
 	return CGRectMake( self.x - 40, self.y - 30, 60, 60 );
 }
 
-- (float)getGroundY
++ (CGFloat)getGroundY:(CGFloat)x
 {
-	if( self.x + gapX < FLAG_X )
-		return ( self.x + gapX - 110 ) * 34 / 23 + 60 + sinf( ( self.x + gapX ) / 10 ) * 3;
+	if( x < DOKDO_LEFT_X )
+		return ( x - 110 ) * 34 / 23 + 60 + sinf( x / 10 ) * 3;
 	
-	else// if( FLAG_X < self.x + gapX )
-		return -1 * ( self.x + gapX - 360 ) * 31 / 20 + 70 + cosf( ( self.x + gapX ) / 10 ) * 3;
+	else if( DOKDO_LEFT_X <= x && x <= DOKDO_RIGHT_X )
+		return FLAG_Y;
+	
+	else
+		return -1 * ( x - 360 ) * 31 / 20 + 70 + cosf( x / 10 ) * 3;
 	
 	return SEA_Y;
+}
+
+- (CGFloat)getGroundY
+{
+	return [Enemy getGroundY:self.x + gapX];
 }
 
 - (BOOL)getPlaneExists
@@ -954,7 +962,7 @@
 
 #pragma mark - public methods
 
-- (void)applyForce:(float)x:(float)y
+- (void)applyForce:(CGFloat)x:(CGFloat)y
 {
 	if( state == ENEMY_STATE_FALL || state == ENEMY_STATE_DIE )
 		return;
