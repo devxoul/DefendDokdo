@@ -99,8 +99,8 @@
 				return false;
 		}*/
 		
-		object.x = targetPoint.x - 20;
-		object.y = targetPoint.y - 20;
+		object.x = targetPoint.x;
+		object.y = targetPoint.y - 30;
 		
 		NSTimeInterval interval = [[[originalPositionArray objectAtIndex:i] time] timeIntervalSinceNow];
 		CGPoint originalPoint = [[originalPositionArray objectAtIndex:i] p];

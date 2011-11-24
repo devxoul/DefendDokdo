@@ -14,9 +14,11 @@
 @interface EnemyManager : NSObject {
 	GameScene *gameScene;
 	NSArray *enemyInfoList;
+	NSArray *stageInfoList;
+	NSInteger lastSunPermillage;
 }
 
 - (id)initWithGameScene:(GameScene *)gameScene;
 - (void)update;
-- (void)createEnemy:(NSInteger)type level:(NSInteger)level;
+//- (void)createEnemy:(NSInteger)type level:(NSInteger)level;
 @end

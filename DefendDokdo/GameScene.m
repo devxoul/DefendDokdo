@@ -29,9 +29,10 @@
 
 @synthesize gameLayer, gameUILayer, skillLayer;
 @synthesize controlManager;
-@synthesize flag, enemies;
+@synthesize flag, enemies, player;
 @synthesize skillManager;
 @synthesize nGameState;
+@synthesize currentStage, sunPermillage;
 
 
 NSInteger arryWaveEffect1[18] = 
@@ -224,9 +225,6 @@ NSInteger arryWaveEffect3[22] =
 	
 	if (nGameState == GAMESTATE_START)
 	{
-#warning temp
-		if( arc4random() % 50 < 1 ) [enemyManager createEnemy:0 level:0]; // temp
-		
 		[enemyManager update];
 		[gameUILayer update];
 		[skillManager update];
@@ -249,7 +247,7 @@ NSInteger arryWaveEffect3[22] =
 		
 		[sun setPosition:ccp(sunX, sunY)];
 		
-		if (sunX > 480) {
+		if (sunX >= 480) {
 			nGameState = GAMESTATE_CLEAR;
 		}
 		
@@ -322,6 +320,10 @@ NSInteger arryWaveEffect3[22] =
 	nWaveCount++;
 }
 
+- (NSInteger)sunPermillage
+{
+	return (NSInteger)((sun.position.x + 40.113) * 1000 / 520);
+}
 
 - (void)onLabelEnd:(id)sender
 {

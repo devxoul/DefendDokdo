@@ -43,6 +43,8 @@
 	NSInteger nCount;
 	NSInteger nWaveCount;
 	
+	NSInteger currentStage;
+	
 	CCLabelTTF *label;
 	
 @public
@@ -58,8 +60,13 @@
 @property (nonatomic, retain) Flag *flag;
 @property (nonatomic, retain) NSMutableArray *enemies;
 
+@property (nonatomic, retain) Player *player;
+
 @property (nonatomic, retain) SkillManager *skillManager;
 @property (readwrite) NSInteger nGameState;
+
+@property (readonly) NSInteger currentStage;
+@property (readonly) NSInteger sunPermillage;
 
 -(void)waveEffect:(NSInteger)_count;
 

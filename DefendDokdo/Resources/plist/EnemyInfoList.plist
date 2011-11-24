@@ -9,6 +9,14 @@
 				<key>hp</key>
 				<integer>100</integer>
 				<key>power</key>
+				<integer>1</integer>
+				<key>speed</key>
+				<integer>1</integer>
+			</dict>
+			<dict>
+				<key>hp</key>
+				<integer>0</integer>
+				<key>power</key>
 				<integer>0</integer>
 				<key>speed</key>
 				<integer>1</integer>
@@ -19,15 +27,7 @@
 				<key>power</key>
 				<integer>0</integer>
 				<key>speed</key>
-				<integer>0</integer>
-			</dict>
-			<dict>
-				<key>hp</key>
-				<integer>0</integer>
-				<key>power</key>
-				<integer>0</integer>
-				<key>speed</key>
-				<integer>0</integer>
+				<integer>1</integer>
 			</dict>
 		</array>
 		<array>
@@ -37,7 +37,7 @@
 				<key>power</key>
 				<integer>0</integer>
 				<key>speed</key>
-				<integer>0</integer>
+				<integer>1</integer>
 			</dict>
 			<dict>
 				<key>hp</key>
@@ -45,7 +45,7 @@
 				<key>power</key>
 				<integer>0</integer>
 				<key>speed</key>
-				<integer>0</integer>
+				<integer>1</integer>
 			</dict>
 			<dict>
 				<key>hp</key>
@@ -53,7 +53,7 @@
 				<key>power</key>
 				<integer>0</integer>
 				<key>speed</key>
-				<integer>0</integer>
+				<integer>1</integer>
 			</dict>
 		</array>
 		<array>
@@ -63,7 +63,7 @@
 				<key>power</key>
 				<integer>0</integer>
 				<key>speed</key>
-				<integer>0</integer>
+				<integer>1</integer>
 			</dict>
 			<dict>
 				<key>hp</key>
@@ -71,7 +71,7 @@
 				<key>power</key>
 				<integer>0</integer>
 				<key>speed</key>
-				<integer>0</integer>
+				<integer>1</integer>
 			</dict>
 			<dict>
 				<key>hp</key>
@@ -79,7 +79,7 @@
 				<key>power</key>
 				<integer>0</integer>
 				<key>speed</key>
-				<integer>0</integer>
+				<integer>1</integer>
 			</dict>
 		</array>
 		<array>
@@ -97,7 +97,7 @@
 				<key>power</key>
 				<integer>0</integer>
 				<key>speed</key>
-				<integer>0</integer>
+				<integer>1</integer>
 			</dict>
 			<dict>
 				<key>hp</key>
@@ -105,7 +105,7 @@
 				<key>power</key>
 				<integer>0</integer>
 				<key>speed</key>
-				<integer>0</integer>
+				<integer>1</integer>
 			</dict>
 		</array>
 	</array>

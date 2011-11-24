@@ -100,6 +100,7 @@
 @property (nonatomic) CGFloat dx;
 @property (nonatomic) CGFloat dy;
 @property (nonatomic, readonly, getter = getBoundingBox) CGRect boundingBox;
+@property (nonatomic, readonly, getter = getTouchBoundingBox) CGRect touchBoundingBox;
 
 + (CGFloat)getGroundY:(CGFloat)x;
 

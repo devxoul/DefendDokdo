@@ -10,6 +10,7 @@
 #import "Const.h"
 #import "GameScene.h"
 #import "Flag.h"
+#import "Player.h"
 
 @interface Enemy(Private)
 - (void)initBoatAnimation;
@@ -56,6 +57,9 @@
 - (void)stopWaterEffect;
 - (void)stopWaterEffect:(id)sender;
 
+- (void)attack;
+- (void)onAttack:(id)sener;
+
 - (CGFloat)getGroundY;
 - (BOOL)getPlaneExists;
 - (void)setPlaneExists;
@@ -66,7 +70,7 @@
 
 @synthesize type, level, state;
 @synthesize maxHp, hp, power, speed;
-@synthesize x = _x, y = _y, dx, dy, boundingBox;
+@synthesize x = _x, y = _y, dx, dy, boundingBox, touchBoundingBox;
 
 #pragma mark - initialize
 
@@ -312,22 +316,22 @@
 
 - (void)initDieAnimation
 {
-	[[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:[NSString stringWithFormat:@"enemy_%d_%d_idle.plist", type, level]];
+	[[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:[NSString stringWithFormat:@"enemy_%d_%d_fall.plist", type, level]];
 	
-	dieEnemySpr = [CCSprite spriteWithSpriteFrameName:[NSString stringWithFormat:@"enemy_%d_%d_idle_0.png", type, level]];
+	dieEnemySpr = [CCSprite spriteWithSpriteFrameName:[NSString stringWithFormat:@"enemy_%d_%d_fall_0.png", type, level]];
 	dieEnemySpr.anchorPoint = ccp( 0.5f, 0 );
 	
-	dieBatchNode = [[CCSpriteBatchNode batchNodeWithFile:[NSString stringWithFormat:@"enemy_%d_%d_idle.png", type, level]] retain];
+	dieBatchNode = [[CCSpriteBatchNode batchNodeWithFile:[NSString stringWithFormat:@"enemy_%d_%d_fall.png", type, level]] retain];
 	[dieBatchNode addChild:dieEnemySpr];
 	
 	NSMutableArray *aniFrames = [[NSMutableArray alloc] init];
-	for( NSInteger i = 0; i < 1; i++ )
+	for( NSInteger i = 0; i < 3; i++ )
 	{
-		CCSpriteFrame *frame = [[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:[NSString stringWithFormat:@"enemy_%d_%d_idle_%d.png", type, level, i]];
+		CCSpriteFrame *frame = [[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:[NSString stringWithFormat:@"enemy_%d_%d_fall_%d.png", type, level, i]];
 		[aniFrames addObject:frame];
 	}
 	
-	CCAnimation *animation = [CCAnimation animationWithFrames:aniFrames delay:2.0f];
+	CCAnimation *animation = [CCAnimation animationWithFrames:aniFrames delay:0.08f];
 	dieAnimation = [[CCAnimate alloc] initWithAnimation:animation restoreOriginalFrame:NO];
 }
 
@@ -401,7 +405,12 @@
 
 - (CGRect)getBoundingBox
 {
-	return CGRectMake( self.x - 40, self.y - 30, 60, 60 );
+	return CGRectMake( self.x - 20, self.y - 40, 40, 40 );
+}
+
+- (CGRect)getTouchBoundingBox
+{
+	return CGRectMake( self.x - 30, self.y, 60, 60 );
 }
 
 + (CGFloat)getGroundY:(CGFloat)x
@@ -567,12 +576,10 @@
 			if( FLAG_LEFT_X <= self.x + gapX && self.x + gapX <= FLAG_X )
 			{
 				attackEnemySpr.flipX = NO;
-//				gameScene.flag.hp -= self.power;
 			}
 			else if( FLAG_X <= self.x + gapX && self.x + gapX <= FLAG_RIGHT_X )
 			{
 				attackEnemySpr.flipX = YES;
-//				gameScene.flag.hp -= self.power;
 			}
 			else
 			{
@@ -608,7 +615,8 @@
 						// 일반 타입의 경우 데미지를 입음
 						if( type != ENEMY_TYPE_KAMIKAZE )
 						{
-							[self beDamaged:-1 * dy]; // temp damage
+#warning temp
+							[self beDamaged:gameScene.player.power - dy]; // temp damage
 						}
 						
 						// 카미카제는 바로 폭발함
@@ -638,7 +646,8 @@
 						// 일반 타입의 경우 데미지를 입음
 						if( type != ENEMY_TYPE_KAMIKAZE )
 						{
-							[self beDamaged:-1 * dy]; // temp damage
+#warning temp
+							[self beDamaged:( gameScene.player.power - dy ) / 2]; // temp damage
 						}
 						
 						// 카미카제는 바로 폭발함
@@ -691,7 +700,7 @@
 			{
 				self.y += dy;
 				
-				if( self.y + fallEnemySpr.contentSize.height + gapY < 0 )
+				if( self.y + 30 + gapY < 0 )
 					[self stopDying];
 			}
 			break;
@@ -741,7 +750,7 @@
 	
 	state = ENEMY_STATE_ATTACK;
 	[enemySpr addChild:attackBatchNode];
-	[attackEnemySpr runAction:[CCRepeatForever actionWithAction:attackAnimation]];
+	[attackEnemySpr runAction:[CCRepeatForever actionWithAction:[CCSequence actions:attackAnimation, [CCCallFunc actionWithTarget:self selector:@selector(onAttack:)] , nil]]];
 }
 
 - (void)startBeingCaught
@@ -777,16 +786,16 @@
 	
 	state = ENEMY_STATE_DIE;
 	
+	[enemySpr addChild:dieBatchNode];
+	
 	// 물에서 죽으면 Fall 애니메이션으로 꼬르륵 거리면서 물 밑으로 내려감
 	if( self.x + gapX < DOKDO_LEFT_X || DOKDO_RIGHT_X < self.x + gapX )
 	{
 		dy = -1 * GRAVITY;
-		[enemySpr addChild:fallBatchNode];
-		[fallEnemySpr runAction:[CCRepeatForever actionWithAction:fallAnimation]];
+		[dieEnemySpr runAction:fallAnimation];
 	}
 	else
 	{
-		[enemySpr addChild:dieBatchNode];
 		[dieEnemySpr runAction:[CCSequence actions:dieAnimation, [CCCallFunc actionWithTarget:self selector:@selector(stopDying:)], nil]];
 	}
 }
@@ -796,6 +805,9 @@
 	state = ENEMY_STATE_EXPLOSION;
 	[enemySpr addChild:explosionBatchNode];
 	[explosionEnemySpr runAction:[CCSequence actions:explosionAnimation, [CCCallFunc actionWithTarget:self selector:@selector(stopExplosion:)], nil]];
+	
+	if( fabs( self.x + gapX - FLAG_X ) <= EXPLOSION_ARRANGE )
+		[self attack];
 }
 
 
@@ -878,17 +890,8 @@
 
 - (void)stopDying
 {
-	if( self.x + gapX < DOKDO_LEFT_X || DOKDO_RIGHT_X < self.x + gapX )
-	{
-		[fallEnemySpr stopAllActions];
-		[enemySpr removeChild:fallBatchNode cleanup:NO];
-	}
-	else
-	{
-		[dieEnemySpr stopAllActions];
-		[enemySpr removeChild:dieBatchNode cleanup:YES];
-	}
-	
+	[dieEnemySpr stopAllActions];
+	[enemySpr removeChild:dieBatchNode cleanup:YES];	
 	[gameScene.gameLayer removeChild:enemySpr cleanup:YES];
 	
 //	[self release];
@@ -969,6 +972,20 @@
 - (void)stopWaterEffect:(id)sender
 {
 	[self stopWaterEffect];
+}
+
+
+#pragma mark - attack
+
+- (void)attack
+{
+	NSLog( @"공격!" );
+	gameScene.flag.hp -= power;
+}
+
+- (void)onAttack:(id)sener
+{
+	[self attack];
 }
 
 

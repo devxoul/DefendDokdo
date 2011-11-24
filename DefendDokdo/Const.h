@@ -22,6 +22,7 @@
 #define FLAG_RIGHT_X		252
 #define FLAG_X				250
 #define FLAG_Y				215
+#define EXPLOSION_ARRANGE	50
 
 #define ENEMY_TYPE_NORMAL		0
 #define ENEMY_TYPE_SAMURAI		1
