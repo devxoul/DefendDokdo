@@ -188,16 +188,17 @@ NSInteger arryWaveEffect3[22] =
 	sea3[0].position = ccp(-100.0f, 13.0f);
 	sea3[1].position = ccp(380.0f, 13.0f);
 	
-	for (NSInteger i = 0; i < 0; i++) {
-		cloud[i] = [[CCSprite alloc] initWithFile:[NSString stringWithFormat:@"cloud0%d.png", i+1]];
+	for (NSInteger i = 0; i < 4; i++) {
+		cloud[i] = [[CCSprite alloc] initWithFile:[NSString stringWithFormat:@"cloud0%d.png", (i+1)]];
 		[cloud[i] setAnchorPoint:ccp(0.0f, 0.0f)];
 		[self.gameLayer addChild:cloud[i] z:Z_CLOUDE];
 	}
 	
-	[cloud[0] setPosition:ccp(480, 200)];
-//	[cloud[1] setPosition:ccp(480, 200)];
-//	[cloud[2] setPosition:ccp(480, 200)];
-//	[cloud[3] setPosition:ccp(480, 200)];
+	[cloud[1] setPosition:ccp(180, 270)];
+	[cloud[2] setPosition:ccp(400, 150)];
+	[cloud[3] setPosition:ccp(535, 120)];
+	
+	[cloud[0] setVisible:NO];
 	
 	flag = [Flag alloc];
 	[flag init:self.gameLayer];
@@ -232,7 +233,7 @@ NSInteger arryWaveEffect3[22] =
 		[skillManager update];
 		
 		// 배경변화
-		[backgroundSky setPosition:ccp(backgroundSky.position.x - 0.63, backgroundSky.position.y)];
+		[backgroundSky setPosition:ccp(backgroundSky.position.x - 0.3, backgroundSky.position.y)];
 		
 		// 해이동
 
@@ -257,8 +258,21 @@ NSInteger arryWaveEffect3[22] =
 			[self waveEffect:nWaveCount];
 		}
 		
-		[cloud[0] setPosition:ccp(cloud[0].position.x - 1, cloud[0].position.y)];
-		
+		[cloud[1] setPosition:ccp(cloud[1].position.x - 0.7, cloud[1].position.y)];
+		[cloud[2] setPosition:ccp(cloud[2].position.x - 0.3, cloud[2].position.y)];
+		[cloud[3] setPosition:ccp(cloud[3].position.x - 0.1, cloud[3].position.y)];
+
+		NSInteger i;
+		for (i = 1; i < 4; i++) {
+			if ((cloud[i].position.x + cloud[i].contentSize.width) < 0) {
+				if (i == 1) 
+					[cloud[i] setPosition:ccp(480.0f, cloud[i].position.y)];
+				else if (i == 2) 
+					[cloud[i] setPosition:ccp(520.0f, cloud[i].position.y)];
+				else if (i == 3) 
+					[cloud[i] setPosition:ccp(535.0f, cloud[i].position.y)];
+			}
+		}
 		nCount++;
 		
 	}

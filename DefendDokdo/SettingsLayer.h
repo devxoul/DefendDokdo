@@ -13,9 +13,7 @@
 
 @interface SettingsLayer : CCLayer {
 
-	CCSprite *settingBgSprite;
-    CCSprite *setOff[2];
-    
+	CCSprite *settingBgSprite;    
     CCMenuItemImage *menu_back;
     CCMenu *backMenu;
     
@@ -23,6 +21,15 @@
     CCMenu* reset_menu;
     CCSprite* popSpr;
     CCLabelTTF* label;
+	
+	CCSprite* set_yes_sound;
+	CCSprite* set_no_sound;
+	CCSprite* set_yes_vibration;		
+	CCSprite* set_no_vibration;		
+
+	CCMenuItemImage *set_reset;
+	
+	CCMenu *menu;
  
 }
 
@@ -30,8 +37,8 @@
 
 -(void)back:(id)sender;
 
--(void)setSound:(id)sender;
--(void)setVibration:(id)sender;
+-(void)setSound;
+-(void)setVibration;
 -(void)setReset:(id)sender;
 
 @end

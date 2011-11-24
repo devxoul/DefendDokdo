@@ -895,7 +895,8 @@
 	[enemySpr removeChild:dieBatchNode cleanup:YES];	
 	[gameScene.gameLayer removeChild:enemySpr cleanup:YES];
 	
-		//	[self release];
+//	[gameScene.enemies removeObject:self];
+//	[self release];
 }
 
 - (void)stopDying:(id)sender
@@ -907,6 +908,9 @@
 {
 	[explosionEnemySpr stopAllActions];
 	[enemySpr removeChild:explosionBatchNode cleanup:YES];
+	
+//	[gameScene.enemies removeObject:self];
+//	[self release];
 }
 
 - (void)stopExplosion:(id)sender

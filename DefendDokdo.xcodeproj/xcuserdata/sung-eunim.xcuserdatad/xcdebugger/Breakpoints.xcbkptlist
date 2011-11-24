@@ -15,19 +15,5 @@
          startingLineNumber = "187"
          endingLineNumber = "187">
       </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "Yes"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
-         isPathRelative = "1"
-         filePath = "DefendDokdo/SettingsLayer.h"
-         timestampString = "343315167.094148"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "21"
-         endingLineNumber = "21"
-         landmarkName = "@interface SettingsLayer"
-         landmarkType = "2">
-      </FileBreakpoint>
    </FileBreakpoints>
 </Bucket>

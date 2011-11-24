@@ -13,6 +13,7 @@
 #import "GameScene.h"
 #import "RootViewController.h"
 #import "UserData.h"
+//#import "SettingsLayer.h"
 
 @implementation AppDelegate
 
@@ -114,6 +115,7 @@
 	
 	// Run the intro Scene
 	[[CCDirector sharedDirector] runWithScene: [GameScene node]];
+//	[[CCDirector sharedDirector] runWithScene: [SettingsLayer scene]];
 }
 
 
@@ -139,7 +141,7 @@
 
 - (void)applicationWillTerminate:(UIApplication *)application {
 // 홈키 버튼을 누르면 오는 곳
-//	[[UserData userData] saveToFile];
+	[[UserData userData] saveToFile];
 	
 	CCDirector *director = [CCDirector sharedDirector];
 	
