@@ -209,7 +209,6 @@ enum{
         [self runAction:[CCSequence actions:[CCDelayTime actionWithDuration:0.01],[CCCallFunc actionWithTarget:self selector:@selector(shakyPlus:)],nil]];
         
         @synchronized(self){
-            
             for(Enemy* current in _gameScene.enemies){
                 if([current x] <= FLAG_X)
                     [current beDamaged:damage forceX:-power forceY:power];

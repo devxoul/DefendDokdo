@@ -219,7 +219,9 @@ NSInteger arryWaveEffect3[22] =
 {
 	enemyManager = [[EnemyManager alloc] initWithGameScene:self];
 	skillManager = [[SkillManager alloc] initWithGameScene:self];
-  controlManager = [[ControlManager alloc] init];
+	controlManager = [[ControlManager alloc] init];
+    
+    [self addChild:skillManager];
 }
 
 - (void)draw

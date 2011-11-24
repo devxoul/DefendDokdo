@@ -23,7 +23,6 @@
     NSInteger number;
     NSInteger mp;
     
-    NSString* fileName;
     GameScene* gameScene;
     
     NSInteger secondGrade;
@@ -31,7 +30,7 @@
     NSInteger constGrade;
     
     NSInteger arrowState;
-         
+    
 }
 
 @property (nonatomic, retain) NSMutableArray* arrowArray; 

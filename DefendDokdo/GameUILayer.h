@@ -28,6 +28,19 @@
     CCLabelTTF* hp;
     CCLabelTTF* mp;
     
+    CCSprite* slot1Shadow;
+    CCSprite* slot2Shadow;
+    CCSprite* slot3Shadow;
+    
+    NSInteger slot1Count;
+    NSInteger slot1MaxCount;
+    
+    NSInteger slot2Count;
+    NSInteger slot2MaxCount;
+    
+    NSInteger slot3Count;
+    NSInteger slot3MaxCount;
+    
 }
 
 @property (retain, nonatomic) NSMutableArray* skills;

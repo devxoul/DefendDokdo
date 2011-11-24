@@ -72,6 +72,8 @@
     if(stoneState==STONE_STATE_DOWN || stoneState == STONE_STATE_ROLLING){
         //적 충돌 체크!
         for(Enemy* current in gameScene.enemies){
+            
+            
             if(CGRectIntersectsRect([current getBoundingBox], stoneSprite.boundingBox)){
                 switch (direction) {
                     case DIRECTION_STATE_LEFT:
@@ -113,13 +115,11 @@
             }
             [stoneSprite setPosition:ccp(x,y)];
             speed+=GRAVITY/3.0;
-            //[self performSelector:@selector(draw) withObject:nil afterDelay:1.0/speed];
             break;
         case STONE_STATE_ROLLING:{
             if(y<40){
                 //돌이 물에 떨어지는 이펙트
                 stoneState = STONE_STATE_STOP;
-                //[self performSelector:@selector(draw) withObject:nil afterDelay:1.0];
                 break;
             }
             switch(direction){
@@ -130,7 +130,6 @@
                     y = y - speed*31.f/23.f;
                     [stoneSprite setPosition:ccp(x,y)];
                     speed+=GRAVITY/3.0;
-                    //[self performSelector:@selector(draw) withObject:nil afterDelay:1.0/speed];
                     break;
                 case DIRECTION_STATE_RIGHT:
                     stoneSprite.rotation += 10*speed;
@@ -138,7 +137,6 @@
                     y = y - speed*31.f/20.f;
                     [stoneSprite setPosition:ccp(x,y)];
                     speed+=GRAVITY/3.0;
-                    //[self performSelector:@selector(draw) withObject:nil afterDelay:1.0/speed];
                     break;
             }
         }

@@ -769,7 +769,7 @@
 	
 	state = ENEMY_STATE_FALL;
 	[enemySpr addChild:fallBatchNode];
-	[fallEnemySpr runAction:[CCRepeatForever actionWithAction:fallAnimation]];
+	[fallEnemySpr runAction:fallAnimation];
 }
 
 - (void)startBeingHit

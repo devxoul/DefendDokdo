@@ -12,7 +12,7 @@
 @class GameScene;
 
 @interface ArrowObject : CCNode{
-
+    
     NSInteger direction;
     NSInteger damage;
     CCSprite* arrowSprite;
@@ -21,31 +21,33 @@
     NSInteger count;
     CGPoint touchPoint;
     CGPoint location;
-
+    
     CGFloat x;
     CGFloat y;
     CGFloat grade;
     CGFloat arrowSpeed;
-
+    
     CGFloat incremental;
     CGFloat rawIncremental;
     
     CCCallFunc* arrowDeadEndCallBack;
     CCFiniteTimeAction *action;
     GameScene* gameScene;
-        
+    
 }
 
 
-@property (nonatomic, retain) CCSprite* arrowSprite;
+@property (readwrite, retain) CCSprite* arrowSprite;
 
 @property (readwrite) NSInteger arrowState;
+@property (readwrite) CGPoint touchPoint;
+
 
 -(id) init:(NSString*)_fileName:(NSInteger)_damage :(GameScene*)_gameScene;    
 -(void) runDisappearAnimation;
 -(void) runCrashAnimation;
 -(void) draw;
 -(void) selfRelease:(id)sender;
--(void)setReady:(CGPoint)_touchPoint :(NSInteger)_count;
+-(void) setReady:(CGPoint)_touchPoint :(NSInteger)_count;
 
 @end
