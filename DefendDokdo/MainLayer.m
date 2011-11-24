@@ -8,6 +8,7 @@
 
 #import "MainLayer.h"
 
+#import "UserData.h"
 
 @implementation MainLayer
 
@@ -24,6 +25,10 @@
 	if( self = [super init] )
 	{
 		
+		if ([UserData isGameCenterAvailable]) // 게임센터 접속
+		{
+			[UserData connectGameCenter];
+		}
 	}
 	
 	return self;

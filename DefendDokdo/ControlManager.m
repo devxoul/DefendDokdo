@@ -13,6 +13,11 @@
 #warning change CONSTANT
 #define ACC_CONSTANT 1000
 
+#warning change CONSTANT
+#define ACC_CONSTANT 1200
+#define INTERVAL_LOWER_BOUND 0.07
+#define INTERVAL_UPPER_BOUND 0.11
+
 @interface pointObject:NSObject{
 	CGPoint p;
 	CGPoint acc;
@@ -85,22 +90,8 @@
 		NSUInteger i = [touchArray indexOfObject:touch];
 		Enemy *object = [managedObjectsArray objectAtIndex:i];
 		CGPoint targetPoint = [[CCDirector sharedDirector] convertToGL:[touch locationInView: [touch view]]];
-		
-		// 땅 또는 바다에 들어갔을 때 맞고 드래그 그만
-		/*if( targetPoint.x < DOKDO_LEFT_X || DOKDO_RIGHT_X < targetPoint.x )
-		{
-			if( targetPoint.y < SEA_Y )
-				if( ![self stopManagingObjectOfTouch:touch] )
-					return false;
-		}
-		else if( targetPoint.y <= [Enemy getGroundY:targetPoint.x] )
-		{
-			if( ![self stopManagingObjectOfTouch:touch] )
-				return false;
-		}*/
-		
-		object.x = targetPoint.x;
-		object.y = targetPoint.y - 30;
+		object.x = targetPoint.x - 20;
+		object.y = targetPoint.y - 20;
 		
 		NSTimeInterval interval = [[[originalPositionArray objectAtIndex:i] time] timeIntervalSinceNow];
 		CGPoint originalPoint = [[originalPositionArray objectAtIndex:i] p];
@@ -120,7 +111,18 @@
 	{
 		NSUInteger i = [touchArray indexOfObject:touch];
 		Enemy *object = [managedObjectsArray objectAtIndex:i];
-		CGPoint acc = [[originalPositionArray objectAtIndex:i] acc];
+		NSTimeInterval interval = ABS([[[originalPositionArray objectAtIndex:i] time] timeIntervalSinceNow]);
+		CGPoint acc;
+		if (interval > INTERVAL_UPPER_BOUND) {
+			acc = CGPointMake(0.0f, 0.0f);
+		}
+		if (interval > INTERVAL_LOWER_BOUND) {
+			CGPoint targetPoint = [[CCDirector sharedDirector] convertToGL:[touch locationInView: [touch view]]];
+			CGPoint originalPoint = [[originalPositionArray objectAtIndex:i] p];
+			acc = CGPointMake((targetPoint.x - originalPoint.y)/ABS(interval)/ACC_CONSTANT, (targetPoint.y - originalPoint.y)/ABS(interval)/ACC_CONSTANT);
+		}
+		else
+			acc = [[originalPositionArray objectAtIndex:i] acc];
 		
 		[object applyForce:acc.x :acc.y];
 		NSLog(@"force : (%f, %f)", acc.x, acc.y);

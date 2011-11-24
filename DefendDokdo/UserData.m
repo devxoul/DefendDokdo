@@ -204,5 +204,104 @@
 	return [dict writeToFile:[[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0] stringByAppendingPathComponent:@"UserData.plist"] atomically:YES];
 }
 
+#pragma mark - GameCenter
+
++ (BOOL)isGameCenterAvailable
+{ 
+	static NSInteger available = 0;
+	switch (available) {
+		case 1:
+			return true;
+			
+		case 2:
+			return false;
+			
+		default:
+		{
+			Class gcClass = (NSClassFromString(@"GKLocalPlayer"));
+			NSString *reqSysVer = @"4.1";
+			NSString *currSysVer = [[UIDevice currentDevice] systemVersion];
+			BOOL osVersionSupported = ([currSysVer compare:reqSysVer options:NSNumericSearch] !=NSOrderedAscending);
+			available = (gcClass && osVersionSupported)?1:2;
+			return (gcClass && osVersionSupported);
+		}
+			break;
+	}
+}
+
++ (void)connectGameCenter
+{
+	static bool connected = NO;
+	if (!connected)
+	{
+		NSLog(@"게임센터 연결 시도");
+		if([GKLocalPlayer localPlayer].authenticated == NO) //게임센터 로그인이 아직일때
+			[[GKLocalPlayer localPlayer] authenticateWithCompletionHandler:^(NSError* error){
+				if(error == NULL){
+					NSLog(@"게임센터 로그인 성공");
+				} else {
+					NSLog(@"게임센터 로그인 에러");
+				}
+			}];
+	}
+}
+
++ (void)sendScore:(int)_score Of:(NSString *)type
+{
+	if ([GKLocalPlayer localPlayer].authenticated == YES)
+	{
+		GKScore* score = [[[GKScore alloc] initWithCategory:type]autorelease];
+			// type : 게임센터에서 설정한 Leaderboard ID
+		score.value = _score;
+		
+		/*
+		 [[GKAchievementHandler defaultHandler] notifyAchievementTitle:@"NBank Point!"andMessage:[NSString stringWithFormat:@"NBank Point %d점을 기록하셨습니다.",_score]];*/
+		NSString *title;
+		NSString *message;
+		if ([type isEqualToString:@"level"])
+		{
+			title = @"독도 지키기 성공!";
+			message = [NSString stringWithFormat:@"%d일 째 독도 지키기 성공!", _score];
+		}
+		else
+		{
+		}
+		if (title)
+		{
+				// 게임센터 노티 띄우기
+			[GKNotificationBanner showBannerWithTitle:title message:message completionHandler:^{} ];
+			
+				// 점수 전송
+			[score reportScoreWithCompletionHandler:^(NSError* error){
+				if(error != NULL){
+						// Retain the score object and try again later (not shown).
+					
+				}
+			}];
+		}
+	}
+}
+
++ (void)showLeaderboardOnViewController:(UIViewController<GKLeaderboardViewControllerDelegate> *)controller
+{
+	GKLeaderboardViewController *leaderboardController = [[[GKLeaderboardViewController alloc] init]autorelease];
+	if (leaderboardController != nil)
+	{
+		leaderboardController.leaderboardDelegate = controller;
+		[controller presentModalViewController:leaderboardController animated: YES];
+	}
+}
+
++ (void)showArchboardOnViewController:(UIViewController<GKAchievementViewControllerDelegate> *)controller
+{
+	GKAchievementViewController *archiveController = [[[GKAchievementViewController alloc] init] autorelease];
+	
+	if (archiveController != nil)
+	{
+		archiveController.achievementDelegate = controller;
+		
+		[controller presentModalViewController:archiveController animated: YES];
+	}
+}
 
 @end

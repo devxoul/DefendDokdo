@@ -1,10 +1,10 @@
-//
-//  GameScene.m
-//  DefendDokdo
-//
-//  Created by 전 수열 on 11. 11. 1..
-//  Copyright 2011년 Joyfl. All rights reserved.
-//
+	//
+	//  GameScene.m
+	//  DefendDokdo
+	//
+	//  Created by 전 수열 on 11. 11. 1..
+	//  Copyright 2011년 Joyfl. All rights reserved.
+	//
 
 #import "GameScene.h"
 #import "Const.h"
@@ -16,6 +16,8 @@
 
 #import "Flag.h"
 #import "Player.h"
+
+#import "UserData.h"
 
 
 @interface GameScene(Private)
@@ -216,7 +218,7 @@ NSInteger arryWaveEffect3[22] =
 {
 	enemyManager = [[EnemyManager alloc] initWithGameScene:self];
 	skillManager = [[SkillManager alloc] initWithGameScene:self];
-	controlManager = [[ControlManager alloc] init];
+  controlManager = [[ControlManager alloc] init];
 }
 
 - (void)draw
@@ -241,7 +243,6 @@ NSInteger arryWaveEffect3[22] =
 		//		CGFloat sunX = sun.position.x + 0.11; // 2분 24초
 		//		CGFloat sunX = sun.position.x + 0.115; // 1분 34초
 		//		CGFloat sunX = sun.position.x + 0.112; // 2분 18초
-		
 		CGFloat sunX = sun.position.x + 0.113; // 1분 56초
 		CGFloat sunY = ((-1.0/280.0) * (sunX*sunX)) + (((12.0/7.0)*sunX) + (520.0/7.0));
 		
@@ -267,7 +268,9 @@ NSInteger arryWaveEffect3[22] =
 		label.visible = YES;
 		[label runAction:[CCEaseBackInOut actionWithAction:[CCMoveTo actionWithDuration:0.5 position:ccp( 240, 160 )]]];
 		[self schedule:@selector(onLabelEnd:) interval:2.0];
-		
+		if ([UserData isGameCenterAvailable])
+			[UserData sendScore:0 Of:@"level"];
+
 		nGameState = GAMESTATE_ENDING;		
 		
 	}

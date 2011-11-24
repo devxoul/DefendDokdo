@@ -7,6 +7,8 @@
 	//
 
 #import <Foundation/Foundation.h>
+#import <GameKit/GameKit.h>
+
 
 @interface UserData : NSObject
 {
@@ -59,11 +61,19 @@
 @property (nonatomic, retain) NSDictionary* stageInfo;
 
 + (UserData *)userData;
++ (BOOL)isGameCenterAvailable;
++ (void)connectGameCenter;
++ (void)sendScore:(int)_score Of:(NSString *)type;
 
 - (BOOL)saveToFile;
 - (BOOL)removeToFile;
 - (BOOL)setToFile;
 
-	//- (BOOL)buyStage:(NSNumber *)stage;
+	//GameCenter
++ (BOOL)isGameCenterAvailable;
++ (void)connectGameCenter;
++ (void)sendScore:(int)_score Of:(NSString *)type;
++ (void)showArchboardOnViewController:(UIViewController<GKAchievementViewControllerDelegate> *)controller;
++ (void)showLeaderboardOnViewController:(UIViewController<GKLeaderboardViewControllerDelegate> *)controller;
 
 @end
