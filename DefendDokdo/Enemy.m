@@ -532,13 +532,13 @@
 			{
 				swimEnemySpr.flipX = NO;
 				self.x += self.speed / 2;
-				self.y = SEA_Y + gapY;
+				self.y = SEA_Y + gapY - 5;
 			}
 			else if( self.x + gapX > DOKDO_RIGHT_X )
 			{
 				swimEnemySpr.flipX = YES;
 				self.x -= self.speed / 2;
-				self.y = SEA_Y + gapY;
+				self.y = SEA_Y + gapY - 5;
 			}
 			else
 			{
@@ -588,6 +588,10 @@
 			break;
 			
 		case ENEMY_STATE_CATCH:
+			if( self.x < FLAG_X )
+				catchEnemySpr.flipX = NO;
+			else
+				catchEnemySpr.flipX = YES;
 			break;
 			
 		case ENEMY_STATE_FALL:

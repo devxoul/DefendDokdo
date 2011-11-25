@@ -277,6 +277,8 @@ NSInteger arryWaveEffect3[22] =
 		}
 		nCount++;
 		
+		if( flag.hp <= 0 )
+			nGameState = GAMESTATE_OVER;
 	}
 	else if (nGameState == GAMESTATE_CLEAR)
 	{
