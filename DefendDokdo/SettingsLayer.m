@@ -38,10 +38,41 @@
 		[self addChild: layer z:-1];
 		
 		//배경
-		settingBgSprite = [[CCSprite alloc] initWithFile:@"Settings_bg.png"];
-		settingBgSprite.anchorPoint = CGPointZero;
-		[settingBgSprite setPosition:ccp(0, 0)];
-		[self addChild:settingBgSprite z:0];
+//		settingBgSprite = [[CCSprite alloc] initWithFile:@"Settings_bg.png"];
+//		settingBgSprite.anchorPoint = CGPointZero;
+//		[settingBgSprite setPosition:ccp(0, 0)];
+//		[self addChild:settingBgSprite z:0];
+        sunSprite = [[CCSprite alloc] initWithFile:@"sun_ui.png"];
+        sunSprite.anchorPoint =CGPointZero;
+        [sunSprite setPosition:ccp(50, 250)];
+        [self addChild:sunSprite z:0];
+        
+        dokdoSprite = [[CCSprite alloc] initWithFile:@"dokdo.png"];
+        dokdoSprite.anchorPoint =CGPointZero;
+        [dokdoSprite setPosition:ccp(0, 0)];
+        [self addChild:dokdoSprite z:0];
+        
+        
+        seaSprite = [[CCSprite alloc] initWithFile:@"sea2.png"];
+        seaSprite.anchorPoint =CGPointZero;
+        [seaSprite setPosition:ccp(0, 0)];
+        [self addChild:seaSprite z:0];
+        
+        cloudSprite = [[CCSprite alloc] initWithFile:@"cloud.png"];
+        cloudSprite.anchorPoint =CGPointZero;
+        [cloudSprite setPosition:ccp(0, 0)];
+        [self addChild:cloudSprite z:-1];
+        
+        menuBgSprite = [[CCSprite alloc] initWithFile:@"Title_bg2.png"];
+        menuBgSprite.anchorPoint = CGPointZero;
+		[menuBgSprite setPosition:ccp(0, 0)];
+        [self addChild:menuBgSprite z:-2];
+		
+		CCSprite* black = [[CCSprite alloc] initWithFile:@"black.png"];
+		black.anchorPoint = CGPointZero;
+		black.position = CGPointZero;
+		[self addChild:black z:0];
+		
 				
 		//전체메뉴 
 		

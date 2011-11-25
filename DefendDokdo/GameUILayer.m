@@ -13,6 +13,7 @@
 #import "Player.h"
 #import "UserData.h"
 #import "SkillData.h"
+#import "MainLayer.h"
 
 @implementation GameUILayer
 
@@ -143,19 +144,23 @@
     [mp setColor:ccBLACK];
     [self addChild:mp];
     
-    pauseBtn = [[CCMenuItemImage itemFromNormalImage:@"pause.png" selectedImage:@"pause_pressed.png" target:self selector:@selector(onPauseBtnTouch:)] retain];
+    pauseBtn = [[CCMenuItemImage itemFromNormalImage:@"pause_stop_off_btn.png" selectedImage:@"pause_stop_on_btn.png" target:self selector:@selector(onPauseBtnTouch:)] retain];
 	CCMenu *menu = [[CCMenu menuWithItems:pauseBtn, nil] retain];
-	menu.position = ccp( 455, 285 );
+	menu.position = ccp( 450, 300 );
 	[self addChild:menu];
 	
-	pauseBg = [[CCSprite alloc] initWithFile:@"pause_bg.png"];
+	pauseBg = [[CCSprite alloc] initWithFile:@"black.png"];
 	pauseBg.anchorPoint = ccp( 0, 0 );
 	[self addChild:pauseBg];
 	pauseBg.visible = NO;
 	
 	CCMenuItemFont *resume = [CCMenuItemFont itemFromString:@"Resume" target:self selector:@selector(onResumeBtnClick:)];
+	[resume setFontName:@"NanumScript.ttf"];
 	CCMenuItemFont *mainmenu = [CCMenuItemFont itemFromString:@"Main Menu" target:self selector:@selector(onMainMenuBtnClick:)];
-//	CCMenuItemFont *tryagain = [CCMenuItemFont itemFromString:@"Try Again" target:self selector:@selector(onTryAgainBtnClick:)];
+	[mainmenu setFontName:@"NanumScript.ttf"];
+	CCMenuItemFont *tryagain = [CCMenuItemFont itemFromString:@"Try Again" target:self selector:@selector(onTryAgainBtnClick:)];
+	[tryagain setFontName:@"NanumScript.ttf"];
+	
 	pauseMenu = [CCMenu menuWithItems:resume, mainmenu, nil];
 	[self addChild:pauseMenu];
 	pauseMenu.position = ccp( 240, 160 );
@@ -186,9 +191,14 @@
 	_gameScene.nGameState = GAMESTATE_START;
 }
 
+-(void)onTryAgainBtnClick:(id)sender
+{
+	[[CCDirector sharedDirector] pushScene:[GameScene node]];	
+}
+
 - (void)onMainMenuBtnClick:(id)sender
 {
-	[[CCDirector sharedDirector] popScene];
+	[[CCDirector sharedDirector] pushScene:[MainLayer scene]];
 }
 
 - (void)ccTouchesMoved:(NSSet *)touches withEvent:(UIEvent *)event

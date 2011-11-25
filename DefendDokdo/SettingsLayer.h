@@ -30,6 +30,12 @@
 	CCMenuItemImage *set_reset;
 	
 	CCMenu *menu;
+	
+    CCSprite *menuBgSprite;
+    CCSprite *seaSprite;
+    CCSprite *cloudSprite;
+    CCSprite *dokdoSprite;
+    CCSprite *sunSprite;	
  
 }
 

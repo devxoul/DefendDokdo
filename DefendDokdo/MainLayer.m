@@ -160,7 +160,7 @@
 
 -(void)moveFacebook:(id)sender
 {
-    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"http://www.facebook.com/eugenius89"]];
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"http://www.facebook.com/Dokdo.page"]];
 }
 
 -(void)moveRank:(id)sender

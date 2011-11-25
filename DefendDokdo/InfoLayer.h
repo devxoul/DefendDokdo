@@ -10,9 +10,15 @@
 #import "cocos2d.h"
 
 @interface InfoLayer : CCLayer {
-    
+	
+    CCSprite *menuBgSprite;
+    CCSprite *seaSprite;
+    CCSprite *cloudSprite;
+    CCSprite *dokdoSprite;
+    CCSprite *sunSprite;	    
 }
 
 + (CCScene *)scene;
+-(void)moveBack:(id)sender;
 
 @end

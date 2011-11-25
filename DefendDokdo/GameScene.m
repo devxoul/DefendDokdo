@@ -355,7 +355,7 @@ NSInteger arryWaveEffect3[22] =
 
 - (void)onLabelEnd:(id)sender
 {
-//	[[CCDirector sharedDirector] pushScene:[CCTransitionSlideInL transitionWithDuration:0.3 scene:[[[ResultLayer node] scene] autorelease]]];
+	[[CCDirector sharedDirector] pushScene:[CCTransitionSlideInL transitionWithDuration:0.3 scene:[[ResultLayer scene] autorelease]]];
 }
 
 
