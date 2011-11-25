@@ -13,6 +13,19 @@
 // HelloWorldLayer
 @interface TitleLayer : CCLayer
 {
+    
+    CCSprite *titleBgSprite;        
+    
+//    CCSprite *titleLogo;  
+    
+    CCSprite *touchTheScreenSprite;     
+    
+    CCSprite *twinkle1;
+    CCSprite *twinkle2;
+    CCSprite *twinkle3;
+    CCSprite *twinkle4;
+    CCSprite *twinkle5;
+    
 }
 
 // returns a CCScene that contains the HelloWorldLayer as the only child

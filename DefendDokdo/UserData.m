@@ -99,21 +99,27 @@
 		skillSlot = [dict objectForKey:@"BuySkillSlot"];
 		
 		if (!skillSlot) {
-			skillSlot = [NSMutableArray array];
+//			skillSlot = [[NSMutableArray array] retain];
+			skillSlot = [[[NSMutableDictionary alloc] init] retain];
 			
-			[skillSlot addObject:[NSNumber numberWithBool:YES]];
-			[skillSlot addObject:[NSNumber numberWithBool:NO]];
-			[skillSlot addObject:[NSNumber numberWithBool:NO]];			
+            [skillSlot setObject:[NSNumber numberWithBool:YES] forKey:@"1"];
+            [skillSlot setObject:[NSNumber numberWithBool:NO] forKey:@"2"];
+            [skillSlot setObject:[NSNumber numberWithBool:NO] forKey:@"3"];
+            
 		}
 		
 		userSkillSlot = [dict objectForKey:@"SlotInSkill"];
 		
 		if (!userSkillSlot) {
-			userSkillSlot = [NSMutableArray array];
-			
-			[userSkillSlot addObject:[NSNumber numberWithInteger:-1]];
-			[userSkillSlot addObject:[NSNumber numberWithInteger:-1]];
-			[userSkillSlot addObject:[NSNumber numberWithInteger:-1]];
+			userSkillSlot = [[[NSMutableDictionary alloc] init] retain];
+            
+            [userSkillSlot setObject:[NSNumber numberWithInteger:-1] forKey:@"1"];
+            [userSkillSlot setObject:[NSNumber numberWithInteger:-1] forKey:@"2"];
+            [userSkillSlot setObject:[NSNumber numberWithInteger:-1] forKey:@"3"];
+//			
+//			[userSkillSlot addObject:[NSNumber numberWithInteger:-1]];
+//			[userSkillSlot addObject:[NSNumber numberWithInteger:-1]];
+//			[userSkillSlot addObject:[NSNumber numberWithInteger:-1]];
 		}
 		
 		stageInfo = [[NSDictionary dictionaryWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"StageList" ofType:@"plist"]] retain];
@@ -127,8 +133,7 @@
 		{
 			backSound = [[dict objectForKey:@"sound"] boolValue];        
 			vibration = [[dict objectForKey:@"vibration"] boolValue];				
-		}
-		
+		}		
 		
 		[self saveToFile];
 		
@@ -303,5 +308,6 @@
 		[controller presentModalViewController:archiveController animated: YES];
 	}
 }
+
 
 @end

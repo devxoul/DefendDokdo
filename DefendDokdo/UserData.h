@@ -14,19 +14,19 @@
 {
 @public
     // game state 
-	NSUInteger point;
+    NSUInteger point;
 	NSUInteger stageLevel;
-	
-		// user skill
-	NSMutableArray* skillSlot;				// 슬롯 갯수 확인
-	NSMutableArray* userSkillSlot;			// 슬롯 내부 스킬 확인
+
+	// user skill
+	NSMutableDictionary* skillSlot;				// 슬롯 갯수 확인
+	NSMutableDictionary* userSkillSlot;			// 슬롯 내부 스킬 확인
 	
 	NSUInteger stoneLevel;
 	NSUInteger arrowLevel;
 	NSUInteger hillLevel;
 	NSUInteger earthquakeLevel; 
 	
-		// user upgrade levels
+	// user upgrade levels
 	NSUInteger flagLevel;
 	NSUInteger userAtkLevel;
 	NSUInteger userMaxMpLevel;
@@ -42,8 +42,8 @@
 @property (readwrite) NSUInteger point;
 @property (readwrite) NSUInteger stageLevel;
 
-@property (nonatomic, retain) NSMutableArray* skillSlot;
-@property (nonatomic, retain) NSMutableArray* userSkillSlot;
+@property (nonatomic, retain) NSMutableDictionary* skillSlot;
+@property (nonatomic, retain) NSMutableDictionary* userSkillSlot;
 
 @property (readwrite) NSUInteger flagLevel;
 @property (readwrite) NSUInteger userAtkLevel;
@@ -61,6 +61,7 @@
 @property (nonatomic, retain) NSDictionary* stageInfo;
 
 + (UserData *)userData;
+
 + (BOOL)isGameCenterAvailable;
 + (void)connectGameCenter;
 + (void)sendScore:(int)_score Of:(NSString *)type;
@@ -75,5 +76,7 @@
 + (void)sendScore:(int)_score Of:(NSString *)type;
 + (void)showArchboardOnViewController:(UIViewController<GKAchievementViewControllerDelegate> *)controller;
 + (void)showLeaderboardOnViewController:(UIViewController<GKLeaderboardViewControllerDelegate> *)controller;
+
+//- (BOOL)buyStage:(NSNumber *)stage;
 
 @end

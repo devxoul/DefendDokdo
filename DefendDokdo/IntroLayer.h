@@ -11,8 +11,25 @@
 
 @interface IntroLayer : CCLayer {
     
+    CCMenuItemImage * intromenu[4];
+    CCMenu *intro_menu;   
+    
+    CCMenuItemImage *menu_back;
+    CCMenu *backMenu;
+    
+    UITextView *description;
+    
+    NSDictionary* introInfo;
+    
 }
 
 + (CCScene *)scene;
+
+-(void)korean:(id)sender;
+-(void)english:(id)sender;
+-(void)japanese:(id)sender;
+-(void)chinese:(id)sender;
+
+- (void)back;
 
 @end

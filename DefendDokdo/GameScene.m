@@ -301,6 +301,10 @@ NSInteger arryWaveEffect3[22] =
 		
 		nGameState = GAMESTATE_ENDING;
 	}
+	else if( nGameState == GAMESTATE_PAUSE )
+	{
+		
+	}
 }
 
 -(void)waveEffect:(NSInteger)_count

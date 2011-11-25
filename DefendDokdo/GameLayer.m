@@ -1,10 +1,10 @@
-	//
-	//  GameLayer.m
-	//  DefendDokdo
-	//
-	//  Created by 전 수열 on 11. 11. 1..
-	//  Copyright 2011년 Joyfl. All rights reserved.
-	//
+//
+//  GameLayer.m
+//  DefendDokdo
+//
+//  Created by 전 수열 on 11. 11. 1..
+//  Copyright 2011년 Joyfl. All rights reserved.
+//
 
 #import "GameLayer.h"
 #import "Enemy.h"
@@ -38,6 +38,9 @@
 
 - (void)ccTouchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
 {
+	if( scene.nGameState == GAMESTATE_PAUSE )
+		return;
+	
 	for (UITouch *touch in touches)
 	{
 		CGPoint targetPoint = [[CCDirector sharedDirector] convertToGL:[touch locationInView: [touch view]]];
@@ -57,14 +60,20 @@
 
 - (void)ccTouchesMoved:(NSSet *)touches withEvent:(UIEvent *)event
 {
-  for (UITouch *touch in touches)
-  {
-    if (![controlManager moveManagedObjectOfTouch:touch]) return;
-  }
+	if( scene.nGameState == GAMESTATE_PAUSE )
+		return;
+	
+	for (UITouch *touch in touches)
+	{
+		if (![controlManager moveManagedObjectOfTouch:touch]) return;
+	}
 }
 
 - (void)ccTouchesEnded:(NSSet *)touches withEvent:(UIEvent *)event
 {
+	if( scene.nGameState == GAMESTATE_PAUSE )
+		return;
+	
 	for (UITouch *touch in touches)
 	{
 		Enemy *e = [controlManager stopManagingObjectOfTouch:touch];

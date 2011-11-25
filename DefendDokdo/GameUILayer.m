@@ -9,6 +9,7 @@
 #import "GameUILayer.h"
 #import "Slot.h"
 #import "Flag.h"
+#import "GameScene.h"
 
 @implementation GameUILayer
 
@@ -140,7 +141,24 @@
     [mp setColor:ccBLACK];
     [self addChild:mp];
     
-    
+    pauseBtn = [[CCMenuItemImage itemFromNormalImage:@"pause.png" selectedImage:@"pause_pressed.png" target:self selector:@selector(onPauseBtnTouch:)] retain];
+	CCMenu *menu = [[CCMenu menuWithItems:pauseBtn, nil] retain];
+	menu.position = ccp( 455, 285 );
+	[self addChild:menu];
+	
+	pauseBg = [[CCSprite alloc] initWithFile:@"pause_bg.png"];
+	pauseBg.anchorPoint = ccp( 0, 0 );
+	[self addChild:pauseBg];
+	pauseBg.visible = NO;
+	
+	CCMenuItemFont *resume = [CCMenuItemFont itemFromString:@"Resume" target:self selector:@selector(onResumeBtnClick:)];
+	CCMenuItemFont *mainmenu = [CCMenuItemFont itemFromString:@"Main Menu" target:self selector:@selector(onMainMenuBtnClick:)];
+//	CCMenuItemFont *tryagain = [CCMenuItemFont itemFromString:@"Try Again" target:self selector:@selector(onTryAgainBtnClick:)];
+	pauseMenu = [CCMenu menuWithItems:resume, mainmenu, nil];
+	[self addChild:pauseMenu];
+	pauseMenu.position = ccp( 240, 160 );
+	pauseMenu.visible = NO;
+	[pauseMenu alignItemsVertically];
     
 	return self;
 }
@@ -150,6 +168,24 @@
     return [self init];
 }
 
+- (void)onPauseBtnTouch:(id)sender
+{
+	_gameScene.nGameState = GAMESTATE_PAUSE;
+	pauseBg.visible = YES;
+	pauseMenu.visible = YES;
+}
+
+- (void)onResumeBtnClick:(id)sender
+{
+	pauseBg.visible = NO;
+	pauseMenu.visible = NO;
+	_gameScene.nGameState = GAMESTATE_START;
+}
+
+- (void)onMainMenuBtnClick:(id)sender
+{
+	[[CCDirector sharedDirector] popScene];
+}
 
 - (void)ccTouchesMoved:(NSSet *)touches withEvent:(UIEvent *)event
 {
@@ -158,6 +194,9 @@
 
 - (void)ccTouchesEnded:(NSSet *)touches withEvent:(UIEvent *)event
 {
+	if( _gameScene.nGameState == GAMESTATE_PAUSE )
+		return;
+	
     for (UITouch *touch in touches) {
         if (touch) {
             CGPoint location = [[CCDirector sharedDirector] convertToGL:[touch locationInView:[touch view]]];

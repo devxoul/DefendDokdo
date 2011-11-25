@@ -10,7 +10,8 @@
 
 #import "AppDelegate.h"
 #import "GameConfig.h"
-#import "GameScene.h"
+//#import "GameScene.h"
+#import "TitleLayer.h"
 #import "RootViewController.h"
 #import "UserData.h"
 //#import "SettingsLayer.h"
@@ -114,8 +115,8 @@
 	[self removeStartupFlicker];
 	
 	// Run the intro Scene
-	[[CCDirector sharedDirector] runWithScene: [GameScene node]];
-//	[[CCDirector sharedDirector] runWithScene: [SettingsLayer scene]];
+//	[[CCDirector sharedDirector] runWithScene: [GameScene node]];
+    [[CCDirector sharedDirector] runWithScene: [TitleLayer node]];
 }
 
 

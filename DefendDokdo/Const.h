@@ -55,6 +55,7 @@
 #define GAMESTATE_CLEAR		1
 #define GAMESTATE_OVER		2
 #define GAMESTATE_ENDING	3
+#define GAMESTATE_PAUSE		4
 
 //상훈 추가, 스킬 부분
 
@@ -89,5 +90,46 @@
 
 #define GAMEUILAYER_DEFAULT_X   10
 #define GAMEUILAYER_DEFAULT_Y   5
+
+//성은 추가, 게임 State
+#define GAMESTATE_START		0
+#define GAMESTATE_CLEAR		1
+#define GAMESTAET_OVER		2
+
+//상훈 추가, 스킬 부분
+
+#define SKILL_STATE_NORMAL      0
+#define SKILL_STATE_STONE       1
+#define SKILL_STATE_ARROW       2
+#define SKILL_STATE_HEALING     3
+#define SKILL_STATE_EARTHQUAKE  4
+#define SKILL_STATE_LOCK        5
+
+#define SKILL_STATE_NORMAL      0
+#define SKILL_STATE_STONE       1
+#define SKILL_STATE_ARROW       2
+#define SKILL_STATE_HEALING     3
+#define SKILL_STATE_EARTHQUAKE  4
+#define SKILL_STATE_LOCK        5
+#define UPGRADE_TYPE_FLAG       6
+#define UPGRADE_TYPE_MAXMP      7
+#define UPGRADE_TYPE_REGENMP    8
+#define UPGRADE_TYPE_ATTACK     9
+
+#define STONE_STATE_DOWN    0
+#define STONE_STATE_ROLLING 1
+#define STONE_STATE_STOP    2
+#define STONE_STATE_DEAD    3
+
+#define ARROW_STATE_MOVING  0
+#define ARROW_STATE_STOP    1
+#define ARROW_STATE_DEAD    2
+#define ARROW_STATE_DEADING 3
+#define ARROW_STATE_UNUSED  4
+
+#define DIRECTION_STATE_LEFT    0
+#define DIRECTION_STATE_RIGHT   1
+
+
 
 #endif

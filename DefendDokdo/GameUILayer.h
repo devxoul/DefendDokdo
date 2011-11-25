@@ -41,6 +41,9 @@
     NSInteger slot3Count;
     NSInteger slot3MaxCount;
     
+	CCSprite *pauseBg;
+	CCMenuItemImage *pauseBtn;
+	CCMenu *pauseMenu;
 }
 
 @property (retain, nonatomic) NSMutableArray* skills;
