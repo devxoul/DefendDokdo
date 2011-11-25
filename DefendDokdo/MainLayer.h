@@ -17,6 +17,10 @@
 @interface MainLayer : CCLayer {
     
     CCSprite *menuBgSprite;
+    CCSprite *seaSprite;
+    CCSprite *cloudSprite;
+    CCSprite *dokdoSprite;
+    CCSprite *sunSprite;
     
     CCMenuItemImage * mainmenu[3];
     

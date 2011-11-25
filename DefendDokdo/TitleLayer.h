@@ -14,12 +14,18 @@
 @interface TitleLayer : CCLayer
 {
     
-    CCSprite *titleBgSprite;        // 연한 백
+    CCSprite *titleBgSprite;        
     
-    CCSprite *titleLogo;            // 마트 러쉬 로고
+//    CCSprite *titleLogo;  
     
-    CCSprite *touchTheScreenSprite;     // 터치더 스크린 없어져요
-
+    CCSprite *touchTheScreenSprite;     
+    
+    CCSprite *twinkle1;
+    CCSprite *twinkle2;
+    CCSprite *twinkle3;
+    CCSprite *twinkle4;
+    CCSprite *twinkle5;
+    
 }
 
 // returns a CCScene that contains the HelloWorldLayer as the only child

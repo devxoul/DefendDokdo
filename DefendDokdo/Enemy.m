@@ -127,8 +127,8 @@
 			}
 			break;
 			
-		case ENEMY_STATE_FLAG:
-			break;
+//		case ENEMY_STATE_FLAG:
+//			break;
 			
 		case ENEMY_STATE_CATCH:
 			break;
@@ -141,8 +141,8 @@
 		case ENEMY_STATE_HIT:
 			break;
 			
-		case ENEMY_STATE_DEAD:
-			break;
+//		case ENEMY_STATE_DEAD:
+//			break;
 	}
 }
 
