@@ -134,6 +134,8 @@ NSInteger arryWaveEffect3[22] =
 	
 	skillLayer = [[SkillLayer alloc] initWithScene:self];
 	[self addChild:skillLayer];
+    
+    [self addChild:skillManager];
 	
 	gameUILayer = [[GameUILayer alloc] initWithScene:self];
 	[self addChild:gameUILayer];
@@ -221,7 +223,6 @@ NSInteger arryWaveEffect3[22] =
 	skillManager = [[SkillManager alloc] initWithGameScene:self];
 	controlManager = [[ControlManager alloc] init];
     
-    [self addChild:skillManager];
 }
 
 - (void)draw
@@ -233,7 +234,7 @@ NSInteger arryWaveEffect3[22] =
 		[enemyManager update];
 		[gameUILayer update];
 		[skillManager update];
-		
+		[player update];
 		// 배경변화
 		[backgroundSky setPosition:ccp(backgroundSky.position.x - 0.3, backgroundSky.position.y)];
 		

@@ -10,10 +10,13 @@
 #import "Slot.h"
 #import "Flag.h"
 #import "GameScene.h"
+#import "Player.h"
+#import "UserData.h"
+#import "SkillData.h"
 
 @implementation GameUILayer
 
-@synthesize skills;
+@synthesize skills, slot1Count, slot2Count, slot3Count,slotState;
 
 -(void)update{
     //HP, MP Gage Bar 그리기
@@ -25,9 +28,9 @@
     CGFloat hpCount = 194.0/ _gameScene.flag.maxHp;
     [hpBar setTextureRect:CGRectMake(0, 0, hpCount * (CGFloat)_gameScene.flag.hp, 12)];
     
-    [mp setString:[NSString stringWithFormat:@"%d/%d",(NSInteger)_gameScene.flag.hp, (NSInteger)_gameScene.flag.maxHp]];
-    CGFloat mpCount = 174.0/_gameScene.flag.maxHp;
-    [mpBar setTextureRect:CGRectMake(0, 0, mpCount * (CGFloat)_gameScene.flag.hp, 12)];
+    [mp setString:[NSString stringWithFormat:@"%d/%d",(NSInteger)_gameScene.player.mp, (NSInteger)_gameScene.player.maxMp]];
+    CGFloat mpCount = 174.0/(CGFloat)_gameScene.player.maxMp;
+    [mpBar setTextureRect:CGRectMake(0, 0, mpCount * (CGFloat)_gameScene.player.mp, 12)];
     
     CGFloat slotCount = 53.0/(CGFloat)slot1MaxCount;
     [slot1Shadow setTextureRect:CGRectMake(0, 0, 71, slotCount * slot1Count)];
@@ -47,7 +50,6 @@
     if(slot3Count > 0){
         slot3Count--;
     }
-    
 }
 
 
@@ -62,7 +64,7 @@
     
     //스킬 넣는 부분 - 수정 필요함
     skills = [[NSMutableArray alloc] init];
-    [skills addObject:[[Slot alloc] initWithSkillInfo:SKILL_STATE_STONE :self :ccp(295,25)]];
+    [skills addObject:[[Slot alloc] initWithSkillInfo:SKILL_STATE_HEALING :self :ccp(295,25)]];
     slot1Shadow = [[CCSprite alloc] initWithFile:@"skill_shadow.png"];
     [slot1Shadow setPosition:ccp(294, 50)];
     [slot1Shadow setAnchorPoint:ccp(0.5, 1.0)];
@@ -160,6 +162,8 @@
 	pauseMenu.visible = NO;
 	[pauseMenu alignItemsVertically];
     
+    slotState = 0;
+	
 	return self;
 }
 - (id)initWithScene:(GameScene* )gameScene{
@@ -209,23 +213,27 @@
             if(CGRectContainsPoint([[skills objectAtIndex:0] slotSprite].boundingBox, location) && slot1Count == 0){
                 switch( [[skills objectAtIndex:0] skillType]){
                     case SKILL_STATE_STONE:
+                        if(_gameScene.player.mp < [[[[SkillData skillData] getSkillInfo:SKILL_STATE_STONE :[[UserData userData] stoneLevel]] objectForKey:@"mp"] integerValue]){
+                            return;
+                        }
                         [[[skills objectAtIndex:0] slotSprite] setVisible:NO];
+                        slotState = 1;
                         _gameScene.skillManager.skillState = SKILL_STATE_STONE;
-                        slot1Count = slot1MaxCount;
                         break;
                     case SKILL_STATE_ARROW:
+                        if(_gameScene.player.mp < [[[[SkillData skillData] getSkillInfo:SKILL_STATE_ARROW :[[UserData userData] arrowLevel]] objectForKey:@"mp"] integerValue]){
+                            return;
+                        }
                         [[[skills objectAtIndex:0] slotSprite] setVisible:NO];
+                        slotState = 1;
                         _gameScene.skillManager.skillState = SKILL_STATE_ARROW;
-                        slot1Count = slot1MaxCount;
                         break;
                     case SKILL_STATE_HEALING:
-                        [[[skills objectAtIndex:0] slotSprite] setVisible:NO];
+                        slotState = 1;
                         _gameScene.skillManager.skillState = SKILL_STATE_HEALING;
-                        slot1Count = slot1MaxCount;
                         break;
                     case SKILL_STATE_EARTHQUAKE:
-                        [[[skills objectAtIndex:0] slotSprite] setVisible:NO];
-                        slot1Count = slot1MaxCount;
+                        slotState = 1;
                         _gameScene.skillManager.skillState = SKILL_STATE_EARTHQUAKE;
                         break;
                     case SKILL_STATE_LOCK:
@@ -236,24 +244,28 @@
             else if(CGRectContainsPoint([[skills objectAtIndex:1] slotSprite].boundingBox, location) && slot2Count == 0){
                 switch( [[skills objectAtIndex:1] skillType]){
                     case SKILL_STATE_STONE:
+                        if(_gameScene.player.mp < [[[[SkillData skillData] getSkillInfo:SKILL_STATE_STONE :[[UserData userData] stoneLevel]] objectForKey:@"mp"] integerValue]){
+                            return;
+                        }
                         [[[skills objectAtIndex:1] slotSprite] setVisible:NO];
+                        slotState = 2;
                         _gameScene.skillManager.skillState = SKILL_STATE_STONE;
-                        slot2Count = slot2MaxCount;
                         break;
                     case SKILL_STATE_ARROW:
+                        if(_gameScene.player.mp < [[[[SkillData skillData] getSkillInfo:SKILL_STATE_ARROW :[[UserData userData] arrowLevel]] objectForKey:@"mp"] integerValue]){
+                            return;
+                        }
                         [[[skills objectAtIndex:1] slotSprite] setVisible:NO];
+                        slotState = 2;
                         _gameScene.skillManager.skillState = SKILL_STATE_ARROW;
-                        slot2Count = slot2MaxCount;
                         break;
                     case SKILL_STATE_HEALING:
-                        [[[skills objectAtIndex:1] slotSprite] setVisible:NO];
+                        slotState = 2;
                         _gameScene.skillManager.skillState = SKILL_STATE_HEALING;
-                        slot2Count = slot2MaxCount;
                         break;
                     case SKILL_STATE_EARTHQUAKE:
-                        [[[skills objectAtIndex:1] slotSprite] setVisible:NO];
+                        slotState = 2;
                         _gameScene.skillManager.skillState = SKILL_STATE_EARTHQUAKE;
-                        slot2Count = slot2MaxCount;
                         break;
                     case SKILL_STATE_LOCK:
                         break;
@@ -263,24 +275,28 @@
             else if(CGRectContainsPoint([[skills objectAtIndex:2] slotSprite].boundingBox, location) && slot3Count == 0){
                 switch( [[skills objectAtIndex:2] skillType]){
                     case SKILL_STATE_STONE:
+                        if(_gameScene.player.mp < [[[[SkillData skillData] getSkillInfo:SKILL_STATE_STONE :[[UserData userData] stoneLevel]] objectForKey:@"mp"] integerValue]){
+                            return;
+                        }
                         [[[skills objectAtIndex:2] slotSprite] setVisible:NO];
+                        slotState = 3;
                         _gameScene.skillManager.skillState = SKILL_STATE_STONE;
-                        slot3Count = slot3MaxCount;
                         break;
                     case SKILL_STATE_ARROW:
+                        if(_gameScene.player.mp < [[[[SkillData skillData] getSkillInfo:SKILL_STATE_ARROW :[[UserData userData] arrowLevel]] objectForKey:@"mp"] integerValue]){
+                            return;
+                        }
                         [[[skills objectAtIndex:2] slotSprite] setVisible:NO];
+                        slotState = 3;
                         _gameScene.skillManager.skillState = SKILL_STATE_ARROW;
-                        slot3Count = slot3MaxCount;
                         break;
                     case SKILL_STATE_HEALING:
-                        [[[skills objectAtIndex:2] slotSprite] setVisible:NO];
+                        slotState = 3;
                         _gameScene.skillManager.skillState = SKILL_STATE_HEALING;
-                        slot3Count = slot3MaxCount;
                         break;
                     case SKILL_STATE_EARTHQUAKE:
-                        [[[skills objectAtIndex:2] slotSprite] setVisible:NO];
+                        slotState = 3;
                         _gameScene.skillManager.skillState = SKILL_STATE_EARTHQUAKE;
-                        slot3Count = slot3MaxCount;
                         break;
                     case SKILL_STATE_LOCK:
                         break;

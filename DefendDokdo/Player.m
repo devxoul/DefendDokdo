@@ -38,7 +38,7 @@
 - (void)update
 {
 	if (mp < maxMp) {
-		mp += mpSpeed;
+		mp += 1;
 	}
 }
 

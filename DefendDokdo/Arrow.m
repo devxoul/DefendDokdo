@@ -47,7 +47,7 @@
 }
 
 -(BOOL) addArrow:(CGPoint)_touchPoint{
-    if(_touchPoint.y <=40 || _touchPoint.x == 240)
+    if(_touchPoint.y <=SEA_Y || _touchPoint.x == 240)
         return NO;
     NSInteger count = number*15;
     for(int i=0; i<number; i++){

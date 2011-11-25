@@ -20,6 +20,8 @@
 #import "GameUILayer.h"
 #import "Slot.h"
 #import "Flag.h"
+#import "Player.h"
+
 
 @implementation SkillManager
 
@@ -47,14 +49,15 @@ enum{
     
     [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:@"healing_effect.plist"];
 	
-	healSpr = [CCSprite spriteWithSpriteFrameName:@"healing_effect_1.png"];
-	healSpr.anchorPoint = ccp( 0.5f, 0 );
+	healSpr = [[CCSprite spriteWithSpriteFrameName:@"healing_effect_1.png"] retain];
+    [healSpr setPosition:ccp(240, FLAG_Y)];
+	healSpr.anchorPoint = ccp( 0.5f, 0.0 );
 	
-	CCSpriteBatchNode* healBatchNode = [[CCSpriteBatchNode batchNodeWithFile:@"healing_effect.png"] retain];
+	healBatchNode = [[CCSpriteBatchNode batchNodeWithFile:@"healing_effect.png"] retain];
 	[healBatchNode addChild:healSpr];
 	
 	NSMutableArray *aniFrames = [[NSMutableArray alloc] init];
-	for( NSInteger i = 1; i < 6; i++ )
+	for( int i = 1; i < 6; i++ )
 	{
 		CCSpriteFrame *frame = [[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:[NSString stringWithFormat:@"healing_effect_%d.png",i]];
 		[aniFrames addObject:frame];
@@ -63,27 +66,51 @@ enum{
 	CCAnimation* animation = [CCAnimation animationWithFrames:aniFrames delay:0.08f];
 	healingAnimation = [[CCAnimate alloc] initWithAnimation:animation restoreOriginalFrame:NO];
     
-    
-    [_gameScene.skillLayer addChild:healBatchNode];    
-    [healSpr setPosition:_gameScene.flag.flagSpr.position];
-    
-    
+    [self addChild:healBatchNode z:1];    
     [healSpr setVisible:NO];
+//	[flagSpr runAction:[CCRepeatForever actionWithAction:flagAnimation]];
+
+
 }
 
+
+
 - (void)doHeal{
-    [healSpr stopAllActions];
-    [healSpr setPosition:_gameScene.flag.flagSpr.position];
+    
+    if(![self useMp:[[[[SkillData skillData] getSkillInfo:SKILL_STATE_HEALING :[UserData userData].hillLevel] objectForKey:@"mp"] integerValue]]){
+        return;
+    }
     [healSpr setVisible:YES];
+    switch (_gameScene.gameUILayer.slotState){
+        case 1:
+            _gameScene.gameUILayer.slot1Count = 100;
+            break;
+        case 2:
+            _gameScene.gameUILayer.slot2Count = 100;
+            break;
+        case 3:
+            _gameScene.gameUILayer.slot3Count = 100;
+            break;
+    }
+    
+    [healSpr stopAllActions];
+    healSlot = _gameScene.gameUILayer.slotState-1;
+    [[[_gameScene.gameUILayer.skills objectAtIndex:healSlot] slotSprite] setVisible:NO];
+
+//  [healSpr setPosition:_gameScene.flag.flagSpr.position];
+    
     CCCallFunc *back = [CCCallFunc actionWithTarget:self selector:@selector(endHeal)];
-    [healSpr runAction:[CCSequence actions:healingAnimation,back, nil]];     
+    [healSpr runAction:[CCSequence actions:healingAnimation,back, nil]];  
+    
+    _gameScene.flag.hp+=[[[[SkillData skillData] getSkillInfo:SKILL_STATE_HEALING :[UserData userData].hillLevel] objectForKey:@"hp"] integerValue];
+
+    if(_gameScene.flag.hp>_gameScene.flag.maxHp)
+        _gameScene.flag.hp = _gameScene.flag.maxHp;
 }
 
 -(void)endHeal{
-    for(Slot* slot in [_gameScene.gameUILayer skills]){
-        [[slot slotSprite] setVisible:YES];
-    }
     [healSpr setVisible:NO];
+    [[(Slot*)[[_gameScene.gameUILayer skills] objectAtIndex:healSlot] slotSprite] setVisible:YES];
 }
 
 - (void)update
@@ -135,6 +162,17 @@ enum{
     
     @synchronized(self){
         if(stone!=nil){
+            switch (_gameScene.gameUILayer.slotState){
+                case 1:
+                    _gameScene.gameUILayer.slot1Count = 100;
+                    break;
+                case 2:
+                    _gameScene.gameUILayer.slot2Count = 100;
+                    break;
+                case 3:
+                    _gameScene.gameUILayer.slot3Count = 100;
+                    break;
+            }
             skillState = SKILL_STATE_NORMAL;
             if([self useMp:(CGFloat)stone.mp]){
                 [_gameScene.skillLayer addChild:[stone stoneSprite] z:1 tag:skill_stone_tag];
@@ -148,6 +186,19 @@ enum{
     
     skillState = SKILL_STATE_NORMAL;
     if([self useMp:arrow.mp]){
+        
+        switch (_gameScene.gameUILayer.slotState){
+            case 1:
+                _gameScene.gameUILayer.slot1Count = 100;
+                break;
+            case 2:
+                _gameScene.gameUILayer.slot2Count = 100;
+                break;
+            case 3:
+                _gameScene.gameUILayer.slot3Count = 100;
+                break;
+        }
+        
         [arrow addArrow:location];
     }
     //마나 소비
@@ -188,16 +239,15 @@ enum{
 }
 
 -(void)endQuake:(id)sender{
-    for(Slot* slot in [_gameScene.gameUILayer skills]){
-        [[slot slotSprite] setVisible:YES];
-    }
+    
+    [[(Slot*)[[_gameScene.gameUILayer skills] objectAtIndex:(earthQuakeSlot-1)] slotSprite] setVisible:YES];
     [_gameScene.gameLayer setPosition:ccp(0,0)];
 }
 
 -(void) createEarthQuake{
     //구현!
     if([self useMp: [[[[SkillData skillData] getSkillInfo:SKILL_STATE_EARTHQUAKE :[[UserData userData] earthquakeLevel]] objectForKey:@"mp"] integerValue]]){
-        
+
         [self stopAllActions];
         
         NSInteger damage = [[[[SkillData skillData] getSkillInfo:SKILL_STATE_EARTHQUAKE :[[UserData userData] earthquakeLevel]] objectForKey:@"damage"] integerValue];
@@ -207,21 +257,38 @@ enum{
         
         
         [self runAction:[CCSequence actions:[CCDelayTime actionWithDuration:0.01],[CCCallFunc actionWithTarget:self selector:@selector(shakyPlus:)],nil]];
-        
-        @synchronized(self){
+        earthQuakeSlot = _gameScene.gameUILayer.slotState;
+        switch (earthQuakeSlot){
+            case 1:
+                [[[[_gameScene.gameUILayer skills] objectAtIndex:0] slotSprite] setVisible:NO];
+                _gameScene.gameUILayer.slot1Count = 100;
+                break;
+            case 2:
+                [[[[_gameScene.gameUILayer skills] objectAtIndex:1] slotSprite] setVisible:NO];
+                _gameScene.gameUILayer.slot2Count = 100;
+                break;
+            case 3:
+                [[[[_gameScene.gameUILayer skills] objectAtIndex:2] slotSprite] setVisible:NO];
+                _gameScene.gameUILayer.slot3Count = 100;
+                break;
+        }
             for(Enemy* current in _gameScene.enemies){
                 if([current x] <= FLAG_X)
                     [current beDamaged:damage forceX:-power forceY:power];
                 else
                     [current beDamaged:damage forceX:power forceY:power];            
             }
-        }    
         AudioServicesPlaySystemSound(kSystemSoundID_Vibrate);
     }
 }
 
 -(BOOL) useMp:(CGFloat)mp{
-    return YES;
+    if(_gameScene.player.mp < (NSInteger)mp)
+        return NO;
+    else{
+        _gameScene.player.mp -= (NSInteger)mp;
+        return YES;
+    }
 }
 
 @end

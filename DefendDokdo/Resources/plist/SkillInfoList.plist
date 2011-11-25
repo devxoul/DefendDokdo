@@ -13,7 +13,7 @@
 				<key>spriteName</key>
 				<string>stone_biggest.png</string>
 				<key>mp</key>
-				<integer>0</integer>
+				<integer>5</integer>
 				<key>effect</key>
 				<true/>
 				<key>effectPower</key>
@@ -329,7 +329,7 @@
 				<key>damage</key>
 				<integer>50</integer>
 				<key>mp</key>
-				<integer>0</integer>
+				<integer>5</integer>
 				<key>number</key>
 				<integer>20</integer>
 				<key>price</key>
@@ -757,7 +757,7 @@
 				<key>effectPower</key>
 				<integer>4</integer>
 				<key>mp</key>
-				<integer>0</integer>
+				<integer>5</integer>
 				<key>price</key>
 				<integer>5000</integer>
 			</dict>

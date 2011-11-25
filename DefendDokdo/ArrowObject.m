@@ -146,7 +146,7 @@
                     break;
             }
             
-            if(arrowSprite.position.y <=40){
+            if(arrowSprite.position.y <=SEA_Y){
                 arrowState = ARROW_STATE_STOP;
             }
             

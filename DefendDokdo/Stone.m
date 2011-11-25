@@ -34,6 +34,7 @@
         isEffect = [[skillInfo objectForKey:@"effect"] boolValue];
         mp = [[skillInfo objectForKey:@"mp"] integerValue];
         
+        
         (isEffect==YES) ? (effectPower = [[skillInfo objectForKey:@"effectPower"] integerValue]) : (effectPower =0);
         if(110 < x && x < 225){
             downPoint = 31.f/23.f * x - 98.3;
@@ -104,7 +105,7 @@
                         break;
                 }
 
-                if(y<40){
+                if(y<SEA_Y){
                     stoneState = STONE_STATE_STOP;
                 }
             }
@@ -117,7 +118,7 @@
             speed+=GRAVITY/3.0;
             break;
         case STONE_STATE_ROLLING:{
-            if(y<40){
+            if(y<SEA_Y){
                 //돌이 물에 떨어지는 이펙트
                 stoneState = STONE_STATE_STOP;
                 break;

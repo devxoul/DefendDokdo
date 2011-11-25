@@ -22,6 +22,13 @@
     
     CCSprite* healSpr;
     CCAnimate* healingAnimation;
+    
+    NSInteger earthQuakeSlot;
+    NSInteger stoneSlot;
+    NSInteger healSlot;
+    NSInteger arrowSlot;
+    
+    CCSpriteBatchNode* healBatchNode;
 }
 
 @property (readwrite) NSInteger skillState;

@@ -7,6 +7,8 @@
 //
 
 #import "SkillLayer.h"
+#import "GameUILayer.h"
+#import "Slot.h"
 
 @implementation SkillLayer
 
@@ -41,17 +43,17 @@
     for (UITouch *touch in touches) {
         if (touch) {
             CGPoint location = [[CCDirector sharedDirector] convertToGL:[touch locationInView:[touch view]]];
-            if(!CGRectContainsPoint(CGRectMake(0.0, 0.0, 480.0, 50.0), location)){
+            if(!CGRectContainsPoint(CGRectMake(0.0, 0.0, 480.0, 55.0), location)){
                 switch (_gameScene.skillManager.skillState) {
                     case SKILL_STATE_STONE:
+                        [[(Slot*)[_gameScene.gameUILayer.skills objectAtIndex:_gameScene.gameUILayer.slotState-1] slotSprite] setVisible:YES];
                         [_gameScene.skillManager createStone:location];
                         break;
                     case SKILL_STATE_ARROW:
+                        [[(Slot*)[_gameScene.gameUILayer.skills objectAtIndex:_gameScene.gameUILayer.slotState-1] slotSprite] setVisible:YES];
                         [_gameScene.skillManager createArrow:location];
                         break;
-                    case SKILL_STATE_EARTHQUAKE:
-                        [_gameScene.skillManager createEarthQuake];
-                        break;
+                        
                 }
             }
         }           

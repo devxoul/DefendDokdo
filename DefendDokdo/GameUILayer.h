@@ -41,13 +41,21 @@
     NSInteger slot3Count;
     NSInteger slot3MaxCount;
     
+
 	CCSprite *pauseBg;
 	CCMenuItemImage *pauseBtn;
 	CCMenu *pauseMenu;
+
+    NSInteger slotState;
 }
 
 @property (retain, nonatomic) NSMutableArray* skills;
 
+
+@property (readwrite) NSInteger slot1Count;
+@property (readwrite) NSInteger slot2Count;
+@property (readwrite) NSInteger slot3Count;
+@property (readwrite) NSInteger slotState;
 
 - (id)initWithScene:(GameScene* )gameScene;
 - (void) update;
