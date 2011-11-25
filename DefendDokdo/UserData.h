@@ -42,8 +42,8 @@
 @property (readwrite) NSUInteger point;
 @property (readwrite) NSUInteger stageLevel;
 
-@property (nonatomic, retain) NSMutableDictionary* skillSlot;
-@property (nonatomic, retain) NSMutableDictionary* userSkillSlot;
+@property (readwrite, retain) NSMutableDictionary* skillSlot;
+@property (readwrite, retain) NSMutableDictionary* userSkillSlot;
 
 @property (readwrite) NSUInteger flagLevel;
 @property (readwrite) NSUInteger userAtkLevel;

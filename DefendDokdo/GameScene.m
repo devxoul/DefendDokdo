@@ -124,6 +124,7 @@ NSInteger arryWaveEffect3[22] =
 		[self initStage];
 		
 		currentStage = [[UserData userData] stageLevel];
+		NSLog( @"currentStage : %d", currentStage );
 	}
 	
 	return self;
@@ -224,7 +225,6 @@ NSInteger arryWaveEffect3[22] =
 	enemyManager = [[EnemyManager alloc] initWithGameScene:self];
 	skillManager = [[SkillManager alloc] initWithGameScene:self];
 	controlManager = [[ControlManager alloc] init];
-    
 }
 
 - (void)draw
@@ -291,6 +291,8 @@ NSInteger arryWaveEffect3[22] =
 		[self schedule:@selector(onLabelEnd:) interval:2.0];
 		if ([UserData isGameCenterAvailable])
 			[UserData sendScore:0 Of:@"level"];
+		
+		[[UserData userData] setStageLevel:currentStage + 1];
 
 		nGameState = GAMESTATE_ENDING;		
 		

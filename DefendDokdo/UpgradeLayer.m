@@ -169,7 +169,7 @@
         [upgradeLabel1 setAnchorPoint:CGPointZero];
         [upgradeLabel1 setPosition:CGPointMake(190, 170)];
         
-        upgradeLabel2 = [CCLabelTTF labelWithString:[NSString stringWithFormat:@"%d G", [[SkillData skillData] getSkillInfo:UPGRADE_TYPE_FLAG :[[UserData userData] flagLevel]]] dimensions:CGSizeMake(0,0) alignment:UITextAlignmentCenter fontName:@"NanumScript.ttf" fontSize:20]; 
+        upgradeLabel2 = [CCLabelTTF labelWithString:[NSString stringWithFormat:@"%d G", [[SkillData skillData] getSkillPrice:UPGRADE_TYPE_FLAG :[[UserData userData] flagLevel]]] dimensions:CGSizeMake(0,0) alignment:UITextAlignmentCenter fontName:@"NanumScript.ttf" fontSize:20]; 
         
         [self addChild:upgradeLabel2 z:8];
         
@@ -185,7 +185,7 @@
         [upgradeLabel3 setAnchorPoint:CGPointZero];
         [upgradeLabel3 setPosition:CGPointMake(359, 170)];
         
-        upgradeLabel4 = [CCLabelTTF labelWithString:[NSString stringWithFormat:@"%d G", [[SkillData skillData] getSkillInfo:UPGRADE_TYPE_ATTACK :[[UserData userData] userAtkLevel]]] dimensions:CGSizeMake(0,0) alignment:UITextAlignmentCenter fontName:@"NanumScript.ttf" fontSize:20];
+        upgradeLabel4 = [CCLabelTTF labelWithString:[NSString stringWithFormat:@"%d G", [[SkillData skillData] getSkillPrice:UPGRADE_TYPE_ATTACK :[[UserData userData] userAtkLevel]]] dimensions:CGSizeMake(0,0) alignment:UITextAlignmentCenter fontName:@"NanumScript.ttf" fontSize:20];
         
         [self addChild:upgradeLabel4 z:8];
         
@@ -201,7 +201,7 @@
         [upgradeLabel5 setAnchorPoint:CGPointZero];
         [upgradeLabel5 setPosition:CGPointMake(190, 75)];
         
-        upgradeLabel6 = [CCLabelTTF labelWithString:[NSString stringWithFormat:@"%d G", [[SkillData skillData] getSkillInfo:UPGRADE_TYPE_MAXMP :[[UserData userData] userMaxMpLevel]]] dimensions:CGSizeMake(0,0) alignment:UITextAlignmentCenter fontName:@"NanumScript.ttf" fontSize:20];
+        upgradeLabel6 = [CCLabelTTF labelWithString:[NSString stringWithFormat:@"%d G", [[SkillData skillData] getSkillPrice:UPGRADE_TYPE_MAXMP :[[UserData userData] userMaxMpLevel]]] dimensions:CGSizeMake(0,0) alignment:UITextAlignmentCenter fontName:@"NanumScript.ttf" fontSize:20];
         
         [self addChild:upgradeLabel6 z:8];
         
@@ -217,7 +217,7 @@
         [upgradeLabel7 setAnchorPoint:CGPointZero];
         [upgradeLabel7 setPosition:CGPointMake(359, 75)];
         
-        upgradeLabel8 = [CCLabelTTF labelWithString:[NSString stringWithFormat:@"%d G", [[SkillData skillData] getSkillInfo:UPGRADE_TYPE_REGENMP :[[UserData userData] userMPspeedLevel]]] dimensions:CGSizeMake(0,0) alignment:UITextAlignmentCenter fontName:@"NanumScript.ttf" fontSize:20];
+        upgradeLabel8 = [CCLabelTTF labelWithString:[NSString stringWithFormat:@"%d G", [[SkillData skillData] getSkillPrice:UPGRADE_TYPE_REGENMP :[[UserData userData] userMPspeedLevel]]] dimensions:CGSizeMake(0,0) alignment:UITextAlignmentCenter fontName:@"NanumScript.ttf" fontSize:20];
         
         [self addChild:upgradeLabel8 z:8];
         
@@ -327,6 +327,8 @@
         [slot_earthquake3 setPosition:ccp(246.5, 269)];
         [self addChild:slot_earthquake3 z:9];
         
+        
+        
         lock1.visible = NO;
         
         slot_stone1.visible = NO;
@@ -344,6 +346,52 @@
         slot_earthquake1.visible = NO;
         slot_earthquake2.visible = NO;
         slot_earthquake3.visible = NO;
+        
+        switch ([[[[UserData userData] userSkillSlot] objectForKey:@"1"] integerValue]) {
+            case SKILL_STATE_STONE:
+                [slot_stone1 setVisible:YES];
+                break;                
+            case SKILL_STATE_ARROW:
+                [slot_arrow1 setVisible:YES];
+                break;                
+            case SKILL_STATE_HEALING:
+                [slot_hill1 setVisible:YES];
+                break;                
+            case SKILL_STATE_EARTHQUAKE:
+                [slot_earthquake1 setVisible:YES];
+                break;                
+        }
+        
+        switch ([[[[UserData userData] userSkillSlot] objectForKey:@"2"] integerValue]) {
+            case SKILL_STATE_STONE:
+                [slot_stone2 setVisible:YES];
+                break;                
+            case SKILL_STATE_ARROW:
+                [slot_arrow2 setVisible:YES];
+                break;                
+            case SKILL_STATE_HEALING:
+                [slot_hill2 setVisible:YES];
+                break;                
+            case SKILL_STATE_EARTHQUAKE:
+                [slot_earthquake2 setVisible:YES];
+                break;                
+        }
+        
+        switch ([[[[UserData userData] userSkillSlot] objectForKey:@"3"] integerValue]) {
+            case SKILL_STATE_STONE:
+                [slot_stone3 setVisible:YES];
+                break;                
+            case SKILL_STATE_ARROW:
+                [slot_arrow3 setVisible:YES];
+                break;                
+            case SKILL_STATE_HEALING:
+                [slot_hill3 setVisible:YES];
+                break;                
+            case SKILL_STATE_EARTHQUAKE:
+                [slot_earthquake3 setVisible:YES];
+                break;                
+        }
+        
         
         //게임머니
         //        moneyLabel = [[CCLabelTTF labelWithString:[NSString stringWithFormat:@"1000"] fontName:@"NanumScript.ttf" fontSize:70] retain];
@@ -682,35 +730,43 @@
             
             switch (buttonState) {
                 case 1:
-                    [UserData userData].flagLevel++; 
-                    [[UserData userData] saveToFile];
-                    
-                    [upgradeLabel1 setString:[NSString stringWithFormat:@"Lv %d",[[UserData userData] flagLevel]]];
-                    [upgradeLabel2 setString:[NSString stringWithFormat:@"%d G", [[SkillData skillData] getSkillInfo:UPGRADE_TYPE_FLAG :[[UserData userData] flagLevel]]]];
+                    if([UserData userData].flagLevel < 8){
+                        [UserData userData].flagLevel++; 
+                        [[UserData userData] saveToFile];
+                        
+                        [upgradeLabel1 setString:[NSString stringWithFormat:@"Lv %d",[[UserData userData] flagLevel]]];
+                        [upgradeLabel2 setString:[NSString stringWithFormat:@"%d G", [[SkillData skillData] getSkillPrice:UPGRADE_TYPE_FLAG :[[UserData userData] flagLevel]]]];
+                    }
                     break;
                     
                 case 2:
-                    [UserData userData].userAtkLevel++; 
-                    [[UserData userData] saveToFile];
-                    
-                    [upgradeLabel3 setString:[NSString stringWithFormat:@"Lv %d",[[UserData userData] userAtkLevel]]];
-                    [upgradeLabel4 setString:[NSString stringWithFormat:@"%d G", [[SkillData skillData] getSkillInfo:UPGRADE_TYPE_ATTACK :[[UserData userData] userAtkLevel]]]];
+                    if([UserData userData].userAtkLevel < 20){
+                        [UserData userData].userAtkLevel++; 
+                        [[UserData userData] saveToFile];
+                        
+                        [upgradeLabel3 setString:[NSString stringWithFormat:@"Lv %d",[[UserData userData] userAtkLevel]]];
+                        [upgradeLabel4 setString:[NSString stringWithFormat:@"%d G", [[SkillData skillData] getSkillPrice:UPGRADE_TYPE_ATTACK :[[UserData userData] userAtkLevel]]]];
+                    }
                     break;
                     
                 case 3:
-                    [UserData userData].userMaxMpLevel++; 
-                    [[UserData userData] saveToFile];
-                    
-                    [upgradeLabel5 setString:[NSString stringWithFormat:@"Lv %d",[[UserData userData] userMaxMpLevel]]];
-                    [upgradeLabel6 setString:[NSString stringWithFormat:@"%d G", [[SkillData skillData] getSkillInfo:UPGRADE_TYPE_MAXMP :[[UserData userData] userMaxMpLevel]]]];
+                    if([UserData userData].userMaxMpLevel < 20){
+                        [UserData userData].userMaxMpLevel++; 
+                        [[UserData userData] saveToFile];
+                        
+                        [upgradeLabel5 setString:[NSString stringWithFormat:@"Lv %d",[[UserData userData] userMaxMpLevel]]];
+                        [upgradeLabel6 setString:[NSString stringWithFormat:@"%d G", [[SkillData skillData] getSkillPrice:UPGRADE_TYPE_MAXMP :[[UserData userData] userMaxMpLevel]]]];
+                    }
                     break;
                     
                 case 4:
-                    [UserData userData].userMPspeedLevel++; 
-                    [[UserData userData] saveToFile];
-                    
-                    [upgradeLabel7 setString:[NSString stringWithFormat:@"Lv %d",[[UserData userData] userMPspeedLevel]]];
-                    [upgradeLabel8 setString:[NSString stringWithFormat:@"%d G", [[SkillData skillData] getSkillInfo:UPGRADE_TYPE_REGENMP :[[UserData userData] userMPspeedLevel]]]];
+                    if([UserData userData].userMPspeedLevel < 20){
+                        [UserData userData].userMPspeedLevel++; 
+                        [[UserData userData] saveToFile];
+                        
+                        [upgradeLabel7 setString:[NSString stringWithFormat:@"Lv %d",[[UserData userData] userMPspeedLevel]]];
+                        [upgradeLabel8 setString:[NSString stringWithFormat:@"%d G", [[SkillData skillData] getSkillPrice:UPGRADE_TYPE_REGENMP :[[UserData userData] userMPspeedLevel]]]];
+                    }
                     break;
                     
                 default:
@@ -723,7 +779,7 @@
             
             switch (buttonState) {
                 case 1:
-                    if ([UserData userData].stoneLevel < 21){
+                    if ([UserData userData].stoneLevel < 20){
                         [UserData userData].stoneLevel++; 
                         [[UserData userData] saveToFile];
                         
@@ -736,7 +792,7 @@
                     break;
                     
                 case 2:
-                    if ([UserData userData].arrowLevel < 21){
+                    if ([UserData userData].arrowLevel < 20){
                         [UserData userData].arrowLevel++; 
                         [[UserData userData] saveToFile];
                         
@@ -749,7 +805,7 @@
                     break;
                     
                 case 3:
-                    if ([UserData userData].hillLevel < 21){
+                    if ([UserData userData].hillLevel < 20){
                         [UserData userData].hillLevel++; 
                         [[UserData userData] saveToFile];
                         
@@ -762,7 +818,7 @@
                     break;
                     
                 case 4:
-                    if ([UserData userData].earthquakeLevel < 21){
+                    if ([UserData userData].earthquakeLevel < 20){
                         [UserData userData].earthquakeLevel++; 
                         [[UserData userData] saveToFile];
                         
@@ -845,6 +901,7 @@
                             slot_arrow1.visible = NO;
                             slot_hill1.visible = NO;
                             slot_earthquake1.visible = NO;
+                            [[UserData userData] saveToFile];
                             
                         }
                         else if([[[[UserData userData] skillSlot] objectForKey:@"2"] boolValue]){
@@ -855,6 +912,7 @@
                                 slot_arrow2.visible = NO;
                                 slot_hill2.visible = NO;
                                 slot_earthquake2.visible = NO;
+                                [[UserData userData] saveToFile];
                                 
                             }
                             else if([[[[UserData userData] skillSlot] objectForKey:@"3"] boolValue]){
@@ -865,7 +923,7 @@
                                     slot_arrow3.visible = NO;
                                     slot_hill3.visible = NO;
                                     slot_earthquake3.visible = NO;
-                                    
+                                    [[UserData userData] saveToFile];
                                 }
                             }
                             
@@ -883,15 +941,18 @@
                             [[[UserData userData] userSkillSlot] setObject:[NSNumber numberWithInteger:SKILL_STATE_ARROW] forKey:@"1"];
                             //                                화살스킬만 YES로 
                             slot_arrow1.visible = YES;
+                            [[UserData userData] saveToFile];
                         }
                         else if([[[[UserData userData] skillSlot] objectForKey:@"2"] boolValue]){
                             if( [[[[UserData userData] userSkillSlot] objectForKey:@"2"] integerValue] == -1){
                                 [[[UserData userData] userSkillSlot] setObject:[NSNumber numberWithInteger:SKILL_STATE_ARROW] forKey:@"2"];
+                                [[UserData userData] saveToFile];
                                 slot_arrow2.visible = YES;
                             }
                             else if([[[[UserData userData] skillSlot] objectForKey:@"3"] boolValue]){
                                 if( [[[[UserData userData] userSkillSlot] objectForKey:@"3"] integerValue] == -1){
                                     [[[UserData userData] userSkillSlot] setObject:[NSNumber numberWithInteger:SKILL_STATE_ARROW] forKey:@"3"];
+                                    [[UserData userData] saveToFile];
                                     slot_arrow3.visible = YES;
                                 }
                             }
@@ -909,16 +970,19 @@
                         if( [[[[UserData userData] userSkillSlot] objectForKey:@"1"] integerValue] == -1){
                             [[[UserData userData] userSkillSlot] setObject:[NSNumber numberWithInteger:SKILL_STATE_HEALING] forKey:@"1"];
                             //                                힐링스킬만 YES로 
+                            [[UserData userData] saveToFile];
                             slot_hill1.visible = YES;
                         }
                         else if([[[[UserData userData] skillSlot] objectForKey:@"2"] boolValue]){
                             if( [[[[UserData userData] userSkillSlot] objectForKey:@"2"] integerValue] == -1){
                                 [[[UserData userData] userSkillSlot] setObject:[NSNumber numberWithInteger:SKILL_STATE_HEALING] forKey:@"2"];
+                                [[UserData userData] saveToFile];
                                 slot_hill2.visible = YES;
                             }
                             else if([[[[UserData userData] skillSlot] objectForKey:@"3"] boolValue]){
                                 if( [[[[UserData userData] userSkillSlot] objectForKey:@"3"] integerValue] == -1){
                                     [[[UserData userData] userSkillSlot] setObject:[NSNumber numberWithInteger:SKILL_STATE_HEALING] forKey:@"3"];
+                                    [[UserData userData] saveToFile];
                                     slot_hill3.visible = YES;
                                 }
                             }
@@ -936,16 +1000,19 @@
                         if( [[[[UserData userData] userSkillSlot] objectForKey:@"1"] integerValue] == -1){
                             [[[UserData userData] userSkillSlot] setObject:[NSNumber numberWithInteger:SKILL_STATE_EARTHQUAKE] forKey:@"1"];
                             //                                지진스킬만 YES로 
+                            [[UserData userData] saveToFile];
                             slot_earthquake1.visible = YES;
                         }
                         else if([[[[UserData userData] skillSlot] objectForKey:@"2"] boolValue]){
                             if( [[[[UserData userData] userSkillSlot] objectForKey:@"2"] integerValue] == -1){
                                 [[[UserData userData] userSkillSlot] setObject:[NSNumber numberWithInteger:SKILL_STATE_EARTHQUAKE] forKey:@"2"];
+                                [[UserData userData] saveToFile];
                                 slot_earthquake2.visible = YES;
                             }
                             else if([[[[UserData userData] skillSlot] objectForKey:@"3"] boolValue]){
                                 if( [[[[UserData userData] userSkillSlot] objectForKey:@"3"] integerValue] == -1){
                                     [[[UserData userData] userSkillSlot] setObject:[NSNumber numberWithInteger:SKILL_STATE_EARTHQUAKE] forKey:@"3"];
+                                    [[UserData userData] saveToFile];
                                     slot_earthquake3.visible = YES;
                                 }
                             }
@@ -1031,7 +1098,7 @@
                         [[[UserData userData] userSkillSlot] setObject:[NSNumber numberWithInteger:-1] forKey:@"2"];
                     //                    사진 4개 NO
                     
-                    slot_stone2.visible = NO;                    
+                    slot_stone2.visible = NO;        
                     slot_arrow2.visible = NO;
                     slot_hill2.visible = NO;
                     slot_earthquake2.visible = NO;

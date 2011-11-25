@@ -1,10 +1,10 @@
-	//
-	//  UserData.m
-	//  DefendDokdo
-	//
-	//  Created by 전 수열 on 11. 11. 2..
-	//  Copyright 2011년 Joyfl. All rights reserved.
-	//
+//
+//  UserData.m
+//  DefendDokdo
+//
+//  Created by 전 수열 on 11. 11. 2..
+//  Copyright 2011년 Joyfl. All rights reserved.
+//
 
 #import "UserData.h"
 
@@ -99,14 +99,14 @@
 		skillSlot = [dict objectForKey:@"BuySkillSlot"];
 		
 		if (!skillSlot) {
-//			skillSlot = [[NSMutableArray array] retain];
-			skillSlot = [[NSMutableDictionary alloc] init];
+			skillSlot = [[[NSMutableDictionary alloc] init] retain];
 			
             [skillSlot setObject:[NSNumber numberWithBool:YES] forKey:@"1"];
             [skillSlot setObject:[NSNumber numberWithBool:NO] forKey:@"2"];
             [skillSlot setObject:[NSNumber numberWithBool:NO] forKey:@"3"];
             
-		}
+		}else
+            [skillSlot retain];
 		
 		userSkillSlot = [dict objectForKey:@"SlotInSkill"];
 		
@@ -116,11 +116,12 @@
             [userSkillSlot setObject:[NSNumber numberWithInteger:-1] forKey:@"1"];
             [userSkillSlot setObject:[NSNumber numberWithInteger:-1] forKey:@"2"];
             [userSkillSlot setObject:[NSNumber numberWithInteger:-1] forKey:@"3"];
-//			
-//			[userSkillSlot addObject:[NSNumber numberWithInteger:-1]];
-//			[userSkillSlot addObject:[NSNumber numberWithInteger:-1]];
-//			[userSkillSlot addObject:[NSNumber numberWithInteger:-1]];
-		}
+            //			
+            //			[userSkillSlot addObject:[NSNumber numberWithInteger:-1]];
+            //			[userSkillSlot addObject:[NSNumber numberWithInteger:-1]];
+            //			[userSkillSlot addObject:[NSNumber numberWithInteger:-1]];
+		}else
+            [userSkillSlot retain];
 		
 		stageInfo = [[NSDictionary dictionaryWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"StageList" ofType:@"plist"]] retain];
 		
@@ -170,7 +171,7 @@
 - (BOOL)removeToFile
 {
 	NSString* path = [[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0] 
-										stringByAppendingFormat:@"/UserData.plist"];
+                      stringByAppendingFormat:@"/UserData.plist"];
 	
 	if ([[NSFileManager defaultManager] fileExistsAtPath:path])
 		[[NSFileManager defaultManager] removeItemAtPath:path error:nil];
@@ -189,11 +190,23 @@
 	hillLevel = 0;
 	earthquakeLevel = 0;
 	
-	skillSlot = [NSMutableArray arrayWithObjects:[NSNumber numberWithBool:YES], [NSNumber numberWithBool:NO], [NSNumber numberWithBool:NO], nil];
+    
+    skillSlot = [[[NSMutableDictionary alloc] init] retain];
+    
+    [skillSlot setObject:[NSNumber numberWithBool:YES] forKey:@"1"];
+    [skillSlot setObject:[NSNumber numberWithBool:NO] forKey:@"2"];
+    [skillSlot setObject:[NSNumber numberWithBool:NO] forKey:@"3"];
+    
+    
+    
+    userSkillSlot = [[[NSMutableDictionary alloc] init] retain];
+    
+    [userSkillSlot setObject:[NSNumber numberWithInteger:-1] forKey:@"1"];
+    [userSkillSlot setObject:[NSNumber numberWithInteger:-1] forKey:@"2"];
+    [userSkillSlot setObject:[NSNumber numberWithInteger:-1] forKey:@"3"];
+    
 	
-	userSkillSlot = [NSMutableArray arrayWithObjects:[NSNumber numberWithInteger:-1], 
-									 [NSNumber numberWithInteger:-1], [NSNumber numberWithInteger:-1], nil];
-	
+    
 	stageInfo = [[NSDictionary dictionaryWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"StageList" ofType:@"plist"]] retain];
 	
 	return YES;	
@@ -256,7 +269,7 @@
 	if ([GKLocalPlayer localPlayer].authenticated == YES)
 	{
 		GKScore* score = [[[GKScore alloc] initWithCategory:type]autorelease];
-			// type : 게임센터에서 설정한 Leaderboard ID
+        // type : 게임센터에서 설정한 Leaderboard ID
 		score.value = _score;
 		
 		/*
@@ -273,13 +286,13 @@
 		}
 		if (title)
 		{
-				// 게임센터 노티 띄우기
+            // 게임센터 노티 띄우기
 			[GKNotificationBanner showBannerWithTitle:title message:message completionHandler:^{} ];
 			
-				// 점수 전송
+            // 점수 전송
 			[score reportScoreWithCompletionHandler:^(NSError* error){
 				if(error != NULL){
-						// Retain the score object and try again later (not shown).
+                    // Retain the score object and try again later (not shown).
 					
 				}
 			}];

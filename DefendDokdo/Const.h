@@ -65,6 +65,8 @@
 #define SKILL_STATE_HEALING     3
 #define SKILL_STATE_EARTHQUAKE  4
 #define SKILL_STATE_LOCK        5
+#define SKILL_STATE_EMPTY       -1
+
 #define UPGRADE_TYPE_FLAG       6
 #define UPGRADE_TYPE_MAXMP      7
 #define UPGRADE_TYPE_REGENMP    8

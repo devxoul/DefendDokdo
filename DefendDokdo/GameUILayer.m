@@ -61,10 +61,15 @@
         
     }
     
-    
     //스킬 넣는 부분 - 수정 필요함
     skills = [[NSMutableArray alloc] init];
-    [skills addObject:[[Slot alloc] initWithSkillInfo:SKILL_STATE_HEALING :self :ccp(295,25)]];
+    
+    if([[[[UserData userData] skillSlot] objectForKey:@"1"] boolValue]){
+        [skills addObject:[[Slot alloc] initWithSkillInfo:[[[[UserData userData] userSkillSlot] objectForKey:@"1"] integerValue] :self :ccp(295,25)]];
+    }else
+        [skills addObject:[[Slot alloc] initWithSkillInfo:SKILL_STATE_LOCK :self :ccp(295,25)]];
+    
+    
     slot1Shadow = [[CCSprite alloc] initWithFile:@"skill_shadow.png"];
     [slot1Shadow setPosition:ccp(294, 50)];
     [slot1Shadow setAnchorPoint:ccp(0.5, 1.0)];
@@ -75,7 +80,12 @@
     //삭제할 내용 - 
     slot1MaxCount = 100;
     
-    [skills addObject:[[Slot alloc] initWithSkillInfo:SKILL_STATE_ARROW :self :ccp(368,25)]];
+    
+    if([[[[UserData userData] skillSlot] objectForKey:@"2"] boolValue]){
+        [skills addObject:[[Slot alloc] initWithSkillInfo:[[[[UserData userData] userSkillSlot] objectForKey:@"2"] integerValue] :self :ccp(368,25)]];
+    }else
+        [skills addObject:[[Slot alloc] initWithSkillInfo:SKILL_STATE_LOCK :self :ccp(368,25)]];
+
     slot2Shadow = [[CCSprite alloc] initWithFile:@"skill_shadow.png"];
     [slot2Shadow setPosition:ccp(367, 50)];
     [slot2Shadow setAnchorPoint:ccp(0.5, 1.0)];
@@ -87,7 +97,11 @@
     //삭제할 내용 - 
     slot2MaxCount = 100;
     
-    [skills addObject:[[Slot alloc] initWithSkillInfo:SKILL_STATE_EARTHQUAKE :self :ccp(441,25)]];
+    if([[[[UserData userData] skillSlot] objectForKey:@"3"] boolValue]){
+        [skills addObject:[[Slot alloc] initWithSkillInfo:[[[[UserData userData] userSkillSlot] objectForKey:@"3"] integerValue] :self :ccp(441,25)]];
+    }else
+        [skills addObject:[[Slot alloc] initWithSkillInfo:SKILL_STATE_LOCK :self :ccp(441,25)]];
+
     slot3Shadow = [[CCSprite alloc] initWithFile:@"skill_shadow.png"];
     [slot3Shadow setPosition:ccp(440, 50)];
     [slot3Shadow setAnchorPoint:ccp(0.5, 1.0)];

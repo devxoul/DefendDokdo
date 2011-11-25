@@ -33,11 +33,13 @@
 
 	mp = 0;
 	slots = [[UserData userData] userSkillSlot];
+	
+	mpFrequency = 50;
 }
 
 - (void)update
 {
-	if (mp < maxMp) {
+	if (mp < maxMp && ( currentLoop++ ) % mpFrequency == 0) {
 		mp += 1;
 	}
 }
