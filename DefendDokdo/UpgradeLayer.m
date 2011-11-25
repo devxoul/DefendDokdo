@@ -28,7 +28,6 @@
 {
 	if( self = [super init] )
 	{
-        
         tabState = 0;
         buttonState = 0;
         
@@ -56,7 +55,7 @@
         tab3BgSprite.position = tab1BgSprite.position;
         [self addChild:tab3BgSprite z:-2];
         tab3BgSprite.visible = NO;
-        
+		
         //왼쪽 탭버튼
         tab1 = [CCMenuItemImage itemFromNormalImage:@"upgrade_on_tab_btn.png" selectedImage:@"upgrade_off_tab_btn.png" target:self selector:@selector(tab1Clicked:)];
         tab1.anchorPoint = CGPointZero;

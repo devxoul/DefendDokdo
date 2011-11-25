@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0310287E147F31CF00CF6FD3 /* sun_ui.png in Resources */ = {isa = PBXBuildFile; fileRef = 0310287D147F31CF00CF6FD3 /* sun_ui.png */; };
 		03398936146001FD002AAAA3 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03398935146001FD002AAAA3 /* QuartzCore.framework */; };
 		03398938146001FD002AAAA3 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03398937146001FD002AAAA3 /* OpenGLES.framework */; };
 		0339893A146001FD002AAAA3 /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03398939146001FD002AAAA3 /* OpenAL.framework */; };
@@ -903,13 +904,13 @@
 		03F7E281147F25A100F5AC1A /* GameKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03F7E27F147F257800F5AC1A /* GameKit.framework */; };
 		03F7E284147F271900F5AC1A /* InfoLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 03F7E283147F271900F5AC1A /* InfoLayer.m */; };
 		03F7E286147F28FC00F5AC1A /* sun.png in Resources */ = {isa = PBXBuildFile; fileRef = 03F7E285147F28FC00F5AC1A /* sun.png */; };
-		03F7E288147F290600F5AC1A /* sun.png in Resources */ = {isa = PBXBuildFile; fileRef = 03F7E287147F290600F5AC1A /* sun.png */; };
 		03F7E28B147F2A2C00F5AC1A /* pause_pressed.png in Resources */ = {isa = PBXBuildFile; fileRef = 03F7E289147F2A2C00F5AC1A /* pause_pressed.png */; };
 		03F7E28C147F2A2C00F5AC1A /* pause.png in Resources */ = {isa = PBXBuildFile; fileRef = 03F7E28A147F2A2C00F5AC1A /* pause.png */; };
 		03F7E28E147F2EFF00F5AC1A /* pause_bg.png in Resources */ = {isa = PBXBuildFile; fileRef = 03F7E28D147F2EFF00F5AC1A /* pause_bg.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0310287D147F31CF00CF6FD3 /* sun_ui.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sun_ui.png; sourceTree = "<group>"; };
 		03398931146001FD002AAAA3 /* DefendDokdo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DefendDokdo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		03398935146001FD002AAAA3 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		03398937146001FD002AAAA3 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
@@ -1937,7 +1938,6 @@
 		03F7E282147F271900F5AC1A /* InfoLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InfoLayer.h; sourceTree = "<group>"; };
 		03F7E283147F271900F5AC1A /* InfoLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InfoLayer.m; sourceTree = "<group>"; };
 		03F7E285147F28FC00F5AC1A /* sun.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = sun.png; path = Resources/sun.png; sourceTree = "<group>"; };
-		03F7E287147F290600F5AC1A /* sun.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sun.png; sourceTree = "<group>"; };
 		03F7E289147F2A2C00F5AC1A /* pause_pressed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pause_pressed.png; sourceTree = "<group>"; };
 		03F7E28A147F2A2C00F5AC1A /* pause.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pause.png; sourceTree = "<group>"; };
 		03F7E28D147F2EFF00F5AC1A /* pause_bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pause_bg.png; sourceTree = "<group>"; };
@@ -3936,7 +3936,7 @@
 		03F7DF4E147F1E1C00F5AC1A /* ui */ = {
 			isa = PBXGroup;
 			children = (
-				03F7E287147F290600F5AC1A /* sun.png */,
+				0310287D147F31CF00CF6FD3 /* sun_ui.png */,
 				03F7E28D147F2EFF00F5AC1A /* pause_bg.png */,
 				03F7DF4F147F1E1C00F5AC1A /* back_off_btn.png */,
 				03F7DF50147F1E1C00F5AC1A /* back_on_btn.png */,
@@ -4827,10 +4827,10 @@
 				03F7E27D147F1E1C00F5AC1A /* upgrade_on_tab_btn.png in Resources */,
 				03F7E27E147F1E1C00F5AC1A /* white2.gif in Resources */,
 				03F7E286147F28FC00F5AC1A /* sun.png in Resources */,
-				03F7E288147F290600F5AC1A /* sun.png in Resources */,
 				03F7E28B147F2A2C00F5AC1A /* pause_pressed.png in Resources */,
 				03F7E28C147F2A2C00F5AC1A /* pause.png in Resources */,
 				03F7E28E147F2EFF00F5AC1A /* pause_bg.png in Resources */,
+				0310287E147F31CF00CF6FD3 /* sun_ui.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

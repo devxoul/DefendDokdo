@@ -47,7 +47,7 @@
         
         //메뉴배경
         
-        sunSprite = [[CCSprite alloc] initWithFile:@"sun.png"];
+        sunSprite = [[CCSprite alloc] initWithFile:@"sun_ui.png"];
         sunSprite.anchorPoint =CGPointZero;
         [sunSprite setPosition:ccp(50, 250)];
         [self addChild:sunSprite z:0];

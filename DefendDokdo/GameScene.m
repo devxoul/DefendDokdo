@@ -122,6 +122,8 @@ NSInteger arryWaveEffect3[22] =
 		[self initManagers];
 		[self initLayers];
 		[self initStage];
+		
+		currentStage = [[UserData userData] stageLevel];
 	}
 	
 	return self;

@@ -100,7 +100,7 @@
 		
 		if (!skillSlot) {
 //			skillSlot = [[NSMutableArray array] retain];
-			skillSlot = [[[NSMutableDictionary alloc] init] retain];
+			skillSlot = [[NSMutableDictionary alloc] init];
 			
             [skillSlot setObject:[NSNumber numberWithBool:YES] forKey:@"1"];
             [skillSlot setObject:[NSNumber numberWithBool:NO] forKey:@"2"];
