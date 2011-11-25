@@ -151,27 +151,23 @@
 		03F7DF8D147F1E1C00F5AC1A /* effect_water_7.png in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DC2C147F1E1B00F5AC1A /* effect_water_7.png */; };
 		03F7DF8E147F1E1C00F5AC1A /* enemy_0_0_attack.plist in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DC30147F1E1B00F5AC1A /* enemy_0_0_attack.plist */; };
 		03F7DF8F147F1E1C00F5AC1A /* enemy_0_0_attack.png in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DC31147F1E1B00F5AC1A /* enemy_0_0_attack.png */; };
-		03F7DF90147F1E1C00F5AC1A /* enemy_0_0_attack.zwd in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DC32147F1E1B00F5AC1A /* enemy_0_0_attack.zwd */; };
 		03F7DF91147F1E1C00F5AC1A /* enemy_0_0_attack_0.png in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DC33147F1E1B00F5AC1A /* enemy_0_0_attack_0.png */; };
 		03F7DF92147F1E1C00F5AC1A /* enemy_0_0_attack_1.png in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DC34147F1E1B00F5AC1A /* enemy_0_0_attack_1.png */; };
 		03F7DF93147F1E1C00F5AC1A /* enemy_0_0_attack_2.png in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DC35147F1E1B00F5AC1A /* enemy_0_0_attack_2.png */; };
 		03F7DF94147F1E1C00F5AC1A /* enemy_0_0_attack_3.png in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DC36147F1E1B00F5AC1A /* enemy_0_0_attack_3.png */; };
 		03F7DF95147F1E1C00F5AC1A /* enemy_0_0_catch.plist in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DC38147F1E1B00F5AC1A /* enemy_0_0_catch.plist */; };
 		03F7DF96147F1E1C00F5AC1A /* enemy_0_0_catch.png in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DC39147F1E1B00F5AC1A /* enemy_0_0_catch.png */; };
-		03F7DF97147F1E1C00F5AC1A /* enemy_0_0_catch.zwd in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DC3A147F1E1B00F5AC1A /* enemy_0_0_catch.zwd */; };
 		03F7DF98147F1E1C00F5AC1A /* enemy_0_0_catch_0.png in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DC3B147F1E1B00F5AC1A /* enemy_0_0_catch_0.png */; };
 		03F7DF99147F1E1C00F5AC1A /* enemy_0_0_catch_1.png in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DC3C147F1E1B00F5AC1A /* enemy_0_0_catch_1.png */; };
 		03F7DF9A147F1E1C00F5AC1A /* enemy_0_0_catch_2.png in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DC3D147F1E1B00F5AC1A /* enemy_0_0_catch_2.png */; };
 		03F7DF9B147F1E1C00F5AC1A /* enemy_0_0_catch_3.png in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DC3E147F1E1B00F5AC1A /* enemy_0_0_catch_3.png */; };
 		03F7DF9C147F1E1C00F5AC1A /* enemy_0_0_fall.plist in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DC40147F1E1B00F5AC1A /* enemy_0_0_fall.plist */; };
 		03F7DF9D147F1E1C00F5AC1A /* enemy_0_0_fall.png in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DC41147F1E1B00F5AC1A /* enemy_0_0_fall.png */; };
-		03F7DF9E147F1E1C00F5AC1A /* enemy_0_0_fall.zwd in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DC42147F1E1B00F5AC1A /* enemy_0_0_fall.zwd */; };
 		03F7DF9F147F1E1C00F5AC1A /* enemy_0_0_fall_0.png in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DC43147F1E1B00F5AC1A /* enemy_0_0_fall_0.png */; };
 		03F7DFA0147F1E1C00F5AC1A /* enemy_0_0_fall_1.png in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DC44147F1E1B00F5AC1A /* enemy_0_0_fall_1.png */; };
 		03F7DFA1147F1E1C00F5AC1A /* enemy_0_0_fall_2.png in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DC45147F1E1B00F5AC1A /* enemy_0_0_fall_2.png */; };
 		03F7DFA2147F1E1C00F5AC1A /* enemy_0_0_hit.plist in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DC47147F1E1B00F5AC1A /* enemy_0_0_hit.plist */; };
 		03F7DFA3147F1E1C00F5AC1A /* enemy_0_0_hit.png in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DC48147F1E1B00F5AC1A /* enemy_0_0_hit.png */; };
-		03F7DFA4147F1E1C00F5AC1A /* enemy_0_0_hit.zwd in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DC49147F1E1B00F5AC1A /* enemy_0_0_hit.zwd */; };
 		03F7DFA5147F1E1C00F5AC1A /* enemy_0_0_hit_0.png in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DC4A147F1E1B00F5AC1A /* enemy_0_0_hit_0.png */; };
 		03F7DFA6147F1E1C00F5AC1A /* enemy_0_0_hit_1.png in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DC4B147F1E1B00F5AC1A /* enemy_0_0_hit_1.png */; };
 		03F7DFA7147F1E1C00F5AC1A /* enemy_0_0_hit_2.png in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DC4C147F1E1B00F5AC1A /* enemy_0_0_hit_2.png */; };
@@ -180,11 +176,9 @@
 		03F7DFAA147F1E1C00F5AC1A /* enemy_0_0_hit_5.png in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DC4F147F1E1B00F5AC1A /* enemy_0_0_hit_5.png */; };
 		03F7DFAB147F1E1C00F5AC1A /* enemy_0_0_idle.plist in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DC51147F1E1B00F5AC1A /* enemy_0_0_idle.plist */; };
 		03F7DFAC147F1E1C00F5AC1A /* enemy_0_0_idle.png in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DC52147F1E1B00F5AC1A /* enemy_0_0_idle.png */; };
-		03F7DFAD147F1E1C00F5AC1A /* enemy_0_0_idle.zwd in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DC53147F1E1B00F5AC1A /* enemy_0_0_idle.zwd */; };
 		03F7DFAE147F1E1C00F5AC1A /* enemy_0_0_idle_0.png in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DC54147F1E1B00F5AC1A /* enemy_0_0_idle_0.png */; };
 		03F7DFAF147F1E1C00F5AC1A /* enemy_0_0_swim.plist in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DC56147F1E1B00F5AC1A /* enemy_0_0_swim.plist */; };
 		03F7DFB0147F1E1C00F5AC1A /* enemy_0_0_swim.png in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DC57147F1E1B00F5AC1A /* enemy_0_0_swim.png */; };
-		03F7DFB1147F1E1C00F5AC1A /* enemy_0_0_swim.zwd in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DC58147F1E1B00F5AC1A /* enemy_0_0_swim.zwd */; };
 		03F7DFB2147F1E1C00F5AC1A /* enemy_0_0_swim_0.png in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DC59147F1E1B00F5AC1A /* enemy_0_0_swim_0.png */; };
 		03F7DFB3147F1E1C00F5AC1A /* enemy_0_0_swim_1.png in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DC5A147F1E1B00F5AC1A /* enemy_0_0_swim_1.png */; };
 		03F7DFB4147F1E1C00F5AC1A /* enemy_0_0_swim_2.png in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DC5B147F1E1B00F5AC1A /* enemy_0_0_swim_2.png */; };
@@ -195,7 +189,6 @@
 		03F7DFB9147F1E1C00F5AC1A /* enemy_0_0_swim_7.png in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DC60147F1E1B00F5AC1A /* enemy_0_0_swim_7.png */; };
 		03F7DFBA147F1E1C00F5AC1A /* enemy_0_0_walk.plist in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DC62147F1E1B00F5AC1A /* enemy_0_0_walk.plist */; };
 		03F7DFBB147F1E1C00F5AC1A /* enemy_0_0_walk.png in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DC63147F1E1B00F5AC1A /* enemy_0_0_walk.png */; };
-		03F7DFBC147F1E1C00F5AC1A /* enemy_0_0_walk.zwd in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DC64147F1E1B00F5AC1A /* enemy_0_0_walk.zwd */; };
 		03F7DFBD147F1E1C00F5AC1A /* enemy_0_0_walk_0.png in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DC65147F1E1B00F5AC1A /* enemy_0_0_walk_0.png */; };
 		03F7DFBE147F1E1C00F5AC1A /* enemy_0_0_walk_1.png in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DC66147F1E1B00F5AC1A /* enemy_0_0_walk_1.png */; };
 		03F7DFBF147F1E1C00F5AC1A /* enemy_0_0_walk_2.png in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DC67147F1E1B00F5AC1A /* enemy_0_0_walk_2.png */; };
@@ -206,27 +199,23 @@
 		03F7DFC4147F1E1C00F5AC1A /* enemy_0_0_walk_7.png in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DC6C147F1E1B00F5AC1A /* enemy_0_0_walk_7.png */; };
 		03F7DFC5147F1E1C00F5AC1A /* enemy_0_1_attack.plist in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DC6F147F1E1B00F5AC1A /* enemy_0_1_attack.plist */; };
 		03F7DFC6147F1E1C00F5AC1A /* enemy_0_1_attack.png in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DC70147F1E1B00F5AC1A /* enemy_0_1_attack.png */; };
-		03F7DFC7147F1E1C00F5AC1A /* enemy_0_1_attack.zwd in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DC71147F1E1B00F5AC1A /* enemy_0_1_attack.zwd */; };
 		03F7DFC8147F1E1C00F5AC1A /* enemy_0_1_attack_0.png in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DC72147F1E1B00F5AC1A /* enemy_0_1_attack_0.png */; };
 		03F7DFC9147F1E1C00F5AC1A /* enemy_0_1_attack_1.png in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DC73147F1E1B00F5AC1A /* enemy_0_1_attack_1.png */; };
 		03F7DFCA147F1E1C00F5AC1A /* enemy_0_1_attack_2.png in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DC74147F1E1B00F5AC1A /* enemy_0_1_attack_2.png */; };
 		03F7DFCB147F1E1C00F5AC1A /* enemy_0_1_attack_3.png in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DC75147F1E1B00F5AC1A /* enemy_0_1_attack_3.png */; };
 		03F7DFCC147F1E1C00F5AC1A /* enemy_0_1_catch.plist in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DC77147F1E1B00F5AC1A /* enemy_0_1_catch.plist */; };
 		03F7DFCD147F1E1C00F5AC1A /* enemy_0_1_catch.png in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DC78147F1E1B00F5AC1A /* enemy_0_1_catch.png */; };
-		03F7DFCE147F1E1C00F5AC1A /* enemy_0_1_catch.zwd in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DC79147F1E1B00F5AC1A /* enemy_0_1_catch.zwd */; };
 		03F7DFCF147F1E1C00F5AC1A /* enemy_0_1_catch_0.png in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DC7A147F1E1B00F5AC1A /* enemy_0_1_catch_0.png */; };
 		03F7DFD0147F1E1C00F5AC1A /* enemy_0_1_catch_1.png in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DC7B147F1E1B00F5AC1A /* enemy_0_1_catch_1.png */; };
 		03F7DFD1147F1E1C00F5AC1A /* enemy_0_1_catch_2.png in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DC7C147F1E1B00F5AC1A /* enemy_0_1_catch_2.png */; };
 		03F7DFD2147F1E1C00F5AC1A /* enemy_0_1_catch_3.png in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DC7D147F1E1B00F5AC1A /* enemy_0_1_catch_3.png */; };
 		03F7DFD3147F1E1C00F5AC1A /* enemy_0_1_fall.plist in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DC7F147F1E1B00F5AC1A /* enemy_0_1_fall.plist */; };
 		03F7DFD4147F1E1C00F5AC1A /* enemy_0_1_fall.png in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DC80147F1E1B00F5AC1A /* enemy_0_1_fall.png */; };
-		03F7DFD5147F1E1C00F5AC1A /* enemy_0_1_fall.zwd in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DC81147F1E1B00F5AC1A /* enemy_0_1_fall.zwd */; };
 		03F7DFD6147F1E1C00F5AC1A /* enemy_0_1_fall_0.png in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DC82147F1E1B00F5AC1A /* enemy_0_1_fall_0.png */; };
 		03F7DFD7147F1E1C00F5AC1A /* enemy_0_1_fall_1.png in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DC83147F1E1B00F5AC1A /* enemy_0_1_fall_1.png */; };
 		03F7DFD8147F1E1C00F5AC1A /* enemy_0_1_fall_2.png in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DC84147F1E1B00F5AC1A /* enemy_0_1_fall_2.png */; };
 		03F7DFD9147F1E1C00F5AC1A /* enemy_0_1_hit.plist in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DC86147F1E1B00F5AC1A /* enemy_0_1_hit.plist */; };
 		03F7DFDA147F1E1C00F5AC1A /* enemy_0_1_hit.png in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DC87147F1E1B00F5AC1A /* enemy_0_1_hit.png */; };
-		03F7DFDB147F1E1C00F5AC1A /* enemy_0_1_hit.zwd in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DC88147F1E1B00F5AC1A /* enemy_0_1_hit.zwd */; };
 		03F7DFDC147F1E1C00F5AC1A /* enemy_0_1_hit_0.png in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DC89147F1E1B00F5AC1A /* enemy_0_1_hit_0.png */; };
 		03F7DFDD147F1E1C00F5AC1A /* enemy_0_1_hit_1.png in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DC8A147F1E1B00F5AC1A /* enemy_0_1_hit_1.png */; };
 		03F7DFDE147F1E1C00F5AC1A /* enemy_0_1_hit_2.png in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DC8B147F1E1C00F5AC1A /* enemy_0_1_hit_2.png */; };
@@ -235,11 +224,9 @@
 		03F7DFE1147F1E1C00F5AC1A /* enemy_0_1_hit_5.png in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DC8E147F1E1C00F5AC1A /* enemy_0_1_hit_5.png */; };
 		03F7DFE2147F1E1C00F5AC1A /* enemy_0_1_idle.plist in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DC90147F1E1C00F5AC1A /* enemy_0_1_idle.plist */; };
 		03F7DFE3147F1E1C00F5AC1A /* enemy_0_1_idle.png in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DC91147F1E1C00F5AC1A /* enemy_0_1_idle.png */; };
-		03F7DFE4147F1E1C00F5AC1A /* enemy_0_1_idle.zwd in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DC92147F1E1C00F5AC1A /* enemy_0_1_idle.zwd */; };
 		03F7DFE5147F1E1C00F5AC1A /* enemy_0_1_idle_0.png in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DC93147F1E1C00F5AC1A /* enemy_0_1_idle_0.png */; };
 		03F7DFE6147F1E1C00F5AC1A /* enemy_0_1_swim.plist in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DC95147F1E1C00F5AC1A /* enemy_0_1_swim.plist */; };
 		03F7DFE7147F1E1C00F5AC1A /* enemy_0_1_swim.png in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DC96147F1E1C00F5AC1A /* enemy_0_1_swim.png */; };
-		03F7DFE8147F1E1C00F5AC1A /* enemy_0_1_swim.zwd in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DC97147F1E1C00F5AC1A /* enemy_0_1_swim.zwd */; };
 		03F7DFE9147F1E1C00F5AC1A /* enemy_0_1_swim_0.png in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DC98147F1E1C00F5AC1A /* enemy_0_1_swim_0.png */; };
 		03F7DFEA147F1E1C00F5AC1A /* enemy_0_1_swim_1.png in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DC99147F1E1C00F5AC1A /* enemy_0_1_swim_1.png */; };
 		03F7DFEB147F1E1C00F5AC1A /* enemy_0_1_swim_2.png in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DC9A147F1E1C00F5AC1A /* enemy_0_1_swim_2.png */; };
@@ -248,7 +235,6 @@
 		03F7DFEE147F1E1C00F5AC1A /* enemy_0_1_swim_5.png in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DC9D147F1E1C00F5AC1A /* enemy_0_1_swim_5.png */; };
 		03F7DFEF147F1E1C00F5AC1A /* enemy_0_1_swim_6.png in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DC9E147F1E1C00F5AC1A /* enemy_0_1_swim_6.png */; };
 		03F7DFF0147F1E1C00F5AC1A /* enemy_0_1_swim_7.png in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DC9F147F1E1C00F5AC1A /* enemy_0_1_swim_7.png */; };
-		03F7DFF1147F1E1C00F5AC1A /* enemy_0_1_walk.zwd in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DCA1147F1E1C00F5AC1A /* enemy_0_1_walk.zwd */; };
 		03F7DFF2147F1E1C00F5AC1A /* enemy_0_1_walk_0.png in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DCA2147F1E1C00F5AC1A /* enemy_0_1_walk_0.png */; };
 		03F7DFF3147F1E1C00F5AC1A /* enemy_0_1_walk_1.png in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DCA3147F1E1C00F5AC1A /* enemy_0_1_walk_1.png */; };
 		03F7DFF4147F1E1C00F5AC1A /* enemy_0_1_walk_2.png in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DCA4147F1E1C00F5AC1A /* enemy_0_1_walk_2.png */; };
@@ -261,27 +247,23 @@
 		03F7DFFB147F1E1C00F5AC1A /* enemy_0_1_walk_default.png in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DCAB147F1E1C00F5AC1A /* enemy_0_1_walk_default.png */; };
 		03F7DFFC147F1E1C00F5AC1A /* enemy_0_2_attack.plist in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DCAE147F1E1C00F5AC1A /* enemy_0_2_attack.plist */; };
 		03F7DFFD147F1E1C00F5AC1A /* enemy_0_2_attack.png in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DCAF147F1E1C00F5AC1A /* enemy_0_2_attack.png */; };
-		03F7DFFE147F1E1C00F5AC1A /* enemy_0_2_attack.zwd in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DCB0147F1E1C00F5AC1A /* enemy_0_2_attack.zwd */; };
 		03F7DFFF147F1E1C00F5AC1A /* enemy_0_2_attack_0.png in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DCB1147F1E1C00F5AC1A /* enemy_0_2_attack_0.png */; };
 		03F7E000147F1E1C00F5AC1A /* enemy_0_2_attack_1.png in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DCB2147F1E1C00F5AC1A /* enemy_0_2_attack_1.png */; };
 		03F7E001147F1E1C00F5AC1A /* enemy_0_2_attack_2.png in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DCB3147F1E1C00F5AC1A /* enemy_0_2_attack_2.png */; };
 		03F7E002147F1E1C00F5AC1A /* enemy_0_2_attack_3.png in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DCB4147F1E1C00F5AC1A /* enemy_0_2_attack_3.png */; };
 		03F7E003147F1E1C00F5AC1A /* enemy_0_2_catch.plist in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DCB6147F1E1C00F5AC1A /* enemy_0_2_catch.plist */; };
 		03F7E004147F1E1C00F5AC1A /* enemy_0_2_catch.png in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DCB7147F1E1C00F5AC1A /* enemy_0_2_catch.png */; };
-		03F7E005147F1E1C00F5AC1A /* enemy_0_2_catch.zwd in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DCB8147F1E1C00F5AC1A /* enemy_0_2_catch.zwd */; };
 		03F7E006147F1E1C00F5AC1A /* enemy_0_2_catch_0.png in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DCB9147F1E1C00F5AC1A /* enemy_0_2_catch_0.png */; };
 		03F7E007147F1E1C00F5AC1A /* enemy_0_2_catch_1.png in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DCBA147F1E1C00F5AC1A /* enemy_0_2_catch_1.png */; };
 		03F7E008147F1E1C00F5AC1A /* enemy_0_2_catch_2.png in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DCBB147F1E1C00F5AC1A /* enemy_0_2_catch_2.png */; };
 		03F7E009147F1E1C00F5AC1A /* enemy_0_2_catch_3.png in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DCBC147F1E1C00F5AC1A /* enemy_0_2_catch_3.png */; };
 		03F7E00A147F1E1C00F5AC1A /* enemy_0_2_fall.plist in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DCBE147F1E1C00F5AC1A /* enemy_0_2_fall.plist */; };
 		03F7E00B147F1E1C00F5AC1A /* enemy_0_2_fall.png in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DCBF147F1E1C00F5AC1A /* enemy_0_2_fall.png */; };
-		03F7E00C147F1E1C00F5AC1A /* enemy_0_2_fall.zwd in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DCC0147F1E1C00F5AC1A /* enemy_0_2_fall.zwd */; };
 		03F7E00D147F1E1C00F5AC1A /* enemy_0_2_fall_0.png in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DCC1147F1E1C00F5AC1A /* enemy_0_2_fall_0.png */; };
 		03F7E00E147F1E1C00F5AC1A /* enemy_0_2_fall_1.png in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DCC2147F1E1C00F5AC1A /* enemy_0_2_fall_1.png */; };
 		03F7E00F147F1E1C00F5AC1A /* enemy_0_2_fall_2.png in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DCC3147F1E1C00F5AC1A /* enemy_0_2_fall_2.png */; };
 		03F7E010147F1E1C00F5AC1A /* enemy_0_2_hit.plist in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DCC5147F1E1C00F5AC1A /* enemy_0_2_hit.plist */; };
 		03F7E011147F1E1C00F5AC1A /* enemy_0_2_hit.png in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DCC6147F1E1C00F5AC1A /* enemy_0_2_hit.png */; };
-		03F7E012147F1E1C00F5AC1A /* enemy_0_2_hit.zwd in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DCC7147F1E1C00F5AC1A /* enemy_0_2_hit.zwd */; };
 		03F7E013147F1E1C00F5AC1A /* enemy_0_2_hit_0.png in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DCC8147F1E1C00F5AC1A /* enemy_0_2_hit_0.png */; };
 		03F7E014147F1E1C00F5AC1A /* enemy_0_2_hit_1.png in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DCC9147F1E1C00F5AC1A /* enemy_0_2_hit_1.png */; };
 		03F7E015147F1E1C00F5AC1A /* enemy_0_2_hit_2.png in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DCCA147F1E1C00F5AC1A /* enemy_0_2_hit_2.png */; };
@@ -290,11 +272,9 @@
 		03F7E018147F1E1C00F5AC1A /* enemy_0_2_hit_5.png in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DCCD147F1E1C00F5AC1A /* enemy_0_2_hit_5.png */; };
 		03F7E019147F1E1C00F5AC1A /* enemy_0_2_idle.plist in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DCCF147F1E1C00F5AC1A /* enemy_0_2_idle.plist */; };
 		03F7E01A147F1E1C00F5AC1A /* enemy_0_2_idle.png in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DCD0147F1E1C00F5AC1A /* enemy_0_2_idle.png */; };
-		03F7E01B147F1E1C00F5AC1A /* enemy_0_2_idle.zwd in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DCD1147F1E1C00F5AC1A /* enemy_0_2_idle.zwd */; };
 		03F7E01C147F1E1C00F5AC1A /* enemy_0_2_idle_0.png in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DCD2147F1E1C00F5AC1A /* enemy_0_2_idle_0.png */; };
 		03F7E01D147F1E1C00F5AC1A /* enemy_0_2_swim.plist in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DCD4147F1E1C00F5AC1A /* enemy_0_2_swim.plist */; };
 		03F7E01E147F1E1C00F5AC1A /* enemy_0_2_swim.png in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DCD5147F1E1C00F5AC1A /* enemy_0_2_swim.png */; };
-		03F7E01F147F1E1C00F5AC1A /* enemy_0_2_swim.zwd in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DCD6147F1E1C00F5AC1A /* enemy_0_2_swim.zwd */; };
 		03F7E020147F1E1C00F5AC1A /* enemy_0_2_swim_0.png in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DCD7147F1E1C00F5AC1A /* enemy_0_2_swim_0.png */; };
 		03F7E021147F1E1C00F5AC1A /* enemy_0_2_swim_1.png in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DCD8147F1E1C00F5AC1A /* enemy_0_2_swim_1.png */; };
 		03F7E022147F1E1C00F5AC1A /* enemy_0_2_swim_2.png in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DCD9147F1E1C00F5AC1A /* enemy_0_2_swim_2.png */; };
@@ -305,7 +285,6 @@
 		03F7E027147F1E1C00F5AC1A /* enemy_0_2_swim_7.png in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DCDE147F1E1C00F5AC1A /* enemy_0_2_swim_7.png */; };
 		03F7E028147F1E1C00F5AC1A /* enemy_0_2_walk.plist in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DCE0147F1E1C00F5AC1A /* enemy_0_2_walk.plist */; };
 		03F7E029147F1E1C00F5AC1A /* enemy_0_2_walk.png in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DCE1147F1E1C00F5AC1A /* enemy_0_2_walk.png */; };
-		03F7E02A147F1E1C00F5AC1A /* enemy_0_2_walk.zwd in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DCE2147F1E1C00F5AC1A /* enemy_0_2_walk.zwd */; };
 		03F7E02B147F1E1C00F5AC1A /* enemy_0_2_walk_0.png in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DCE3147F1E1C00F5AC1A /* enemy_0_2_walk_0.png */; };
 		03F7E02C147F1E1C00F5AC1A /* enemy_0_2_walk_1.png in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DCE4147F1E1C00F5AC1A /* enemy_0_2_walk_1.png */; };
 		03F7E02D147F1E1C00F5AC1A /* enemy_0_2_walk_2.png in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DCE5147F1E1C00F5AC1A /* enemy_0_2_walk_2.png */; };
@@ -316,27 +295,23 @@
 		03F7E032147F1E1C00F5AC1A /* enemy_0_2_walk_7.png in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DCEA147F1E1C00F5AC1A /* enemy_0_2_walk_7.png */; };
 		03F7E033147F1E1C00F5AC1A /* enemy_1_0_attack.plist in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DCED147F1E1C00F5AC1A /* enemy_1_0_attack.plist */; };
 		03F7E034147F1E1C00F5AC1A /* enemy_1_0_attack.png in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DCEE147F1E1C00F5AC1A /* enemy_1_0_attack.png */; };
-		03F7E035147F1E1C00F5AC1A /* enemy_1_0_attack.zwd in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DCEF147F1E1C00F5AC1A /* enemy_1_0_attack.zwd */; };
 		03F7E036147F1E1C00F5AC1A /* enemy_1_0_attack_0.png in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DCF0147F1E1C00F5AC1A /* enemy_1_0_attack_0.png */; };
 		03F7E037147F1E1C00F5AC1A /* enemy_1_0_attack_1.png in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DCF1147F1E1C00F5AC1A /* enemy_1_0_attack_1.png */; };
 		03F7E038147F1E1C00F5AC1A /* enemy_1_0_attack_2.png in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DCF2147F1E1C00F5AC1A /* enemy_1_0_attack_2.png */; };
 		03F7E039147F1E1C00F5AC1A /* enemy_1_0_attack_3.png in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DCF3147F1E1C00F5AC1A /* enemy_1_0_attack_3.png */; };
 		03F7E03A147F1E1C00F5AC1A /* enemy_1_0_catch.plist in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DCF5147F1E1C00F5AC1A /* enemy_1_0_catch.plist */; };
 		03F7E03B147F1E1C00F5AC1A /* enemy_1_0_catch.png in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DCF6147F1E1C00F5AC1A /* enemy_1_0_catch.png */; };
-		03F7E03C147F1E1C00F5AC1A /* enemy_1_0_catch.zwd in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DCF7147F1E1C00F5AC1A /* enemy_1_0_catch.zwd */; };
 		03F7E03D147F1E1C00F5AC1A /* enemy_1_0_catch_0.png in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DCF8147F1E1C00F5AC1A /* enemy_1_0_catch_0.png */; };
 		03F7E03E147F1E1C00F5AC1A /* enemy_1_0_catch_1.png in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DCF9147F1E1C00F5AC1A /* enemy_1_0_catch_1.png */; };
 		03F7E03F147F1E1C00F5AC1A /* enemy_1_0_catch_2.png in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DCFA147F1E1C00F5AC1A /* enemy_1_0_catch_2.png */; };
 		03F7E040147F1E1C00F5AC1A /* enemy_1_0_catch_3.png in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DCFB147F1E1C00F5AC1A /* enemy_1_0_catch_3.png */; };
 		03F7E041147F1E1C00F5AC1A /* enemy_1_0_fall.plist in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DCFD147F1E1C00F5AC1A /* enemy_1_0_fall.plist */; };
 		03F7E042147F1E1C00F5AC1A /* enemy_1_0_fall.png in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DCFE147F1E1C00F5AC1A /* enemy_1_0_fall.png */; };
-		03F7E043147F1E1C00F5AC1A /* enemy_1_0_fall.zwd in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DCFF147F1E1C00F5AC1A /* enemy_1_0_fall.zwd */; };
 		03F7E044147F1E1C00F5AC1A /* enemy_1_0_fall_0.png in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DD00147F1E1C00F5AC1A /* enemy_1_0_fall_0.png */; };
 		03F7E045147F1E1C00F5AC1A /* enemy_1_0_fall_1.png in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DD01147F1E1C00F5AC1A /* enemy_1_0_fall_1.png */; };
 		03F7E046147F1E1C00F5AC1A /* enemy_1_0_fall_2.png in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DD02147F1E1C00F5AC1A /* enemy_1_0_fall_2.png */; };
 		03F7E047147F1E1C00F5AC1A /* enemy_1_0_hit.plist in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DD04147F1E1C00F5AC1A /* enemy_1_0_hit.plist */; };
 		03F7E048147F1E1C00F5AC1A /* enemy_1_0_hit.png in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DD05147F1E1C00F5AC1A /* enemy_1_0_hit.png */; };
-		03F7E049147F1E1C00F5AC1A /* enemy_1_0_hit.zwd in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DD06147F1E1C00F5AC1A /* enemy_1_0_hit.zwd */; };
 		03F7E04A147F1E1C00F5AC1A /* enemy_1_0_hit_0.png in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DD07147F1E1C00F5AC1A /* enemy_1_0_hit_0.png */; };
 		03F7E04B147F1E1C00F5AC1A /* enemy_1_0_hit_1.png in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DD08147F1E1C00F5AC1A /* enemy_1_0_hit_1.png */; };
 		03F7E04C147F1E1C00F5AC1A /* enemy_1_0_hit_2.png in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DD09147F1E1C00F5AC1A /* enemy_1_0_hit_2.png */; };
@@ -345,11 +320,9 @@
 		03F7E04F147F1E1C00F5AC1A /* enemy_1_0_hit_5.png in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DD0C147F1E1C00F5AC1A /* enemy_1_0_hit_5.png */; };
 		03F7E050147F1E1C00F5AC1A /* enemy_1_0_idle.plist in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DD0E147F1E1C00F5AC1A /* enemy_1_0_idle.plist */; };
 		03F7E051147F1E1C00F5AC1A /* enemy_1_0_idle.png in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DD0F147F1E1C00F5AC1A /* enemy_1_0_idle.png */; };
-		03F7E052147F1E1C00F5AC1A /* enemy_1_0_idle.zwd in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DD10147F1E1C00F5AC1A /* enemy_1_0_idle.zwd */; };
 		03F7E053147F1E1C00F5AC1A /* enemy_1_0_idle_0.png in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DD11147F1E1C00F5AC1A /* enemy_1_0_idle_0.png */; };
 		03F7E054147F1E1C00F5AC1A /* enemy_1_0_swim.plist in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DD13147F1E1C00F5AC1A /* enemy_1_0_swim.plist */; };
 		03F7E055147F1E1C00F5AC1A /* enemy_1_0_swim.png in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DD14147F1E1C00F5AC1A /* enemy_1_0_swim.png */; };
-		03F7E056147F1E1C00F5AC1A /* enemy_1_0_swim.zwd in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DD15147F1E1C00F5AC1A /* enemy_1_0_swim.zwd */; };
 		03F7E057147F1E1C00F5AC1A /* enemy_1_0_swim_0.png in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DD16147F1E1C00F5AC1A /* enemy_1_0_swim_0.png */; };
 		03F7E058147F1E1C00F5AC1A /* enemy_1_0_swim_1.png in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DD17147F1E1C00F5AC1A /* enemy_1_0_swim_1.png */; };
 		03F7E059147F1E1C00F5AC1A /* enemy_1_0_swim_2.png in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DD18147F1E1C00F5AC1A /* enemy_1_0_swim_2.png */; };
@@ -360,7 +333,6 @@
 		03F7E05E147F1E1C00F5AC1A /* enemy_1_0_swim_7.png in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DD1D147F1E1C00F5AC1A /* enemy_1_0_swim_7.png */; };
 		03F7E05F147F1E1C00F5AC1A /* enemy_1_0_walk.plist in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DD1F147F1E1C00F5AC1A /* enemy_1_0_walk.plist */; };
 		03F7E060147F1E1C00F5AC1A /* enemy_1_0_walk.png in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DD20147F1E1C00F5AC1A /* enemy_1_0_walk.png */; };
-		03F7E061147F1E1C00F5AC1A /* enemy_1_0_walk.zwd in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DD21147F1E1C00F5AC1A /* enemy_1_0_walk.zwd */; };
 		03F7E062147F1E1C00F5AC1A /* enemy_1_0_walk_0.png in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DD22147F1E1C00F5AC1A /* enemy_1_0_walk_0.png */; };
 		03F7E063147F1E1C00F5AC1A /* enemy_1_0_walk_1.png in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DD23147F1E1C00F5AC1A /* enemy_1_0_walk_1.png */; };
 		03F7E064147F1E1C00F5AC1A /* enemy_1_0_walk_2.png in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DD24147F1E1C00F5AC1A /* enemy_1_0_walk_2.png */; };
@@ -371,27 +343,23 @@
 		03F7E069147F1E1C00F5AC1A /* enemy_1_0_walk_7.png in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DD29147F1E1C00F5AC1A /* enemy_1_0_walk_7.png */; };
 		03F7E06A147F1E1C00F5AC1A /* enemy_1_1_attack.plist in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DD2C147F1E1C00F5AC1A /* enemy_1_1_attack.plist */; };
 		03F7E06B147F1E1C00F5AC1A /* enemy_1_1_attack.png in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DD2D147F1E1C00F5AC1A /* enemy_1_1_attack.png */; };
-		03F7E06C147F1E1C00F5AC1A /* enemy_1_1_attack.zwd in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DD2E147F1E1C00F5AC1A /* enemy_1_1_attack.zwd */; };
 		03F7E06D147F1E1C00F5AC1A /* enemy_1_1_attack_0.png in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DD2F147F1E1C00F5AC1A /* enemy_1_1_attack_0.png */; };
 		03F7E06E147F1E1C00F5AC1A /* enemy_1_1_attack_1.png in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DD30147F1E1C00F5AC1A /* enemy_1_1_attack_1.png */; };
 		03F7E06F147F1E1C00F5AC1A /* enemy_1_1_attack_2.png in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DD31147F1E1C00F5AC1A /* enemy_1_1_attack_2.png */; };
 		03F7E070147F1E1C00F5AC1A /* enemy_1_1_attack_3.png in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DD32147F1E1C00F5AC1A /* enemy_1_1_attack_3.png */; };
 		03F7E071147F1E1C00F5AC1A /* enemy_1_1_catch.plist in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DD34147F1E1C00F5AC1A /* enemy_1_1_catch.plist */; };
 		03F7E072147F1E1C00F5AC1A /* enemy_1_1_catch.png in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DD35147F1E1C00F5AC1A /* enemy_1_1_catch.png */; };
-		03F7E073147F1E1C00F5AC1A /* enemy_1_1_catch.zwd in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DD36147F1E1C00F5AC1A /* enemy_1_1_catch.zwd */; };
 		03F7E074147F1E1C00F5AC1A /* enemy_1_1_catch_0.png in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DD37147F1E1C00F5AC1A /* enemy_1_1_catch_0.png */; };
 		03F7E075147F1E1C00F5AC1A /* enemy_1_1_catch_1.png in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DD38147F1E1C00F5AC1A /* enemy_1_1_catch_1.png */; };
 		03F7E076147F1E1C00F5AC1A /* enemy_1_1_catch_2.png in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DD39147F1E1C00F5AC1A /* enemy_1_1_catch_2.png */; };
 		03F7E077147F1E1C00F5AC1A /* enemy_1_1_catch_3.png in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DD3A147F1E1C00F5AC1A /* enemy_1_1_catch_3.png */; };
 		03F7E078147F1E1C00F5AC1A /* enemy_1_1_fall.plist in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DD3C147F1E1C00F5AC1A /* enemy_1_1_fall.plist */; };
 		03F7E079147F1E1C00F5AC1A /* enemy_1_1_fall.png in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DD3D147F1E1C00F5AC1A /* enemy_1_1_fall.png */; };
-		03F7E07A147F1E1C00F5AC1A /* enemy_1_1_fall.zwd in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DD3E147F1E1C00F5AC1A /* enemy_1_1_fall.zwd */; };
 		03F7E07B147F1E1C00F5AC1A /* enemy_1_1_fall_0.png in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DD3F147F1E1C00F5AC1A /* enemy_1_1_fall_0.png */; };
 		03F7E07C147F1E1C00F5AC1A /* enemy_1_1_fall_1.png in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DD40147F1E1C00F5AC1A /* enemy_1_1_fall_1.png */; };
 		03F7E07D147F1E1C00F5AC1A /* enemy_1_1_fall_2.png in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DD41147F1E1C00F5AC1A /* enemy_1_1_fall_2.png */; };
 		03F7E07E147F1E1C00F5AC1A /* enemy_1_1_hit.plist in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DD43147F1E1C00F5AC1A /* enemy_1_1_hit.plist */; };
 		03F7E07F147F1E1C00F5AC1A /* enemy_1_1_hit.png in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DD44147F1E1C00F5AC1A /* enemy_1_1_hit.png */; };
-		03F7E080147F1E1C00F5AC1A /* enemy_1_1_hit.zwd in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DD45147F1E1C00F5AC1A /* enemy_1_1_hit.zwd */; };
 		03F7E081147F1E1C00F5AC1A /* enemy_1_1_hit_0.png in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DD46147F1E1C00F5AC1A /* enemy_1_1_hit_0.png */; };
 		03F7E082147F1E1C00F5AC1A /* enemy_1_1_hit_1.png in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DD47147F1E1C00F5AC1A /* enemy_1_1_hit_1.png */; };
 		03F7E083147F1E1C00F5AC1A /* enemy_1_1_hit_2.png in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DD48147F1E1C00F5AC1A /* enemy_1_1_hit_2.png */; };
@@ -400,11 +368,9 @@
 		03F7E086147F1E1C00F5AC1A /* enemy_1_1_hit_5.png in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DD4B147F1E1C00F5AC1A /* enemy_1_1_hit_5.png */; };
 		03F7E087147F1E1C00F5AC1A /* enemy_1_1_idle.plist in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DD4D147F1E1C00F5AC1A /* enemy_1_1_idle.plist */; };
 		03F7E088147F1E1C00F5AC1A /* enemy_1_1_idle.png in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DD4E147F1E1C00F5AC1A /* enemy_1_1_idle.png */; };
-		03F7E089147F1E1C00F5AC1A /* enemy_1_1_idle.zwd in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DD4F147F1E1C00F5AC1A /* enemy_1_1_idle.zwd */; };
 		03F7E08A147F1E1C00F5AC1A /* enemy_1_1_idle_0.png in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DD50147F1E1C00F5AC1A /* enemy_1_1_idle_0.png */; };
 		03F7E08B147F1E1C00F5AC1A /* enemy_1_1_swim.plist in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DD52147F1E1C00F5AC1A /* enemy_1_1_swim.plist */; };
 		03F7E08C147F1E1C00F5AC1A /* enemy_1_1_swim.png in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DD53147F1E1C00F5AC1A /* enemy_1_1_swim.png */; };
-		03F7E08D147F1E1C00F5AC1A /* enemy_1_1_swim.zwd in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DD54147F1E1C00F5AC1A /* enemy_1_1_swim.zwd */; };
 		03F7E08E147F1E1C00F5AC1A /* enemy_1_1_swim_0.png in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DD55147F1E1C00F5AC1A /* enemy_1_1_swim_0.png */; };
 		03F7E08F147F1E1C00F5AC1A /* enemy_1_1_swim_1.png in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DD56147F1E1C00F5AC1A /* enemy_1_1_swim_1.png */; };
 		03F7E090147F1E1C00F5AC1A /* enemy_1_1_swim_2.png in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DD57147F1E1C00F5AC1A /* enemy_1_1_swim_2.png */; };
@@ -415,7 +381,6 @@
 		03F7E095147F1E1C00F5AC1A /* enemy_1_1_swim_7.png in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DD5C147F1E1C00F5AC1A /* enemy_1_1_swim_7.png */; };
 		03F7E096147F1E1C00F5AC1A /* enemy_1_1_walk.plist in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DD5E147F1E1C00F5AC1A /* enemy_1_1_walk.plist */; };
 		03F7E097147F1E1C00F5AC1A /* enemy_1_1_walk.png in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DD5F147F1E1C00F5AC1A /* enemy_1_1_walk.png */; };
-		03F7E098147F1E1C00F5AC1A /* enemy_1_1_walk.zwd in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DD60147F1E1C00F5AC1A /* enemy_1_1_walk.zwd */; };
 		03F7E099147F1E1C00F5AC1A /* enemy_1_1_walk_0.png in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DD61147F1E1C00F5AC1A /* enemy_1_1_walk_0.png */; };
 		03F7E09A147F1E1C00F5AC1A /* enemy_1_1_walk_1.png in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DD62147F1E1C00F5AC1A /* enemy_1_1_walk_1.png */; };
 		03F7E09B147F1E1C00F5AC1A /* enemy_1_1_walk_2.png in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DD63147F1E1C00F5AC1A /* enemy_1_1_walk_2.png */; };
@@ -426,27 +391,23 @@
 		03F7E0A0147F1E1C00F5AC1A /* enemy_1_1_walk_7.png in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DD68147F1E1C00F5AC1A /* enemy_1_1_walk_7.png */; };
 		03F7E0A1147F1E1C00F5AC1A /* enemy_1_2_attack.plist in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DD6B147F1E1C00F5AC1A /* enemy_1_2_attack.plist */; };
 		03F7E0A2147F1E1C00F5AC1A /* enemy_1_2_attack.png in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DD6C147F1E1C00F5AC1A /* enemy_1_2_attack.png */; };
-		03F7E0A3147F1E1C00F5AC1A /* enemy_1_2_attack.zwd in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DD6D147F1E1C00F5AC1A /* enemy_1_2_attack.zwd */; };
 		03F7E0A4147F1E1C00F5AC1A /* enemy_1_2_attack_0.png in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DD6E147F1E1C00F5AC1A /* enemy_1_2_attack_0.png */; };
 		03F7E0A5147F1E1C00F5AC1A /* enemy_1_2_attack_1.png in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DD6F147F1E1C00F5AC1A /* enemy_1_2_attack_1.png */; };
 		03F7E0A6147F1E1C00F5AC1A /* enemy_1_2_attack_2.png in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DD70147F1E1C00F5AC1A /* enemy_1_2_attack_2.png */; };
 		03F7E0A7147F1E1C00F5AC1A /* enemy_1_2_attack_3.png in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DD71147F1E1C00F5AC1A /* enemy_1_2_attack_3.png */; };
 		03F7E0A8147F1E1C00F5AC1A /* enemy_1_2_catch.plist in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DD73147F1E1C00F5AC1A /* enemy_1_2_catch.plist */; };
 		03F7E0A9147F1E1C00F5AC1A /* enemy_1_2_catch.png in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DD74147F1E1C00F5AC1A /* enemy_1_2_catch.png */; };
-		03F7E0AA147F1E1C00F5AC1A /* enemy_1_2_catch.zwd in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DD75147F1E1C00F5AC1A /* enemy_1_2_catch.zwd */; };
 		03F7E0AB147F1E1C00F5AC1A /* enemy_1_2_catch_0.png in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DD76147F1E1C00F5AC1A /* enemy_1_2_catch_0.png */; };
 		03F7E0AC147F1E1C00F5AC1A /* enemy_1_2_catch_1.png in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DD77147F1E1C00F5AC1A /* enemy_1_2_catch_1.png */; };
 		03F7E0AD147F1E1C00F5AC1A /* enemy_1_2_catch_2.png in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DD78147F1E1C00F5AC1A /* enemy_1_2_catch_2.png */; };
 		03F7E0AE147F1E1C00F5AC1A /* enemy_1_2_catch_3.png in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DD79147F1E1C00F5AC1A /* enemy_1_2_catch_3.png */; };
 		03F7E0AF147F1E1C00F5AC1A /* enemy_1_2_fall.plist in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DD7B147F1E1C00F5AC1A /* enemy_1_2_fall.plist */; };
 		03F7E0B0147F1E1C00F5AC1A /* enemy_1_2_fall.png in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DD7C147F1E1C00F5AC1A /* enemy_1_2_fall.png */; };
-		03F7E0B1147F1E1C00F5AC1A /* enemy_1_2_fall.zwd in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DD7D147F1E1C00F5AC1A /* enemy_1_2_fall.zwd */; };
 		03F7E0B2147F1E1C00F5AC1A /* enemy_1_2_fall_0.png in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DD7E147F1E1C00F5AC1A /* enemy_1_2_fall_0.png */; };
 		03F7E0B3147F1E1C00F5AC1A /* enemy_1_2_fall_1.png in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DD7F147F1E1C00F5AC1A /* enemy_1_2_fall_1.png */; };
 		03F7E0B4147F1E1C00F5AC1A /* enemy_1_2_fall_2.png in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DD80147F1E1C00F5AC1A /* enemy_1_2_fall_2.png */; };
 		03F7E0B5147F1E1C00F5AC1A /* enemy_1_2_hit.plist in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DD82147F1E1C00F5AC1A /* enemy_1_2_hit.plist */; };
 		03F7E0B6147F1E1C00F5AC1A /* enemy_1_2_hit.png in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DD83147F1E1C00F5AC1A /* enemy_1_2_hit.png */; };
-		03F7E0B7147F1E1C00F5AC1A /* enemy_1_2_hit.zwd in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DD84147F1E1C00F5AC1A /* enemy_1_2_hit.zwd */; };
 		03F7E0B8147F1E1C00F5AC1A /* enemy_1_2_hit_0.png in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DD85147F1E1C00F5AC1A /* enemy_1_2_hit_0.png */; };
 		03F7E0B9147F1E1C00F5AC1A /* enemy_1_2_hit_1.png in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DD86147F1E1C00F5AC1A /* enemy_1_2_hit_1.png */; };
 		03F7E0BA147F1E1C00F5AC1A /* enemy_1_2_hit_2.png in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DD87147F1E1C00F5AC1A /* enemy_1_2_hit_2.png */; };
@@ -455,11 +416,9 @@
 		03F7E0BD147F1E1C00F5AC1A /* enemy_1_2_hit_5.png in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DD8A147F1E1C00F5AC1A /* enemy_1_2_hit_5.png */; };
 		03F7E0BE147F1E1C00F5AC1A /* enemy_1_2_idle.plist in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DD8C147F1E1C00F5AC1A /* enemy_1_2_idle.plist */; };
 		03F7E0BF147F1E1C00F5AC1A /* enemy_1_2_idle.png in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DD8D147F1E1C00F5AC1A /* enemy_1_2_idle.png */; };
-		03F7E0C0147F1E1C00F5AC1A /* enemy_1_2_idle.zwd in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DD8E147F1E1C00F5AC1A /* enemy_1_2_idle.zwd */; };
 		03F7E0C1147F1E1C00F5AC1A /* enemy_1_2_idle_0.png in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DD8F147F1E1C00F5AC1A /* enemy_1_2_idle_0.png */; };
 		03F7E0C2147F1E1C00F5AC1A /* enemy_1_2_swim.plist in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DD91147F1E1C00F5AC1A /* enemy_1_2_swim.plist */; };
 		03F7E0C3147F1E1C00F5AC1A /* enemy_1_2_swim.png in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DD92147F1E1C00F5AC1A /* enemy_1_2_swim.png */; };
-		03F7E0C4147F1E1C00F5AC1A /* enemy_1_2_swim.zwd in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DD93147F1E1C00F5AC1A /* enemy_1_2_swim.zwd */; };
 		03F7E0C5147F1E1C00F5AC1A /* enemy_1_2_swim_0.png in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DD94147F1E1C00F5AC1A /* enemy_1_2_swim_0.png */; };
 		03F7E0C6147F1E1C00F5AC1A /* enemy_1_2_swim_1.png in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DD95147F1E1C00F5AC1A /* enemy_1_2_swim_1.png */; };
 		03F7E0C7147F1E1C00F5AC1A /* enemy_1_2_swim_2.png in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DD96147F1E1C00F5AC1A /* enemy_1_2_swim_2.png */; };
@@ -470,7 +429,6 @@
 		03F7E0CC147F1E1C00F5AC1A /* enemy_1_2_swim_7.png in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DD9B147F1E1C00F5AC1A /* enemy_1_2_swim_7.png */; };
 		03F7E0CD147F1E1C00F5AC1A /* enemy_1_2_walk.plist in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DD9D147F1E1C00F5AC1A /* enemy_1_2_walk.plist */; };
 		03F7E0CE147F1E1C00F5AC1A /* enemy_1_2_walk.png in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DD9E147F1E1C00F5AC1A /* enemy_1_2_walk.png */; };
-		03F7E0CF147F1E1C00F5AC1A /* enemy_1_2_walk.zwd in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DD9F147F1E1C00F5AC1A /* enemy_1_2_walk.zwd */; };
 		03F7E0D0147F1E1C00F5AC1A /* enemy_1_2_walk_0.png in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DDA0147F1E1C00F5AC1A /* enemy_1_2_walk_0.png */; };
 		03F7E0D1147F1E1C00F5AC1A /* enemy_1_2_walk_1.png in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DDA1147F1E1C00F5AC1A /* enemy_1_2_walk_1.png */; };
 		03F7E0D2147F1E1C00F5AC1A /* enemy_1_2_walk_2.png in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DDA2147F1E1C00F5AC1A /* enemy_1_2_walk_2.png */; };
@@ -481,27 +439,23 @@
 		03F7E0D7147F1E1C00F5AC1A /* enemy_1_2_walk_7.png in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DDA7147F1E1C00F5AC1A /* enemy_1_2_walk_7.png */; };
 		03F7E0D8147F1E1C00F5AC1A /* enemy_2_0_attack.plist in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DDAA147F1E1C00F5AC1A /* enemy_2_0_attack.plist */; };
 		03F7E0D9147F1E1C00F5AC1A /* enemy_2_0_attack.png in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DDAB147F1E1C00F5AC1A /* enemy_2_0_attack.png */; };
-		03F7E0DA147F1E1C00F5AC1A /* enemy_2_0_attack.zwd in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DDAC147F1E1C00F5AC1A /* enemy_2_0_attack.zwd */; };
 		03F7E0DB147F1E1C00F5AC1A /* enemy_2_0_attack_0.png in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DDAD147F1E1C00F5AC1A /* enemy_2_0_attack_0.png */; };
 		03F7E0DC147F1E1C00F5AC1A /* enemy_2_0_attack_1.png in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DDAE147F1E1C00F5AC1A /* enemy_2_0_attack_1.png */; };
 		03F7E0DD147F1E1C00F5AC1A /* enemy_2_0_attack_2.png in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DDAF147F1E1C00F5AC1A /* enemy_2_0_attack_2.png */; };
 		03F7E0DE147F1E1C00F5AC1A /* enemy_2_0_attack_3.png in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DDB0147F1E1C00F5AC1A /* enemy_2_0_attack_3.png */; };
 		03F7E0DF147F1E1C00F5AC1A /* enemy_2_0_catch.plist in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DDB2147F1E1C00F5AC1A /* enemy_2_0_catch.plist */; };
 		03F7E0E0147F1E1C00F5AC1A /* enemy_2_0_catch.png in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DDB3147F1E1C00F5AC1A /* enemy_2_0_catch.png */; };
-		03F7E0E1147F1E1C00F5AC1A /* enemy_2_0_catch.zwd in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DDB4147F1E1C00F5AC1A /* enemy_2_0_catch.zwd */; };
 		03F7E0E2147F1E1C00F5AC1A /* enemy_2_0_catch_0.png in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DDB5147F1E1C00F5AC1A /* enemy_2_0_catch_0.png */; };
 		03F7E0E3147F1E1C00F5AC1A /* enemy_2_0_catch_1.png in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DDB6147F1E1C00F5AC1A /* enemy_2_0_catch_1.png */; };
 		03F7E0E4147F1E1C00F5AC1A /* enemy_2_0_catch_2.png in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DDB7147F1E1C00F5AC1A /* enemy_2_0_catch_2.png */; };
 		03F7E0E5147F1E1C00F5AC1A /* enemy_2_0_catch_3.png in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DDB8147F1E1C00F5AC1A /* enemy_2_0_catch_3.png */; };
 		03F7E0E6147F1E1C00F5AC1A /* enemy_2_0_fall.plist in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DDBA147F1E1C00F5AC1A /* enemy_2_0_fall.plist */; };
 		03F7E0E7147F1E1C00F5AC1A /* enemy_2_0_fall.png in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DDBB147F1E1C00F5AC1A /* enemy_2_0_fall.png */; };
-		03F7E0E8147F1E1C00F5AC1A /* enemy_2_0_fall.zwd in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DDBC147F1E1C00F5AC1A /* enemy_2_0_fall.zwd */; };
 		03F7E0E9147F1E1C00F5AC1A /* enemy_2_0_fall_0.png in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DDBD147F1E1C00F5AC1A /* enemy_2_0_fall_0.png */; };
 		03F7E0EA147F1E1C00F5AC1A /* enemy_2_0_fall_1.png in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DDBE147F1E1C00F5AC1A /* enemy_2_0_fall_1.png */; };
 		03F7E0EB147F1E1C00F5AC1A /* enemy_2_0_fall_2.png in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DDBF147F1E1C00F5AC1A /* enemy_2_0_fall_2.png */; };
 		03F7E0EC147F1E1C00F5AC1A /* enemy_2_0_hit.plist in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DDC1147F1E1C00F5AC1A /* enemy_2_0_hit.plist */; };
 		03F7E0ED147F1E1C00F5AC1A /* enemy_2_0_hit.png in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DDC2147F1E1C00F5AC1A /* enemy_2_0_hit.png */; };
-		03F7E0EE147F1E1C00F5AC1A /* enemy_2_0_hit.zwd in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DDC3147F1E1C00F5AC1A /* enemy_2_0_hit.zwd */; };
 		03F7E0EF147F1E1C00F5AC1A /* enemy_2_0_hit_0.png in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DDC4147F1E1C00F5AC1A /* enemy_2_0_hit_0.png */; };
 		03F7E0F0147F1E1C00F5AC1A /* enemy_2_0_hit_1.png in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DDC5147F1E1C00F5AC1A /* enemy_2_0_hit_1.png */; };
 		03F7E0F1147F1E1C00F5AC1A /* enemy_2_0_hit_2.png in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DDC6147F1E1C00F5AC1A /* enemy_2_0_hit_2.png */; };
@@ -510,11 +464,9 @@
 		03F7E0F4147F1E1C00F5AC1A /* enemy_2_0_hit_5.png in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DDC9147F1E1C00F5AC1A /* enemy_2_0_hit_5.png */; };
 		03F7E0F5147F1E1C00F5AC1A /* enemy_2_0_idle.plist in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DDCB147F1E1C00F5AC1A /* enemy_2_0_idle.plist */; };
 		03F7E0F6147F1E1C00F5AC1A /* enemy_2_0_idle.png in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DDCC147F1E1C00F5AC1A /* enemy_2_0_idle.png */; };
-		03F7E0F7147F1E1C00F5AC1A /* enemy_2_0_idle.zwd in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DDCD147F1E1C00F5AC1A /* enemy_2_0_idle.zwd */; };
 		03F7E0F8147F1E1C00F5AC1A /* enemy_2_0_idle_0.png in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DDCE147F1E1C00F5AC1A /* enemy_2_0_idle_0.png */; };
 		03F7E0F9147F1E1C00F5AC1A /* enemy_2_0_swim.plist in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DDD0147F1E1C00F5AC1A /* enemy_2_0_swim.plist */; };
 		03F7E0FA147F1E1C00F5AC1A /* enemy_2_0_swim.png in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DDD1147F1E1C00F5AC1A /* enemy_2_0_swim.png */; };
-		03F7E0FB147F1E1C00F5AC1A /* enemy_2_0_swim.zwd in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DDD2147F1E1C00F5AC1A /* enemy_2_0_swim.zwd */; };
 		03F7E0FC147F1E1C00F5AC1A /* enemy_2_0_swim_0.png in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DDD3147F1E1C00F5AC1A /* enemy_2_0_swim_0.png */; };
 		03F7E0FD147F1E1C00F5AC1A /* enemy_2_0_swim_1.png in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DDD4147F1E1C00F5AC1A /* enemy_2_0_swim_1.png */; };
 		03F7E0FE147F1E1C00F5AC1A /* enemy_2_0_swim_2.png in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DDD5147F1E1C00F5AC1A /* enemy_2_0_swim_2.png */; };
@@ -525,7 +477,6 @@
 		03F7E103147F1E1C00F5AC1A /* enemy_2_0_swim_7.png in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DDDA147F1E1C00F5AC1A /* enemy_2_0_swim_7.png */; };
 		03F7E104147F1E1C00F5AC1A /* enemy_2_0_walk.plist in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DDDC147F1E1C00F5AC1A /* enemy_2_0_walk.plist */; };
 		03F7E105147F1E1C00F5AC1A /* enemy_2_0_walk.png in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DDDD147F1E1C00F5AC1A /* enemy_2_0_walk.png */; };
-		03F7E106147F1E1C00F5AC1A /* enemy_2_0_walk.zwd in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DDDE147F1E1C00F5AC1A /* enemy_2_0_walk.zwd */; };
 		03F7E107147F1E1C00F5AC1A /* enemy_2_0_walk_0.png in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DDDF147F1E1C00F5AC1A /* enemy_2_0_walk_0.png */; };
 		03F7E108147F1E1C00F5AC1A /* enemy_2_0_walk_1.png in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DDE0147F1E1C00F5AC1A /* enemy_2_0_walk_1.png */; };
 		03F7E109147F1E1C00F5AC1A /* enemy_2_0_walk_2.png in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DDE1147F1E1C00F5AC1A /* enemy_2_0_walk_2.png */; };
@@ -536,27 +487,23 @@
 		03F7E10E147F1E1C00F5AC1A /* enemy_2_0_walk_7.png in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DDE6147F1E1C00F5AC1A /* enemy_2_0_walk_7.png */; };
 		03F7E10F147F1E1C00F5AC1A /* enemy_2_1_attack.plist in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DDE9147F1E1C00F5AC1A /* enemy_2_1_attack.plist */; };
 		03F7E110147F1E1C00F5AC1A /* enemy_2_1_attack.png in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DDEA147F1E1C00F5AC1A /* enemy_2_1_attack.png */; };
-		03F7E111147F1E1C00F5AC1A /* enemy_2_1_attack.zwd in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DDEB147F1E1C00F5AC1A /* enemy_2_1_attack.zwd */; };
 		03F7E112147F1E1C00F5AC1A /* enemy_2_1_attack_0.png in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DDEC147F1E1C00F5AC1A /* enemy_2_1_attack_0.png */; };
 		03F7E113147F1E1C00F5AC1A /* enemy_2_1_attack_1.png in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DDED147F1E1C00F5AC1A /* enemy_2_1_attack_1.png */; };
 		03F7E114147F1E1C00F5AC1A /* enemy_2_1_attack_2.png in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DDEE147F1E1C00F5AC1A /* enemy_2_1_attack_2.png */; };
 		03F7E115147F1E1C00F5AC1A /* enemy_2_1_attack_3.png in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DDEF147F1E1C00F5AC1A /* enemy_2_1_attack_3.png */; };
 		03F7E116147F1E1C00F5AC1A /* enemy_2_1_catch.plist in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DDF1147F1E1C00F5AC1A /* enemy_2_1_catch.plist */; };
 		03F7E117147F1E1C00F5AC1A /* enemy_2_1_catch.png in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DDF2147F1E1C00F5AC1A /* enemy_2_1_catch.png */; };
-		03F7E118147F1E1C00F5AC1A /* enemy_2_1_catch.zwd in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DDF3147F1E1C00F5AC1A /* enemy_2_1_catch.zwd */; };
 		03F7E119147F1E1C00F5AC1A /* enemy_2_1_catch_0.png in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DDF4147F1E1C00F5AC1A /* enemy_2_1_catch_0.png */; };
 		03F7E11A147F1E1C00F5AC1A /* enemy_2_1_catch_1.png in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DDF5147F1E1C00F5AC1A /* enemy_2_1_catch_1.png */; };
 		03F7E11B147F1E1C00F5AC1A /* enemy_2_1_catch_2.png in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DDF6147F1E1C00F5AC1A /* enemy_2_1_catch_2.png */; };
 		03F7E11C147F1E1C00F5AC1A /* enemy_2_1_catch_3.png in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DDF7147F1E1C00F5AC1A /* enemy_2_1_catch_3.png */; };
 		03F7E11D147F1E1C00F5AC1A /* enemy_2_1_fall.plist in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DDF9147F1E1C00F5AC1A /* enemy_2_1_fall.plist */; };
 		03F7E11E147F1E1C00F5AC1A /* enemy_2_1_fall.png in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DDFA147F1E1C00F5AC1A /* enemy_2_1_fall.png */; };
-		03F7E11F147F1E1C00F5AC1A /* enemy_2_1_fall.zwd in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DDFB147F1E1C00F5AC1A /* enemy_2_1_fall.zwd */; };
 		03F7E120147F1E1C00F5AC1A /* enemy_2_1_fall_0.png in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DDFC147F1E1C00F5AC1A /* enemy_2_1_fall_0.png */; };
 		03F7E121147F1E1C00F5AC1A /* enemy_2_1_fall_1.png in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DDFD147F1E1C00F5AC1A /* enemy_2_1_fall_1.png */; };
 		03F7E122147F1E1C00F5AC1A /* enemy_2_1_fall_2.png in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DDFE147F1E1C00F5AC1A /* enemy_2_1_fall_2.png */; };
 		03F7E123147F1E1C00F5AC1A /* enemy_2_1_hit.plist in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DE00147F1E1C00F5AC1A /* enemy_2_1_hit.plist */; };
 		03F7E124147F1E1C00F5AC1A /* enemy_2_1_hit.png in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DE01147F1E1C00F5AC1A /* enemy_2_1_hit.png */; };
-		03F7E125147F1E1C00F5AC1A /* enemy_2_1_hit.zwd in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DE02147F1E1C00F5AC1A /* enemy_2_1_hit.zwd */; };
 		03F7E126147F1E1C00F5AC1A /* enemy_2_1_hit_0.png in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DE03147F1E1C00F5AC1A /* enemy_2_1_hit_0.png */; };
 		03F7E127147F1E1C00F5AC1A /* enemy_2_1_hit_1.png in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DE04147F1E1C00F5AC1A /* enemy_2_1_hit_1.png */; };
 		03F7E128147F1E1C00F5AC1A /* enemy_2_1_hit_2.png in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DE05147F1E1C00F5AC1A /* enemy_2_1_hit_2.png */; };
@@ -565,11 +512,9 @@
 		03F7E12B147F1E1C00F5AC1A /* enemy_2_1_hit_5.png in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DE08147F1E1C00F5AC1A /* enemy_2_1_hit_5.png */; };
 		03F7E12C147F1E1C00F5AC1A /* enemy_2_1_idle.plist in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DE0A147F1E1C00F5AC1A /* enemy_2_1_idle.plist */; };
 		03F7E12D147F1E1C00F5AC1A /* enemy_2_1_idle.png in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DE0B147F1E1C00F5AC1A /* enemy_2_1_idle.png */; };
-		03F7E12E147F1E1C00F5AC1A /* enemy_2_1_idle.zwd in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DE0C147F1E1C00F5AC1A /* enemy_2_1_idle.zwd */; };
 		03F7E12F147F1E1C00F5AC1A /* enemy_2_1_idle_0.png in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DE0D147F1E1C00F5AC1A /* enemy_2_1_idle_0.png */; };
 		03F7E130147F1E1C00F5AC1A /* enemy_2_1_swim.plist in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DE0F147F1E1C00F5AC1A /* enemy_2_1_swim.plist */; };
 		03F7E131147F1E1C00F5AC1A /* enemy_2_1_swim.png in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DE10147F1E1C00F5AC1A /* enemy_2_1_swim.png */; };
-		03F7E132147F1E1C00F5AC1A /* enemy_2_1_swim.zwd in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DE11147F1E1C00F5AC1A /* enemy_2_1_swim.zwd */; };
 		03F7E133147F1E1C00F5AC1A /* enemy_2_1_swim_0.png in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DE12147F1E1C00F5AC1A /* enemy_2_1_swim_0.png */; };
 		03F7E134147F1E1C00F5AC1A /* enemy_2_1_swim_1.png in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DE13147F1E1C00F5AC1A /* enemy_2_1_swim_1.png */; };
 		03F7E135147F1E1C00F5AC1A /* enemy_2_1_swim_2.png in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DE14147F1E1C00F5AC1A /* enemy_2_1_swim_2.png */; };
@@ -580,7 +525,6 @@
 		03F7E13A147F1E1C00F5AC1A /* enemy_2_1_swim_7.png in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DE19147F1E1C00F5AC1A /* enemy_2_1_swim_7.png */; };
 		03F7E13B147F1E1C00F5AC1A /* enemy_2_1_walk.plist in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DE1B147F1E1C00F5AC1A /* enemy_2_1_walk.plist */; };
 		03F7E13C147F1E1C00F5AC1A /* enemy_2_1_walk.png in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DE1C147F1E1C00F5AC1A /* enemy_2_1_walk.png */; };
-		03F7E13D147F1E1C00F5AC1A /* enemy_2_1_walk.zwd in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DE1D147F1E1C00F5AC1A /* enemy_2_1_walk.zwd */; };
 		03F7E13E147F1E1C00F5AC1A /* enemy_2_1_walk_0.png in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DE1E147F1E1C00F5AC1A /* enemy_2_1_walk_0.png */; };
 		03F7E13F147F1E1C00F5AC1A /* enemy_2_1_walk_1.png in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DE1F147F1E1C00F5AC1A /* enemy_2_1_walk_1.png */; };
 		03F7E140147F1E1C00F5AC1A /* enemy_2_1_walk_2.png in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DE20147F1E1C00F5AC1A /* enemy_2_1_walk_2.png */; };
@@ -591,27 +535,23 @@
 		03F7E145147F1E1C00F5AC1A /* enemy_2_1_walk_7.png in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DE25147F1E1C00F5AC1A /* enemy_2_1_walk_7.png */; };
 		03F7E146147F1E1C00F5AC1A /* enemy_2_2_attack.plist in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DE28147F1E1C00F5AC1A /* enemy_2_2_attack.plist */; };
 		03F7E147147F1E1C00F5AC1A /* enemy_2_2_attack.png in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DE29147F1E1C00F5AC1A /* enemy_2_2_attack.png */; };
-		03F7E148147F1E1C00F5AC1A /* enemy_2_2_attack.zwd in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DE2A147F1E1C00F5AC1A /* enemy_2_2_attack.zwd */; };
 		03F7E149147F1E1C00F5AC1A /* enemy_2_2_attack_0.png in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DE2B147F1E1C00F5AC1A /* enemy_2_2_attack_0.png */; };
 		03F7E14A147F1E1C00F5AC1A /* enemy_2_2_attack_1.png in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DE2C147F1E1C00F5AC1A /* enemy_2_2_attack_1.png */; };
 		03F7E14B147F1E1C00F5AC1A /* enemy_2_2_attack_2.png in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DE2D147F1E1C00F5AC1A /* enemy_2_2_attack_2.png */; };
 		03F7E14C147F1E1C00F5AC1A /* enemy_2_2_attack_3.png in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DE2E147F1E1C00F5AC1A /* enemy_2_2_attack_3.png */; };
 		03F7E14D147F1E1C00F5AC1A /* enemy_2_2_catch.plist in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DE30147F1E1C00F5AC1A /* enemy_2_2_catch.plist */; };
 		03F7E14E147F1E1C00F5AC1A /* enemy_2_2_catch.png in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DE31147F1E1C00F5AC1A /* enemy_2_2_catch.png */; };
-		03F7E14F147F1E1C00F5AC1A /* enemy_2_2_catch.zwd in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DE32147F1E1C00F5AC1A /* enemy_2_2_catch.zwd */; };
 		03F7E150147F1E1C00F5AC1A /* enemy_2_2_catch_0.png in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DE33147F1E1C00F5AC1A /* enemy_2_2_catch_0.png */; };
 		03F7E151147F1E1C00F5AC1A /* enemy_2_2_catch_1.png in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DE34147F1E1C00F5AC1A /* enemy_2_2_catch_1.png */; };
 		03F7E152147F1E1C00F5AC1A /* enemy_2_2_catch_2.png in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DE35147F1E1C00F5AC1A /* enemy_2_2_catch_2.png */; };
 		03F7E153147F1E1C00F5AC1A /* enemy_2_2_catch_3.png in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DE36147F1E1C00F5AC1A /* enemy_2_2_catch_3.png */; };
 		03F7E154147F1E1C00F5AC1A /* enemy_2_2_fall.plist in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DE38147F1E1C00F5AC1A /* enemy_2_2_fall.plist */; };
 		03F7E155147F1E1C00F5AC1A /* enemy_2_2_fall.png in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DE39147F1E1C00F5AC1A /* enemy_2_2_fall.png */; };
-		03F7E156147F1E1C00F5AC1A /* enemy_2_2_fall.zwd in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DE3A147F1E1C00F5AC1A /* enemy_2_2_fall.zwd */; };
 		03F7E157147F1E1C00F5AC1A /* enemy_2_2_fall_0.png in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DE3B147F1E1C00F5AC1A /* enemy_2_2_fall_0.png */; };
 		03F7E158147F1E1C00F5AC1A /* enemy_2_2_fall_1.png in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DE3C147F1E1C00F5AC1A /* enemy_2_2_fall_1.png */; };
 		03F7E159147F1E1C00F5AC1A /* enemy_2_2_fall_2.png in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DE3D147F1E1C00F5AC1A /* enemy_2_2_fall_2.png */; };
 		03F7E15A147F1E1C00F5AC1A /* enemy_2_2_hit.plist in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DE3F147F1E1C00F5AC1A /* enemy_2_2_hit.plist */; };
 		03F7E15B147F1E1C00F5AC1A /* enemy_2_2_hit.png in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DE40147F1E1C00F5AC1A /* enemy_2_2_hit.png */; };
-		03F7E15C147F1E1C00F5AC1A /* enemy_2_2_hit.zwd in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DE41147F1E1C00F5AC1A /* enemy_2_2_hit.zwd */; };
 		03F7E15D147F1E1C00F5AC1A /* enemy_2_2_hit_0.png in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DE42147F1E1C00F5AC1A /* enemy_2_2_hit_0.png */; };
 		03F7E15E147F1E1C00F5AC1A /* enemy_2_2_hit_1.png in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DE43147F1E1C00F5AC1A /* enemy_2_2_hit_1.png */; };
 		03F7E15F147F1E1C00F5AC1A /* enemy_2_2_hit_2.png in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DE44147F1E1C00F5AC1A /* enemy_2_2_hit_2.png */; };
@@ -620,11 +560,9 @@
 		03F7E162147F1E1C00F5AC1A /* enemy_2_2_hit_5.png in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DE47147F1E1C00F5AC1A /* enemy_2_2_hit_5.png */; };
 		03F7E163147F1E1C00F5AC1A /* enemy_2_2_idle.plist in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DE49147F1E1C00F5AC1A /* enemy_2_2_idle.plist */; };
 		03F7E164147F1E1C00F5AC1A /* enemy_2_2_idle.png in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DE4A147F1E1C00F5AC1A /* enemy_2_2_idle.png */; };
-		03F7E165147F1E1C00F5AC1A /* enemy_2_2_idle.zwd in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DE4B147F1E1C00F5AC1A /* enemy_2_2_idle.zwd */; };
 		03F7E166147F1E1C00F5AC1A /* enemy_2_2_idle_0.png in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DE4C147F1E1C00F5AC1A /* enemy_2_2_idle_0.png */; };
 		03F7E167147F1E1C00F5AC1A /* enemy_2_2_swim.plist in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DE4E147F1E1C00F5AC1A /* enemy_2_2_swim.plist */; };
 		03F7E168147F1E1C00F5AC1A /* enemy_2_2_swim.png in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DE4F147F1E1C00F5AC1A /* enemy_2_2_swim.png */; };
-		03F7E169147F1E1C00F5AC1A /* enemy_2_2_swim.zwd in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DE50147F1E1C00F5AC1A /* enemy_2_2_swim.zwd */; };
 		03F7E16A147F1E1C00F5AC1A /* enemy_2_2_swim_0.png in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DE51147F1E1C00F5AC1A /* enemy_2_2_swim_0.png */; };
 		03F7E16B147F1E1C00F5AC1A /* enemy_2_2_swim_1.png in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DE52147F1E1C00F5AC1A /* enemy_2_2_swim_1.png */; };
 		03F7E16C147F1E1C00F5AC1A /* enemy_2_2_swim_2.png in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DE53147F1E1C00F5AC1A /* enemy_2_2_swim_2.png */; };
@@ -635,7 +573,6 @@
 		03F7E171147F1E1C00F5AC1A /* enemy_2_2_swim_7.png in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DE58147F1E1C00F5AC1A /* enemy_2_2_swim_7.png */; };
 		03F7E172147F1E1C00F5AC1A /* enemy_2_2_walk.plist in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DE5A147F1E1C00F5AC1A /* enemy_2_2_walk.plist */; };
 		03F7E173147F1E1C00F5AC1A /* enemy_2_2_walk.png in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DE5B147F1E1C00F5AC1A /* enemy_2_2_walk.png */; };
-		03F7E174147F1E1C00F5AC1A /* enemy_2_2_walk.zwd in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DE5C147F1E1C00F5AC1A /* enemy_2_2_walk.zwd */; };
 		03F7E175147F1E1C00F5AC1A /* enemy_2_2_walk_0.png in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DE5D147F1E1C00F5AC1A /* enemy_2_2_walk_0.png */; };
 		03F7E176147F1E1C00F5AC1A /* enemy_2_2_walk_1.png in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DE5E147F1E1C00F5AC1A /* enemy_2_2_walk_1.png */; };
 		03F7E177147F1E1C00F5AC1A /* enemy_2_2_walk_2.png in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DE5F147F1E1C00F5AC1A /* enemy_2_2_walk_2.png */; };
@@ -646,14 +583,12 @@
 		03F7E17C147F1E1C00F5AC1A /* enemy_2_2_walk_7.png in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DE64147F1E1C00F5AC1A /* enemy_2_2_walk_7.png */; };
 		03F7E17D147F1E1C00F5AC1A /* enemy_3_0_catch.plist in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DE67147F1E1C00F5AC1A /* enemy_3_0_catch.plist */; };
 		03F7E17E147F1E1C00F5AC1A /* enemy_3_0_catch.png in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DE68147F1E1C00F5AC1A /* enemy_3_0_catch.png */; };
-		03F7E17F147F1E1C00F5AC1A /* enemy_3_0_catch.zwd in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DE69147F1E1C00F5AC1A /* enemy_3_0_catch.zwd */; };
 		03F7E180147F1E1C00F5AC1A /* enemy_3_0_catch_0.png in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DE6A147F1E1C00F5AC1A /* enemy_3_0_catch_0.png */; };
 		03F7E181147F1E1C00F5AC1A /* enemy_3_0_catch_1.png in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DE6B147F1E1C00F5AC1A /* enemy_3_0_catch_1.png */; };
 		03F7E182147F1E1C00F5AC1A /* enemy_3_0_catch_2.png in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DE6C147F1E1C00F5AC1A /* enemy_3_0_catch_2.png */; };
 		03F7E183147F1E1C00F5AC1A /* enemy_3_0_catch_3.png in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DE6D147F1E1C00F5AC1A /* enemy_3_0_catch_3.png */; };
 		03F7E184147F1E1C00F5AC1A /* enemy_3_0_explosion.plist in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DE6F147F1E1C00F5AC1A /* enemy_3_0_explosion.plist */; };
 		03F7E185147F1E1C00F5AC1A /* enemy_3_0_explosion.png in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DE70147F1E1C00F5AC1A /* enemy_3_0_explosion.png */; };
-		03F7E186147F1E1C00F5AC1A /* enemy_3_0_explosion.zwd in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DE71147F1E1C00F5AC1A /* enemy_3_0_explosion.zwd */; };
 		03F7E187147F1E1C00F5AC1A /* enemy_3_0_explosion_0.png in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DE72147F1E1C00F5AC1A /* enemy_3_0_explosion_0.png */; };
 		03F7E188147F1E1C00F5AC1A /* enemy_3_0_explosion_1.png in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DE73147F1E1C00F5AC1A /* enemy_3_0_explosion_1.png */; };
 		03F7E189147F1E1C00F5AC1A /* enemy_3_0_explosion_2.png in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DE74147F1E1C00F5AC1A /* enemy_3_0_explosion_2.png */; };
@@ -665,17 +600,14 @@
 		03F7E18F147F1E1C00F5AC1A /* enemy_3_0_explosion_8.png in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DE7A147F1E1C00F5AC1A /* enemy_3_0_explosion_8.png */; };
 		03F7E190147F1E1C00F5AC1A /* enemy_3_0_fall.plist in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DE7C147F1E1C00F5AC1A /* enemy_3_0_fall.plist */; };
 		03F7E191147F1E1C00F5AC1A /* enemy_3_0_fall.png in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DE7D147F1E1C00F5AC1A /* enemy_3_0_fall.png */; };
-		03F7E192147F1E1C00F5AC1A /* enemy_3_0_fall.zwd in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DE7E147F1E1C00F5AC1A /* enemy_3_0_fall.zwd */; };
 		03F7E193147F1E1C00F5AC1A /* enemy_3_0_fall_0.png in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DE7F147F1E1C00F5AC1A /* enemy_3_0_fall_0.png */; };
 		03F7E194147F1E1C00F5AC1A /* enemy_3_0_fall_1.png in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DE80147F1E1C00F5AC1A /* enemy_3_0_fall_1.png */; };
 		03F7E195147F1E1C00F5AC1A /* enemy_3_0_fall_2.png in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DE81147F1E1C00F5AC1A /* enemy_3_0_fall_2.png */; };
 		03F7E196147F1E1C00F5AC1A /* enemy_3_0_idle.plist in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DE83147F1E1C00F5AC1A /* enemy_3_0_idle.plist */; };
 		03F7E197147F1E1C00F5AC1A /* enemy_3_0_idle.png in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DE84147F1E1C00F5AC1A /* enemy_3_0_idle.png */; };
-		03F7E198147F1E1C00F5AC1A /* enemy_3_0_idle.zwd in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DE85147F1E1C00F5AC1A /* enemy_3_0_idle.zwd */; };
 		03F7E199147F1E1C00F5AC1A /* enemy_3_0_idle_0.png in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DE86147F1E1C00F5AC1A /* enemy_3_0_idle_0.png */; };
 		03F7E19A147F1E1C00F5AC1A /* enemy_3_0_walk.plist in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DE88147F1E1C00F5AC1A /* enemy_3_0_walk.plist */; };
 		03F7E19B147F1E1C00F5AC1A /* enemy_3_0_walk.png in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DE89147F1E1C00F5AC1A /* enemy_3_0_walk.png */; };
-		03F7E19C147F1E1C00F5AC1A /* enemy_3_0_walk.zwd in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DE8A147F1E1C00F5AC1A /* enemy_3_0_walk.zwd */; };
 		03F7E19D147F1E1C00F5AC1A /* enemy_3_0_walk_0.png in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DE8B147F1E1C00F5AC1A /* enemy_3_0_walk_0.png */; };
 		03F7E19E147F1E1C00F5AC1A /* enemy_3_0_walk_1.png in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DE8C147F1E1C00F5AC1A /* enemy_3_0_walk_1.png */; };
 		03F7E19F147F1E1C00F5AC1A /* enemy_3_0_walk_2.png in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DE8D147F1E1C00F5AC1A /* enemy_3_0_walk_2.png */; };
@@ -686,14 +618,10 @@
 		03F7E1A4147F1E1C00F5AC1A /* enemy_3_0_walk_7.png in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DE92147F1E1C00F5AC1A /* enemy_3_0_walk_7.png */; };
 		03F7E1A5147F1E1C00F5AC1A /* enemy_3_1_catch.plist in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DE95147F1E1C00F5AC1A /* enemy_3_1_catch.plist */; };
 		03F7E1A6147F1E1C00F5AC1A /* enemy_3_1_catch.png in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DE96147F1E1C00F5AC1A /* enemy_3_1_catch.png */; };
-		03F7E1A7147F1E1C00F5AC1A /* enemy_3_1_catch.zwd in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DE97147F1E1C00F5AC1A /* enemy_3_1_catch.zwd */; };
 		03F7E1A8147F1E1C00F5AC1A /* enemy_3_1_catch_0.png in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DE98147F1E1C00F5AC1A /* enemy_3_1_catch_0.png */; };
 		03F7E1A9147F1E1C00F5AC1A /* enemy_3_1_catch_1.png in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DE99147F1E1C00F5AC1A /* enemy_3_1_catch_1.png */; };
 		03F7E1AA147F1E1C00F5AC1A /* enemy_3_1_catch_2.png in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DE9A147F1E1C00F5AC1A /* enemy_3_1_catch_2.png */; };
 		03F7E1AB147F1E1C00F5AC1A /* enemy_3_1_catch_3.png in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DE9B147F1E1C00F5AC1A /* enemy_3_1_catch_3.png */; };
-		03F7E1AC147F1E1C00F5AC1A /* enemy_3_0_explosion.plist in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DE9D147F1E1C00F5AC1A /* enemy_3_0_explosion.plist */; };
-		03F7E1AD147F1E1C00F5AC1A /* enemy_3_0_explosion.png in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DE9E147F1E1C00F5AC1A /* enemy_3_0_explosion.png */; };
-		03F7E1AE147F1E1C00F5AC1A /* enemy_3_0_explosion.zwd in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DE9F147F1E1C00F5AC1A /* enemy_3_0_explosion.zwd */; };
 		03F7E1AF147F1E1C00F5AC1A /* enemy_3_1_explosion_0.png in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DEA0147F1E1C00F5AC1A /* enemy_3_1_explosion_0.png */; };
 		03F7E1B0147F1E1C00F5AC1A /* enemy_3_1_explosion_1.png in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DEA1147F1E1C00F5AC1A /* enemy_3_1_explosion_1.png */; };
 		03F7E1B1147F1E1C00F5AC1A /* enemy_3_1_explosion_2.png in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DEA2147F1E1C00F5AC1A /* enemy_3_1_explosion_2.png */; };
@@ -705,17 +633,14 @@
 		03F7E1B7147F1E1C00F5AC1A /* enemy_3_1_explosion_8.png in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DEA8147F1E1C00F5AC1A /* enemy_3_1_explosion_8.png */; };
 		03F7E1B8147F1E1C00F5AC1A /* enemy_3_1_fall.plist in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DEAA147F1E1C00F5AC1A /* enemy_3_1_fall.plist */; };
 		03F7E1B9147F1E1C00F5AC1A /* enemy_3_1_fall.png in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DEAB147F1E1C00F5AC1A /* enemy_3_1_fall.png */; };
-		03F7E1BA147F1E1C00F5AC1A /* enemy_3_1_fall.zwd in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DEAC147F1E1C00F5AC1A /* enemy_3_1_fall.zwd */; };
 		03F7E1BB147F1E1C00F5AC1A /* enemy_3_1_fall_0.png in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DEAD147F1E1C00F5AC1A /* enemy_3_1_fall_0.png */; };
 		03F7E1BC147F1E1C00F5AC1A /* enemy_3_1_fall_1.png in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DEAE147F1E1C00F5AC1A /* enemy_3_1_fall_1.png */; };
 		03F7E1BD147F1E1C00F5AC1A /* enemy_3_1_fall_2.png in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DEAF147F1E1C00F5AC1A /* enemy_3_1_fall_2.png */; };
 		03F7E1BE147F1E1C00F5AC1A /* enemy_3_1_idle.plist in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DEB1147F1E1C00F5AC1A /* enemy_3_1_idle.plist */; };
 		03F7E1BF147F1E1C00F5AC1A /* enemy_3_1_idle.png in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DEB2147F1E1C00F5AC1A /* enemy_3_1_idle.png */; };
-		03F7E1C0147F1E1C00F5AC1A /* enemy_3_1_idle.zwd in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DEB3147F1E1C00F5AC1A /* enemy_3_1_idle.zwd */; };
 		03F7E1C1147F1E1C00F5AC1A /* enemy_3_1_idle_0.png in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DEB4147F1E1C00F5AC1A /* enemy_3_1_idle_0.png */; };
 		03F7E1C2147F1E1C00F5AC1A /* enemy_3_1_walk.plist in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DEB6147F1E1C00F5AC1A /* enemy_3_1_walk.plist */; };
 		03F7E1C3147F1E1C00F5AC1A /* enemy_3_1_walk.png in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DEB7147F1E1C00F5AC1A /* enemy_3_1_walk.png */; };
-		03F7E1C4147F1E1C00F5AC1A /* enemy_3_1_walk.zwd in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DEB8147F1E1C00F5AC1A /* enemy_3_1_walk.zwd */; };
 		03F7E1C5147F1E1C00F5AC1A /* enemy_3_1_walk_0.png in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DEB9147F1E1C00F5AC1A /* enemy_3_1_walk_0.png */; };
 		03F7E1C6147F1E1C00F5AC1A /* enemy_3_1_walk_1.png in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DEBA147F1E1C00F5AC1A /* enemy_3_1_walk_1.png */; };
 		03F7E1C7147F1E1C00F5AC1A /* enemy_3_1_walk_2.png in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DEBB147F1E1C00F5AC1A /* enemy_3_1_walk_2.png */; };
@@ -726,14 +651,10 @@
 		03F7E1CC147F1E1C00F5AC1A /* enemy_3_1_walk_7.png in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DEC0147F1E1C00F5AC1A /* enemy_3_1_walk_7.png */; };
 		03F7E1CD147F1E1C00F5AC1A /* enemy_3_2_catch.plist in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DEC3147F1E1C00F5AC1A /* enemy_3_2_catch.plist */; };
 		03F7E1CE147F1E1C00F5AC1A /* enemy_3_2_catch.png in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DEC4147F1E1C00F5AC1A /* enemy_3_2_catch.png */; };
-		03F7E1CF147F1E1C00F5AC1A /* enemy_3_2_catch.zwd in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DEC5147F1E1C00F5AC1A /* enemy_3_2_catch.zwd */; };
 		03F7E1D0147F1E1C00F5AC1A /* enemy_3_2_catch_0.png in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DEC6147F1E1C00F5AC1A /* enemy_3_2_catch_0.png */; };
 		03F7E1D1147F1E1C00F5AC1A /* enemy_3_2_catch_1.png in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DEC7147F1E1C00F5AC1A /* enemy_3_2_catch_1.png */; };
 		03F7E1D2147F1E1C00F5AC1A /* enemy_3_2_catch_2.png in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DEC8147F1E1C00F5AC1A /* enemy_3_2_catch_2.png */; };
 		03F7E1D3147F1E1C00F5AC1A /* enemy_3_2_catch_3.png in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DEC9147F1E1C00F5AC1A /* enemy_3_2_catch_3.png */; };
-		03F7E1D4147F1E1C00F5AC1A /* enemy_3_0_explosion.plist in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DECB147F1E1C00F5AC1A /* enemy_3_0_explosion.plist */; };
-		03F7E1D5147F1E1C00F5AC1A /* enemy_3_0_explosion.png in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DECC147F1E1C00F5AC1A /* enemy_3_0_explosion.png */; };
-		03F7E1D6147F1E1C00F5AC1A /* enemy_3_0_explosion.zwd in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DECD147F1E1C00F5AC1A /* enemy_3_0_explosion.zwd */; };
 		03F7E1D7147F1E1C00F5AC1A /* enemy_3_2_explosion_0.png in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DECE147F1E1C00F5AC1A /* enemy_3_2_explosion_0.png */; };
 		03F7E1D8147F1E1C00F5AC1A /* enemy_3_2_explosion_1.png in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DECF147F1E1C00F5AC1A /* enemy_3_2_explosion_1.png */; };
 		03F7E1D9147F1E1C00F5AC1A /* enemy_3_2_explosion_2.png in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DED0147F1E1C00F5AC1A /* enemy_3_2_explosion_2.png */; };
@@ -745,17 +666,14 @@
 		03F7E1DF147F1E1C00F5AC1A /* enemy_3_2_explosion_8.png in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DED6147F1E1C00F5AC1A /* enemy_3_2_explosion_8.png */; };
 		03F7E1E0147F1E1C00F5AC1A /* enemy_3_2_fall.plist in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DED8147F1E1C00F5AC1A /* enemy_3_2_fall.plist */; };
 		03F7E1E1147F1E1C00F5AC1A /* enemy_3_2_fall.png in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DED9147F1E1C00F5AC1A /* enemy_3_2_fall.png */; };
-		03F7E1E2147F1E1C00F5AC1A /* enemy_3_2_fall.zwd in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DEDA147F1E1C00F5AC1A /* enemy_3_2_fall.zwd */; };
 		03F7E1E3147F1E1C00F5AC1A /* enemy_3_2_fall_0.png in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DEDB147F1E1C00F5AC1A /* enemy_3_2_fall_0.png */; };
 		03F7E1E4147F1E1C00F5AC1A /* enemy_3_2_fall_1.png in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DEDC147F1E1C00F5AC1A /* enemy_3_2_fall_1.png */; };
 		03F7E1E5147F1E1C00F5AC1A /* enemy_3_2_fall_2.png in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DEDD147F1E1C00F5AC1A /* enemy_3_2_fall_2.png */; };
 		03F7E1E6147F1E1C00F5AC1A /* enemy_3_2_idle.plist in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DEDF147F1E1C00F5AC1A /* enemy_3_2_idle.plist */; };
 		03F7E1E7147F1E1C00F5AC1A /* enemy_3_2_idle.png in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DEE0147F1E1C00F5AC1A /* enemy_3_2_idle.png */; };
-		03F7E1E8147F1E1C00F5AC1A /* enemy_3_2_idle.zwd in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DEE1147F1E1C00F5AC1A /* enemy_3_2_idle.zwd */; };
 		03F7E1E9147F1E1C00F5AC1A /* enemy_3_2_idle_0.png in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DEE2147F1E1C00F5AC1A /* enemy_3_2_idle_0.png */; };
 		03F7E1EA147F1E1C00F5AC1A /* enemy_3_2_walk.plist in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DEE4147F1E1C00F5AC1A /* enemy_3_2_walk.plist */; };
 		03F7E1EB147F1E1C00F5AC1A /* enemy_3_2_walk.png in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DEE5147F1E1C00F5AC1A /* enemy_3_2_walk.png */; };
-		03F7E1EC147F1E1C00F5AC1A /* enemy_3_2_walk.zwd in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DEE6147F1E1C00F5AC1A /* enemy_3_2_walk.zwd */; };
 		03F7E1ED147F1E1C00F5AC1A /* enemy_3_2_walk_0.png in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DEE7147F1E1C00F5AC1A /* enemy_3_2_walk_0.png */; };
 		03F7E1EE147F1E1C00F5AC1A /* enemy_3_2_walk_1.png in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DEE8147F1E1C00F5AC1A /* enemy_3_2_walk_1.png */; };
 		03F7E1EF147F1E1C00F5AC1A /* enemy_3_2_walk_2.png in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DEE9147F1E1C00F5AC1A /* enemy_3_2_walk_2.png */; };
@@ -813,7 +731,6 @@
 		03F7E223147F1E1C00F5AC1A /* pado03.png in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DF20147F1E1C00F5AC1A /* pado03.png */; };
 		03F7E224147F1E1C00F5AC1A /* plane.plist in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DF21147F1E1C00F5AC1A /* plane.plist */; };
 		03F7E225147F1E1C00F5AC1A /* plane.png in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DF22147F1E1C00F5AC1A /* plane.png */; };
-		03F7E226147F1E1C00F5AC1A /* plane.zwd in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DF23147F1E1C00F5AC1A /* plane.zwd */; };
 		03F7E227147F1E1C00F5AC1A /* EnemyInfoList.plist in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DF25147F1E1C00F5AC1A /* EnemyInfoList.plist */; };
 		03F7E228147F1E1C00F5AC1A /* SkillInfoList.plist in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DF26147F1E1C00F5AC1A /* SkillInfoList.plist */; };
 		03F7E229147F1E1C00F5AC1A /* StageInfoList.plist in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DF27147F1E1C00F5AC1A /* StageInfoList.plist */; };
@@ -838,7 +755,6 @@
 		03F7E23C147F1E1C00F5AC1A /* skill_earthquake_off_btn.png in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DF3C147F1E1C00F5AC1A /* skill_earthquake_off_btn.png */; };
 		03F7E23D147F1E1C00F5AC1A /* skill_earthquake_on_btn.png in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DF3D147F1E1C00F5AC1A /* skill_earthquake_on_btn.png */; };
 		03F7E23E147F1E1C00F5AC1A /* skill_empty_btn.png in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DF3E147F1E1C00F5AC1A /* skill_empty_btn.png */; };
-		03F7E23F147F1E1C00F5AC1A /* skill_empty_btn.png.zip in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DF3F147F1E1C00F5AC1A /* skill_empty_btn.png.zip */; };
 		03F7E240147F1E1C00F5AC1A /* skill_hp_off_btn.png in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DF40147F1E1C00F5AC1A /* skill_hp_off_btn.png */; };
 		03F7E241147F1E1C00F5AC1A /* skill_hp_on_btn.png in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DF41147F1E1C00F5AC1A /* skill_hp_on_btn.png */; };
 		03F7E242147F1E1C00F5AC1A /* skill_shadow.png in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DF42147F1E1C00F5AC1A /* skill_shadow.png */; };
@@ -848,7 +764,7 @@
 		03F7E246147F1E1C00F5AC1A /* stone_big.png in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DF46147F1E1C00F5AC1A /* stone_big.png */; };
 		03F7E247147F1E1C00F5AC1A /* stone_biggest.png in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DF47147F1E1C00F5AC1A /* stone_biggest.png */; };
 		03F7E248147F1E1C00F5AC1A /* stone_middle.png in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DF48147F1E1C00F5AC1A /* stone_middle.png */; };
-		03F7E249147F1E1C00F5AC1A /* stone_samll.png in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DF49147F1E1C00F5AC1A /* stone_samll.png */; };
+		03F7E249147F1E1C00F5AC1A /* stone_small.png in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DF49147F1E1C00F5AC1A /* stone_small.png */; };
 		03F7E24A147F1E1C00F5AC1A /* sky.png in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DF4A147F1E1C00F5AC1A /* sky.png */; };
 		03F7E24B147F1E1C00F5AC1A /* click.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DF4C147F1E1C00F5AC1A /* click.mp3 */; };
 		03F7E24D147F1E1C00F5AC1A /* back_off_btn.png in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DF4F147F1E1C00F5AC1A /* back_off_btn.png */; };
@@ -1874,7 +1790,6 @@
 		03F7DF3C147F1E1C00F5AC1A /* skill_earthquake_off_btn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = skill_earthquake_off_btn.png; sourceTree = "<group>"; };
 		03F7DF3D147F1E1C00F5AC1A /* skill_earthquake_on_btn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = skill_earthquake_on_btn.png; sourceTree = "<group>"; };
 		03F7DF3E147F1E1C00F5AC1A /* skill_empty_btn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = skill_empty_btn.png; sourceTree = "<group>"; };
-		03F7DF3F147F1E1C00F5AC1A /* skill_empty_btn.png.zip */ = {isa = PBXFileReference; lastKnownFileType = archive.zip; path = skill_empty_btn.png.zip; sourceTree = "<group>"; };
 		03F7DF40147F1E1C00F5AC1A /* skill_hp_off_btn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = skill_hp_off_btn.png; sourceTree = "<group>"; };
 		03F7DF41147F1E1C00F5AC1A /* skill_hp_on_btn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = skill_hp_on_btn.png; sourceTree = "<group>"; };
 		03F7DF42147F1E1C00F5AC1A /* skill_shadow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = skill_shadow.png; sourceTree = "<group>"; };
@@ -1884,7 +1799,7 @@
 		03F7DF46147F1E1C00F5AC1A /* stone_big.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = stone_big.png; sourceTree = "<group>"; };
 		03F7DF47147F1E1C00F5AC1A /* stone_biggest.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = stone_biggest.png; sourceTree = "<group>"; };
 		03F7DF48147F1E1C00F5AC1A /* stone_middle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = stone_middle.png; sourceTree = "<group>"; };
-		03F7DF49147F1E1C00F5AC1A /* stone_samll.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = stone_samll.png; sourceTree = "<group>"; };
+		03F7DF49147F1E1C00F5AC1A /* stone_small.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = stone_small.png; sourceTree = "<group>"; };
 		03F7DF4A147F1E1C00F5AC1A /* sky.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = sky.png; path = Resources/sky.png; sourceTree = "<group>"; };
 		03F7DF4C147F1E1C00F5AC1A /* click.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = click.mp3; sourceTree = "<group>"; };
 		03F7DF4F147F1E1C00F5AC1A /* back_off_btn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = back_off_btn.png; sourceTree = "<group>"; };
@@ -3917,7 +3832,6 @@
 				03F7DF3C147F1E1C00F5AC1A /* skill_earthquake_off_btn.png */,
 				03F7DF3D147F1E1C00F5AC1A /* skill_earthquake_on_btn.png */,
 				03F7DF3E147F1E1C00F5AC1A /* skill_empty_btn.png */,
-				03F7DF3F147F1E1C00F5AC1A /* skill_empty_btn.png.zip */,
 				03F7DF40147F1E1C00F5AC1A /* skill_hp_off_btn.png */,
 				03F7DF41147F1E1C00F5AC1A /* skill_hp_on_btn.png */,
 				03F7DF42147F1E1C00F5AC1A /* skill_shadow.png */,
@@ -3927,7 +3841,7 @@
 				03F7DF46147F1E1C00F5AC1A /* stone_big.png */,
 				03F7DF47147F1E1C00F5AC1A /* stone_biggest.png */,
 				03F7DF48147F1E1C00F5AC1A /* stone_middle.png */,
-				03F7DF49147F1E1C00F5AC1A /* stone_samll.png */,
+				03F7DF49147F1E1C00F5AC1A /* stone_small.png */,
 			);
 			name = skills;
 			path = Resources/skills;
@@ -4085,27 +3999,23 @@
 				03F7DF8D147F1E1C00F5AC1A /* effect_water_7.png in Resources */,
 				03F7DF8E147F1E1C00F5AC1A /* enemy_0_0_attack.plist in Resources */,
 				03F7DF8F147F1E1C00F5AC1A /* enemy_0_0_attack.png in Resources */,
-				03F7DF90147F1E1C00F5AC1A /* enemy_0_0_attack.zwd in Resources */,
 				03F7DF91147F1E1C00F5AC1A /* enemy_0_0_attack_0.png in Resources */,
 				03F7DF92147F1E1C00F5AC1A /* enemy_0_0_attack_1.png in Resources */,
 				03F7DF93147F1E1C00F5AC1A /* enemy_0_0_attack_2.png in Resources */,
 				03F7DF94147F1E1C00F5AC1A /* enemy_0_0_attack_3.png in Resources */,
 				03F7DF95147F1E1C00F5AC1A /* enemy_0_0_catch.plist in Resources */,
 				03F7DF96147F1E1C00F5AC1A /* enemy_0_0_catch.png in Resources */,
-				03F7DF97147F1E1C00F5AC1A /* enemy_0_0_catch.zwd in Resources */,
 				03F7DF98147F1E1C00F5AC1A /* enemy_0_0_catch_0.png in Resources */,
 				03F7DF99147F1E1C00F5AC1A /* enemy_0_0_catch_1.png in Resources */,
 				03F7DF9A147F1E1C00F5AC1A /* enemy_0_0_catch_2.png in Resources */,
 				03F7DF9B147F1E1C00F5AC1A /* enemy_0_0_catch_3.png in Resources */,
 				03F7DF9C147F1E1C00F5AC1A /* enemy_0_0_fall.plist in Resources */,
 				03F7DF9D147F1E1C00F5AC1A /* enemy_0_0_fall.png in Resources */,
-				03F7DF9E147F1E1C00F5AC1A /* enemy_0_0_fall.zwd in Resources */,
 				03F7DF9F147F1E1C00F5AC1A /* enemy_0_0_fall_0.png in Resources */,
 				03F7DFA0147F1E1C00F5AC1A /* enemy_0_0_fall_1.png in Resources */,
 				03F7DFA1147F1E1C00F5AC1A /* enemy_0_0_fall_2.png in Resources */,
 				03F7DFA2147F1E1C00F5AC1A /* enemy_0_0_hit.plist in Resources */,
 				03F7DFA3147F1E1C00F5AC1A /* enemy_0_0_hit.png in Resources */,
-				03F7DFA4147F1E1C00F5AC1A /* enemy_0_0_hit.zwd in Resources */,
 				03F7DFA5147F1E1C00F5AC1A /* enemy_0_0_hit_0.png in Resources */,
 				03F7DFA6147F1E1C00F5AC1A /* enemy_0_0_hit_1.png in Resources */,
 				03F7DFA7147F1E1C00F5AC1A /* enemy_0_0_hit_2.png in Resources */,
@@ -4114,11 +4024,9 @@
 				03F7DFAA147F1E1C00F5AC1A /* enemy_0_0_hit_5.png in Resources */,
 				03F7DFAB147F1E1C00F5AC1A /* enemy_0_0_idle.plist in Resources */,
 				03F7DFAC147F1E1C00F5AC1A /* enemy_0_0_idle.png in Resources */,
-				03F7DFAD147F1E1C00F5AC1A /* enemy_0_0_idle.zwd in Resources */,
 				03F7DFAE147F1E1C00F5AC1A /* enemy_0_0_idle_0.png in Resources */,
 				03F7DFAF147F1E1C00F5AC1A /* enemy_0_0_swim.plist in Resources */,
 				03F7DFB0147F1E1C00F5AC1A /* enemy_0_0_swim.png in Resources */,
-				03F7DFB1147F1E1C00F5AC1A /* enemy_0_0_swim.zwd in Resources */,
 				03F7DFB2147F1E1C00F5AC1A /* enemy_0_0_swim_0.png in Resources */,
 				03F7DFB3147F1E1C00F5AC1A /* enemy_0_0_swim_1.png in Resources */,
 				03F7DFB4147F1E1C00F5AC1A /* enemy_0_0_swim_2.png in Resources */,
@@ -4129,7 +4037,6 @@
 				03F7DFB9147F1E1C00F5AC1A /* enemy_0_0_swim_7.png in Resources */,
 				03F7DFBA147F1E1C00F5AC1A /* enemy_0_0_walk.plist in Resources */,
 				03F7DFBB147F1E1C00F5AC1A /* enemy_0_0_walk.png in Resources */,
-				03F7DFBC147F1E1C00F5AC1A /* enemy_0_0_walk.zwd in Resources */,
 				03F7DFBD147F1E1C00F5AC1A /* enemy_0_0_walk_0.png in Resources */,
 				03F7DFBE147F1E1C00F5AC1A /* enemy_0_0_walk_1.png in Resources */,
 				03F7DFBF147F1E1C00F5AC1A /* enemy_0_0_walk_2.png in Resources */,
@@ -4140,27 +4047,23 @@
 				03F7DFC4147F1E1C00F5AC1A /* enemy_0_0_walk_7.png in Resources */,
 				03F7DFC5147F1E1C00F5AC1A /* enemy_0_1_attack.plist in Resources */,
 				03F7DFC6147F1E1C00F5AC1A /* enemy_0_1_attack.png in Resources */,
-				03F7DFC7147F1E1C00F5AC1A /* enemy_0_1_attack.zwd in Resources */,
 				03F7DFC8147F1E1C00F5AC1A /* enemy_0_1_attack_0.png in Resources */,
 				03F7DFC9147F1E1C00F5AC1A /* enemy_0_1_attack_1.png in Resources */,
 				03F7DFCA147F1E1C00F5AC1A /* enemy_0_1_attack_2.png in Resources */,
 				03F7DFCB147F1E1C00F5AC1A /* enemy_0_1_attack_3.png in Resources */,
 				03F7DFCC147F1E1C00F5AC1A /* enemy_0_1_catch.plist in Resources */,
 				03F7DFCD147F1E1C00F5AC1A /* enemy_0_1_catch.png in Resources */,
-				03F7DFCE147F1E1C00F5AC1A /* enemy_0_1_catch.zwd in Resources */,
 				03F7DFCF147F1E1C00F5AC1A /* enemy_0_1_catch_0.png in Resources */,
 				03F7DFD0147F1E1C00F5AC1A /* enemy_0_1_catch_1.png in Resources */,
 				03F7DFD1147F1E1C00F5AC1A /* enemy_0_1_catch_2.png in Resources */,
 				03F7DFD2147F1E1C00F5AC1A /* enemy_0_1_catch_3.png in Resources */,
 				03F7DFD3147F1E1C00F5AC1A /* enemy_0_1_fall.plist in Resources */,
 				03F7DFD4147F1E1C00F5AC1A /* enemy_0_1_fall.png in Resources */,
-				03F7DFD5147F1E1C00F5AC1A /* enemy_0_1_fall.zwd in Resources */,
 				03F7DFD6147F1E1C00F5AC1A /* enemy_0_1_fall_0.png in Resources */,
 				03F7DFD7147F1E1C00F5AC1A /* enemy_0_1_fall_1.png in Resources */,
 				03F7DFD8147F1E1C00F5AC1A /* enemy_0_1_fall_2.png in Resources */,
 				03F7DFD9147F1E1C00F5AC1A /* enemy_0_1_hit.plist in Resources */,
 				03F7DFDA147F1E1C00F5AC1A /* enemy_0_1_hit.png in Resources */,
-				03F7DFDB147F1E1C00F5AC1A /* enemy_0_1_hit.zwd in Resources */,
 				03F7DFDC147F1E1C00F5AC1A /* enemy_0_1_hit_0.png in Resources */,
 				03F7DFDD147F1E1C00F5AC1A /* enemy_0_1_hit_1.png in Resources */,
 				03F7DFDE147F1E1C00F5AC1A /* enemy_0_1_hit_2.png in Resources */,
@@ -4169,11 +4072,9 @@
 				03F7DFE1147F1E1C00F5AC1A /* enemy_0_1_hit_5.png in Resources */,
 				03F7DFE2147F1E1C00F5AC1A /* enemy_0_1_idle.plist in Resources */,
 				03F7DFE3147F1E1C00F5AC1A /* enemy_0_1_idle.png in Resources */,
-				03F7DFE4147F1E1C00F5AC1A /* enemy_0_1_idle.zwd in Resources */,
 				03F7DFE5147F1E1C00F5AC1A /* enemy_0_1_idle_0.png in Resources */,
 				03F7DFE6147F1E1C00F5AC1A /* enemy_0_1_swim.plist in Resources */,
 				03F7DFE7147F1E1C00F5AC1A /* enemy_0_1_swim.png in Resources */,
-				03F7DFE8147F1E1C00F5AC1A /* enemy_0_1_swim.zwd in Resources */,
 				03F7DFE9147F1E1C00F5AC1A /* enemy_0_1_swim_0.png in Resources */,
 				03F7DFEA147F1E1C00F5AC1A /* enemy_0_1_swim_1.png in Resources */,
 				03F7DFEB147F1E1C00F5AC1A /* enemy_0_1_swim_2.png in Resources */,
@@ -4182,7 +4083,6 @@
 				03F7DFEE147F1E1C00F5AC1A /* enemy_0_1_swim_5.png in Resources */,
 				03F7DFEF147F1E1C00F5AC1A /* enemy_0_1_swim_6.png in Resources */,
 				03F7DFF0147F1E1C00F5AC1A /* enemy_0_1_swim_7.png in Resources */,
-				03F7DFF1147F1E1C00F5AC1A /* enemy_0_1_walk.zwd in Resources */,
 				03F7DFF2147F1E1C00F5AC1A /* enemy_0_1_walk_0.png in Resources */,
 				03F7DFF3147F1E1C00F5AC1A /* enemy_0_1_walk_1.png in Resources */,
 				03F7DFF4147F1E1C00F5AC1A /* enemy_0_1_walk_2.png in Resources */,
@@ -4195,27 +4095,23 @@
 				03F7DFFB147F1E1C00F5AC1A /* enemy_0_1_walk_default.png in Resources */,
 				03F7DFFC147F1E1C00F5AC1A /* enemy_0_2_attack.plist in Resources */,
 				03F7DFFD147F1E1C00F5AC1A /* enemy_0_2_attack.png in Resources */,
-				03F7DFFE147F1E1C00F5AC1A /* enemy_0_2_attack.zwd in Resources */,
 				03F7DFFF147F1E1C00F5AC1A /* enemy_0_2_attack_0.png in Resources */,
 				03F7E000147F1E1C00F5AC1A /* enemy_0_2_attack_1.png in Resources */,
 				03F7E001147F1E1C00F5AC1A /* enemy_0_2_attack_2.png in Resources */,
 				03F7E002147F1E1C00F5AC1A /* enemy_0_2_attack_3.png in Resources */,
 				03F7E003147F1E1C00F5AC1A /* enemy_0_2_catch.plist in Resources */,
 				03F7E004147F1E1C00F5AC1A /* enemy_0_2_catch.png in Resources */,
-				03F7E005147F1E1C00F5AC1A /* enemy_0_2_catch.zwd in Resources */,
 				03F7E006147F1E1C00F5AC1A /* enemy_0_2_catch_0.png in Resources */,
 				03F7E007147F1E1C00F5AC1A /* enemy_0_2_catch_1.png in Resources */,
 				03F7E008147F1E1C00F5AC1A /* enemy_0_2_catch_2.png in Resources */,
 				03F7E009147F1E1C00F5AC1A /* enemy_0_2_catch_3.png in Resources */,
 				03F7E00A147F1E1C00F5AC1A /* enemy_0_2_fall.plist in Resources */,
 				03F7E00B147F1E1C00F5AC1A /* enemy_0_2_fall.png in Resources */,
-				03F7E00C147F1E1C00F5AC1A /* enemy_0_2_fall.zwd in Resources */,
 				03F7E00D147F1E1C00F5AC1A /* enemy_0_2_fall_0.png in Resources */,
 				03F7E00E147F1E1C00F5AC1A /* enemy_0_2_fall_1.png in Resources */,
 				03F7E00F147F1E1C00F5AC1A /* enemy_0_2_fall_2.png in Resources */,
 				03F7E010147F1E1C00F5AC1A /* enemy_0_2_hit.plist in Resources */,
 				03F7E011147F1E1C00F5AC1A /* enemy_0_2_hit.png in Resources */,
-				03F7E012147F1E1C00F5AC1A /* enemy_0_2_hit.zwd in Resources */,
 				03F7E013147F1E1C00F5AC1A /* enemy_0_2_hit_0.png in Resources */,
 				03F7E014147F1E1C00F5AC1A /* enemy_0_2_hit_1.png in Resources */,
 				03F7E015147F1E1C00F5AC1A /* enemy_0_2_hit_2.png in Resources */,
@@ -4224,11 +4120,9 @@
 				03F7E018147F1E1C00F5AC1A /* enemy_0_2_hit_5.png in Resources */,
 				03F7E019147F1E1C00F5AC1A /* enemy_0_2_idle.plist in Resources */,
 				03F7E01A147F1E1C00F5AC1A /* enemy_0_2_idle.png in Resources */,
-				03F7E01B147F1E1C00F5AC1A /* enemy_0_2_idle.zwd in Resources */,
 				03F7E01C147F1E1C00F5AC1A /* enemy_0_2_idle_0.png in Resources */,
 				03F7E01D147F1E1C00F5AC1A /* enemy_0_2_swim.plist in Resources */,
 				03F7E01E147F1E1C00F5AC1A /* enemy_0_2_swim.png in Resources */,
-				03F7E01F147F1E1C00F5AC1A /* enemy_0_2_swim.zwd in Resources */,
 				03F7E020147F1E1C00F5AC1A /* enemy_0_2_swim_0.png in Resources */,
 				03F7E021147F1E1C00F5AC1A /* enemy_0_2_swim_1.png in Resources */,
 				03F7E022147F1E1C00F5AC1A /* enemy_0_2_swim_2.png in Resources */,
@@ -4239,7 +4133,6 @@
 				03F7E027147F1E1C00F5AC1A /* enemy_0_2_swim_7.png in Resources */,
 				03F7E028147F1E1C00F5AC1A /* enemy_0_2_walk.plist in Resources */,
 				03F7E029147F1E1C00F5AC1A /* enemy_0_2_walk.png in Resources */,
-				03F7E02A147F1E1C00F5AC1A /* enemy_0_2_walk.zwd in Resources */,
 				03F7E02B147F1E1C00F5AC1A /* enemy_0_2_walk_0.png in Resources */,
 				03F7E02C147F1E1C00F5AC1A /* enemy_0_2_walk_1.png in Resources */,
 				03F7E02D147F1E1C00F5AC1A /* enemy_0_2_walk_2.png in Resources */,
@@ -4250,27 +4143,23 @@
 				03F7E032147F1E1C00F5AC1A /* enemy_0_2_walk_7.png in Resources */,
 				03F7E033147F1E1C00F5AC1A /* enemy_1_0_attack.plist in Resources */,
 				03F7E034147F1E1C00F5AC1A /* enemy_1_0_attack.png in Resources */,
-				03F7E035147F1E1C00F5AC1A /* enemy_1_0_attack.zwd in Resources */,
 				03F7E036147F1E1C00F5AC1A /* enemy_1_0_attack_0.png in Resources */,
 				03F7E037147F1E1C00F5AC1A /* enemy_1_0_attack_1.png in Resources */,
 				03F7E038147F1E1C00F5AC1A /* enemy_1_0_attack_2.png in Resources */,
 				03F7E039147F1E1C00F5AC1A /* enemy_1_0_attack_3.png in Resources */,
 				03F7E03A147F1E1C00F5AC1A /* enemy_1_0_catch.plist in Resources */,
 				03F7E03B147F1E1C00F5AC1A /* enemy_1_0_catch.png in Resources */,
-				03F7E03C147F1E1C00F5AC1A /* enemy_1_0_catch.zwd in Resources */,
 				03F7E03D147F1E1C00F5AC1A /* enemy_1_0_catch_0.png in Resources */,
 				03F7E03E147F1E1C00F5AC1A /* enemy_1_0_catch_1.png in Resources */,
 				03F7E03F147F1E1C00F5AC1A /* enemy_1_0_catch_2.png in Resources */,
 				03F7E040147F1E1C00F5AC1A /* enemy_1_0_catch_3.png in Resources */,
 				03F7E041147F1E1C00F5AC1A /* enemy_1_0_fall.plist in Resources */,
 				03F7E042147F1E1C00F5AC1A /* enemy_1_0_fall.png in Resources */,
-				03F7E043147F1E1C00F5AC1A /* enemy_1_0_fall.zwd in Resources */,
 				03F7E044147F1E1C00F5AC1A /* enemy_1_0_fall_0.png in Resources */,
 				03F7E045147F1E1C00F5AC1A /* enemy_1_0_fall_1.png in Resources */,
 				03F7E046147F1E1C00F5AC1A /* enemy_1_0_fall_2.png in Resources */,
 				03F7E047147F1E1C00F5AC1A /* enemy_1_0_hit.plist in Resources */,
 				03F7E048147F1E1C00F5AC1A /* enemy_1_0_hit.png in Resources */,
-				03F7E049147F1E1C00F5AC1A /* enemy_1_0_hit.zwd in Resources */,
 				03F7E04A147F1E1C00F5AC1A /* enemy_1_0_hit_0.png in Resources */,
 				03F7E04B147F1E1C00F5AC1A /* enemy_1_0_hit_1.png in Resources */,
 				03F7E04C147F1E1C00F5AC1A /* enemy_1_0_hit_2.png in Resources */,
@@ -4279,11 +4168,9 @@
 				03F7E04F147F1E1C00F5AC1A /* enemy_1_0_hit_5.png in Resources */,
 				03F7E050147F1E1C00F5AC1A /* enemy_1_0_idle.plist in Resources */,
 				03F7E051147F1E1C00F5AC1A /* enemy_1_0_idle.png in Resources */,
-				03F7E052147F1E1C00F5AC1A /* enemy_1_0_idle.zwd in Resources */,
 				03F7E053147F1E1C00F5AC1A /* enemy_1_0_idle_0.png in Resources */,
 				03F7E054147F1E1C00F5AC1A /* enemy_1_0_swim.plist in Resources */,
 				03F7E055147F1E1C00F5AC1A /* enemy_1_0_swim.png in Resources */,
-				03F7E056147F1E1C00F5AC1A /* enemy_1_0_swim.zwd in Resources */,
 				03F7E057147F1E1C00F5AC1A /* enemy_1_0_swim_0.png in Resources */,
 				03F7E058147F1E1C00F5AC1A /* enemy_1_0_swim_1.png in Resources */,
 				03F7E059147F1E1C00F5AC1A /* enemy_1_0_swim_2.png in Resources */,
@@ -4294,7 +4181,6 @@
 				03F7E05E147F1E1C00F5AC1A /* enemy_1_0_swim_7.png in Resources */,
 				03F7E05F147F1E1C00F5AC1A /* enemy_1_0_walk.plist in Resources */,
 				03F7E060147F1E1C00F5AC1A /* enemy_1_0_walk.png in Resources */,
-				03F7E061147F1E1C00F5AC1A /* enemy_1_0_walk.zwd in Resources */,
 				03F7E062147F1E1C00F5AC1A /* enemy_1_0_walk_0.png in Resources */,
 				03F7E063147F1E1C00F5AC1A /* enemy_1_0_walk_1.png in Resources */,
 				03F7E064147F1E1C00F5AC1A /* enemy_1_0_walk_2.png in Resources */,
@@ -4305,27 +4191,23 @@
 				03F7E069147F1E1C00F5AC1A /* enemy_1_0_walk_7.png in Resources */,
 				03F7E06A147F1E1C00F5AC1A /* enemy_1_1_attack.plist in Resources */,
 				03F7E06B147F1E1C00F5AC1A /* enemy_1_1_attack.png in Resources */,
-				03F7E06C147F1E1C00F5AC1A /* enemy_1_1_attack.zwd in Resources */,
 				03F7E06D147F1E1C00F5AC1A /* enemy_1_1_attack_0.png in Resources */,
 				03F7E06E147F1E1C00F5AC1A /* enemy_1_1_attack_1.png in Resources */,
 				03F7E06F147F1E1C00F5AC1A /* enemy_1_1_attack_2.png in Resources */,
 				03F7E070147F1E1C00F5AC1A /* enemy_1_1_attack_3.png in Resources */,
 				03F7E071147F1E1C00F5AC1A /* enemy_1_1_catch.plist in Resources */,
 				03F7E072147F1E1C00F5AC1A /* enemy_1_1_catch.png in Resources */,
-				03F7E073147F1E1C00F5AC1A /* enemy_1_1_catch.zwd in Resources */,
 				03F7E074147F1E1C00F5AC1A /* enemy_1_1_catch_0.png in Resources */,
 				03F7E075147F1E1C00F5AC1A /* enemy_1_1_catch_1.png in Resources */,
 				03F7E076147F1E1C00F5AC1A /* enemy_1_1_catch_2.png in Resources */,
 				03F7E077147F1E1C00F5AC1A /* enemy_1_1_catch_3.png in Resources */,
 				03F7E078147F1E1C00F5AC1A /* enemy_1_1_fall.plist in Resources */,
 				03F7E079147F1E1C00F5AC1A /* enemy_1_1_fall.png in Resources */,
-				03F7E07A147F1E1C00F5AC1A /* enemy_1_1_fall.zwd in Resources */,
 				03F7E07B147F1E1C00F5AC1A /* enemy_1_1_fall_0.png in Resources */,
 				03F7E07C147F1E1C00F5AC1A /* enemy_1_1_fall_1.png in Resources */,
 				03F7E07D147F1E1C00F5AC1A /* enemy_1_1_fall_2.png in Resources */,
 				03F7E07E147F1E1C00F5AC1A /* enemy_1_1_hit.plist in Resources */,
 				03F7E07F147F1E1C00F5AC1A /* enemy_1_1_hit.png in Resources */,
-				03F7E080147F1E1C00F5AC1A /* enemy_1_1_hit.zwd in Resources */,
 				03F7E081147F1E1C00F5AC1A /* enemy_1_1_hit_0.png in Resources */,
 				03F7E082147F1E1C00F5AC1A /* enemy_1_1_hit_1.png in Resources */,
 				03F7E083147F1E1C00F5AC1A /* enemy_1_1_hit_2.png in Resources */,
@@ -4334,11 +4216,9 @@
 				03F7E086147F1E1C00F5AC1A /* enemy_1_1_hit_5.png in Resources */,
 				03F7E087147F1E1C00F5AC1A /* enemy_1_1_idle.plist in Resources */,
 				03F7E088147F1E1C00F5AC1A /* enemy_1_1_idle.png in Resources */,
-				03F7E089147F1E1C00F5AC1A /* enemy_1_1_idle.zwd in Resources */,
 				03F7E08A147F1E1C00F5AC1A /* enemy_1_1_idle_0.png in Resources */,
 				03F7E08B147F1E1C00F5AC1A /* enemy_1_1_swim.plist in Resources */,
 				03F7E08C147F1E1C00F5AC1A /* enemy_1_1_swim.png in Resources */,
-				03F7E08D147F1E1C00F5AC1A /* enemy_1_1_swim.zwd in Resources */,
 				03F7E08E147F1E1C00F5AC1A /* enemy_1_1_swim_0.png in Resources */,
 				03F7E08F147F1E1C00F5AC1A /* enemy_1_1_swim_1.png in Resources */,
 				03F7E090147F1E1C00F5AC1A /* enemy_1_1_swim_2.png in Resources */,
@@ -4349,7 +4229,6 @@
 				03F7E095147F1E1C00F5AC1A /* enemy_1_1_swim_7.png in Resources */,
 				03F7E096147F1E1C00F5AC1A /* enemy_1_1_walk.plist in Resources */,
 				03F7E097147F1E1C00F5AC1A /* enemy_1_1_walk.png in Resources */,
-				03F7E098147F1E1C00F5AC1A /* enemy_1_1_walk.zwd in Resources */,
 				03F7E099147F1E1C00F5AC1A /* enemy_1_1_walk_0.png in Resources */,
 				03F7E09A147F1E1C00F5AC1A /* enemy_1_1_walk_1.png in Resources */,
 				03F7E09B147F1E1C00F5AC1A /* enemy_1_1_walk_2.png in Resources */,
@@ -4360,27 +4239,23 @@
 				03F7E0A0147F1E1C00F5AC1A /* enemy_1_1_walk_7.png in Resources */,
 				03F7E0A1147F1E1C00F5AC1A /* enemy_1_2_attack.plist in Resources */,
 				03F7E0A2147F1E1C00F5AC1A /* enemy_1_2_attack.png in Resources */,
-				03F7E0A3147F1E1C00F5AC1A /* enemy_1_2_attack.zwd in Resources */,
 				03F7E0A4147F1E1C00F5AC1A /* enemy_1_2_attack_0.png in Resources */,
 				03F7E0A5147F1E1C00F5AC1A /* enemy_1_2_attack_1.png in Resources */,
 				03F7E0A6147F1E1C00F5AC1A /* enemy_1_2_attack_2.png in Resources */,
 				03F7E0A7147F1E1C00F5AC1A /* enemy_1_2_attack_3.png in Resources */,
 				03F7E0A8147F1E1C00F5AC1A /* enemy_1_2_catch.plist in Resources */,
 				03F7E0A9147F1E1C00F5AC1A /* enemy_1_2_catch.png in Resources */,
-				03F7E0AA147F1E1C00F5AC1A /* enemy_1_2_catch.zwd in Resources */,
 				03F7E0AB147F1E1C00F5AC1A /* enemy_1_2_catch_0.png in Resources */,
 				03F7E0AC147F1E1C00F5AC1A /* enemy_1_2_catch_1.png in Resources */,
 				03F7E0AD147F1E1C00F5AC1A /* enemy_1_2_catch_2.png in Resources */,
 				03F7E0AE147F1E1C00F5AC1A /* enemy_1_2_catch_3.png in Resources */,
 				03F7E0AF147F1E1C00F5AC1A /* enemy_1_2_fall.plist in Resources */,
 				03F7E0B0147F1E1C00F5AC1A /* enemy_1_2_fall.png in Resources */,
-				03F7E0B1147F1E1C00F5AC1A /* enemy_1_2_fall.zwd in Resources */,
 				03F7E0B2147F1E1C00F5AC1A /* enemy_1_2_fall_0.png in Resources */,
 				03F7E0B3147F1E1C00F5AC1A /* enemy_1_2_fall_1.png in Resources */,
 				03F7E0B4147F1E1C00F5AC1A /* enemy_1_2_fall_2.png in Resources */,
 				03F7E0B5147F1E1C00F5AC1A /* enemy_1_2_hit.plist in Resources */,
 				03F7E0B6147F1E1C00F5AC1A /* enemy_1_2_hit.png in Resources */,
-				03F7E0B7147F1E1C00F5AC1A /* enemy_1_2_hit.zwd in Resources */,
 				03F7E0B8147F1E1C00F5AC1A /* enemy_1_2_hit_0.png in Resources */,
 				03F7E0B9147F1E1C00F5AC1A /* enemy_1_2_hit_1.png in Resources */,
 				03F7E0BA147F1E1C00F5AC1A /* enemy_1_2_hit_2.png in Resources */,
@@ -4389,11 +4264,9 @@
 				03F7E0BD147F1E1C00F5AC1A /* enemy_1_2_hit_5.png in Resources */,
 				03F7E0BE147F1E1C00F5AC1A /* enemy_1_2_idle.plist in Resources */,
 				03F7E0BF147F1E1C00F5AC1A /* enemy_1_2_idle.png in Resources */,
-				03F7E0C0147F1E1C00F5AC1A /* enemy_1_2_idle.zwd in Resources */,
 				03F7E0C1147F1E1C00F5AC1A /* enemy_1_2_idle_0.png in Resources */,
 				03F7E0C2147F1E1C00F5AC1A /* enemy_1_2_swim.plist in Resources */,
 				03F7E0C3147F1E1C00F5AC1A /* enemy_1_2_swim.png in Resources */,
-				03F7E0C4147F1E1C00F5AC1A /* enemy_1_2_swim.zwd in Resources */,
 				03F7E0C5147F1E1C00F5AC1A /* enemy_1_2_swim_0.png in Resources */,
 				03F7E0C6147F1E1C00F5AC1A /* enemy_1_2_swim_1.png in Resources */,
 				03F7E0C7147F1E1C00F5AC1A /* enemy_1_2_swim_2.png in Resources */,
@@ -4404,7 +4277,6 @@
 				03F7E0CC147F1E1C00F5AC1A /* enemy_1_2_swim_7.png in Resources */,
 				03F7E0CD147F1E1C00F5AC1A /* enemy_1_2_walk.plist in Resources */,
 				03F7E0CE147F1E1C00F5AC1A /* enemy_1_2_walk.png in Resources */,
-				03F7E0CF147F1E1C00F5AC1A /* enemy_1_2_walk.zwd in Resources */,
 				03F7E0D0147F1E1C00F5AC1A /* enemy_1_2_walk_0.png in Resources */,
 				03F7E0D1147F1E1C00F5AC1A /* enemy_1_2_walk_1.png in Resources */,
 				03F7E0D2147F1E1C00F5AC1A /* enemy_1_2_walk_2.png in Resources */,
@@ -4415,27 +4287,23 @@
 				03F7E0D7147F1E1C00F5AC1A /* enemy_1_2_walk_7.png in Resources */,
 				03F7E0D8147F1E1C00F5AC1A /* enemy_2_0_attack.plist in Resources */,
 				03F7E0D9147F1E1C00F5AC1A /* enemy_2_0_attack.png in Resources */,
-				03F7E0DA147F1E1C00F5AC1A /* enemy_2_0_attack.zwd in Resources */,
 				03F7E0DB147F1E1C00F5AC1A /* enemy_2_0_attack_0.png in Resources */,
 				03F7E0DC147F1E1C00F5AC1A /* enemy_2_0_attack_1.png in Resources */,
 				03F7E0DD147F1E1C00F5AC1A /* enemy_2_0_attack_2.png in Resources */,
 				03F7E0DE147F1E1C00F5AC1A /* enemy_2_0_attack_3.png in Resources */,
 				03F7E0DF147F1E1C00F5AC1A /* enemy_2_0_catch.plist in Resources */,
 				03F7E0E0147F1E1C00F5AC1A /* enemy_2_0_catch.png in Resources */,
-				03F7E0E1147F1E1C00F5AC1A /* enemy_2_0_catch.zwd in Resources */,
 				03F7E0E2147F1E1C00F5AC1A /* enemy_2_0_catch_0.png in Resources */,
 				03F7E0E3147F1E1C00F5AC1A /* enemy_2_0_catch_1.png in Resources */,
 				03F7E0E4147F1E1C00F5AC1A /* enemy_2_0_catch_2.png in Resources */,
 				03F7E0E5147F1E1C00F5AC1A /* enemy_2_0_catch_3.png in Resources */,
 				03F7E0E6147F1E1C00F5AC1A /* enemy_2_0_fall.plist in Resources */,
 				03F7E0E7147F1E1C00F5AC1A /* enemy_2_0_fall.png in Resources */,
-				03F7E0E8147F1E1C00F5AC1A /* enemy_2_0_fall.zwd in Resources */,
 				03F7E0E9147F1E1C00F5AC1A /* enemy_2_0_fall_0.png in Resources */,
 				03F7E0EA147F1E1C00F5AC1A /* enemy_2_0_fall_1.png in Resources */,
 				03F7E0EB147F1E1C00F5AC1A /* enemy_2_0_fall_2.png in Resources */,
 				03F7E0EC147F1E1C00F5AC1A /* enemy_2_0_hit.plist in Resources */,
 				03F7E0ED147F1E1C00F5AC1A /* enemy_2_0_hit.png in Resources */,
-				03F7E0EE147F1E1C00F5AC1A /* enemy_2_0_hit.zwd in Resources */,
 				03F7E0EF147F1E1C00F5AC1A /* enemy_2_0_hit_0.png in Resources */,
 				03F7E0F0147F1E1C00F5AC1A /* enemy_2_0_hit_1.png in Resources */,
 				03F7E0F1147F1E1C00F5AC1A /* enemy_2_0_hit_2.png in Resources */,
@@ -4444,11 +4312,9 @@
 				03F7E0F4147F1E1C00F5AC1A /* enemy_2_0_hit_5.png in Resources */,
 				03F7E0F5147F1E1C00F5AC1A /* enemy_2_0_idle.plist in Resources */,
 				03F7E0F6147F1E1C00F5AC1A /* enemy_2_0_idle.png in Resources */,
-				03F7E0F7147F1E1C00F5AC1A /* enemy_2_0_idle.zwd in Resources */,
 				03F7E0F8147F1E1C00F5AC1A /* enemy_2_0_idle_0.png in Resources */,
 				03F7E0F9147F1E1C00F5AC1A /* enemy_2_0_swim.plist in Resources */,
 				03F7E0FA147F1E1C00F5AC1A /* enemy_2_0_swim.png in Resources */,
-				03F7E0FB147F1E1C00F5AC1A /* enemy_2_0_swim.zwd in Resources */,
 				03F7E0FC147F1E1C00F5AC1A /* enemy_2_0_swim_0.png in Resources */,
 				03F7E0FD147F1E1C00F5AC1A /* enemy_2_0_swim_1.png in Resources */,
 				03F7E0FE147F1E1C00F5AC1A /* enemy_2_0_swim_2.png in Resources */,
@@ -4459,7 +4325,6 @@
 				03F7E103147F1E1C00F5AC1A /* enemy_2_0_swim_7.png in Resources */,
 				03F7E104147F1E1C00F5AC1A /* enemy_2_0_walk.plist in Resources */,
 				03F7E105147F1E1C00F5AC1A /* enemy_2_0_walk.png in Resources */,
-				03F7E106147F1E1C00F5AC1A /* enemy_2_0_walk.zwd in Resources */,
 				03F7E107147F1E1C00F5AC1A /* enemy_2_0_walk_0.png in Resources */,
 				03F7E108147F1E1C00F5AC1A /* enemy_2_0_walk_1.png in Resources */,
 				03F7E109147F1E1C00F5AC1A /* enemy_2_0_walk_2.png in Resources */,
@@ -4470,27 +4335,23 @@
 				03F7E10E147F1E1C00F5AC1A /* enemy_2_0_walk_7.png in Resources */,
 				03F7E10F147F1E1C00F5AC1A /* enemy_2_1_attack.plist in Resources */,
 				03F7E110147F1E1C00F5AC1A /* enemy_2_1_attack.png in Resources */,
-				03F7E111147F1E1C00F5AC1A /* enemy_2_1_attack.zwd in Resources */,
 				03F7E112147F1E1C00F5AC1A /* enemy_2_1_attack_0.png in Resources */,
 				03F7E113147F1E1C00F5AC1A /* enemy_2_1_attack_1.png in Resources */,
 				03F7E114147F1E1C00F5AC1A /* enemy_2_1_attack_2.png in Resources */,
 				03F7E115147F1E1C00F5AC1A /* enemy_2_1_attack_3.png in Resources */,
 				03F7E116147F1E1C00F5AC1A /* enemy_2_1_catch.plist in Resources */,
 				03F7E117147F1E1C00F5AC1A /* enemy_2_1_catch.png in Resources */,
-				03F7E118147F1E1C00F5AC1A /* enemy_2_1_catch.zwd in Resources */,
 				03F7E119147F1E1C00F5AC1A /* enemy_2_1_catch_0.png in Resources */,
 				03F7E11A147F1E1C00F5AC1A /* enemy_2_1_catch_1.png in Resources */,
 				03F7E11B147F1E1C00F5AC1A /* enemy_2_1_catch_2.png in Resources */,
 				03F7E11C147F1E1C00F5AC1A /* enemy_2_1_catch_3.png in Resources */,
 				03F7E11D147F1E1C00F5AC1A /* enemy_2_1_fall.plist in Resources */,
 				03F7E11E147F1E1C00F5AC1A /* enemy_2_1_fall.png in Resources */,
-				03F7E11F147F1E1C00F5AC1A /* enemy_2_1_fall.zwd in Resources */,
 				03F7E120147F1E1C00F5AC1A /* enemy_2_1_fall_0.png in Resources */,
 				03F7E121147F1E1C00F5AC1A /* enemy_2_1_fall_1.png in Resources */,
 				03F7E122147F1E1C00F5AC1A /* enemy_2_1_fall_2.png in Resources */,
 				03F7E123147F1E1C00F5AC1A /* enemy_2_1_hit.plist in Resources */,
 				03F7E124147F1E1C00F5AC1A /* enemy_2_1_hit.png in Resources */,
-				03F7E125147F1E1C00F5AC1A /* enemy_2_1_hit.zwd in Resources */,
 				03F7E126147F1E1C00F5AC1A /* enemy_2_1_hit_0.png in Resources */,
 				03F7E127147F1E1C00F5AC1A /* enemy_2_1_hit_1.png in Resources */,
 				03F7E128147F1E1C00F5AC1A /* enemy_2_1_hit_2.png in Resources */,
@@ -4499,11 +4360,9 @@
 				03F7E12B147F1E1C00F5AC1A /* enemy_2_1_hit_5.png in Resources */,
 				03F7E12C147F1E1C00F5AC1A /* enemy_2_1_idle.plist in Resources */,
 				03F7E12D147F1E1C00F5AC1A /* enemy_2_1_idle.png in Resources */,
-				03F7E12E147F1E1C00F5AC1A /* enemy_2_1_idle.zwd in Resources */,
 				03F7E12F147F1E1C00F5AC1A /* enemy_2_1_idle_0.png in Resources */,
 				03F7E130147F1E1C00F5AC1A /* enemy_2_1_swim.plist in Resources */,
 				03F7E131147F1E1C00F5AC1A /* enemy_2_1_swim.png in Resources */,
-				03F7E132147F1E1C00F5AC1A /* enemy_2_1_swim.zwd in Resources */,
 				03F7E133147F1E1C00F5AC1A /* enemy_2_1_swim_0.png in Resources */,
 				03F7E134147F1E1C00F5AC1A /* enemy_2_1_swim_1.png in Resources */,
 				03F7E135147F1E1C00F5AC1A /* enemy_2_1_swim_2.png in Resources */,
@@ -4514,7 +4373,6 @@
 				03F7E13A147F1E1C00F5AC1A /* enemy_2_1_swim_7.png in Resources */,
 				03F7E13B147F1E1C00F5AC1A /* enemy_2_1_walk.plist in Resources */,
 				03F7E13C147F1E1C00F5AC1A /* enemy_2_1_walk.png in Resources */,
-				03F7E13D147F1E1C00F5AC1A /* enemy_2_1_walk.zwd in Resources */,
 				03F7E13E147F1E1C00F5AC1A /* enemy_2_1_walk_0.png in Resources */,
 				03F7E13F147F1E1C00F5AC1A /* enemy_2_1_walk_1.png in Resources */,
 				03F7E140147F1E1C00F5AC1A /* enemy_2_1_walk_2.png in Resources */,
@@ -4525,27 +4383,23 @@
 				03F7E145147F1E1C00F5AC1A /* enemy_2_1_walk_7.png in Resources */,
 				03F7E146147F1E1C00F5AC1A /* enemy_2_2_attack.plist in Resources */,
 				03F7E147147F1E1C00F5AC1A /* enemy_2_2_attack.png in Resources */,
-				03F7E148147F1E1C00F5AC1A /* enemy_2_2_attack.zwd in Resources */,
 				03F7E149147F1E1C00F5AC1A /* enemy_2_2_attack_0.png in Resources */,
 				03F7E14A147F1E1C00F5AC1A /* enemy_2_2_attack_1.png in Resources */,
 				03F7E14B147F1E1C00F5AC1A /* enemy_2_2_attack_2.png in Resources */,
 				03F7E14C147F1E1C00F5AC1A /* enemy_2_2_attack_3.png in Resources */,
 				03F7E14D147F1E1C00F5AC1A /* enemy_2_2_catch.plist in Resources */,
 				03F7E14E147F1E1C00F5AC1A /* enemy_2_2_catch.png in Resources */,
-				03F7E14F147F1E1C00F5AC1A /* enemy_2_2_catch.zwd in Resources */,
 				03F7E150147F1E1C00F5AC1A /* enemy_2_2_catch_0.png in Resources */,
 				03F7E151147F1E1C00F5AC1A /* enemy_2_2_catch_1.png in Resources */,
 				03F7E152147F1E1C00F5AC1A /* enemy_2_2_catch_2.png in Resources */,
 				03F7E153147F1E1C00F5AC1A /* enemy_2_2_catch_3.png in Resources */,
 				03F7E154147F1E1C00F5AC1A /* enemy_2_2_fall.plist in Resources */,
 				03F7E155147F1E1C00F5AC1A /* enemy_2_2_fall.png in Resources */,
-				03F7E156147F1E1C00F5AC1A /* enemy_2_2_fall.zwd in Resources */,
 				03F7E157147F1E1C00F5AC1A /* enemy_2_2_fall_0.png in Resources */,
 				03F7E158147F1E1C00F5AC1A /* enemy_2_2_fall_1.png in Resources */,
 				03F7E159147F1E1C00F5AC1A /* enemy_2_2_fall_2.png in Resources */,
 				03F7E15A147F1E1C00F5AC1A /* enemy_2_2_hit.plist in Resources */,
 				03F7E15B147F1E1C00F5AC1A /* enemy_2_2_hit.png in Resources */,
-				03F7E15C147F1E1C00F5AC1A /* enemy_2_2_hit.zwd in Resources */,
 				03F7E15D147F1E1C00F5AC1A /* enemy_2_2_hit_0.png in Resources */,
 				03F7E15E147F1E1C00F5AC1A /* enemy_2_2_hit_1.png in Resources */,
 				03F7E15F147F1E1C00F5AC1A /* enemy_2_2_hit_2.png in Resources */,
@@ -4554,11 +4408,9 @@
 				03F7E162147F1E1C00F5AC1A /* enemy_2_2_hit_5.png in Resources */,
 				03F7E163147F1E1C00F5AC1A /* enemy_2_2_idle.plist in Resources */,
 				03F7E164147F1E1C00F5AC1A /* enemy_2_2_idle.png in Resources */,
-				03F7E165147F1E1C00F5AC1A /* enemy_2_2_idle.zwd in Resources */,
 				03F7E166147F1E1C00F5AC1A /* enemy_2_2_idle_0.png in Resources */,
 				03F7E167147F1E1C00F5AC1A /* enemy_2_2_swim.plist in Resources */,
 				03F7E168147F1E1C00F5AC1A /* enemy_2_2_swim.png in Resources */,
-				03F7E169147F1E1C00F5AC1A /* enemy_2_2_swim.zwd in Resources */,
 				03F7E16A147F1E1C00F5AC1A /* enemy_2_2_swim_0.png in Resources */,
 				03F7E16B147F1E1C00F5AC1A /* enemy_2_2_swim_1.png in Resources */,
 				03F7E16C147F1E1C00F5AC1A /* enemy_2_2_swim_2.png in Resources */,
@@ -4569,7 +4421,6 @@
 				03F7E171147F1E1C00F5AC1A /* enemy_2_2_swim_7.png in Resources */,
 				03F7E172147F1E1C00F5AC1A /* enemy_2_2_walk.plist in Resources */,
 				03F7E173147F1E1C00F5AC1A /* enemy_2_2_walk.png in Resources */,
-				03F7E174147F1E1C00F5AC1A /* enemy_2_2_walk.zwd in Resources */,
 				03F7E175147F1E1C00F5AC1A /* enemy_2_2_walk_0.png in Resources */,
 				03F7E176147F1E1C00F5AC1A /* enemy_2_2_walk_1.png in Resources */,
 				03F7E177147F1E1C00F5AC1A /* enemy_2_2_walk_2.png in Resources */,
@@ -4580,14 +4431,12 @@
 				03F7E17C147F1E1C00F5AC1A /* enemy_2_2_walk_7.png in Resources */,
 				03F7E17D147F1E1C00F5AC1A /* enemy_3_0_catch.plist in Resources */,
 				03F7E17E147F1E1C00F5AC1A /* enemy_3_0_catch.png in Resources */,
-				03F7E17F147F1E1C00F5AC1A /* enemy_3_0_catch.zwd in Resources */,
 				03F7E180147F1E1C00F5AC1A /* enemy_3_0_catch_0.png in Resources */,
 				03F7E181147F1E1C00F5AC1A /* enemy_3_0_catch_1.png in Resources */,
 				03F7E182147F1E1C00F5AC1A /* enemy_3_0_catch_2.png in Resources */,
 				03F7E183147F1E1C00F5AC1A /* enemy_3_0_catch_3.png in Resources */,
 				03F7E184147F1E1C00F5AC1A /* enemy_3_0_explosion.plist in Resources */,
 				03F7E185147F1E1C00F5AC1A /* enemy_3_0_explosion.png in Resources */,
-				03F7E186147F1E1C00F5AC1A /* enemy_3_0_explosion.zwd in Resources */,
 				03F7E187147F1E1C00F5AC1A /* enemy_3_0_explosion_0.png in Resources */,
 				03F7E188147F1E1C00F5AC1A /* enemy_3_0_explosion_1.png in Resources */,
 				03F7E189147F1E1C00F5AC1A /* enemy_3_0_explosion_2.png in Resources */,
@@ -4599,17 +4448,14 @@
 				03F7E18F147F1E1C00F5AC1A /* enemy_3_0_explosion_8.png in Resources */,
 				03F7E190147F1E1C00F5AC1A /* enemy_3_0_fall.plist in Resources */,
 				03F7E191147F1E1C00F5AC1A /* enemy_3_0_fall.png in Resources */,
-				03F7E192147F1E1C00F5AC1A /* enemy_3_0_fall.zwd in Resources */,
 				03F7E193147F1E1C00F5AC1A /* enemy_3_0_fall_0.png in Resources */,
 				03F7E194147F1E1C00F5AC1A /* enemy_3_0_fall_1.png in Resources */,
 				03F7E195147F1E1C00F5AC1A /* enemy_3_0_fall_2.png in Resources */,
 				03F7E196147F1E1C00F5AC1A /* enemy_3_0_idle.plist in Resources */,
 				03F7E197147F1E1C00F5AC1A /* enemy_3_0_idle.png in Resources */,
-				03F7E198147F1E1C00F5AC1A /* enemy_3_0_idle.zwd in Resources */,
 				03F7E199147F1E1C00F5AC1A /* enemy_3_0_idle_0.png in Resources */,
 				03F7E19A147F1E1C00F5AC1A /* enemy_3_0_walk.plist in Resources */,
 				03F7E19B147F1E1C00F5AC1A /* enemy_3_0_walk.png in Resources */,
-				03F7E19C147F1E1C00F5AC1A /* enemy_3_0_walk.zwd in Resources */,
 				03F7E19D147F1E1C00F5AC1A /* enemy_3_0_walk_0.png in Resources */,
 				03F7E19E147F1E1C00F5AC1A /* enemy_3_0_walk_1.png in Resources */,
 				03F7E19F147F1E1C00F5AC1A /* enemy_3_0_walk_2.png in Resources */,
@@ -4620,14 +4466,10 @@
 				03F7E1A4147F1E1C00F5AC1A /* enemy_3_0_walk_7.png in Resources */,
 				03F7E1A5147F1E1C00F5AC1A /* enemy_3_1_catch.plist in Resources */,
 				03F7E1A6147F1E1C00F5AC1A /* enemy_3_1_catch.png in Resources */,
-				03F7E1A7147F1E1C00F5AC1A /* enemy_3_1_catch.zwd in Resources */,
 				03F7E1A8147F1E1C00F5AC1A /* enemy_3_1_catch_0.png in Resources */,
 				03F7E1A9147F1E1C00F5AC1A /* enemy_3_1_catch_1.png in Resources */,
 				03F7E1AA147F1E1C00F5AC1A /* enemy_3_1_catch_2.png in Resources */,
 				03F7E1AB147F1E1C00F5AC1A /* enemy_3_1_catch_3.png in Resources */,
-				03F7E1AC147F1E1C00F5AC1A /* enemy_3_0_explosion.plist in Resources */,
-				03F7E1AD147F1E1C00F5AC1A /* enemy_3_0_explosion.png in Resources */,
-				03F7E1AE147F1E1C00F5AC1A /* enemy_3_0_explosion.zwd in Resources */,
 				03F7E1AF147F1E1C00F5AC1A /* enemy_3_1_explosion_0.png in Resources */,
 				03F7E1B0147F1E1C00F5AC1A /* enemy_3_1_explosion_1.png in Resources */,
 				03F7E1B1147F1E1C00F5AC1A /* enemy_3_1_explosion_2.png in Resources */,
@@ -4639,17 +4481,14 @@
 				03F7E1B7147F1E1C00F5AC1A /* enemy_3_1_explosion_8.png in Resources */,
 				03F7E1B8147F1E1C00F5AC1A /* enemy_3_1_fall.plist in Resources */,
 				03F7E1B9147F1E1C00F5AC1A /* enemy_3_1_fall.png in Resources */,
-				03F7E1BA147F1E1C00F5AC1A /* enemy_3_1_fall.zwd in Resources */,
 				03F7E1BB147F1E1C00F5AC1A /* enemy_3_1_fall_0.png in Resources */,
 				03F7E1BC147F1E1C00F5AC1A /* enemy_3_1_fall_1.png in Resources */,
 				03F7E1BD147F1E1C00F5AC1A /* enemy_3_1_fall_2.png in Resources */,
 				03F7E1BE147F1E1C00F5AC1A /* enemy_3_1_idle.plist in Resources */,
 				03F7E1BF147F1E1C00F5AC1A /* enemy_3_1_idle.png in Resources */,
-				03F7E1C0147F1E1C00F5AC1A /* enemy_3_1_idle.zwd in Resources */,
 				03F7E1C1147F1E1C00F5AC1A /* enemy_3_1_idle_0.png in Resources */,
 				03F7E1C2147F1E1C00F5AC1A /* enemy_3_1_walk.plist in Resources */,
 				03F7E1C3147F1E1C00F5AC1A /* enemy_3_1_walk.png in Resources */,
-				03F7E1C4147F1E1C00F5AC1A /* enemy_3_1_walk.zwd in Resources */,
 				03F7E1C5147F1E1C00F5AC1A /* enemy_3_1_walk_0.png in Resources */,
 				03F7E1C6147F1E1C00F5AC1A /* enemy_3_1_walk_1.png in Resources */,
 				03F7E1C7147F1E1C00F5AC1A /* enemy_3_1_walk_2.png in Resources */,
@@ -4660,14 +4499,10 @@
 				03F7E1CC147F1E1C00F5AC1A /* enemy_3_1_walk_7.png in Resources */,
 				03F7E1CD147F1E1C00F5AC1A /* enemy_3_2_catch.plist in Resources */,
 				03F7E1CE147F1E1C00F5AC1A /* enemy_3_2_catch.png in Resources */,
-				03F7E1CF147F1E1C00F5AC1A /* enemy_3_2_catch.zwd in Resources */,
 				03F7E1D0147F1E1C00F5AC1A /* enemy_3_2_catch_0.png in Resources */,
 				03F7E1D1147F1E1C00F5AC1A /* enemy_3_2_catch_1.png in Resources */,
 				03F7E1D2147F1E1C00F5AC1A /* enemy_3_2_catch_2.png in Resources */,
 				03F7E1D3147F1E1C00F5AC1A /* enemy_3_2_catch_3.png in Resources */,
-				03F7E1D4147F1E1C00F5AC1A /* enemy_3_0_explosion.plist in Resources */,
-				03F7E1D5147F1E1C00F5AC1A /* enemy_3_0_explosion.png in Resources */,
-				03F7E1D6147F1E1C00F5AC1A /* enemy_3_0_explosion.zwd in Resources */,
 				03F7E1D7147F1E1C00F5AC1A /* enemy_3_2_explosion_0.png in Resources */,
 				03F7E1D8147F1E1C00F5AC1A /* enemy_3_2_explosion_1.png in Resources */,
 				03F7E1D9147F1E1C00F5AC1A /* enemy_3_2_explosion_2.png in Resources */,
@@ -4679,17 +4514,14 @@
 				03F7E1DF147F1E1C00F5AC1A /* enemy_3_2_explosion_8.png in Resources */,
 				03F7E1E0147F1E1C00F5AC1A /* enemy_3_2_fall.plist in Resources */,
 				03F7E1E1147F1E1C00F5AC1A /* enemy_3_2_fall.png in Resources */,
-				03F7E1E2147F1E1C00F5AC1A /* enemy_3_2_fall.zwd in Resources */,
 				03F7E1E3147F1E1C00F5AC1A /* enemy_3_2_fall_0.png in Resources */,
 				03F7E1E4147F1E1C00F5AC1A /* enemy_3_2_fall_1.png in Resources */,
 				03F7E1E5147F1E1C00F5AC1A /* enemy_3_2_fall_2.png in Resources */,
 				03F7E1E6147F1E1C00F5AC1A /* enemy_3_2_idle.plist in Resources */,
 				03F7E1E7147F1E1C00F5AC1A /* enemy_3_2_idle.png in Resources */,
-				03F7E1E8147F1E1C00F5AC1A /* enemy_3_2_idle.zwd in Resources */,
 				03F7E1E9147F1E1C00F5AC1A /* enemy_3_2_idle_0.png in Resources */,
 				03F7E1EA147F1E1C00F5AC1A /* enemy_3_2_walk.plist in Resources */,
 				03F7E1EB147F1E1C00F5AC1A /* enemy_3_2_walk.png in Resources */,
-				03F7E1EC147F1E1C00F5AC1A /* enemy_3_2_walk.zwd in Resources */,
 				03F7E1ED147F1E1C00F5AC1A /* enemy_3_2_walk_0.png in Resources */,
 				03F7E1EE147F1E1C00F5AC1A /* enemy_3_2_walk_1.png in Resources */,
 				03F7E1EF147F1E1C00F5AC1A /* enemy_3_2_walk_2.png in Resources */,
@@ -4747,7 +4579,6 @@
 				03F7E223147F1E1C00F5AC1A /* pado03.png in Resources */,
 				03F7E224147F1E1C00F5AC1A /* plane.plist in Resources */,
 				03F7E225147F1E1C00F5AC1A /* plane.png in Resources */,
-				03F7E226147F1E1C00F5AC1A /* plane.zwd in Resources */,
 				03F7E227147F1E1C00F5AC1A /* EnemyInfoList.plist in Resources */,
 				03F7E228147F1E1C00F5AC1A /* SkillInfoList.plist in Resources */,
 				03F7E229147F1E1C00F5AC1A /* StageInfoList.plist in Resources */,
@@ -4772,7 +4603,6 @@
 				03F7E23C147F1E1C00F5AC1A /* skill_earthquake_off_btn.png in Resources */,
 				03F7E23D147F1E1C00F5AC1A /* skill_earthquake_on_btn.png in Resources */,
 				03F7E23E147F1E1C00F5AC1A /* skill_empty_btn.png in Resources */,
-				03F7E23F147F1E1C00F5AC1A /* skill_empty_btn.png.zip in Resources */,
 				03F7E240147F1E1C00F5AC1A /* skill_hp_off_btn.png in Resources */,
 				03F7E241147F1E1C00F5AC1A /* skill_hp_on_btn.png in Resources */,
 				03F7E242147F1E1C00F5AC1A /* skill_shadow.png in Resources */,
@@ -4782,7 +4612,7 @@
 				03F7E246147F1E1C00F5AC1A /* stone_big.png in Resources */,
 				03F7E247147F1E1C00F5AC1A /* stone_biggest.png in Resources */,
 				03F7E248147F1E1C00F5AC1A /* stone_middle.png in Resources */,
-				03F7E249147F1E1C00F5AC1A /* stone_samll.png in Resources */,
+				03F7E249147F1E1C00F5AC1A /* stone_small.png in Resources */,
 				03F7E24A147F1E1C00F5AC1A /* sky.png in Resources */,
 				03F7E24B147F1E1C00F5AC1A /* click.mp3 in Resources */,
 				03F7E24D147F1E1C00F5AC1A /* back_off_btn.png in Resources */,

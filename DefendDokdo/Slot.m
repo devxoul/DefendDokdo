@@ -23,34 +23,84 @@
             case SKILL_STATE_STONE: 
                 slotSprite = [CCSprite spriteWithFile:@"skill_stone_on_btn.png"];
                 selectedSprite = [CCSprite spriteWithFile:@"skill_stone_off_btn.png"];
+                [selectedSprite setAnchorPoint:ccp(0.5f, 0.5f)];
+                [selectedSprite setPosition:location];
+                [_layer addChild:selectedSprite];
+                [slotSprite setAnchorPoint:ccp(0.5f, 0.5f)];
+                [slotSprite setPosition:location];
+                [_layer addChild:slotSprite];
+
                 break;
             case SKILL_STATE_ARROW: 
                 slotSprite = [CCSprite spriteWithFile:@"skill_arrow_on_btn.png"];
                 selectedSprite = [CCSprite spriteWithFile:@"skill_arrow_off_btn.png"];
+                [selectedSprite setAnchorPoint:ccp(0.5f, 0.5f)];
+                [selectedSprite setPosition:location];
+                [_layer addChild:selectedSprite];
+                [slotSprite setAnchorPoint:ccp(0.5f, 0.5f)];
+                [slotSprite setPosition:location];
+                [_layer addChild:slotSprite];
+
                 break;
             case SKILL_STATE_HEALING: 
                 slotSprite = [CCSprite spriteWithFile:@"skill_hp_on_btn.png"];
                 selectedSprite = [CCSprite spriteWithFile:@"skill_hp_off_btn.png"];
+                [selectedSprite setAnchorPoint:ccp(0.5f, 0.5f)];
+                [selectedSprite setPosition:location];
+                [_layer addChild:selectedSprite];
+                [slotSprite setAnchorPoint:ccp(0.5f, 0.5f)];
+                [slotSprite setPosition:location];
+                [_layer addChild:slotSprite];
+
                 break;
             case SKILL_STATE_EARTHQUAKE: 
                 slotSprite = [CCSprite spriteWithFile:@"skill_earthquake_on_btn.png"];
                 selectedSprite = [CCSprite spriteWithFile:@"skill_earthquake_off_btn.png"];
+                [selectedSprite setAnchorPoint:ccp(0.5f, 0.5f)];
+                [selectedSprite setPosition:location];
+                [_layer addChild:selectedSprite];
+                [slotSprite setAnchorPoint:ccp(0.5f, 0.5f)];
+                [slotSprite setPosition:location];
+                [_layer addChild:slotSprite];
+
                 break;
             case SKILL_STATE_LOCK: 
                 //스킬 잠김
+                slotSprite = [CCSprite spriteWithFile:@"skill_empty_btn.png"];
+                selectedSprite = [CCSprite spriteWithFile:@"lock_img.png"];
+                [slotSprite setAnchorPoint:ccp(0.5f, 0.5f)];
+                [slotSprite setPosition:location];
+                [_layer addChild:slotSprite];
+                [selectedSprite setAnchorPoint:ccp(0.5f, 0.5f)];
+                [selectedSprite setPosition:location];
+                [_layer addChild:selectedSprite];
+
                 break;
-            default:
-                slotSprite = [CCSprite spriteWithFile:@"skill_empty_on_btn.png"];
-                selectedSprite = [CCSprite spriteWithFile:@"skill_stone_off_btn.png"];
+            case SKILL_STATE_EMPTY:
+                slotSprite = [CCSprite spriteWithFile:@"skill_empty_btn.png"];
+                selectedSprite = [CCSprite spriteWithFile:@"skill_empty_btn.png"];
+                [selectedSprite setAnchorPoint:ccp(0.5f, 0.5f)];
+                [selectedSprite setPosition:location];
+                [_layer addChild:selectedSprite];
+                [slotSprite setAnchorPoint:ccp(0.5f, 0.5f)];
+                [slotSprite setPosition:location];
+                [_layer addChild:slotSprite];
                 break;
+            default:  
+                slotSprite = [CCSprite spriteWithFile:@"lock_img.png"];
+                selectedSprite = [CCSprite spriteWithFile:@"lock_img.png"];
+                [selectedSprite setAnchorPoint:ccp(0.5f, 0.5f)];
+                [selectedSprite setPosition:location];
+                [_layer addChild:selectedSprite];
+                [slotSprite setAnchorPoint:ccp(0.5f, 0.5f)];
+                [slotSprite setPosition:location];
+                [_layer addChild:slotSprite];
+
+                break;
+                
         }
         
-        [selectedSprite setAnchorPoint:ccp(0.5f, 0.5f)];
-        [selectedSprite setPosition:location];
-        [_layer addChild:selectedSprite];
-        [slotSprite setAnchorPoint:ccp(0.5f, 0.5f)];
-        [slotSprite setPosition:location];
-        [_layer addChild:slotSprite];
+  
               
         return self;
     }

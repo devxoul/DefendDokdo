@@ -18,6 +18,9 @@
 	NSInteger mpSpeed;
 	
 	NSMutableArray *slots;
+	
+	NSInteger currentLoop;
+	NSInteger mpFrequency;
 }
 
 @property (nonatomic) NSInteger power;
