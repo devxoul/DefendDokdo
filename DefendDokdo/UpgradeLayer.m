@@ -30,6 +30,7 @@
 	{
         tabState = 0;
         buttonState = 0;
+        upgradeButtonState = 0;
         
         //배경
         //        upgradeBgSprite = [[CCSprite alloc] initWithFile:@"dokdo_bg.jpg"];
@@ -55,7 +56,7 @@
         tab3BgSprite.position = tab1BgSprite.position;
         [self addChild:tab3BgSprite z:-2];
         tab3BgSprite.visible = NO;
-		
+
         //왼쪽 탭버튼
         tab1 = [CCMenuItemImage itemFromNormalImage:@"upgrade_on_tab_btn.png" selectedImage:@"upgrade_off_tab_btn.png" target:self selector:@selector(tab1Clicked:)];
         tab1.anchorPoint = CGPointZero;
@@ -327,8 +328,6 @@
         [slot_earthquake3 setPosition:ccp(246.5, 269)];
         [self addChild:slot_earthquake3 z:9];
         
-        
-        
         lock1.visible = NO;
         
         slot_stone1.visible = NO;
@@ -347,6 +346,7 @@
         slot_earthquake2.visible = NO;
         slot_earthquake3.visible = NO;
         
+        //나갔다 들어와도 슬롯 정보 유지    
         switch ([[[[UserData userData] userSkillSlot] objectForKey:@"1"] integerValue]) {
             case SKILL_STATE_STONE:
                 [slot_stone1 setVisible:YES];
@@ -391,8 +391,6 @@
                 [slot_earthquake3 setVisible:YES];
                 break;                
         }
-        
-        
         //게임머니
         //        moneyLabel = [[CCLabelTTF labelWithString:[NSString stringWithFormat:@"1000"] fontName:@"NanumScript.ttf" fontSize:70] retain];
         //        
@@ -486,6 +484,9 @@
 
 -(void)tab1Clicked:(id)sender{
     
+    if(upgradeButtonState == 1)
+        return;
+    
     tab1BgSprite.visible = YES;
     tab2BgSprite.visible = NO;
     tab3BgSprite.visible = NO;
@@ -538,6 +539,9 @@
 
 -(void)tab2Clicked:(id)sender{
     
+    if(upgradeButtonState == 1)
+        return;
+    
     tab1BgSprite.visible = NO;
     tab2BgSprite.visible = YES;
     tab3BgSprite.visible = NO;
@@ -578,6 +582,9 @@
 
 -(void)tab3Clicked:(id)sender{
     
+    if(upgradeButtonState == 1)
+        return;
+
     tab1BgSprite.visible = NO;
     tab2BgSprite.visible = NO;
     tab3BgSprite.visible = YES;
@@ -617,6 +624,9 @@
 
 -(void)selectButton1:(id)sender{
     
+    if(upgradeButtonState == 1)
+        return;
+    
     buttonState = 1;
     
     switch (tabState) {
@@ -643,6 +653,9 @@
 }
 
 -(void)selectButton2:(id)sender{
+    
+    if(upgradeButtonState == 1)
+        return;
     
     buttonState = 2;
     
@@ -671,6 +684,9 @@
 
 -(void)selectButton3:(id)sender{
     
+    if(upgradeButtonState == 1)
+        return;
+    
     buttonState = 3;
     
     switch (tabState) {
@@ -697,6 +713,9 @@
 }
 
 -(void)selectButton4:(id)sender{
+    
+    if(upgradeButtonState == 1)
+        return;
     
     buttonState = 4;
     
@@ -725,165 +744,221 @@
 
 -(void)upgradeItem{
     
-    switch (tabState) {
-        case 0:
+    if(upgradeButtonState == 1)
+        return;
+    
+        popSpr = [[CCSprite alloc] initWithFile:@"small_popup.png"];
+        [popSpr setAnchorPoint:ccp(0.5, 0.5)];
+        [popSpr setPosition:ccp(240, 160)];
+        [self addChild:popSpr z:13];
+        
+        label = [CCLabelTTF labelWithString:@"really?" fontName:@"NanumScript.ttf" fontSize:55];
+        label.color = ccWHITE;
+        label.anchorPoint = ccp(0.5, 0.5);
+        label.position = ccp(245, 190);
+        [self addChild:label z:14];
+        
+        CCMenuItemImage* yes;    
+        CCMenuItemImage* no;
+        
+        upgradeButtonState = 1;
+
+        
+        yes = [CCMenuItemImage itemFromNormalImage:@"yes_off_btn.png" selectedImage:@"yes_on_btn.png" block:^(id sender) {
+//            BOOL result;
+//            result = [[UserData userData] removeToFile];
+//            
             
-            switch (buttonState) {
-                case 1:
-                    if([UserData userData].flagLevel < 8){
-                        [UserData userData].flagLevel++; 
-                        [[UserData userData] saveToFile];
-                        
-                        [upgradeLabel1 setString:[NSString stringWithFormat:@"Lv %d",[[UserData userData] flagLevel]]];
-                        [upgradeLabel2 setString:[NSString stringWithFormat:@"%d G", [[SkillData skillData] getSkillPrice:UPGRADE_TYPE_FLAG :[[UserData userData] flagLevel]]]];
+            
+            switch (tabState) {
+                case 0:
+                    
+                    switch (buttonState) {
+                        case 1:
+                            if ([UserData userData].flagLevel < 8){
+                            [UserData userData].flagLevel++; 
+                            [[UserData userData] saveToFile];
+                            
+                            [upgradeLabel1 setString:[NSString stringWithFormat:@"Lv %d",[[UserData userData] flagLevel]]];
+                            [upgradeLabel2 setString:[NSString stringWithFormat:@"%d G", [[SkillData skillData] getSkillPrice:UPGRADE_TYPE_FLAG :[[UserData userData] flagLevel]]]];
+                            }
+                            break;
+                            
+                        case 2:
+                            if ([UserData userData].userAtkLevel < 20){
+                            [UserData userData].userAtkLevel++; 
+                            [[UserData userData] saveToFile];
+                            
+                            [upgradeLabel3 setString:[NSString stringWithFormat:@"Lv %d",[[UserData userData] userAtkLevel]]];
+                            [upgradeLabel4 setString:[NSString stringWithFormat:@"%d G", [[SkillData skillData] getSkillPrice:UPGRADE_TYPE_ATTACK :[[UserData userData] userAtkLevel]]]];
+                            }
+                            break;
+                            
+                        case 3:
+                            if ([UserData userData].userMaxMpLevel < 20){
+                            [UserData userData].userMaxMpLevel++; 
+                            [[UserData userData] saveToFile];
+                            
+                            [upgradeLabel5 setString:[NSString stringWithFormat:@"Lv %d",[[UserData userData] userMaxMpLevel]]];
+                            [upgradeLabel6 setString:[NSString stringWithFormat:@"%d G", [[SkillData skillData] getSkillPrice:UPGRADE_TYPE_MAXMP :[[UserData userData] userMaxMpLevel]]]];
+                            }
+                            break;
+                            
+                        case 4:
+                            if ([UserData userData].userMPspeedLevel < 20){
+                            [UserData userData].userMPspeedLevel++; 
+                            [[UserData userData] saveToFile];
+                            
+                            [upgradeLabel7 setString:[NSString stringWithFormat:@"Lv %d",[[UserData userData] userMPspeedLevel]]];
+                            [upgradeLabel8 setString:[NSString stringWithFormat:@"%d G", [[SkillData skillData] getSkillPrice:UPGRADE_TYPE_REGENMP :[[UserData userData] userMPspeedLevel]]]];
+                            }
+                            break;
+                            
+                        default:
+                            break;
                     }
+                    
+                    break;
+                    
+                case 1:
+                    
+                    switch (buttonState) {
+                        case 1:
+                            if ([UserData userData].stoneLevel < 20){
+                                [UserData userData].stoneLevel++; 
+                                [[UserData userData] saveToFile];
+                                
+                                [upgradeLabel1 setString:[NSString stringWithFormat:@"Lv %d",[[UserData userData] stoneLevel]]];
+                                [upgradeLabel2 setString:[NSString stringWithFormat:@"%d G", [[SkillData skillData] getSkillPrice:SKILL_STATE_STONE :[[UserData userData] stoneLevel]]]];
+                            }
+                            
+                            selectMenu1.visible = NO;
+                            
+                            break;
+                            
+                        case 2:
+                            if ([UserData userData].arrowLevel < 20){
+                                [UserData userData].arrowLevel++; 
+                                [[UserData userData] saveToFile];
+                                
+                                [upgradeLabel3 setString:[NSString stringWithFormat:@"Lv %d",[[UserData userData] arrowLevel]]];
+                                [upgradeLabel4 setString:[NSString stringWithFormat:@"%d G", [[SkillData skillData] getSkillPrice:SKILL_STATE_ARROW :[[UserData userData] arrowLevel]]]];
+                            }
+                            
+                            selectMenu2.visible = NO;
+                            
+                            break;
+                            
+                        case 3:
+                            if ([UserData userData].hillLevel < 20){
+                                [UserData userData].hillLevel++; 
+                                [[UserData userData] saveToFile];
+                                
+                                [upgradeLabel5 setString:[NSString stringWithFormat:@"Lv %d",[[UserData userData] hillLevel]]];
+                                [upgradeLabel6 setString:[NSString stringWithFormat:@"%d G", [[SkillData skillData] getSkillPrice:SKILL_STATE_HEALING :[[UserData userData] hillLevel]]]];
+                            }
+                            
+                            selectMenu3.visible = NO;
+                            
+                            break;
+                            
+                        case 4:
+                            if ([UserData userData].earthquakeLevel < 20){
+                                [UserData userData].earthquakeLevel++; 
+                                [[UserData userData] saveToFile];
+                                
+                                [upgradeLabel7 setString:[NSString stringWithFormat:@"Lv %d",[[UserData userData] earthquakeLevel]]];
+                                [upgradeLabel8 setString:[NSString stringWithFormat:@"%d G", [[SkillData skillData] getSkillPrice:SKILL_STATE_EARTHQUAKE :[[UserData userData] earthquakeLevel]]]];
+                            }
+                            
+                            selectMenu4.visible = NO;
+                            
+                            break;
+                            
+                        default:
+                            break;
+                    }
+                    
                     break;
                     
                 case 2:
-                    if([UserData userData].userAtkLevel < 20){
-                        [UserData userData].userAtkLevel++; 
-                        [[UserData userData] saveToFile];
-                        
-                        [upgradeLabel3 setString:[NSString stringWithFormat:@"Lv %d",[[UserData userData] userAtkLevel]]];
-                        [upgradeLabel4 setString:[NSString stringWithFormat:@"%d G", [[SkillData skillData] getSkillPrice:UPGRADE_TYPE_ATTACK :[[UserData userData] userAtkLevel]]]];
-                    }
-                    break;
                     
-                case 3:
-                    if([UserData userData].userMaxMpLevel < 20){
-                        [UserData userData].userMaxMpLevel++; 
-                        [[UserData userData] saveToFile];
-                        
-                        [upgradeLabel5 setString:[NSString stringWithFormat:@"Lv %d",[[UserData userData] userMaxMpLevel]]];
-                        [upgradeLabel6 setString:[NSString stringWithFormat:@"%d G", [[SkillData skillData] getSkillPrice:UPGRADE_TYPE_MAXMP :[[UserData userData] userMaxMpLevel]]]];
+                    switch (buttonState) {
+                        case 1:
+                            if ([UserData userData].flagLevel < 9) {
+                                [UserData userData].flagLevel++; 
+                                [[UserData userData] saveToFile];
+                            }
+                            break;
+                            
+                        case 2:
+                            if ([UserData userData].userAtkLevel < 21){
+                                [UserData userData].userAtkLevel++; 
+                                [[UserData userData] saveToFile];
+                            }
+                            break;
+                            
+                        case 3:
+                            if ([UserData userData].userMaxMpLevel < 21){
+                                [UserData userData].userMaxMpLevel++; 
+                                [[UserData userData] saveToFile];
+                            }
+                            break;
+                            
+                        case 4:
+                            if ([UserData userData].userMPspeedLevel < 21){
+                                [UserData userData].userMPspeedLevel++; 
+                                [[UserData userData] saveToFile];
+                            }
+                            break;
+                            
+                        default:
+                            break;
                     }
-                    break;
                     
-                case 4:
-                    if([UserData userData].userMPspeedLevel < 20){
-                        [UserData userData].userMPspeedLevel++; 
-                        [[UserData userData] saveToFile];
-                        
-                        [upgradeLabel7 setString:[NSString stringWithFormat:@"Lv %d",[[UserData userData] userMPspeedLevel]]];
-                        [upgradeLabel8 setString:[NSString stringWithFormat:@"%d G", [[SkillData skillData] getSkillPrice:UPGRADE_TYPE_REGENMP :[[UserData userData] userMPspeedLevel]]]];
-                    }
                     break;
                     
                 default:
                     break;
             }
+
+            reset_menu.visible = NO;
+            popSpr.visible = NO;
+            label.visible = NO;
             
-            break;
+            upgradeButtonState = 0;
+
             
-        case 1:
+        }];
+        
+        [yes setAnchorPoint:CGPointZero];
+        yes.position = ccp(160, 115);
+        
+        no = [CCMenuItemImage itemFromNormalImage:@"no_off_btn.png" selectedImage:@"no_on_btn.png" block:^(id sender) {
             
-            switch (buttonState) {
-                case 1:
-                    if ([UserData userData].stoneLevel < 20){
-                        [UserData userData].stoneLevel++; 
-                        [[UserData userData] saveToFile];
-                        
-                        [upgradeLabel1 setString:[NSString stringWithFormat:@"Lv %d",[[UserData userData] stoneLevel]]];
-                        [upgradeLabel2 setString:[NSString stringWithFormat:@"%d G", [[SkillData skillData] getSkillPrice:SKILL_STATE_STONE :[[UserData userData] stoneLevel]]]];
-                    }
-                    
-                    selectMenu1.visible = NO;
-                    
-                    break;
-                    
-                case 2:
-                    if ([UserData userData].arrowLevel < 20){
-                        [UserData userData].arrowLevel++; 
-                        [[UserData userData] saveToFile];
-                        
-                        [upgradeLabel3 setString:[NSString stringWithFormat:@"Lv %d",[[UserData userData] arrowLevel]]];
-                        [upgradeLabel4 setString:[NSString stringWithFormat:@"%d G", [[SkillData skillData] getSkillPrice:SKILL_STATE_ARROW :[[UserData userData] arrowLevel]]]];
-                    }
-                    
-                    selectMenu2.visible = NO;
-                    
-                    break;
-                    
-                case 3:
-                    if ([UserData userData].hillLevel < 20){
-                        [UserData userData].hillLevel++; 
-                        [[UserData userData] saveToFile];
-                        
-                        [upgradeLabel5 setString:[NSString stringWithFormat:@"Lv %d",[[UserData userData] hillLevel]]];
-                        [upgradeLabel6 setString:[NSString stringWithFormat:@"%d G", [[SkillData skillData] getSkillPrice:SKILL_STATE_HEALING :[[UserData userData] hillLevel]]]];
-                    }
-                    
-                    selectMenu3.visible = NO;
-                    
-                    break;
-                    
-                case 4:
-                    if ([UserData userData].earthquakeLevel < 20){
-                        [UserData userData].earthquakeLevel++; 
-                        [[UserData userData] saveToFile];
-                        
-                        [upgradeLabel7 setString:[NSString stringWithFormat:@"Lv %d",[[UserData userData] earthquakeLevel]]];
-                        [upgradeLabel8 setString:[NSString stringWithFormat:@"%d G", [[SkillData skillData] getSkillPrice:SKILL_STATE_EARTHQUAKE :[[UserData userData] earthquakeLevel]]]];
-                    }
-                    
-                    selectMenu4.visible = NO;
-                    
-                    break;
-                    
-                default:
-                    break;
-            }
+            upgradeButtonState = 0;
             
-            break;
+            reset_menu.visible = NO;
+            popSpr.visible = NO;
+            label.visible = NO;
             
-        case 2:
-            
-            switch (buttonState) {
-                case 1:
-                    if ([UserData userData].flagLevel < 9) {
-                        [UserData userData].flagLevel++; 
-                        [[UserData userData] saveToFile];
-                    }
-                    break;
-                    
-                case 2:
-                    if ([UserData userData].userAtkLevel < 21){
-                        [UserData userData].userAtkLevel++; 
-                        [[UserData userData] saveToFile];
-                    }
-                    break;
-                    
-                case 3:
-                    if ([UserData userData].userMaxMpLevel < 21){
-                        [UserData userData].userMaxMpLevel++; 
-                        [[UserData userData] saveToFile];
-                    }
-                    break;
-                    
-                case 4:
-                    if ([UserData userData].userMPspeedLevel < 21){
-                        [UserData userData].userMPspeedLevel++; 
-                        [[UserData userData] saveToFile];
-                    }
-                    break;
-                    
-                default:
-                    break;
-            }
-            
-            break;
-            
-        default:
-            break;
-    }
-    
-    
-    
+        }];
+        
+        [no setAnchorPoint:CGPointZero];
+        no.position = ccp(290, 115);
+        
+        reset_menu = [CCMenu menuWithItems:yes, no, nil];    
+        [reset_menu setAnchorPoint:CGPointZero];
+        [reset_menu setPosition:CGPointZero];
+        [self addChild:reset_menu z:14];    
 }
 
 -(void)setSlotItem:(id)sender{
     
     NSLog(@"setSlotItem");
+    
+    if(upgradeButtonState == 1)
+        return;
     
     //사용가능 슬롯 개수
     
@@ -901,8 +976,8 @@
                             slot_arrow1.visible = NO;
                             slot_hill1.visible = NO;
                             slot_earthquake1.visible = NO;
-                            [[UserData userData] saveToFile];
-                            
+
+                            [[UserData userData] saveToFile];                            
                         }
                         else if([[[[UserData userData] skillSlot] objectForKey:@"2"] boolValue]){
                             if( [[[[UserData userData] userSkillSlot] objectForKey:@"2"] integerValue] == -1){
@@ -912,8 +987,8 @@
                                 slot_arrow2.visible = NO;
                                 slot_hill2.visible = NO;
                                 slot_earthquake2.visible = NO;
+
                                 [[UserData userData] saveToFile];
-                                
                             }
                             else if([[[[UserData userData] skillSlot] objectForKey:@"3"] boolValue]){
                                 if( [[[[UserData userData] userSkillSlot] objectForKey:@"3"] integerValue] == -1){
@@ -923,6 +998,7 @@
                                     slot_arrow3.visible = NO;
                                     slot_hill3.visible = NO;
                                     slot_earthquake3.visible = NO;
+
                                     [[UserData userData] saveToFile];
                                 }
                             }
@@ -941,17 +1017,20 @@
                             [[[UserData userData] userSkillSlot] setObject:[NSNumber numberWithInteger:SKILL_STATE_ARROW] forKey:@"1"];
                             //                                화살스킬만 YES로 
                             slot_arrow1.visible = YES;
+
                             [[UserData userData] saveToFile];
                         }
                         else if([[[[UserData userData] skillSlot] objectForKey:@"2"] boolValue]){
                             if( [[[[UserData userData] userSkillSlot] objectForKey:@"2"] integerValue] == -1){
                                 [[[UserData userData] userSkillSlot] setObject:[NSNumber numberWithInteger:SKILL_STATE_ARROW] forKey:@"2"];
+
                                 [[UserData userData] saveToFile];
                                 slot_arrow2.visible = YES;
                             }
                             else if([[[[UserData userData] skillSlot] objectForKey:@"3"] boolValue]){
                                 if( [[[[UserData userData] userSkillSlot] objectForKey:@"3"] integerValue] == -1){
                                     [[[UserData userData] userSkillSlot] setObject:[NSNumber numberWithInteger:SKILL_STATE_ARROW] forKey:@"3"];
+
                                     [[UserData userData] saveToFile];
                                     slot_arrow3.visible = YES;
                                 }
@@ -976,13 +1055,15 @@
                         else if([[[[UserData userData] skillSlot] objectForKey:@"2"] boolValue]){
                             if( [[[[UserData userData] userSkillSlot] objectForKey:@"2"] integerValue] == -1){
                                 [[[UserData userData] userSkillSlot] setObject:[NSNumber numberWithInteger:SKILL_STATE_HEALING] forKey:@"2"];
+
                                 [[UserData userData] saveToFile];
                                 slot_hill2.visible = YES;
                             }
                             else if([[[[UserData userData] skillSlot] objectForKey:@"3"] boolValue]){
                                 if( [[[[UserData userData] userSkillSlot] objectForKey:@"3"] integerValue] == -1){
                                     [[[UserData userData] userSkillSlot] setObject:[NSNumber numberWithInteger:SKILL_STATE_HEALING] forKey:@"3"];
-                                    [[UserData userData] saveToFile];
+                            
+									[[UserData userData] saveToFile];
                                     slot_hill3.visible = YES;
                                 }
                             }
@@ -1035,7 +1116,7 @@
     
 }
 
--(void)buySlotItem:(id)sender{
+-(void)buySlotItem:(id)sender{    
     /*   
      if ([[UserData userData] point] < 10) {
      
@@ -1055,15 +1136,77 @@
         lock3.visible = NO;
     }
     
+    if(upgradeButtonState == 1)
+        return;
+	
+    upgradeButtonState =1;
+    
+	popSpr2 = [[CCSprite alloc] initWithFile:@"small_popup.png"];
+	[popSpr2 setAnchorPoint:ccp(0.5, 0.5)];
+	[popSpr2 setPosition:ccp(240, 160)];
+	[self addChild:popSpr2 z:13];
+	
+	label2 = [CCLabelTTF labelWithString:@"really?" fontName:@"NanumScript.ttf" fontSize:55];
+	label2.color = ccWHITE;
+	label2.anchorPoint = ccp(0.5, 0.5);
+	label2.position = ccp(245, 190);
+	[self addChild:label2 z:14];
+	
+	CCMenuItemImage* yes2;    
+	CCMenuItemImage* no2;
+	
+	yes2 = [CCMenuItemImage itemFromNormalImage:@"yes_off_btn.png" selectedImage:@"yes_on_btn.png" block:^(id sender) {
+                
+		if([[[[UserData userData] skillSlot] objectForKey:@"2"] boolValue] == NO)
+        {
+            [[[UserData userData] skillSlot] setObject:[NSNumber numberWithBool:YES] forKey:@"2"];
+            //2번쨰 자물쇠 스프라이트 제거
+            lock2.visible = NO;
+        }
+        else if([[[[UserData userData] skillSlot] objectForKey:@"3"] boolValue] == NO){
+            [[[UserData userData] skillSlot] setObject:[NSNumber numberWithBool:YES] forKey:@"3"];
+            //3번째 자물쇠 스프라이트 제거
+            lock3.visible = NO;
+        }
+		
+		reset_menu2.visible = NO;
+		popSpr2.visible = NO;
+		label2.visible = NO;
+        
+        upgradeButtonState = 0;
+		
+	}];
+	
+	[yes2 setAnchorPoint:CGPointZero];
+	yes2.position = ccp(160, 115);
+	
+	no2 = [CCMenuItemImage itemFromNormalImage:@"no_off_btn.png" selectedImage:@"no_on_btn.png" block:^(id sender) {
+        
+        upgradeButtonState = 0;
+        
+		reset_menu2.visible = NO;
+		popSpr2.visible = NO;
+		label2.visible = NO;
+		
+    }];
+	
+	[no2 setAnchorPoint:CGPointZero];
+	no2.position = ccp(290, 115);
+	
+	reset_menu2 = [CCMenu menuWithItems:yes2, no2, nil];    
+	[reset_menu2 setAnchorPoint:CGPointZero];
+	[reset_menu2 setPosition:CGPointZero];
+	[self addChild:reset_menu2 z:14];
 }
 
-- (void)back{
-    
+- (void)back{    
     [[CCDirector sharedDirector] replaceScene:[CCTransitionCrossFade transitionWithDuration:0.7 scene:[MainLayer scene]]];
-    
 }
 
 - (void)ccTouchesEnded:(NSSet *)touches withEvent:(UIEvent *)event{
+    
+//    if(upgradeButtonState == 1)
+//        return;
     
     NSLog(@"ccTouchesEnded");
     
@@ -1098,7 +1241,7 @@
                         [[[UserData userData] userSkillSlot] setObject:[NSNumber numberWithInteger:-1] forKey:@"2"];
                     //                    사진 4개 NO
                     
-                    slot_stone2.visible = NO;        
+                    slot_stone2.visible = NO;                    
                     slot_arrow2.visible = NO;
                     slot_hill2.visible = NO;
                     slot_earthquake2.visible = NO;

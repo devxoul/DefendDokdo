@@ -28,6 +28,7 @@ NSString* infoArr[15] =
 	@"Youngest Xoul"
 };
 
+
 + (CCScene *)scene
 {
 	CCScene *scene = [CCScene node];

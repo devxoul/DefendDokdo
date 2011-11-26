@@ -115,7 +115,17 @@
     
     int tabState;
     int buttonState;
-    int slotState;
+    int slotState;    
+    int upgradeButtonState;
+    
+    //팝업
+    CCMenu* reset_menu;
+    CCSprite* popSpr;
+    CCLabelTTF* label;
+    
+    CCMenu* reset_menu2;
+    CCSprite* popSpr2;
+    CCLabelTTF* label2;
     
 }
 
