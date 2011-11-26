@@ -83,7 +83,7 @@
 			<key>hp</key>
 			<integer>500</integer>
 			<key>spritename</key>
-			<string>flag_mugumghwa_img.png</string>
+			<string>flag_mugunghwa_img.png</string>
 		</dict>
 	</dict>
 	<key>userattack</key>
