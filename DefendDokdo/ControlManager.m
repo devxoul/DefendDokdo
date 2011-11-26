@@ -11,10 +11,7 @@
 #import "Const.h"
 
 #warning change CONSTANT
-#define ACC_CONSTANT 1000
-
-#warning change CONSTANT
-#define ACC_CONSTANT 1200
+#define ACC_CONSTANT 2000
 #define INTERVAL_LOWER_BOUND 0.07
 #define INTERVAL_UPPER_BOUND 0.11
 
@@ -90,8 +87,17 @@
 		NSUInteger i = [touchArray indexOfObject:touch];
 		Enemy *object = [managedObjectsArray objectAtIndex:i];
 		CGPoint targetPoint = [[CCDirector sharedDirector] convertToGL:[touch locationInView: [touch view]]];
-		object.x = targetPoint.x - 20;
+		object.x = targetPoint.x;// - 20;
 		object.y = targetPoint.y - 20;
+		
+//		if( DOKDO_LEFT_X <= object.x && object.x <= DOKDO_RIGHT_X )
+//		{
+			if( object.y < [Enemy getGroundY:object.x] - 10 )
+			{
+				[self stopManagingObjectOfTouch:touch];
+				return false;
+			}
+//		}
 		
 		NSTimeInterval interval = [[[originalPositionArray objectAtIndex:i] time] timeIntervalSinceNow];
 		CGPoint originalPoint = [[originalPositionArray objectAtIndex:i] p];
