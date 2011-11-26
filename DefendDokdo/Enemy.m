@@ -573,6 +573,8 @@
 			break;
 			
 		case ENEMY_STATE_ATTACK:
+			self.y = FLAG_Y;
+			
 			if( FLAG_LEFT_X <= self.x + gapX && self.x + gapX <= FLAG_X )
 			{
 				attackEnemySpr.flipX = NO;
@@ -620,7 +622,9 @@
 						if( type != ENEMY_TYPE_KAMIKAZE )
 						{
 #warning temp
-							[self beDamaged:gameScene.player.power - dy]; // temp damage
+							NSLog( @"사용자 공격력 : %d", gameScene.player.power );
+							NSLog( @"dy : %f", dy );
+							[self beDamaged:abs( (NSInteger)( gameScene.player.power * dy * 0.1 ) )]; // temp damage
 						}
 						
 						// 카미카제는 바로 폭발함
@@ -652,7 +656,7 @@
 						if( type != ENEMY_TYPE_KAMIKAZE )
 						{
 #warning temp
-							[self beDamaged:( gameScene.player.power - dy ) / 2]; // temp damage
+							[self beDamaged:abs( (NSInteger)( gameScene.player.power * dy * 0.05 ) )]; // temp damage
 						}
 						
 						// 카미카제는 바로 폭발함
@@ -771,6 +775,8 @@
 {
 	if( state == ENEMY_STATE_FALL ) return;
 	
+	dx = dy = 0;
+	
 	state = ENEMY_STATE_FALL;
 	[enemySpr addChild:fallBatchNode];
 	[fallEnemySpr runAction:fallAnimation];
@@ -874,7 +880,6 @@
 {
 	[fallEnemySpr stopAllActions];
 	[enemySpr removeChild:fallBatchNode cleanup:NO];
-	dx = dy = 0;
 }
 
 - (void)stopBeingHit
@@ -1025,6 +1030,7 @@
 
 - (void)beDamaged:(NSInteger)damage
 {
+	NSLog( @"%d의 데미지를 입었다 ㅠㅠ", damage );
 	if( state == ENEMY_STATE_FLIGHT || state == ENEMY_STATE_DIE || state == ENEMY_STATE_EXPLOSION ) return;
 	
 		// 카미카제는 폭발

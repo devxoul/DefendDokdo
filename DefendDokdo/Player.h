@@ -17,7 +17,7 @@
 	NSInteger mp;
 	NSInteger mpSpeed;
 	
-	NSMutableArray *slots;
+	NSMutableDictionary *slots;
 	
 	NSInteger currentLoop;
 	NSInteger mpFrequency;
@@ -28,7 +28,7 @@
 @property (nonatomic) NSInteger mp;
 @property (nonatomic) NSInteger mpSpeed;
 
-@property (nonatomic, retain) NSMutableArray *slots;
+@property (nonatomic, retain) NSMutableDictionary *slots;
 
 - (void)init:(GameLayer*)scene;
 - (void)update;
