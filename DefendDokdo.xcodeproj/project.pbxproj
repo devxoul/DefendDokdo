@@ -185,7 +185,6 @@
 		174F6596147D515E00C1DBDE /* money_on_btn.png in Resources */ = {isa = PBXBuildFile; fileRef = 174F6591147D515E00C1DBDE /* money_on_btn.png */; };
 		174F6597147D515E00C1DBDE /* cash_off_tab_btn.png in Resources */ = {isa = PBXBuildFile; fileRef = 174F6592147D515E00C1DBDE /* cash_off_tab_btn.png */; };
 		174F6598147D515E00C1DBDE /* cash_on_tab_btn.png in Resources */ = {isa = PBXBuildFile; fileRef = 174F6593147D515E00C1DBDE /* cash_on_tab_btn.png */; };
-		174F6599147D515E00C1DBDE /* cash_tab_bg.png in Resources */ = {isa = PBXBuildFile; fileRef = 174F6594147D515E00C1DBDE /* cash_tab_bg.png */; };
 		174F659C147D56BD00C1DBDE /* upgrade_off_btn2.png in Resources */ = {isa = PBXBuildFile; fileRef = 174F659A147D56BC00C1DBDE /* upgrade_off_btn2.png */; };
 		174F659D147D56BD00C1DBDE /* upgrade_on_btn2.png in Resources */ = {isa = PBXBuildFile; fileRef = 174F659B147D56BC00C1DBDE /* upgrade_on_btn2.png */; };
 		174F659F147D5E1200C1DBDE /* UpgradeInfoList.plist in Resources */ = {isa = PBXBuildFile; fileRef = 174F659E147D5E1200C1DBDE /* UpgradeInfoList.plist */; };
@@ -211,6 +210,12 @@
 		17D787B6147F10EE00F0E0A3 /* slot_btn.png in Resources */ = {isa = PBXBuildFile; fileRef = 17D787B5147F10ED00F0E0A3 /* slot_btn.png */; };
 		17D787B8147F10FC00F0E0A3 /* upgrade_btn.png in Resources */ = {isa = PBXBuildFile; fileRef = 17D787B7147F10FB00F0E0A3 /* upgrade_btn.png */; };
 		17D787BA147F151200F0E0A3 /* white2.gif in Resources */ = {isa = PBXBuildFile; fileRef = 17D787B9147F151100F0E0A3 /* white2.gif */; };
+		17D787C014800DD300F0E0A3 /* no_off_btn.png in Resources */ = {isa = PBXBuildFile; fileRef = 17D787BB14800DCA00F0E0A3 /* no_off_btn.png */; };
+		17D787C114800DD300F0E0A3 /* no_on_btn.png in Resources */ = {isa = PBXBuildFile; fileRef = 17D787BC14800DCB00F0E0A3 /* no_on_btn.png */; };
+		17D787C214800DD300F0E0A3 /* small_popup.png in Resources */ = {isa = PBXBuildFile; fileRef = 17D787BD14800DCD00F0E0A3 /* small_popup.png */; };
+		17D787C314800DD300F0E0A3 /* yes_off_btn.png in Resources */ = {isa = PBXBuildFile; fileRef = 17D787BE14800DCF00F0E0A3 /* yes_off_btn.png */; };
+		17D787C414800DD300F0E0A3 /* yes_on_btn.png in Resources */ = {isa = PBXBuildFile; fileRef = 17D787BF14800DD000F0E0A3 /* yes_on_btn.png */; };
+		17D787C61481586E00F0E0A3 /* cash_tab_bg.png in Resources */ = {isa = PBXBuildFile; fileRef = 17D787C51481586D00F0E0A3 /* cash_tab_bg.png */; };
 		17D85C90147649830037346F /* SkillInfoList.plist in Resources */ = {isa = PBXBuildFile; fileRef = 17D85C8E147649830037346F /* SkillInfoList.plist */; };
 		17D85C9614764A870037346F /* SkillData.m in Sources */ = {isa = PBXBuildFile; fileRef = 17D85C9514764A870037346F /* SkillData.m */; };
 /* End PBXBuildFile section */
@@ -530,7 +535,6 @@
 		174F6591147D515E00C1DBDE /* money_on_btn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = money_on_btn.png; sourceTree = "<group>"; };
 		174F6592147D515E00C1DBDE /* cash_off_tab_btn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cash_off_tab_btn.png; sourceTree = "<group>"; };
 		174F6593147D515E00C1DBDE /* cash_on_tab_btn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cash_on_tab_btn.png; sourceTree = "<group>"; };
-		174F6594147D515E00C1DBDE /* cash_tab_bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cash_tab_bg.png; sourceTree = "<group>"; };
 		174F659A147D56BC00C1DBDE /* upgrade_off_btn2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = upgrade_off_btn2.png; sourceTree = "<group>"; };
 		174F659B147D56BC00C1DBDE /* upgrade_on_btn2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = upgrade_on_btn2.png; sourceTree = "<group>"; };
 		174F659E147D5E1200C1DBDE /* UpgradeInfoList.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = UpgradeInfoList.plist; sourceTree = "<group>"; };
@@ -557,6 +561,12 @@
 		17D787B5147F10ED00F0E0A3 /* slot_btn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = slot_btn.png; sourceTree = "<group>"; };
 		17D787B7147F10FB00F0E0A3 /* upgrade_btn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = upgrade_btn.png; sourceTree = "<group>"; };
 		17D787B9147F151100F0E0A3 /* white2.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = white2.gif; sourceTree = "<group>"; };
+		17D787BB14800DCA00F0E0A3 /* no_off_btn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = no_off_btn.png; sourceTree = "<group>"; };
+		17D787BC14800DCB00F0E0A3 /* no_on_btn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = no_on_btn.png; sourceTree = "<group>"; };
+		17D787BD14800DCD00F0E0A3 /* small_popup.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = small_popup.png; sourceTree = "<group>"; };
+		17D787BE14800DCF00F0E0A3 /* yes_off_btn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = yes_off_btn.png; sourceTree = "<group>"; };
+		17D787BF14800DD000F0E0A3 /* yes_on_btn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = yes_on_btn.png; sourceTree = "<group>"; };
+		17D787C51481586D00F0E0A3 /* cash_tab_bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cash_tab_bg.png; sourceTree = "<group>"; };
 		17D85C8E147649830037346F /* SkillInfoList.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = SkillInfoList.plist; sourceTree = "<group>"; };
 		17D85C9314764A010037346F /* Const.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Const.h; sourceTree = "<group>"; };
 		17D85C9414764A870037346F /* SkillData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SkillData.h; sourceTree = "<group>"; };
@@ -1116,6 +1126,11 @@
 		174F657D147D50BA00C1DBDE /* upgrade */ = {
 			isa = PBXGroup;
 			children = (
+				17D787BB14800DCA00F0E0A3 /* no_off_btn.png */,
+				17D787BC14800DCB00F0E0A3 /* no_on_btn.png */,
+				17D787BD14800DCD00F0E0A3 /* small_popup.png */,
+				17D787BE14800DCF00F0E0A3 /* yes_off_btn.png */,
+				17D787BF14800DD000F0E0A3 /* yes_on_btn.png */,
 				17D787B5147F10ED00F0E0A3 /* slot_btn.png */,
 				17D787B7147F10FB00F0E0A3 /* upgrade_btn.png */,
 				17D787B9147F151100F0E0A3 /* white2.gif */,
@@ -1133,7 +1148,7 @@
 				174F6591147D515E00C1DBDE /* money_on_btn.png */,
 				174F6592147D515E00C1DBDE /* cash_off_tab_btn.png */,
 				174F6593147D515E00C1DBDE /* cash_on_tab_btn.png */,
-				174F6594147D515E00C1DBDE /* cash_tab_bg.png */,
+				17D787C51481586D00F0E0A3 /* cash_tab_bg.png */,
 				174F6586147D513500C1DBDE /* skill_off_tab_btn.png */,
 				174F6587147D513500C1DBDE /* skill_on_tab_btn.png */,
 				174F6588147D513500C1DBDE /* skill_tab_bg.png */,
@@ -1268,7 +1283,6 @@
 				174F6596147D515E00C1DBDE /* money_on_btn.png in Resources */,
 				174F6597147D515E00C1DBDE /* cash_off_tab_btn.png in Resources */,
 				174F6598147D515E00C1DBDE /* cash_on_tab_btn.png in Resources */,
-				174F6599147D515E00C1DBDE /* cash_tab_bg.png in Resources */,
 				174F659C147D56BD00C1DBDE /* upgrade_off_btn2.png in Resources */,
 				174F659D147D56BD00C1DBDE /* upgrade_on_btn2.png in Resources */,
 				174F659F147D5E1200C1DBDE /* UpgradeInfoList.plist in Resources */,
@@ -1292,6 +1306,12 @@
 				17D787B6147F10EE00F0E0A3 /* slot_btn.png in Resources */,
 				17D787B8147F10FC00F0E0A3 /* upgrade_btn.png in Resources */,
 				17D787BA147F151200F0E0A3 /* white2.gif in Resources */,
+				17D787C014800DD300F0E0A3 /* no_off_btn.png in Resources */,
+				17D787C114800DD300F0E0A3 /* no_on_btn.png in Resources */,
+				17D787C214800DD300F0E0A3 /* small_popup.png in Resources */,
+				17D787C314800DD300F0E0A3 /* yes_off_btn.png in Resources */,
+				17D787C414800DD300F0E0A3 /* yes_on_btn.png in Resources */,
+				17D787C61481586E00F0E0A3 /* cash_tab_bg.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

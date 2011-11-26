@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "cocos2d.h"
 
-@interface UpgradeLayer : CCLayer {
+@interface UpgradeLayer : CCLayer <UIAlertViewDelegate> {
    
     CCSprite *upgradeBgSprite;
     CCSprite *tab1BgSprite;
@@ -116,6 +116,15 @@
     int tabState;
     int buttonState;
     int slotState;
+    
+    //팝업
+    CCMenu* reset_menu;
+    CCSprite* popSpr;
+    CCLabelTTF* label;
+    
+    CCMenu* reset_menu2;
+    CCSprite* popSpr2;
+    CCLabelTTF* label2;
     
 }
 

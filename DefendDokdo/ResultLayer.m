@@ -40,6 +40,14 @@
         [flagImage setPosition:CGPointMake(77, 80)];
         [self addChild:flagImage z:4];
         
+        ddayLabel = [CCLabelTTF labelWithString:[NSString stringWithFormat:@"stage %d",[[UserData userData] stageLevel]] dimensions:CGSizeMake(0,0) alignment:UITextAlignmentCenter fontName:@"Helvetica" fontSize:25];
+        
+        [self addChild:ddayLabel z:7];
+        
+        [ddayLabel setColor:ccc3(0, 0, 0)];
+        [ddayLabel setAnchorPoint:CGPointZero];
+        [ddayLabel setPosition:CGPointMake(75, 43)];
+        
         //start
         result_start = [CCMenuItemImage itemFromNormalImage:@"start_on_btn.png" selectedImage:@"start_off_btn.png" target:self selector:@selector(moveGame:)];
         [result_start setAnchorPoint:CGPointZero];

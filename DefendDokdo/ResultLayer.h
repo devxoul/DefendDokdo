@@ -12,6 +12,8 @@
 @interface ResultLayer : CCLayer {
  
     CCLabelTTF *moneyLabel;
+    CCLabelTTF *ddayLabel;
+    
     CCMenuItemImage *result_start;
     CCMenuItemImage *result_upgrade;
     CCMenuItemImage *menu_back;

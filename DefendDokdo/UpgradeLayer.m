@@ -678,151 +678,192 @@
 
 -(void)upgradeItem{
     
-    switch (tabState) {
-        case 0:
-            
-            switch (buttonState) {
-                case 1:
-                    [UserData userData].flagLevel++; 
-                    [[UserData userData] saveToFile];
+        popSpr = [[CCSprite alloc] initWithFile:@"small_popup.png"];
+        [popSpr setAnchorPoint:ccp(0.5, 0.5)];
+        [popSpr setPosition:ccp(240, 160)];
+        [self addChild:popSpr z:13];
+        
+        label = [CCLabelTTF labelWithString:@"really?" fontName:@"NanumScript.ttf" fontSize:55];
+        label.color = ccWHITE;
+        label.anchorPoint = ccp(0.5, 0.5);
+        label.position = ccp(245, 190);
+        [self addChild:label z:14];
+        
+        CCMenuItemImage* yes;    
+        CCMenuItemImage* no;
+        
+        yes = [CCMenuItemImage itemFromNormalImage:@"yes_off_btn.png" selectedImage:@"yes_on_btn.png" block:^(id sender) {
+//            BOOL result;
+//            result = [[UserData userData] removeToFile];
+//            
+            switch (tabState) {
+                case 0:
                     
-                    [upgradeLabel1 setString:[NSString stringWithFormat:@"Lv %d",[[UserData userData] flagLevel]]];
-                    [upgradeLabel2 setString:[NSString stringWithFormat:@"%d G", [[SkillData skillData] getSkillInfo:UPGRADE_TYPE_FLAG :[[UserData userData] flagLevel]]]];
+                    switch (buttonState) {
+                        case 1:
+                            [UserData userData].flagLevel++; 
+                            [[UserData userData] saveToFile];
+                            
+                            [upgradeLabel1 setString:[NSString stringWithFormat:@"Lv %d",[[UserData userData] flagLevel]]];
+                            [upgradeLabel2 setString:[NSString stringWithFormat:@"%d G", [[SkillData skillData] getSkillInfo:UPGRADE_TYPE_FLAG :[[UserData userData] flagLevel]]]];
+                            break;
+                            
+                        case 2:
+                            [UserData userData].userAtkLevel++; 
+                            [[UserData userData] saveToFile];
+                            
+                            [upgradeLabel3 setString:[NSString stringWithFormat:@"Lv %d",[[UserData userData] userAtkLevel]]];
+                            [upgradeLabel4 setString:[NSString stringWithFormat:@"%d G", [[SkillData skillData] getSkillInfo:UPGRADE_TYPE_ATTACK :[[UserData userData] userAtkLevel]]]];
+                            break;
+                            
+                        case 3:
+                            [UserData userData].userMaxMpLevel++; 
+                            [[UserData userData] saveToFile];
+                            
+                            [upgradeLabel5 setString:[NSString stringWithFormat:@"Lv %d",[[UserData userData] userMaxMpLevel]]];
+                            [upgradeLabel6 setString:[NSString stringWithFormat:@"%d G", [[SkillData skillData] getSkillInfo:UPGRADE_TYPE_MAXMP :[[UserData userData] userMaxMpLevel]]]];
+                            break;
+                            
+                        case 4:
+                            [UserData userData].userMPspeedLevel++; 
+                            [[UserData userData] saveToFile];
+                            
+                            [upgradeLabel7 setString:[NSString stringWithFormat:@"Lv %d",[[UserData userData] userMPspeedLevel]]];
+                            [upgradeLabel8 setString:[NSString stringWithFormat:@"%d G", [[SkillData skillData] getSkillInfo:UPGRADE_TYPE_REGENMP :[[UserData userData] userMPspeedLevel]]]];
+                            break;
+                            
+                        default:
+                            break;
+                    }
+                    
+                    break;
+                    
+                case 1:
+                    
+                    switch (buttonState) {
+                        case 1:
+                            if ([UserData userData].stoneLevel < 21){
+                                [UserData userData].stoneLevel++; 
+                                [[UserData userData] saveToFile];
+                                
+                                [upgradeLabel1 setString:[NSString stringWithFormat:@"Lv %d",[[UserData userData] stoneLevel]]];
+                                [upgradeLabel2 setString:[NSString stringWithFormat:@"%d G", [[SkillData skillData] getSkillPrice:SKILL_STATE_STONE :[[UserData userData] stoneLevel]]]];
+                            }
+                            
+                            selectMenu1.visible = NO;
+                            
+                            break;
+                            
+                        case 2:
+                            if ([UserData userData].arrowLevel < 21){
+                                [UserData userData].arrowLevel++; 
+                                [[UserData userData] saveToFile];
+                                
+                                [upgradeLabel3 setString:[NSString stringWithFormat:@"Lv %d",[[UserData userData] arrowLevel]]];
+                                [upgradeLabel4 setString:[NSString stringWithFormat:@"%d G", [[SkillData skillData] getSkillPrice:SKILL_STATE_ARROW :[[UserData userData] arrowLevel]]]];
+                            }
+                            
+                            selectMenu2.visible = NO;
+                            
+                            break;
+                            
+                        case 3:
+                            if ([UserData userData].hillLevel < 21){
+                                [UserData userData].hillLevel++; 
+                                [[UserData userData] saveToFile];
+                                
+                                [upgradeLabel5 setString:[NSString stringWithFormat:@"Lv %d",[[UserData userData] hillLevel]]];
+                                [upgradeLabel6 setString:[NSString stringWithFormat:@"%d G", [[SkillData skillData] getSkillPrice:SKILL_STATE_HEALING :[[UserData userData] hillLevel]]]];
+                            }
+                            
+                            selectMenu3.visible = NO;
+                            
+                            break;
+                            
+                        case 4:
+                            if ([UserData userData].earthquakeLevel < 21){
+                                [UserData userData].earthquakeLevel++; 
+                                [[UserData userData] saveToFile];
+                                
+                                [upgradeLabel7 setString:[NSString stringWithFormat:@"Lv %d",[[UserData userData] earthquakeLevel]]];
+                                [upgradeLabel8 setString:[NSString stringWithFormat:@"%d G", [[SkillData skillData] getSkillPrice:SKILL_STATE_EARTHQUAKE :[[UserData userData] earthquakeLevel]]]];
+                            }
+                            
+                            selectMenu4.visible = NO;
+                            
+                            break;
+                            
+                        default:
+                            break;
+                    }
+                    
                     break;
                     
                 case 2:
-                    [UserData userData].userAtkLevel++; 
-                    [[UserData userData] saveToFile];
                     
-                    [upgradeLabel3 setString:[NSString stringWithFormat:@"Lv %d",[[UserData userData] userAtkLevel]]];
-                    [upgradeLabel4 setString:[NSString stringWithFormat:@"%d G", [[SkillData skillData] getSkillInfo:UPGRADE_TYPE_ATTACK :[[UserData userData] userAtkLevel]]]];
-                    break;
+                    switch (buttonState) {
+                        case 1:
+                            if ([UserData userData].flagLevel < 9) {
+                                [UserData userData].flagLevel++; 
+                                [[UserData userData] saveToFile];
+                            }
+                            break;
+                            
+                        case 2:
+                            if ([UserData userData].userAtkLevel < 21){
+                                [UserData userData].userAtkLevel++; 
+                                [[UserData userData] saveToFile];
+                            }
+                            break;
+                            
+                        case 3:
+                            if ([UserData userData].userMaxMpLevel < 21){
+                                [UserData userData].userMaxMpLevel++; 
+                                [[UserData userData] saveToFile];
+                            }
+                            break;
+                            
+                        case 4:
+                            if ([UserData userData].userMPspeedLevel < 21){
+                                [UserData userData].userMPspeedLevel++; 
+                                [[UserData userData] saveToFile];
+                            }
+                            break;
+                            
+                        default:
+                            break;
+                    }
                     
-                case 3:
-                    [UserData userData].userMaxMpLevel++; 
-                    [[UserData userData] saveToFile];
-                    
-                    [upgradeLabel5 setString:[NSString stringWithFormat:@"Lv %d",[[UserData userData] userMaxMpLevel]]];
-                    [upgradeLabel6 setString:[NSString stringWithFormat:@"%d G", [[SkillData skillData] getSkillInfo:UPGRADE_TYPE_MAXMP :[[UserData userData] userMaxMpLevel]]]];
-                    break;
-                    
-                case 4:
-                    [UserData userData].userMPspeedLevel++; 
-                    [[UserData userData] saveToFile];
-                    
-                    [upgradeLabel7 setString:[NSString stringWithFormat:@"Lv %d",[[UserData userData] userMPspeedLevel]]];
-                    [upgradeLabel8 setString:[NSString stringWithFormat:@"%d G", [[SkillData skillData] getSkillInfo:UPGRADE_TYPE_REGENMP :[[UserData userData] userMPspeedLevel]]]];
                     break;
                     
                 default:
                     break;
             }
+
+            reset_menu.visible = NO;
+            popSpr.visible = NO;
+            label.visible = NO;
             
-            break;
+        }];
+        
+        [yes setAnchorPoint:CGPointZero];
+        yes.position = ccp(160, 115);
+        
+        no = [CCMenuItemImage itemFromNormalImage:@"no_off_btn.png" selectedImage:@"no_on_btn.png" block:^(id sender) {
             
-        case 1:
+            reset_menu.visible = NO;
+            popSpr.visible = NO;
+            label.visible = NO;
             
-            switch (buttonState) {
-                case 1:
-                    if ([UserData userData].stoneLevel < 21){
-                        [UserData userData].stoneLevel++; 
-                        [[UserData userData] saveToFile];
-                        
-                        [upgradeLabel1 setString:[NSString stringWithFormat:@"Lv %d",[[UserData userData] stoneLevel]]];
-                        [upgradeLabel2 setString:[NSString stringWithFormat:@"%d G", [[SkillData skillData] getSkillPrice:SKILL_STATE_STONE :[[UserData userData] stoneLevel]]]];
-                    }
-                    
-                    selectMenu1.visible = NO;
-                    
-                    break;
-                    
-                case 2:
-                    if ([UserData userData].arrowLevel < 21){
-                        [UserData userData].arrowLevel++; 
-                        [[UserData userData] saveToFile];
-                        
-                        [upgradeLabel3 setString:[NSString stringWithFormat:@"Lv %d",[[UserData userData] arrowLevel]]];
-                        [upgradeLabel4 setString:[NSString stringWithFormat:@"%d G", [[SkillData skillData] getSkillPrice:SKILL_STATE_ARROW :[[UserData userData] arrowLevel]]]];
-                    }
-                    
-                    selectMenu2.visible = NO;
-                    
-                    break;
-                    
-                case 3:
-                    if ([UserData userData].hillLevel < 21){
-                        [UserData userData].hillLevel++; 
-                        [[UserData userData] saveToFile];
-                        
-                        [upgradeLabel5 setString:[NSString stringWithFormat:@"Lv %d",[[UserData userData] hillLevel]]];
-                        [upgradeLabel6 setString:[NSString stringWithFormat:@"%d G", [[SkillData skillData] getSkillPrice:SKILL_STATE_HEALING :[[UserData userData] hillLevel]]]];
-                    }
-                    
-                    selectMenu3.visible = NO;
-                    
-                    break;
-                    
-                case 4:
-                    if ([UserData userData].earthquakeLevel < 21){
-                        [UserData userData].earthquakeLevel++; 
-                        [[UserData userData] saveToFile];
-                        
-                        [upgradeLabel7 setString:[NSString stringWithFormat:@"Lv %d",[[UserData userData] earthquakeLevel]]];
-                        [upgradeLabel8 setString:[NSString stringWithFormat:@"%d G", [[SkillData skillData] getSkillPrice:SKILL_STATE_EARTHQUAKE :[[UserData userData] earthquakeLevel]]]];
-                    }
-                    
-                    selectMenu4.visible = NO;
-                    
-                    break;
-                    
-                default:
-                    break;
-            }
-            
-            break;
-            
-        case 2:
-            
-            switch (buttonState) {
-                case 1:
-                    if ([UserData userData].flagLevel < 9) {
-                        [UserData userData].flagLevel++; 
-                        [[UserData userData] saveToFile];
-                    }
-                    break;
-                    
-                case 2:
-                    if ([UserData userData].userAtkLevel < 21){
-                        [UserData userData].userAtkLevel++; 
-                        [[UserData userData] saveToFile];
-                    }
-                    break;
-                    
-                case 3:
-                    if ([UserData userData].userMaxMpLevel < 21){
-                        [UserData userData].userMaxMpLevel++; 
-                        [[UserData userData] saveToFile];
-                    }
-                    break;
-                    
-                case 4:
-                    if ([UserData userData].userMPspeedLevel < 21){
-                        [UserData userData].userMPspeedLevel++; 
-                        [[UserData userData] saveToFile];
-                    }
-                    break;
-                    
-                default:
-                    break;
-            }
-            
-            break;
-            
-        default:
-            break;
-    }
-    
-    
+        }];
+        
+        [no setAnchorPoint:CGPointZero];
+        no.position = ccp(290, 115);
+        
+        reset_menu = [CCMenu menuWithItems:yes, no, nil];    
+        [reset_menu setAnchorPoint:CGPointZero];
+        [reset_menu setPosition:CGPointZero];
+        [self addChild:reset_menu z:14];
     
 }
 
@@ -969,6 +1010,7 @@
     
 }
 
+
 -(void)buySlotItem:(id)sender{
     /*   
      if ([[UserData userData] point] < 10) {
@@ -976,18 +1018,59 @@
      return;
      }
      
-     */ 
-    if([[[[UserData userData] skillSlot] objectForKey:@"2"] boolValue] == NO)
-    {
-        [[[UserData userData] skillSlot] setObject:[NSNumber numberWithBool:YES] forKey:@"2"];
-        //2번쨰 자물쇠 스프라이트 제거
-        lock2.visible = NO;
-    }
-    else if([[[[UserData userData] skillSlot] objectForKey:@"3"] boolValue] == NO){
-        [[[UserData userData] skillSlot] setObject:[NSNumber numberWithBool:YES] forKey:@"3"];
-        //3번째 자물쇠 스프라이트 제거
-        lock3.visible = NO;
-    }
+     */
+	
+	popSpr2 = [[CCSprite alloc] initWithFile:@"small_popup.png"];
+	[popSpr2 setAnchorPoint:ccp(0.5, 0.5)];
+	[popSpr2 setPosition:ccp(240, 160)];
+	[self addChild:popSpr2 z:13];
+	
+	label2 = [CCLabelTTF labelWithString:@"really?" fontName:@"NanumScript.ttf" fontSize:55];
+	label2.color = ccWHITE;
+	label2.anchorPoint = ccp(0.5, 0.5);
+	label2.position = ccp(245, 190);
+	[self addChild:label2 z:14];
+	
+	CCMenuItemImage* yes2;    
+	CCMenuItemImage* no2;
+	
+	yes2 = [CCMenuItemImage itemFromNormalImage:@"yes_off_btn.png" selectedImage:@"yes_on_btn.png" block:^(id sender) {
+		if([[[[UserData userData] skillSlot] objectForKey:@"2"] boolValue] == NO)
+        {
+            [[[UserData userData] skillSlot] setObject:[NSNumber numberWithBool:YES] forKey:@"2"];
+            //2번쨰 자물쇠 스프라이트 제거
+            lock2.visible = NO;
+        }
+        else if([[[[UserData userData] skillSlot] objectForKey:@"3"] boolValue] == NO){
+            [[[UserData userData] skillSlot] setObject:[NSNumber numberWithBool:YES] forKey:@"3"];
+            //3번째 자물쇠 스프라이트 제거
+            lock3.visible = NO;
+        }
+		
+		reset_menu2.visible = NO;
+		popSpr2.visible = NO;
+		label2.visible = NO;
+		
+	}];
+	
+	[yes2 setAnchorPoint:CGPointZero];
+	yes2.position = ccp(160, 115);
+	
+	no2 = [CCMenuItemImage itemFromNormalImage:@"no_off_btn.png" selectedImage:@"no_on_btn.png" block:^(id sender) {
+        
+		reset_menu2.visible = NO;
+		popSpr2.visible = NO;
+		label2.visible = NO;
+		
+    }];
+	
+	[no2 setAnchorPoint:CGPointZero];
+	no2.position = ccp(290, 115);
+	
+	reset_menu2 = [CCMenu menuWithItems:yes2, no2, nil];    
+	[reset_menu2 setAnchorPoint:CGPointZero];
+	[reset_menu2 setPosition:CGPointZero];
+	[self addChild:reset_menu2 z:14];
     
 }
 
