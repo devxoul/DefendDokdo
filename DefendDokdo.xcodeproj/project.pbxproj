@@ -136,9 +136,6 @@
 		033D46A8147CEDEC00E7044B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 03398A98146001FF002AAAA3 /* AppDelegate.m */; };
 		033D46AA147CEDEC00E7044B /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 03398A9B146001FF002AAAA3 /* RootViewController.m */; };
 		033D46AD147CEE1000E7044B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 03398A95146001FF002AAAA3 /* main.m */; };
-		03663C9A14807D3800E86E92 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 03663C9914807D3800E86E92 /* Icon.png */; };
-		03663C9C14807E0800E86E92 /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 03663C9B14807E0800E86E92 /* Icon@2x.png */; };
-		03663C9E14807E2B00E86E92 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 03663C9D14807E2B00E86E92 /* Default.png */; };
 		03F7DF81147F1E1C00F5AC1A /* boat.png in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DC1F147F1E1B00F5AC1A /* boat.png */; };
 		03F7DF82147F1E1C00F5AC1A /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DC20147F1E1B00F5AC1A /* Default.png */; };
 		03F7DF83147F1E1C00F5AC1A /* dokdo.png in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DC21147F1E1B00F5AC1A /* dokdo.png */; };
@@ -1056,9 +1053,6 @@
 		03398A9D146001FF002AAAA3 /* TitleLayer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TitleLayer.h; sourceTree = "<group>"; };
 		03398A9E146001FF002AAAA3 /* TitleLayer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TitleLayer.m; sourceTree = "<group>"; };
 		03398AA0146001FF002AAAA3 /* GameConfig.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GameConfig.h; sourceTree = "<group>"; };
-		03663C9914807D3800E86E92 /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
-		03663C9B14807E0800E86E92 /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon@2x.png"; sourceTree = "<group>"; };
-		03663C9D14807E2B00E86E92 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		0374E23F1461A65E00B9EAF7 /* Const.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Const.h; sourceTree = "<group>"; };
 		037B5F34146039DB00074732 /* MainLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainLayer.h; sourceTree = "<group>"; };
 		037B5F35146039DB00074732 /* MainLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainLayer.m; sourceTree = "<group>"; };
@@ -1901,9 +1895,6 @@
 		03398926146001FC002AAAA3 = {
 			isa = PBXGroup;
 			children = (
-				03663C9D14807E2B00E86E92 /* Default.png */,
-				03663C9B14807E0800E86E92 /* Icon@2x.png */,
-				03663C9914807D3800E86E92 /* Icon.png */,
 				03398945146001FD002AAAA3 /* DefendDokdo */,
 				03398934146001FD002AAAA3 /* Frameworks */,
 				03398932146001FD002AAAA3 /* Products */,
@@ -4674,9 +4665,6 @@
 				BA934029147F412A00644C01 /* pause_stop_off_btn.png in Resources */,
 				BA93402A147F412A00644C01 /* pause_stop_on_btn.png in Resources */,
 				BA93402D147F438A00644C01 /* black.png in Resources */,
-				03663C9A14807D3800E86E92 /* Icon.png in Resources */,
-				03663C9C14807E0800E86E92 /* Icon@2x.png in Resources */,
-				03663C9E14807E2B00E86E92 /* Default.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
