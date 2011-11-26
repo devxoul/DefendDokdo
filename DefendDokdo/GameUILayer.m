@@ -13,7 +13,8 @@
 #import "Player.h"
 #import "UserData.h"
 #import "SkillData.h"
-#import "MainLayer.h"
+//#import "MainLayer.h"
+#import "ResultLayer.h"
 
 @implementation GameUILayer
 
@@ -177,7 +178,7 @@
 	
 	pauseMenu = [CCMenu menuWithItems:resume, tryagain, mainmenu, nil];
 	[self addChild:pauseMenu];
-	pauseMenu.position = ccp( 240, 160 );
+	pauseMenu.position = ccp( 240, 150 );
 	pauseMenu.visible = NO;
 	[pauseMenu alignItemsVertically];
     
@@ -212,7 +213,7 @@
 
 - (void)onMainMenuBtnClick:(id)sender
 {
-	[[CCDirector sharedDirector] pushScene:[MainLayer scene]];
+	[[CCDirector sharedDirector] pushScene:[ResultLayer	scene]];
 }
 
 - (void)ccTouchesMoved:(NSSet *)touches withEvent:(UIEvent *)event

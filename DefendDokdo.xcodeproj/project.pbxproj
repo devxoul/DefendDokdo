@@ -737,7 +737,6 @@
 		03F7E22A147F1E1C00F5AC1A /* UpgradeInfoList.plist in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DF28147F1E1C00F5AC1A /* UpgradeInfoList.plist */; };
 		03F7E22B147F1E1C00F5AC1A /* Reset_off_btn.png in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DF2A147F1E1C00F5AC1A /* Reset_off_btn.png */; };
 		03F7E22C147F1E1C00F5AC1A /* Reset_on_btn.png in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DF2B147F1E1C00F5AC1A /* Reset_on_btn.png */; };
-		03F7E22D147F1E1C00F5AC1A /* Settings_bg.png in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DF2C147F1E1C00F5AC1A /* Settings_bg.png */; };
 		03F7E22E147F1E1C00F5AC1A /* Sound_off_btn.png in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DF2D147F1E1C00F5AC1A /* Sound_off_btn.png */; };
 		03F7E22F147F1E1C00F5AC1A /* Sound_on_btn.png in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DF2E147F1E1C00F5AC1A /* Sound_on_btn.png */; };
 		03F7E230147F1E1C00F5AC1A /* Vibration_off_btn.png in Resources */ = {isa = PBXBuildFile; fileRef = 03F7DF2F147F1E1C00F5AC1A /* Vibration_off_btn.png */; };
@@ -820,7 +819,6 @@
 		03F7E281147F25A100F5AC1A /* GameKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03F7E27F147F257800F5AC1A /* GameKit.framework */; };
 		03F7E284147F271900F5AC1A /* InfoLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 03F7E283147F271900F5AC1A /* InfoLayer.m */; };
 		03F7E286147F28FC00F5AC1A /* sun.png in Resources */ = {isa = PBXBuildFile; fileRef = 03F7E285147F28FC00F5AC1A /* sun.png */; };
-		03F7E28E147F2EFF00F5AC1A /* pause_bg.png in Resources */ = {isa = PBXBuildFile; fileRef = 03F7E28D147F2EFF00F5AC1A /* pause_bg.png */; };
 		BA934027147F412A00644C01 /* pause_play_off_btn.png in Resources */ = {isa = PBXBuildFile; fileRef = BA934023147F412A00644C01 /* pause_play_off_btn.png */; };
 		BA934028147F412A00644C01 /* pause_play_on_btn.png in Resources */ = {isa = PBXBuildFile; fileRef = BA934024147F412A00644C01 /* pause_play_on_btn.png */; };
 		BA934029147F412A00644C01 /* pause_stop_off_btn.png in Resources */ = {isa = PBXBuildFile; fileRef = BA934025147F412A00644C01 /* pause_stop_off_btn.png */; };
@@ -1772,7 +1770,6 @@
 		03F7DF28147F1E1C00F5AC1A /* UpgradeInfoList.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = UpgradeInfoList.plist; sourceTree = "<group>"; };
 		03F7DF2A147F1E1C00F5AC1A /* Reset_off_btn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Reset_off_btn.png; sourceTree = "<group>"; };
 		03F7DF2B147F1E1C00F5AC1A /* Reset_on_btn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Reset_on_btn.png; sourceTree = "<group>"; };
-		03F7DF2C147F1E1C00F5AC1A /* Settings_bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Settings_bg.png; sourceTree = "<group>"; };
 		03F7DF2D147F1E1C00F5AC1A /* Sound_off_btn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Sound_off_btn.png; sourceTree = "<group>"; };
 		03F7DF2E147F1E1C00F5AC1A /* Sound_on_btn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Sound_on_btn.png; sourceTree = "<group>"; };
 		03F7DF2F147F1E1C00F5AC1A /* Vibration_off_btn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Vibration_off_btn.png; sourceTree = "<group>"; };
@@ -1856,7 +1853,6 @@
 		03F7E282147F271900F5AC1A /* InfoLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InfoLayer.h; sourceTree = "<group>"; };
 		03F7E283147F271900F5AC1A /* InfoLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InfoLayer.m; sourceTree = "<group>"; };
 		03F7E285147F28FC00F5AC1A /* sun.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = sun.png; path = Resources/sun.png; sourceTree = "<group>"; };
-		03F7E28D147F2EFF00F5AC1A /* pause_bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pause_bg.png; sourceTree = "<group>"; };
 		3CB4BED4147B760C00D8B7B4 /* SkillLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SkillLayer.h; sourceTree = "<group>"; };
 		3CB4BED5147B760C00D8B7B4 /* SkillLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SkillLayer.m; sourceTree = "<group>"; };
 		BA934023147F412A00644C01 /* pause_play_off_btn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pause_play_off_btn.png; sourceTree = "<group>"; };
@@ -3806,7 +3802,6 @@
 			children = (
 				03F7DF2A147F1E1C00F5AC1A /* Reset_off_btn.png */,
 				03F7DF2B147F1E1C00F5AC1A /* Reset_on_btn.png */,
-				03F7DF2C147F1E1C00F5AC1A /* Settings_bg.png */,
 				03F7DF2D147F1E1C00F5AC1A /* Sound_off_btn.png */,
 				03F7DF2E147F1E1C00F5AC1A /* Sound_on_btn.png */,
 				03F7DF2F147F1E1C00F5AC1A /* Vibration_off_btn.png */,
@@ -3860,7 +3855,6 @@
 			isa = PBXGroup;
 			children = (
 				0310287D147F31CF00CF6FD3 /* sun_ui.png */,
-				03F7E28D147F2EFF00F5AC1A /* pause_bg.png */,
 				03F7DF4F147F1E1C00F5AC1A /* back_off_btn.png */,
 				03F7DF50147F1E1C00F5AC1A /* back_on_btn.png */,
 				03F7DF51147F1E1C00F5AC1A /* cash_off_tab_btn.png */,
@@ -4585,7 +4579,6 @@
 				03F7E22A147F1E1C00F5AC1A /* UpgradeInfoList.plist in Resources */,
 				03F7E22B147F1E1C00F5AC1A /* Reset_off_btn.png in Resources */,
 				03F7E22C147F1E1C00F5AC1A /* Reset_on_btn.png in Resources */,
-				03F7E22D147F1E1C00F5AC1A /* Settings_bg.png in Resources */,
 				03F7E22E147F1E1C00F5AC1A /* Sound_off_btn.png in Resources */,
 				03F7E22F147F1E1C00F5AC1A /* Sound_on_btn.png in Resources */,
 				03F7E230147F1E1C00F5AC1A /* Vibration_off_btn.png in Resources */,
@@ -4666,7 +4659,6 @@
 				03F7E27D147F1E1C00F5AC1A /* upgrade_on_tab_btn.png in Resources */,
 				03F7E27E147F1E1C00F5AC1A /* white2.gif in Resources */,
 				03F7E286147F28FC00F5AC1A /* sun.png in Resources */,
-				03F7E28E147F2EFF00F5AC1A /* pause_bg.png in Resources */,
 				0310287E147F31CF00CF6FD3 /* sun_ui.png in Resources */,
 				BA934027147F412A00644C01 /* pause_play_off_btn.png in Resources */,
 				BA934028147F412A00644C01 /* pause_play_on_btn.png in Resources */,

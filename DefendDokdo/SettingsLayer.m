@@ -230,6 +230,9 @@
 
 -(void)setReset:(id)sender
 {
+	if ([UserData userData].backSound)
+		[[SimpleAudioEngine sharedEngine] playEffect:@"click.mp3"];    
+	
 	resetState = SETTING_RESET_POPUP;
 	
 	popSpr = [[CCSprite alloc] initWithFile:@"small_popup.png"];
