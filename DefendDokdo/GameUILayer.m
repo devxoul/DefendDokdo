@@ -175,7 +175,7 @@
 	CCMenuItemFont *tryagain = [CCMenuItemFont itemFromString:@"Try Again" target:self selector:@selector(onTryAgainBtnClick:)];
 	[tryagain setFontName:@"NanumScript.ttf"];
 	
-	pauseMenu = [CCMenu menuWithItems:resume, mainmenu, nil];
+	pauseMenu = [CCMenu menuWithItems:resume, tryagain, mainmenu, nil];
 	[self addChild:pauseMenu];
 	pauseMenu.position = ccp( 240, 160 );
 	pauseMenu.visible = NO;
