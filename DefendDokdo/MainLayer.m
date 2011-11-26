@@ -140,20 +140,17 @@
 
 -(void)moveGame:(id)sender
 {
-   [[CCDirector sharedDirector] replaceScene:[CCTransitionCrossFade transitionWithDuration:0.7 scene:[ResultLayer scene]]];
-//        [ResultLayer scene]]];
+   [[CCDirector sharedDirector] replaceScene:[CCTransitionCrossFade transitionWithDuration:0.5 scene:[ResultLayer scene]]];
 }
 
 -(void)moveIntro:(id)sender
 {
-    [[CCDirector sharedDirector] replaceScene:[CCTransitionCrossFade transitionWithDuration:0.7 scene:[IntroLayer scene]]]; 
+    [[CCDirector sharedDirector] replaceScene:[CCTransitionCrossFade transitionWithDuration:0.5 scene:[IntroLayer scene]]]; 
 }
 
 -(void)moveSetting:(id)sender{
     
-    [[CCDirector sharedDirector] replaceScene:[CCTransitionCrossFade transitionWithDuration:0.7 scene:[SettingsLayer scene]]];
-//        [UpgradeLayer scene]]];
-    
+    [[CCDirector sharedDirector] replaceScene:[CCTransitionCrossFade transitionWithDuration:0.5 scene:[SettingsLayer scene]]];
 }
 
 
@@ -170,7 +167,7 @@
 
 -(void)moveInfo:(id)sender
 {
-    [[CCDirector sharedDirector] replaceScene:[CCTransitionSlideInT transitionWithDuration:0.3 scene:[InfoLayer scene]]]; 
+    [[CCDirector sharedDirector] replaceScene:[CCTransitionCrossFade transitionWithDuration:0.5 scene:[InfoLayer scene]]]; 
 }
 
 @end

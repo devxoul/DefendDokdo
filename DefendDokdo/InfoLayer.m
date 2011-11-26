@@ -104,7 +104,7 @@ NSString* infoArr[15] =
     if ([UserData userData].backSound)
         [[SimpleAudioEngine sharedEngine] playEffect:@"click.mp3"];    
     
-    [[CCDirector sharedDirector] replaceScene:[CCTransitionSlideInL transitionWithDuration:0.3 scene:[MainLayer scene]]];        
+    [[CCDirector sharedDirector] replaceScene:[CCTransitionCrossFade transitionWithDuration:0.5 scene:[MainLayer scene]]];        
 }
 
 @end

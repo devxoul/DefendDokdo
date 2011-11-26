@@ -52,7 +52,6 @@
         [dokdoSprite setPosition:ccp(0, 0)];
         [self addChild:dokdoSprite z:0];
         
-        
         seaSprite = [[CCSprite alloc] initWithFile:@"sea2.png"];
         seaSprite.anchorPoint =CGPointZero;
         [seaSprite setPosition:ccp(0, 0)];
@@ -75,7 +74,6 @@
 		
 				
 		//전체메뉴 
-		
 		set_yes_sound = [[CCSprite alloc] initWithFile:@"Sound_on_btn.png"];
 		set_no_sound = [[CCSprite alloc] initWithFile:@"Sound_off_btn.png"];
 
@@ -88,26 +86,38 @@
 		set_yes_vibration.anchorPoint = CGPointZero;
 		set_no_vibration.anchorPoint = CGPointZero;
 
-		
+				
 		if ([[UserData userData] backSound] == YES) {
-			[set_yes_sound setVisible:NO];
-			[set_no_sound setVisible:YES];
+			[set_yes_sound setVisible:YES];
+			[set_no_sound setVisible:NO];
+			
+			[self addChild:set_yes_sound z:2];
+			[self addChild:set_no_sound z:1];
 		}
 		else
 		{
-			[set_no_sound setVisible:NO];
-			[set_yes_sound setVisible:YES];
+			[set_no_sound setVisible:YES];
+			[set_yes_sound setVisible:NO];
+			
+			[self addChild:set_yes_sound z:1];
+			[self addChild:set_no_sound z:2];			
 		}
 		
 		
 		if ([[UserData userData] vibration] == YES) {
 			[set_yes_vibration setVisible:NO];
 			[set_no_vibration setVisible:YES];
+			
+			[self addChild:set_yes_vibration z:1];
+			[self addChild:set_no_vibration z:2];			
 		}
 		else
 		{
 			[set_yes_vibration setVisible:YES];
 			[set_no_vibration setVisible:NO];
+
+			[self addChild:set_yes_vibration z:2];
+			[self addChild:set_no_vibration z:1];			
 		}
 				
 		set_reset = [CCMenuItemImage itemFromNormalImage:@"Reset_on_btn.png" selectedImage:@"Reset_off_btn.png" target:self selector:@selector(setReset:)];
@@ -123,12 +133,7 @@
 		[set_no_vibration setPosition:ccp(200, 115)];
 		
 		[set_reset setPosition:ccp(350, 115)];
-		
-		[self addChild:set_yes_sound z:2];
-		[self addChild:set_yes_vibration z:2];
-		[self addChild:set_no_sound z:2];
-		[self addChild:set_no_vibration z:2];
-		
+				
 		[self addChild: menu z:2];
 		
 		//뒤로가기 
@@ -154,17 +159,46 @@
 	CGPoint cocoa = [touch locationInView:[touch view]];
 	CGPoint touchPoint = [[CCDirector sharedDirector] convertToGL:cocoa];
 	
-	if ((set_yes_sound.boundingBox.origin.x < touchPoint.x) && ((set_yes_sound.boundingBox.size.width + set_yes_sound.boundingBox.origin.x) > touchPoint.x) ) {
-		if ((set_yes_sound.boundingBox.origin.y < touchPoint.y) && ((set_yes_sound.boundingBox.size.height + set_yes_sound.boundingBox.origin.y) > touchPoint.y)) {
-			[self setSound];
-		}
-	}		
+	if ([[UserData userData] backSound] == YES) {
+		if ((set_yes_sound.boundingBox.origin.x < touchPoint.x) && 
+			((set_yes_sound.boundingBox.size.width + set_yes_sound.boundingBox.origin.x) > touchPoint.x) ) {
+			if ((set_yes_sound.boundingBox.origin.y < touchPoint.y) && 
+				((set_yes_sound.boundingBox.size.height + set_yes_sound.boundingBox.origin.y) > touchPoint.y)) {
+				[self setSound];
+			}
+		}		
+	}
+	else
+	{
+		if ((set_no_sound.boundingBox.origin.x < touchPoint.x) && 
+			((set_no_sound.boundingBox.size.width + set_no_sound.boundingBox.origin.x) > touchPoint.x) ) {
+			if ((set_no_sound.boundingBox.origin.y < touchPoint.y) && 
+				((set_no_sound.boundingBox.size.height + set_no_sound.boundingBox.origin.y) > touchPoint.y)) {
+				[self setSound];
+			}
+		}				
+	}
 	
-	if ((set_yes_vibration.boundingBox.origin.x < touchPoint.x) && ((set_yes_vibration.boundingBox.size.width + set_yes_vibration.boundingBox.origin.x) > touchPoint.x) ) {
-		if ((set_yes_vibration.boundingBox.origin.y < touchPoint.y) && ((set_yes_vibration.boundingBox.size.height + set_yes_vibration.boundingBox.origin.y) > touchPoint.y)) {
-			[self setVibration];
-		}
-	}		
+	
+	if ([[UserData userData] vibration] == YES) {
+		if ((set_yes_vibration.boundingBox.origin.x < touchPoint.x) && 
+			((set_yes_vibration.boundingBox.size.width + set_yes_vibration.boundingBox.origin.x) > touchPoint.x) ) {
+			if ((set_yes_vibration.boundingBox.origin.y < touchPoint.y) && 
+				((set_yes_vibration.boundingBox.size.height + set_yes_vibration.boundingBox.origin.y) > touchPoint.y)) {
+				[self setVibration];
+			}
+		}		
+	}
+	else
+	{
+		if ((set_no_vibration.boundingBox.origin.x < touchPoint.x) && 
+			((set_no_vibration.boundingBox.size.width + set_no_vibration.boundingBox.origin.x) > touchPoint.x) ) {
+			if ((set_no_vibration.boundingBox.origin.y < touchPoint.y) && 
+				((set_no_vibration.boundingBox.size.height + set_no_vibration.boundingBox.origin.y) > touchPoint.y)) {
+				[self setVibration];
+			}
+		}			
+	}
 
 }
 
@@ -178,7 +212,10 @@
 			[UserData userData].backSound = NO;
 			
 			[set_yes_sound setVisible:NO];
-			[set_no_sound setVisible:YES];			
+			[set_no_sound setVisible:YES];	
+						
+			[self reorderChild:set_yes_sound z:1];
+			[self reorderChild:set_no_sound z:2];
 			
 			[[UserData userData] setToFile];
 			[[SimpleAudioEngine sharedEngine] stopBackgroundMusic];
@@ -189,6 +226,9 @@
 			
 			[set_no_sound setVisible:NO];
 			[set_yes_sound setVisible:YES];
+			
+			[self reorderChild:set_yes_sound z:2];
+			[self reorderChild:set_no_sound z:1];			
 			
 			[[UserData userData] setToFile];
 //			[[SimpleAudioEngine sharedEngine] playBackgroundMusic:@"GameBGM.mp3"];
@@ -230,65 +270,66 @@
 
 -(void)setReset:(id)sender
 {
-	if ([UserData userData].backSound)
-		[[SimpleAudioEngine sharedEngine] playEffect:@"click.mp3"];    
-	
-	resetState = SETTING_RESET_POPUP;
-	
-	popSpr = [[CCSprite alloc] initWithFile:@"small_popup.png"];
-	[popSpr setAnchorPoint:ccp(0.5, 0.5)];
-	[popSpr setPosition:ccp(240, 160)];
-	[self addChild:popSpr z:3];
-	
-	label = [CCLabelTTF labelWithString:@"really?" fontName:@"NanumScript.ttf" fontSize:55];
-	label.color = ccWHITE;
-	label.anchorPoint = ccp(0.5, 0.5);
-	label.position = ccp(245, 190);
-	[self addChild:label z:4];
-	
-	CCMenuItemImage* yes;    
-	CCMenuItemImage* no;
-	
-	yes = [CCMenuItemImage itemFromNormalImage:@"yes_off_btn.png" selectedImage:@"yes_on_btn.png" block:^(id sender) {
-		BOOL result;
-		result = [[UserData userData] removeToFile];
-		
-		resetState = SETTING_RESET;
-		reset_menu.visible = NO;
-		popSpr.visible = NO;
-		label.visible = NO;
-		
+	if (resetState != SETTING_RESET_POPUP) {
 		if ([UserData userData].backSound)
 			[[SimpleAudioEngine sharedEngine] playEffect:@"click.mp3"];    
 		
-	}];
-	
-	[yes setAnchorPoint:CGPointZero];
-	yes.position = ccp(160, 115);
-	
-	no = [CCMenuItemImage itemFromNormalImage:@"no_off_btn.png" selectedImage:@"no_on_btn.png" block:^(id sender) {
-		resetState = SETTING_RESET;
-		reset_menu.visible = NO;
-		popSpr.visible = NO;
-		label.visible = NO;
+		resetState = SETTING_RESET_POPUP;
 		
-		if ([UserData userData].backSound)
-			[[SimpleAudioEngine sharedEngine] playEffect:@"click.mp3"];    
-	}];
-	
-	[no setAnchorPoint:CGPointZero];
-	no.position = ccp(290, 115);
-	
-	reset_menu = [CCMenu menuWithItems:yes, no, nil];    
-	[reset_menu setAnchorPoint:CGPointZero];
-	[reset_menu setPosition:CGPointZero];
-	[self addChild:reset_menu z:4];
-	
+		popSpr = [[CCSprite alloc] initWithFile:@"small_popup.png"];
+		[popSpr setAnchorPoint:ccp(0.5, 0.5)];
+		[popSpr setPosition:ccp(240, 160)];
+		[self addChild:popSpr z:3];
+		
+		label = [CCLabelTTF labelWithString:@"really?" fontName:@"NanumScript.ttf" fontSize:55];
+		label.color = ccWHITE;
+		label.anchorPoint = ccp(0.5, 0.5);
+		label.position = ccp(245, 190);
+		[self addChild:label z:4];
+		
+		CCMenuItemImage* yes;    
+		CCMenuItemImage* no;
+		
+		yes = [CCMenuItemImage itemFromNormalImage:@"yes_off_btn.png" selectedImage:@"yes_on_btn.png" block:^(id sender) {
+			BOOL result;
+			result = [[UserData userData] removeToFile];
+			
+			resetState = SETTING_RESET;
+			reset_menu.visible = NO;
+			popSpr.visible = NO;
+			label.visible = NO;
+			
+			if ([UserData userData].backSound)
+				[[SimpleAudioEngine sharedEngine] playEffect:@"click.mp3"];    
+			
+		}];
+		
+		[yes setAnchorPoint:CGPointZero];
+		yes.position = ccp(160, 115);
+		
+		no = [CCMenuItemImage itemFromNormalImage:@"no_off_btn.png" selectedImage:@"no_on_btn.png" block:^(id sender) {
+			resetState = SETTING_RESET;
+			reset_menu.visible = NO;
+			popSpr.visible = NO;
+			label.visible = NO;
+			
+			if ([UserData userData].backSound)
+				[[SimpleAudioEngine sharedEngine] playEffect:@"click.mp3"];    
+		}];
+		
+		[no setAnchorPoint:CGPointZero];
+		no.position = ccp(290, 115);
+		
+		reset_menu = [CCMenu menuWithItems:yes, no, nil];    
+		[reset_menu setAnchorPoint:CGPointZero];
+		[reset_menu setPosition:CGPointZero];
+		[self addChild:reset_menu z:4];
+	}	
 } 
 
 - (void)back:(id)sender {
 	
-	[[CCDirector sharedDirector] pushScene:[CCTransitionSlideInL transitionWithDuration:0.3 scene:[MainLayer scene]]];
+	[[CCDirector sharedDirector] pushScene:[CCTransitionCrossFade transitionWithDuration:0.5 scene:[MainLayer scene]]];
 	
 	if ([UserData userData].backSound)
 		[[SimpleAudioEngine sharedEngine] playEffect:@"click.mp3"];    
