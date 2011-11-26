@@ -31,6 +31,7 @@
         
         tabState = 0;
         buttonState = 0;
+        upgradeButtonState = 0;
         
         //배경
         //        upgradeBgSprite = [[CCSprite alloc] initWithFile:@"dokdo_bg.jpg"];
@@ -170,7 +171,7 @@
         [upgradeLabel1 setAnchorPoint:CGPointZero];
         [upgradeLabel1 setPosition:CGPointMake(190, 170)];
         
-        upgradeLabel2 = [CCLabelTTF labelWithString:[NSString stringWithFormat:@"%d G", [[SkillData skillData] getSkillInfo:UPGRADE_TYPE_FLAG :[[UserData userData] flagLevel]]] dimensions:CGSizeMake(0,0) alignment:UITextAlignmentCenter fontName:@"NanumScript.ttf" fontSize:20]; 
+        upgradeLabel2 = [CCLabelTTF labelWithString:[NSString stringWithFormat:@"%d G", [[SkillData skillData] getSkillPrice:UPGRADE_TYPE_FLAG :[[UserData userData] flagLevel]]] dimensions:CGSizeMake(0,0) alignment:UITextAlignmentCenter fontName:@"NanumScript.ttf" fontSize:20]; 
         
         [self addChild:upgradeLabel2 z:8];
         
@@ -186,7 +187,7 @@
         [upgradeLabel3 setAnchorPoint:CGPointZero];
         [upgradeLabel3 setPosition:CGPointMake(359, 170)];
         
-        upgradeLabel4 = [CCLabelTTF labelWithString:[NSString stringWithFormat:@"%d G", [[SkillData skillData] getSkillInfo:UPGRADE_TYPE_ATTACK :[[UserData userData] userAtkLevel]]] dimensions:CGSizeMake(0,0) alignment:UITextAlignmentCenter fontName:@"NanumScript.ttf" fontSize:20];
+        upgradeLabel4 = [CCLabelTTF labelWithString:[NSString stringWithFormat:@"%d G", [[SkillData skillData] getSkillPrice:UPGRADE_TYPE_ATTACK :[[UserData userData] userAtkLevel]]] dimensions:CGSizeMake(0,0) alignment:UITextAlignmentCenter fontName:@"NanumScript.ttf" fontSize:20];
         
         [self addChild:upgradeLabel4 z:8];
         
@@ -202,7 +203,7 @@
         [upgradeLabel5 setAnchorPoint:CGPointZero];
         [upgradeLabel5 setPosition:CGPointMake(190, 75)];
         
-        upgradeLabel6 = [CCLabelTTF labelWithString:[NSString stringWithFormat:@"%d G", [[SkillData skillData] getSkillInfo:UPGRADE_TYPE_MAXMP :[[UserData userData] userMaxMpLevel]]] dimensions:CGSizeMake(0,0) alignment:UITextAlignmentCenter fontName:@"NanumScript.ttf" fontSize:20];
+        upgradeLabel6 = [CCLabelTTF labelWithString:[NSString stringWithFormat:@"%d G", [[SkillData skillData] getSkillPrice:UPGRADE_TYPE_MAXMP :[[UserData userData] userMaxMpLevel]]] dimensions:CGSizeMake(0,0) alignment:UITextAlignmentCenter fontName:@"NanumScript.ttf" fontSize:20];
         
         [self addChild:upgradeLabel6 z:8];
         
@@ -218,7 +219,7 @@
         [upgradeLabel7 setAnchorPoint:CGPointZero];
         [upgradeLabel7 setPosition:CGPointMake(359, 75)];
         
-        upgradeLabel8 = [CCLabelTTF labelWithString:[NSString stringWithFormat:@"%d G", [[SkillData skillData] getSkillInfo:UPGRADE_TYPE_REGENMP :[[UserData userData] userMPspeedLevel]]] dimensions:CGSizeMake(0,0) alignment:UITextAlignmentCenter fontName:@"NanumScript.ttf" fontSize:20];
+        upgradeLabel8 = [CCLabelTTF labelWithString:[NSString stringWithFormat:@"%d G", [[SkillData skillData] getSkillPrice:UPGRADE_TYPE_REGENMP :[[UserData userData] userMPspeedLevel]]] dimensions:CGSizeMake(0,0) alignment:UITextAlignmentCenter fontName:@"NanumScript.ttf" fontSize:20];
         
         [self addChild:upgradeLabel8 z:8];
         
@@ -346,6 +347,53 @@
         slot_earthquake2.visible = NO;
         slot_earthquake3.visible = NO;
         
+        
+        //나갔다 들어와도 슬롯 정보 유지    
+        switch ([[[[UserData userData] userSkillSlot] objectForKey:@"1"] integerValue]) {
+            case SKILL_STATE_STONE:
+                [slot_stone1 setVisible:YES];
+                break;                
+            case SKILL_STATE_ARROW:
+                [slot_arrow1 setVisible:YES];
+                break;                
+            case SKILL_STATE_HEALING:
+                [slot_hill1 setVisible:YES];
+                break;                
+            case SKILL_STATE_EARTHQUAKE:
+                [slot_earthquake1 setVisible:YES];
+                break;                
+        }
+        
+        switch ([[[[UserData userData] userSkillSlot] objectForKey:@"2"] integerValue]) {
+            case SKILL_STATE_STONE:
+                [slot_stone2 setVisible:YES];
+                break;                
+            case SKILL_STATE_ARROW:
+                [slot_arrow2 setVisible:YES];
+                break;                
+            case SKILL_STATE_HEALING:
+                [slot_hill2 setVisible:YES];
+                break;                
+            case SKILL_STATE_EARTHQUAKE:
+                [slot_earthquake2 setVisible:YES];
+                break;                
+        }
+        
+        switch ([[[[UserData userData] userSkillSlot] objectForKey:@"3"] integerValue]) {
+            case SKILL_STATE_STONE:
+                [slot_stone3 setVisible:YES];
+                break;                
+            case SKILL_STATE_ARROW:
+                [slot_arrow3 setVisible:YES];
+                break;                
+            case SKILL_STATE_HEALING:
+                [slot_hill3 setVisible:YES];
+                break;                
+            case SKILL_STATE_EARTHQUAKE:
+                [slot_earthquake3 setVisible:YES];
+                break;                
+        }
+                
         //게임머니
         //        moneyLabel = [[CCLabelTTF labelWithString:[NSString stringWithFormat:@"1000"] fontName:@"NanumScript.ttf" fontSize:70] retain];
         //        
@@ -439,6 +487,9 @@
 
 -(void)tab1Clicked:(id)sender{
     
+    if(upgradeButtonState == 1)
+        return;
+    
     tab1BgSprite.visible = YES;
     tab2BgSprite.visible = NO;
     tab3BgSprite.visible = NO;
@@ -459,13 +510,13 @@
     tabItemSprite12.visible = NO;
     
     [upgradeLabel1 setString:[NSString stringWithFormat:@"Lv %d",[[UserData userData] flagLevel]]];
-    [upgradeLabel2 setString:[NSString stringWithFormat:@"%d G", [[SkillData skillData] getSkillInfo:UPGRADE_TYPE_FLAG :[[UserData userData] flagLevel]]]];
+    [upgradeLabel2 setString:[NSString stringWithFormat:@"%d G", [[SkillData skillData] getSkillPrice:UPGRADE_TYPE_FLAG :[[UserData userData] flagLevel]]]];
     [upgradeLabel3 setString:[NSString stringWithFormat:@"Lv %d",[[UserData userData] userAtkLevel]]];
-    [upgradeLabel4 setString:[NSString stringWithFormat:@"%d G", [[SkillData skillData] getSkillInfo:UPGRADE_TYPE_ATTACK :[[UserData userData] userAtkLevel]]]];
+    [upgradeLabel4 setString:[NSString stringWithFormat:@"%d G", [[SkillData skillData] getSkillPrice:UPGRADE_TYPE_ATTACK :[[UserData userData] userAtkLevel]]]];
     [upgradeLabel5 setString:[NSString stringWithFormat:@"Lv %d",[[UserData userData] userMaxMpLevel]]];
-    [upgradeLabel6 setString:[NSString stringWithFormat:@"%d G", [[SkillData skillData] getSkillInfo:UPGRADE_TYPE_MAXMP :[[UserData userData] userMaxMpLevel]]]];
+    [upgradeLabel6 setString:[NSString stringWithFormat:@"%d G", [[SkillData skillData] getSkillPrice:UPGRADE_TYPE_MAXMP :[[UserData userData] userMaxMpLevel]]]];
     [upgradeLabel7 setString:[NSString stringWithFormat:@"Lv %d",[[UserData userData] userMPspeedLevel]]];
-    [upgradeLabel8 setString:[NSString stringWithFormat:@"%d G", [[SkillData skillData] getSkillInfo:UPGRADE_TYPE_REGENMP :[[UserData userData] userMPspeedLevel]]]];
+    [upgradeLabel8 setString:[NSString stringWithFormat:@"%d G", [[SkillData skillData] getSkillPrice:UPGRADE_TYPE_REGENMP :[[UserData userData] userMPspeedLevel]]]];
     
     //    [selectMenu1 cleanup];
     //    [selectMenu2 cleanup];
@@ -490,6 +541,9 @@
 }
 
 -(void)tab2Clicked:(id)sender{
+    
+    if(upgradeButtonState == 1)
+        return;
     
     tab1BgSprite.visible = NO;
     tab2BgSprite.visible = YES;
@@ -531,6 +585,9 @@
 
 -(void)tab3Clicked:(id)sender{
     
+    if(upgradeButtonState == 1)
+        return;
+    
     tab1BgSprite.visible = NO;
     tab2BgSprite.visible = NO;
     tab3BgSprite.visible = YES;
@@ -570,6 +627,9 @@
 
 -(void)selectButton1:(id)sender{
     
+    if(upgradeButtonState == 1)
+        return;
+    
     buttonState = 1;
     
     switch (tabState) {
@@ -596,6 +656,9 @@
 }
 
 -(void)selectButton2:(id)sender{
+    
+    if(upgradeButtonState == 1)
+        return;
     
     buttonState = 2;
     
@@ -624,6 +687,9 @@
 
 -(void)selectButton3:(id)sender{
     
+    if(upgradeButtonState == 1)
+        return;
+    
     buttonState = 3;
     
     switch (tabState) {
@@ -650,6 +716,9 @@
 }
 
 -(void)selectButton4:(id)sender{
+    
+    if(upgradeButtonState == 1)
+        return;
     
     buttonState = 4;
     
@@ -678,6 +747,9 @@
 
 -(void)upgradeItem{
     
+    if(upgradeButtonState == 1)
+        return;
+    
         popSpr = [[CCSprite alloc] initWithFile:@"small_popup.png"];
         [popSpr setAnchorPoint:ccp(0.5, 0.5)];
         [popSpr setPosition:ccp(240, 160)];
@@ -692,44 +764,57 @@
         CCMenuItemImage* yes;    
         CCMenuItemImage* no;
         
+        upgradeButtonState = 1;
+
+        
         yes = [CCMenuItemImage itemFromNormalImage:@"yes_off_btn.png" selectedImage:@"yes_on_btn.png" block:^(id sender) {
 //            BOOL result;
 //            result = [[UserData userData] removeToFile];
 //            
+            
+            
             switch (tabState) {
                 case 0:
                     
                     switch (buttonState) {
                         case 1:
+                            if ([UserData userData].flagLevel < 8){
                             [UserData userData].flagLevel++; 
                             [[UserData userData] saveToFile];
                             
                             [upgradeLabel1 setString:[NSString stringWithFormat:@"Lv %d",[[UserData userData] flagLevel]]];
-                            [upgradeLabel2 setString:[NSString stringWithFormat:@"%d G", [[SkillData skillData] getSkillInfo:UPGRADE_TYPE_FLAG :[[UserData userData] flagLevel]]]];
+                            [upgradeLabel2 setString:[NSString stringWithFormat:@"%d G", [[SkillData skillData] getSkillPrice:UPGRADE_TYPE_FLAG :[[UserData userData] flagLevel]]]];
+                            }
                             break;
                             
                         case 2:
+                            if ([UserData userData].userAtkLevel < 20){
                             [UserData userData].userAtkLevel++; 
                             [[UserData userData] saveToFile];
                             
                             [upgradeLabel3 setString:[NSString stringWithFormat:@"Lv %d",[[UserData userData] userAtkLevel]]];
-                            [upgradeLabel4 setString:[NSString stringWithFormat:@"%d G", [[SkillData skillData] getSkillInfo:UPGRADE_TYPE_ATTACK :[[UserData userData] userAtkLevel]]]];
+                            [upgradeLabel4 setString:[NSString stringWithFormat:@"%d G", [[SkillData skillData] getSkillPrice:UPGRADE_TYPE_ATTACK :[[UserData userData] userAtkLevel]]]];
+                            }
                             break;
                             
                         case 3:
+                            if ([UserData userData].userMaxMpLevel < 20){
                             [UserData userData].userMaxMpLevel++; 
                             [[UserData userData] saveToFile];
                             
                             [upgradeLabel5 setString:[NSString stringWithFormat:@"Lv %d",[[UserData userData] userMaxMpLevel]]];
-                            [upgradeLabel6 setString:[NSString stringWithFormat:@"%d G", [[SkillData skillData] getSkillInfo:UPGRADE_TYPE_MAXMP :[[UserData userData] userMaxMpLevel]]]];
+                            [upgradeLabel6 setString:[NSString stringWithFormat:@"%d G", [[SkillData skillData] getSkillPrice:UPGRADE_TYPE_MAXMP :[[UserData userData] userMaxMpLevel]]]];
+                            }
                             break;
                             
                         case 4:
+                            if ([UserData userData].userMPspeedLevel < 20){
                             [UserData userData].userMPspeedLevel++; 
                             [[UserData userData] saveToFile];
                             
                             [upgradeLabel7 setString:[NSString stringWithFormat:@"Lv %d",[[UserData userData] userMPspeedLevel]]];
-                            [upgradeLabel8 setString:[NSString stringWithFormat:@"%d G", [[SkillData skillData] getSkillInfo:UPGRADE_TYPE_REGENMP :[[UserData userData] userMPspeedLevel]]]];
+                            [upgradeLabel8 setString:[NSString stringWithFormat:@"%d G", [[SkillData skillData] getSkillPrice:UPGRADE_TYPE_REGENMP :[[UserData userData] userMPspeedLevel]]]];
+                            }
                             break;
                             
                         default:
@@ -742,7 +827,7 @@
                     
                     switch (buttonState) {
                         case 1:
-                            if ([UserData userData].stoneLevel < 21){
+                            if ([UserData userData].stoneLevel < 20){
                                 [UserData userData].stoneLevel++; 
                                 [[UserData userData] saveToFile];
                                 
@@ -755,7 +840,7 @@
                             break;
                             
                         case 2:
-                            if ([UserData userData].arrowLevel < 21){
+                            if ([UserData userData].arrowLevel < 20){
                                 [UserData userData].arrowLevel++; 
                                 [[UserData userData] saveToFile];
                                 
@@ -768,7 +853,7 @@
                             break;
                             
                         case 3:
-                            if ([UserData userData].hillLevel < 21){
+                            if ([UserData userData].hillLevel < 20){
                                 [UserData userData].hillLevel++; 
                                 [[UserData userData] saveToFile];
                                 
@@ -781,7 +866,7 @@
                             break;
                             
                         case 4:
-                            if ([UserData userData].earthquakeLevel < 21){
+                            if ([UserData userData].earthquakeLevel < 20){
                                 [UserData userData].earthquakeLevel++; 
                                 [[UserData userData] saveToFile];
                                 
@@ -844,12 +929,17 @@
             popSpr.visible = NO;
             label.visible = NO;
             
+            upgradeButtonState = 0;
+
+            
         }];
         
         [yes setAnchorPoint:CGPointZero];
         yes.position = ccp(160, 115);
         
         no = [CCMenuItemImage itemFromNormalImage:@"no_off_btn.png" selectedImage:@"no_on_btn.png" block:^(id sender) {
+            
+            upgradeButtonState = 0;
             
             reset_menu.visible = NO;
             popSpr.visible = NO;
@@ -870,6 +960,9 @@
 -(void)setSlotItem:(id)sender{
     
     NSLog(@"setSlotItem");
+    
+    if(upgradeButtonState == 1)
+        return;
     
     //사용가능 슬롯 개수
     
@@ -1012,6 +1105,7 @@
 
 
 -(void)buySlotItem:(id)sender{
+    
     /*   
      if ([[UserData userData] point] < 10) {
      
@@ -1019,7 +1113,12 @@
      }
      
      */
+    
+    if(upgradeButtonState == 1)
+        return;
 	
+    upgradeButtonState =1;
+    
 	popSpr2 = [[CCSprite alloc] initWithFile:@"small_popup.png"];
 	[popSpr2 setAnchorPoint:ccp(0.5, 0.5)];
 	[popSpr2 setPosition:ccp(240, 160)];
@@ -1035,6 +1134,7 @@
 	CCMenuItemImage* no2;
 	
 	yes2 = [CCMenuItemImage itemFromNormalImage:@"yes_off_btn.png" selectedImage:@"yes_on_btn.png" block:^(id sender) {
+                
 		if([[[[UserData userData] skillSlot] objectForKey:@"2"] boolValue] == NO)
         {
             [[[UserData userData] skillSlot] setObject:[NSNumber numberWithBool:YES] forKey:@"2"];
@@ -1050,6 +1150,8 @@
 		reset_menu2.visible = NO;
 		popSpr2.visible = NO;
 		label2.visible = NO;
+        
+        upgradeButtonState = 0;
 		
 	}];
 	
@@ -1057,6 +1159,8 @@
 	yes2.position = ccp(160, 115);
 	
 	no2 = [CCMenuItemImage itemFromNormalImage:@"no_off_btn.png" selectedImage:@"no_on_btn.png" block:^(id sender) {
+        
+        upgradeButtonState = 0;
         
 		reset_menu2.visible = NO;
 		popSpr2.visible = NO;
@@ -1076,11 +1180,17 @@
 
 - (void)back{
     
+    if(upgradeButtonState == 1)
+        return;
+    
     [[CCDirector sharedDirector] replaceScene:[CCTransitionCrossFade transitionWithDuration:0.7 scene:[MainLayer scene]]];
     
 }
 
 - (void)ccTouchesEnded:(NSSet *)touches withEvent:(UIEvent *)event{
+    
+    if(upgradeButtonState == 1)
+        return;
     
     NSLog(@"ccTouchesEnded");
     

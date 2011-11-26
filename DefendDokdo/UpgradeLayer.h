@@ -117,6 +117,8 @@
     int buttonState;
     int slotState;
     
+    int upgradeButtonState;
+    
     //팝업
     CCMenu* reset_menu;
     CCSprite* popSpr;
