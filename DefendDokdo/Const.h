@@ -21,7 +21,7 @@
 #define FLAG_LEFT_X			235
 #define FLAG_RIGHT_X		252
 #define FLAG_X				250
-#define FLAG_Y				215
+#define FLAG_Y				230
 #define EXPLOSION_ARRANGE	50
 
 #define ENEMY_TYPE_NORMAL		0

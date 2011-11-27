@@ -127,7 +127,7 @@
 		[tabItemSprite3 setPosition:ccp(110, 45)];
         [self addChild:tabItemSprite3 z:6];
         
-        tabItemSprite7 = [[CCSprite alloc] initWithFile:@"esqueke_btn.png"];
+        tabItemSprite7 = [[CCSprite alloc] initWithFile:@"heal_btn.png"];
         tabItemSprite7.anchorPoint = CGPointZero;
 		[tabItemSprite7 setPosition:ccp(110, 45)];
         [self addChild:tabItemSprite7 z:5];
@@ -147,7 +147,7 @@
 		[tabItemSprite4 setPosition:ccp(279, 45)];
         [self addChild:tabItemSprite4 z:6];
         
-        tabItemSprite8 = [[CCSprite alloc] initWithFile:@"heal_btn.png"];
+        tabItemSprite8 = [[CCSprite alloc] initWithFile:@"esqueke_btn.png"];
         tabItemSprite8.anchorPoint = CGPointZero;
 		[tabItemSprite8 setPosition:ccp(279, 45)];
         [self addChild:tabItemSprite8 z:5];
