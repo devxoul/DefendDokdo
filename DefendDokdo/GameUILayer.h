@@ -30,14 +30,19 @@
     CCLabelTTF* hp;
     CCLabelTTF* mp;
     
+    CCLabelTTF* slot1MpLabel;    
+    CCLabelTTF* slot2MpLabel;
+    CCLabelTTF* slot3MpLabel;
+    
     CCSprite* slot1Shadow;
     CCSprite* slot2Shadow;
     CCSprite* slot3Shadow;
     
+    /*    
     CCSprite* slot1MpShadow;
     CCSprite* slot2MpShadow;
     CCSprite* slot3MpShadow;
-    
+    */  
     NSInteger slot1Count;
     NSInteger slot1MaxCount;
     
@@ -62,9 +67,15 @@
 @property (retain, nonatomic) NSMutableArray* skills;
 
 
-@property (readwrite) NSInteger slot1Count;
-@property (readwrite) NSInteger slot2Count;
-@property (readwrite) NSInteger slot3Count;
+@property (readwrite)NSInteger slot1Count;
+@property (readonly)NSInteger slot1MaxCount;
+
+@property (readwrite)NSInteger slot2Count;
+@property (readonly)NSInteger slot2MaxCount;
+
+@property (readwrite)NSInteger slot3Count;
+@property (readonly) NSInteger slot3MaxCount;
+
 @property (readwrite) NSInteger slotState;
 
 - (id)initWithScene:(GameScene* )gameScene;

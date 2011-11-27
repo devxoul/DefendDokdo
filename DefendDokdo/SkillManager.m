@@ -21,7 +21,7 @@
 #import "Slot.h"
 #import "Flag.h"
 #import "Player.h"
-
+#import "SimpleAudioEngine.h"
 
 @implementation SkillManager
 
@@ -46,7 +46,7 @@ enum{
 }
 
 -(void)initHealingAnimation{
-    
+
     [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:@"healing_effect.plist"];
 	
 	healSpr = [[CCSprite spriteWithSpriteFrameName:@"healing_effect_1.png"] retain];
@@ -77,19 +77,27 @@ enum{
 
 - (void)doHeal{
     
-    if(![self useMp:[[[[SkillData skillData] getSkillInfo:SKILL_STATE_HEALING :[UserData userData].hillLevel] objectForKey:@"mp"] integerValue]]){
+    if(![self useMp:[[[[SkillData skillData] getSkillInfo:SKILL_STATE_HEALING :[UserData userData].hillLevel] objectForKey:@"mp"] integerValue]]){                        
+        if([[UserData userData] backSound]){
+            [[SimpleAudioEngine sharedEngine] playEffect:@"cancel.wav"];
+        }
         return;
     }
+    
+    if([[UserData userData] backSound]){
+        [[SimpleAudioEngine sharedEngine] playEffect:@"healingSound.mp3"];
+    }
+
     [healSpr setVisible:YES];
     switch (_gameScene.gameUILayer.slotState){
         case 1:
-            _gameScene.gameUILayer.slot1Count = 100;
+            _gameScene.gameUILayer.slot1Count = _gameScene.gameUILayer.slot1MaxCount;
             break;
         case 2:
-            _gameScene.gameUILayer.slot2Count = 100;
+            _gameScene.gameUILayer.slot2Count = _gameScene.gameUILayer.slot2MaxCount;
             break;
         case 3:
-            _gameScene.gameUILayer.slot3Count = 100;
+            _gameScene.gameUILayer.slot3Count = _gameScene.gameUILayer.slot3MaxCount;
             break;
     }
     
@@ -164,18 +172,21 @@ enum{
         if(stone!=nil){
             switch (_gameScene.gameUILayer.slotState){
                 case 1:
-                    _gameScene.gameUILayer.slot1Count = 100;
+                    _gameScene.gameUILayer.slot1Count = _gameScene.gameUILayer.slot1MaxCount;
                     break;
                 case 2:
-                    _gameScene.gameUILayer.slot2Count = 100;
+                    _gameScene.gameUILayer.slot2Count = _gameScene.gameUILayer.slot2MaxCount;
                     break;
                 case 3:
-                    _gameScene.gameUILayer.slot3Count = 100;
+                    _gameScene.gameUILayer.slot3Count = _gameScene.gameUILayer.slot3MaxCount;
                     break;
             }
             skillState = SKILL_STATE_NORMAL;
             if([self useMp:(CGFloat)stone.mp]){
                 [_gameScene.skillLayer addChild:[stone stoneSprite] z:1 tag:skill_stone_tag];
+                if([[UserData userData] backSound]){
+                    [[SimpleAudioEngine sharedEngine] playEffect:@"stoneRolling.wav"];
+                }
                 [stoneArray addObject:stone];
             }
         }
@@ -189,13 +200,13 @@ enum{
         
         switch (_gameScene.gameUILayer.slotState){
             case 1:
-                _gameScene.gameUILayer.slot1Count = 100;
+                _gameScene.gameUILayer.slot1Count = _gameScene.gameUILayer.slot1MaxCount;
                 break;
             case 2:
-                _gameScene.gameUILayer.slot2Count = 100;
+                _gameScene.gameUILayer.slot2Count = _gameScene.gameUILayer.slot2MaxCount;
                 break;
             case 3:
-                _gameScene.gameUILayer.slot3Count = 100;
+                _gameScene.gameUILayer.slot3Count = _gameScene.gameUILayer.slot3MaxCount;
                 break;
         }
         
@@ -253,7 +264,7 @@ enum{
         NSInteger damage = [[[[SkillData skillData] getSkillInfo:SKILL_STATE_EARTHQUAKE :[[UserData userData] earthquakeLevel]] objectForKey:@"damage"] integerValue];
         NSInteger power = [[[[SkillData skillData] getSkillInfo:SKILL_STATE_EARTHQUAKE :[[UserData userData] earthquakeLevel]] objectForKey:@"effectPower"] integerValue];
         
-        earthQuakeCount = power*3;
+        earthQuakeCount = power*5;
         
         
         [self runAction:[CCSequence actions:[CCDelayTime actionWithDuration:0.01],[CCCallFunc actionWithTarget:self selector:@selector(shakyPlus:)],nil]];
@@ -261,15 +272,15 @@ enum{
         switch (earthQuakeSlot){
             case 1:
                 [[[[_gameScene.gameUILayer skills] objectAtIndex:0] slotSprite] setVisible:NO];
-                _gameScene.gameUILayer.slot1Count = 100;
+                _gameScene.gameUILayer.slot1Count = _gameScene.gameUILayer.slot1MaxCount;
                 break;
             case 2:
                 [[[[_gameScene.gameUILayer skills] objectAtIndex:1] slotSprite] setVisible:NO];
-                _gameScene.gameUILayer.slot2Count = 100;
+                _gameScene.gameUILayer.slot2Count = _gameScene.gameUILayer.slot2MaxCount;
                 break;
             case 3:
                 [[[[_gameScene.gameUILayer skills] objectAtIndex:2] slotSprite] setVisible:NO];
-                _gameScene.gameUILayer.slot3Count = 100;
+                _gameScene.gameUILayer.slot3Count = _gameScene.gameUILayer.slot3MaxCount;
                 break;
         }
             for(Enemy* current in _gameScene.enemies){
@@ -278,7 +289,17 @@ enum{
                 else
                     [current beDamaged:damage forceX:power forceY:power];            
             }
-        AudioServicesPlaySystemSound(kSystemSoundID_Vibrate);
+        
+        if([[UserData userData] backSound]){
+            [[SimpleAudioEngine sharedEngine] playEffect:@"earthquake.wav"];
+        }
+        if([[UserData userData] vibration])
+            AudioServicesPlaySystemSound(kSystemSoundID_Vibrate);
+    }
+    else{
+        if([[UserData userData] backSound]){
+            [[SimpleAudioEngine sharedEngine] playEffect:@"cancel.wav"];
+        }
     }
 }
 

@@ -19,15 +19,12 @@
 
 @implementation GameUILayer
 
-@synthesize skills, slot1Count, slot2Count, slot3Count,slotState;
+@synthesize skills, slot1Count, slot2Count, slot3Count,slotState, slot1MaxCount, slot2MaxCount, slot3MaxCount;
 
 -(void)update{
 	moneyLabel.string = [[[NSString stringWithFormat:@"%d", _gameScene.money] retain] autorelease];
 	
     //HP, MP Gage Bar 그리기
-    //MP에 관해서는 증가량 설정~
-    //    [mpBar setTextureRect:CGRectMake(0,0, 174 ,12)];
-    //    [hpBar setTextureRect:CGRectMake(0,0, 194 ,12)];
     NSInteger mpStat = _gameScene.player.mp;
     
     
@@ -59,23 +56,23 @@
     }
     
     if(mpStat < slot1Mp || slot1Mp == 0){
-        [slot1MpShadow setVisible:YES];
+        [slot1MpLabel setColor:ccRED];
+        
     }else{
-        [slot1MpShadow setVisible:NO];
+        [slot1MpLabel setColor:ccBLACK];
     }
         
     if(mpStat < slot2Mp || slot2Mp == 0){
-        [slot2MpShadow setVisible:YES];
+        [slot2MpLabel setColor:ccRED];    
     }
     else{
-        [slot2MpShadow setVisible:NO];
-
+        [slot2MpLabel setColor:ccBLACK];
     }
     if(mpStat < slot3Mp || slot3Mp == 0){
-        [slot3MpShadow setVisible:YES];
+        [slot3MpLabel setColor:ccRED];
     }
     else{
-        [slot3MpShadow setVisible:NO];
+        [slot3MpLabel setColor:ccBLACK];
     }
 }
 
@@ -102,62 +99,133 @@
     if([[[[UserData userData] skillSlot] objectForKey:@"1"] boolValue]){
         [skills addObject:[[Slot alloc] initWithSkillInfo:[[[[UserData userData] userSkillSlot] objectForKey:@"1"] integerValue] :self :ccp(295,25)]];
         slot1Mp = [[[[SkillData skillData] getSkillInfo:[[[[UserData userData] userSkillSlot] objectForKey:@"1"] integerValue] :[[UserData userData] getSkillLevel:[[[[UserData userData] userSkillSlot] objectForKey:@"1"] integerValue]]] objectForKey:@"mp"] integerValue];
+        slot1MpLabel = [CCLabelTTF labelWithString:[NSString stringWithFormat:@"%d", slot1Mp] dimensions:CGSizeZero alignment:UITextAlignmentRight fontName:@"NanumScript" fontSize:15];
+        [slot1MpLabel setAnchorPoint:ccp(0.5, 0.5)];
+        [slot1MpLabel setPosition:ccp(315,11)];
+        [slot1MpLabel setColor:ccRED];
+        [self addChild:slot1MpLabel];
+        
     }else{
         [skills addObject:[[Slot alloc] initWithSkillInfo:SKILL_STATE_LOCK :self :ccp(295,25)]];
         slot1Mp = 0;
+        slot1MpLabel = [CCLabelTTF labelWithString:@"none" dimensions:CGSizeZero alignment:UITextAlignmentRight fontName:@"NanumScript" fontSize:15];
+        [slot1MpLabel setAnchorPoint:ccp(0.5, 0.5)];
+        [slot1MpLabel setPosition:ccp(315,11)];
+        [slot1MpLabel setColor:ccRED];
+        [self addChild:slot1MpLabel];
+
     }
     
     slot1Shadow = [[CCSprite alloc] initWithFile:@"skill_shadow.png"];
-    [slot1Shadow setPosition:ccp(295, 51)];
+    [slot1Shadow setPosition:ccp(294.5, 51)];
     [slot1Shadow setAnchorPoint:ccp(0.5, 1.0)];
     [slot1Shadow setOpacity:150];
     slot1Count = 0;
     [self addChild:slot1Shadow];
-
     
+/*    
     slot1MpShadow = [[CCSprite alloc] initWithFile:@"skill_shadow.png"];
     [slot1MpShadow setPosition:ccp(295, 51)];
     [slot1MpShadow setAnchorPoint:ccp(0.5, 1.0)];
     [slot1MpShadow setOpacity:150];
     [self addChild:slot1MpShadow];
     [slot1MpShadow setVisible:NO];
-
+*/
     //삭제할 내용 - 
-    slot1MaxCount = 100;
-    
+    //스킬 쿨타임 정하기
+    switch ([[[[UserData userData] userSkillSlot] objectForKey:@"1"] integerValue]) {
+        case SKILL_STATE_STONE:
+            slot1MaxCount = 100 - [[UserData userData] getSkillLevel:SKILL_STATE_STONE] * 2;
+            break;
+        case SKILL_STATE_ARROW:
+            slot1MaxCount = 50 - [[UserData userData] getSkillLevel:SKILL_STATE_ARROW] * 2;
+            break;
+        case SKILL_STATE_EARTHQUAKE:
+            slot1MaxCount = 150 - [[UserData userData] getSkillLevel:SKILL_STATE_EARTHQUAKE] * 3;
+            break;
+        case SKILL_STATE_HEALING:
+            slot1MaxCount = 100 - [[UserData userData] getSkillLevel:SKILL_STATE_HEALING] * 2;
+            break;
+        default:
+            slot1MaxCount = 0;
+            break;
+    }    
     
     if([[[[UserData userData] skillSlot] objectForKey:@"2"] boolValue]){
         [skills addObject:[[Slot alloc] initWithSkillInfo:[[[[UserData userData] userSkillSlot] objectForKey:@"2"] integerValue] :self :ccp(368,25)]];
         
         slot2Mp = [[[[SkillData skillData] getSkillInfo:[[[[UserData userData] userSkillSlot] objectForKey:@"2"] integerValue] :[[UserData userData] getSkillLevel:[[[[UserData userData] userSkillSlot] objectForKey:@"2"] integerValue]]] objectForKey:@"mp"] integerValue];
+        
+        slot2MpLabel = [CCLabelTTF labelWithString:[NSString stringWithFormat:@"%d", slot2Mp] dimensions:CGSizeZero alignment:UITextAlignmentRight fontName:@"NanumScript" fontSize:15];
+        [slot2MpLabel setAnchorPoint:ccp(0.5, 0.5)];
+        [slot2MpLabel setPosition:ccp(388,11)];
+        [slot2MpLabel setColor:ccRED];
+        [self addChild:slot2MpLabel];
+        
     }else{
         [skills addObject:[[Slot alloc] initWithSkillInfo:SKILL_STATE_LOCK :self :ccp(368,25)]];
         slot2Mp = 0;
+
+        slot2MpLabel = [CCLabelTTF labelWithString:@"none" dimensions:CGSizeZero alignment:UITextAlignmentRight fontName:@"NanumScript" fontSize:15];
+        [slot2MpLabel setAnchorPoint:ccp(0.5, 0.5)];
+        [slot2MpLabel setPosition:ccp(388,11)];
+        [slot2MpLabel setColor:ccRED];
+        [self addChild:slot2MpLabel];
+
     }
     slot2Shadow = [[CCSprite alloc] initWithFile:@"skill_shadow.png"];
-    [slot2Shadow setPosition:ccp(368, 51)];
+    [slot2Shadow setPosition:ccp(367.5, 51)];
     [slot2Shadow setAnchorPoint:ccp(0.5, 1.0)];
     [slot2Shadow setOpacity:150];
     slot2Count = 0;
     [self addChild:slot2Shadow];
-    
+    /*
     slot2MpShadow = [[CCSprite alloc] initWithFile:@"skill_shadow.png"];
     [slot2MpShadow setPosition:ccp(368, 51)];
     [slot2MpShadow setAnchorPoint:ccp(0.5, 1.0)];
     [slot2MpShadow setOpacity:150];
     [self addChild:slot2MpShadow];
     [slot2MpShadow setVisible:NO];
-    
-    //삭제할 내용 - 
-    slot2MaxCount = 100;
+    */
+    //스킬 쿨타임 정하기
+    switch ([[[[UserData userData] userSkillSlot] objectForKey:@"2"] integerValue]) {
+        case SKILL_STATE_STONE:
+            slot2MaxCount = 100 - [[UserData userData] getSkillLevel:SKILL_STATE_STONE] * 2;
+            break;
+        case SKILL_STATE_ARROW:
+            slot2MaxCount = 50 - [[UserData userData] getSkillLevel:SKILL_STATE_ARROW] * 2;
+            break;
+        case SKILL_STATE_EARTHQUAKE:
+            slot2MaxCount = 150 - [[UserData userData] getSkillLevel:SKILL_STATE_EARTHQUAKE] * 3;
+            break;
+        case SKILL_STATE_HEALING:
+            slot2MaxCount = 100 - [[UserData userData] getSkillLevel:SKILL_STATE_HEALING] * 2;
+            break;
+        default:
+            slot2MaxCount = 0;
+            break;
+    }
     
     if([[[[UserData userData] skillSlot] objectForKey:@"3"] boolValue]){
         [skills addObject:[[Slot alloc] initWithSkillInfo:[[[[UserData userData] userSkillSlot] objectForKey:@"3"] integerValue] :self :ccp(441,25)]];
         
         slot3Mp = [[[[SkillData skillData] getSkillInfo:[[[[UserData userData] userSkillSlot] objectForKey:@"3"] integerValue] :[[UserData userData] getSkillLevel:[[[[UserData userData] userSkillSlot] objectForKey:@"3"] integerValue]]] objectForKey:@"mp"] integerValue];
+        
+        slot3MpLabel = [CCLabelTTF labelWithString:[NSString stringWithFormat:@"%d", slot3Mp] dimensions:CGSizeZero alignment:UITextAlignmentRight fontName:@"NanumScript" fontSize:15];
+        [slot3MpLabel setAnchorPoint:ccp(0.5, 0.5)];
+        [slot3MpLabel setPosition:ccp(460,11)];
+        [slot3MpLabel setColor:ccRED];
+        [self addChild:slot3MpLabel];
+
     }else{
         [skills addObject:[[Slot alloc] initWithSkillInfo:SKILL_STATE_LOCK :self :ccp(441,25)]];
         slot3Mp = 0;
+        
+        slot3MpLabel = [CCLabelTTF labelWithString:@"none" dimensions:CGSizeZero alignment:UITextAlignmentRight fontName:@"NanumScript" fontSize:15];
+        [slot3MpLabel setAnchorPoint:ccp(0.5, 0.5)];
+        [slot3MpLabel setPosition:ccp(460,11)];
+        [slot3MpLabel setColor:ccRED];
+        [self addChild:slot3MpLabel];
     }
     slot3Shadow = [[CCSprite alloc] initWithFile:@"skill_shadow.png"];
     [slot3Shadow setPosition:ccp(441, 51)];
@@ -165,16 +233,32 @@
     [slot3Shadow setOpacity:150];
     slot3Count = 0;
     [self addChild:slot3Shadow];
-    
+    /*
     slot3MpShadow = [[CCSprite alloc] initWithFile:@"skill_shadow.png"];
     [slot3MpShadow setPosition:ccp(441, 51)];
     [slot3MpShadow setAnchorPoint:ccp(0.5, 1.0)];
     [slot3MpShadow setOpacity:150];
     [self addChild:slot3MpShadow];
     [slot3MpShadow setVisible:NO];
-    
+    */
     //삭제할 내용 - 
-    slot3MaxCount = 100;
+    switch ([[[[UserData userData] userSkillSlot] objectForKey:@"3"] integerValue]) {
+        case SKILL_STATE_STONE:
+            slot3MaxCount = 100 - [[UserData userData] getSkillLevel:SKILL_STATE_STONE] * 2;
+            break;
+        case SKILL_STATE_ARROW:
+            slot3MaxCount = 50 - [[UserData userData] getSkillLevel:SKILL_STATE_ARROW] * 2;
+            break;
+        case SKILL_STATE_EARTHQUAKE:
+            slot3MaxCount = 150 - [[UserData userData] getSkillLevel:SKILL_STATE_EARTHQUAKE] * 3;
+            break;
+        case SKILL_STATE_HEALING:
+            slot3MaxCount = 100 - [[UserData userData] getSkillLevel:SKILL_STATE_HEALING] * 2;
+            break;
+        default:
+            slot3MaxCount = 0;
+            break;
+    }    
     
     hplabel = [[CCSprite alloc] initWithFile:@"hplabel.png"];
     [hplabel setPosition:ccp(GAMEUILAYER_DEFAULT_X + 0.f, GAMEUILAYER_DEFAULT_Y + 27.f)];
@@ -303,6 +387,9 @@
                 switch( [[skills objectAtIndex:0] skillType]){
                     case SKILL_STATE_STONE:
                         if(_gameScene.player.mp < [[[[SkillData skillData] getSkillInfo:SKILL_STATE_STONE :[[UserData userData] stoneLevel]] objectForKey:@"mp"] integerValue]){
+                            if([[UserData userData] backSound]){
+                                [[SimpleAudioEngine sharedEngine] playEffect:@"cancel.wav"];
+                            }
                             return;
                         }
                         [[[skills objectAtIndex:0] slotSprite] setVisible:NO];
@@ -310,7 +397,10 @@
                         _gameScene.skillManager.skillState = SKILL_STATE_STONE;
                         break;
                     case SKILL_STATE_ARROW:
-                        if(_gameScene.player.mp < [[[[SkillData skillData] getSkillInfo:SKILL_STATE_ARROW :[[UserData userData] arrowLevel]] objectForKey:@"mp"] integerValue]){
+                        if(_gameScene.player.mp < [[[[SkillData skillData] getSkillInfo:SKILL_STATE_ARROW :[[UserData userData] arrowLevel]] objectForKey:@"mp"] integerValue]){     
+                            if([[UserData userData] backSound]){
+                                [[SimpleAudioEngine sharedEngine] playEffect:@"cancel.wav"];
+                            }
                             return;
                         }
                         [[[skills objectAtIndex:0] slotSprite] setVisible:NO];
@@ -333,7 +423,10 @@
             else if(CGRectContainsPoint([[skills objectAtIndex:1] slotSprite].boundingBox, location) && slot2Count == 0){
                 switch( [[skills objectAtIndex:1] skillType]){
                     case SKILL_STATE_STONE:
-                        if(_gameScene.player.mp < [[[[SkillData skillData] getSkillInfo:SKILL_STATE_STONE :[[UserData userData] stoneLevel]] objectForKey:@"mp"] integerValue]){
+                        if(_gameScene.player.mp < [[[[SkillData skillData] getSkillInfo:SKILL_STATE_STONE :[[UserData userData] stoneLevel]] objectForKey:@"mp"] integerValue]){ 
+                            if([[UserData userData] backSound]){
+                                [[SimpleAudioEngine sharedEngine] playEffect:@"cancel.wav"];
+                            }
                             return;
                         }
                         [[[skills objectAtIndex:1] slotSprite] setVisible:NO];
@@ -341,7 +434,10 @@
                         _gameScene.skillManager.skillState = SKILL_STATE_STONE;
                         break;
                     case SKILL_STATE_ARROW:
-                        if(_gameScene.player.mp < [[[[SkillData skillData] getSkillInfo:SKILL_STATE_ARROW :[[UserData userData] arrowLevel]] objectForKey:@"mp"] integerValue]){
+                        if(_gameScene.player.mp < [[[[SkillData skillData] getSkillInfo:SKILL_STATE_ARROW :[[UserData userData] arrowLevel]] objectForKey:@"mp"] integerValue]){    
+                            if([[UserData userData] backSound]){
+                                [[SimpleAudioEngine sharedEngine] playEffect:@"cancel.wav"];
+                            }
                             return;
                         }
                         [[[skills objectAtIndex:1] slotSprite] setVisible:NO];
@@ -364,7 +460,10 @@
             else if(CGRectContainsPoint([[skills objectAtIndex:2] slotSprite].boundingBox, location) && slot3Count == 0){
                 switch( [[skills objectAtIndex:2] skillType]){
                     case SKILL_STATE_STONE:
-                        if(_gameScene.player.mp < [[[[SkillData skillData] getSkillInfo:SKILL_STATE_STONE :[[UserData userData] stoneLevel]] objectForKey:@"mp"] integerValue]){
+                        if(_gameScene.player.mp < [[[[SkillData skillData] getSkillInfo:SKILL_STATE_STONE :[[UserData userData] stoneLevel]] objectForKey:@"mp"] integerValue]){ 
+                            if([[UserData userData] backSound]){
+                                [[SimpleAudioEngine sharedEngine] playEffect:@"cancel.wav"];
+                            }
                             return;
                         }
                         [[[skills objectAtIndex:2] slotSprite] setVisible:NO];
@@ -372,7 +471,10 @@
                         _gameScene.skillManager.skillState = SKILL_STATE_STONE;
                         break;
                     case SKILL_STATE_ARROW:
-                        if(_gameScene.player.mp < [[[[SkillData skillData] getSkillInfo:SKILL_STATE_ARROW :[[UserData userData] arrowLevel]] objectForKey:@"mp"] integerValue]){
+                        if(_gameScene.player.mp < [[[[SkillData skillData] getSkillInfo:SKILL_STATE_ARROW :[[UserData userData] arrowLevel]] objectForKey:@"mp"] integerValue]){                        
+                            if([[UserData userData] backSound]){
+                                [[SimpleAudioEngine sharedEngine] playEffect:@"cancel.wav"];
+                            }
                             return;
                         }
                         [[[skills objectAtIndex:2] slotSprite] setVisible:NO];
@@ -390,6 +492,11 @@
                     case SKILL_STATE_LOCK:
                         break;
                         
+                }
+            }
+            else{
+                if([[UserData userData] backSound]){
+                    [[SimpleAudioEngine sharedEngine] playEffect:@"cancel.wav"];
                 }
             }
         }           

@@ -12,6 +12,8 @@
 #import "SkillLayer.h"
 #import "Enemy.h"
 #import "Arrow.h"
+#import "SimpleAudioEngine.h"
+#import "UserData.h"
 
 @implementation ArrowObject
 
@@ -92,7 +94,7 @@
 }
 
 -(void) draw{
-    if(count!=0){
+    if(count>0){
         count--;
         return;
     }
@@ -112,13 +114,24 @@
                     y = y - arrowSpeed*incremental;
                     incremental +=arrowSpeed*rawIncremental;
                     arrowSprite.rotation = atan(incremental) * 180 / M_PI;
-                    if(y < ((31.f/23.f * x - 98.3)-5.0) && x < FLAG_LEFT_X)
+                    if(y < ((31.f/23.f * x - 98.3)-5.0) && x < FLAG_LEFT_X){
+                        if([[UserData userData] backSound]){
+                            [[SimpleAudioEngine sharedEngine] playEffect:@"arrow.wav"];
+                        }
                         arrowState = ARROW_STATE_STOP;
-                    if(x <= FLAG_RIGHT_X && x >= FLAG_LEFT_X && y<=200)
+                    }
+                    if(x <= FLAG_RIGHT_X && x >= FLAG_LEFT_X && y<=200){
+                        if([[UserData userData] backSound]){
+                            [[SimpleAudioEngine sharedEngine] playEffect:@"arrow.wav"];
+                        }
                         arrowState = ARROW_STATE_STOP;
+                    }
                     if(x >240){
                         for(Enemy* current in gameScene.enemies){
                             if(CGRectContainsPoint([current getBoundingBox], ccp(x,y))){
+                                if([[UserData userData] backSound]){
+                                    [[SimpleAudioEngine sharedEngine] playEffect:@"arrow.wav"];
+                                }
                                 arrowState = ARROW_STATE_STOP;
                                 break;
                             }
@@ -131,13 +144,24 @@
                     y = y - arrowSpeed*incremental;
                     incremental +=arrowSpeed*rawIncremental;
                     arrowSprite.rotation = atan(-incremental) * 180 / M_PI + 180;
-                    if(y < ((-31.f/20.f * x  + 608)-5.0) && x > FLAG_RIGHT_X)
+                    if(y < ((-31.f/20.f * x  + 608)-5.0) && x > FLAG_RIGHT_X){
+                        if([[UserData userData] backSound]){
+                            [[SimpleAudioEngine sharedEngine] playEffect:@"arrow.wav"];
+                        }
                         arrowState = ARROW_STATE_STOP;
-                    if(x <= FLAG_RIGHT_X && x >= FLAG_LEFT_X && y<=200)
+                    }
+                    if(x <= FLAG_RIGHT_X && x >= FLAG_LEFT_X && y<=200){
+                        if([[UserData userData] backSound]){
+                            [[SimpleAudioEngine sharedEngine] playEffect:@"arrow.wav"];
+                        }
                         arrowState = ARROW_STATE_STOP;
+                    }
                     if(x <240){
                         for(Enemy* current in gameScene.enemies){
                             if(CGRectContainsPoint([current getBoundingBox], ccp(x,y))){
+                                if([[UserData userData] backSound]){
+                                    [[SimpleAudioEngine sharedEngine] playEffect:@"arrow.wav"];
+                                }
                                 arrowState = ARROW_STATE_STOP;
                                 break;
                             }
@@ -147,6 +171,9 @@
             }
             
             if(arrowSprite.position.y <=SEA_Y){
+                if([[UserData userData] backSound]){
+                    [[SimpleAudioEngine sharedEngine] playEffect:@"arrow.wav"];
+                }
                 arrowState = ARROW_STATE_STOP;
             }
             

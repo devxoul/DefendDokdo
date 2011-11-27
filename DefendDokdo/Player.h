@@ -14,7 +14,7 @@
 @interface Player : NSObject {
 	NSInteger power;
 	NSInteger maxMp;
-	NSInteger mp;
+	CGFloat mp;
 	NSInteger mpSpeed;
 	
 	NSMutableDictionary *slots;
@@ -25,7 +25,7 @@
 
 @property (nonatomic) NSInteger power;
 @property (nonatomic) NSInteger maxMp;
-@property (nonatomic) NSInteger mp;
+@property (nonatomic) CGFloat mp;
 @property (nonatomic) NSInteger mpSpeed;
 
 @property (nonatomic, retain) NSMutableDictionary *slots;

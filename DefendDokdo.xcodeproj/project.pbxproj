@@ -842,6 +842,13 @@
 		BAA6745F1481CBD100FA92D1 /* heal_btn.png in Resources */ = {isa = PBXBuildFile; fileRef = BAA674551481CBD100FA92D1 /* heal_btn.png */; };
 		CF9AB6591481CD100090C61C /* enemyguage.png in Resources */ = {isa = PBXBuildFile; fileRef = CF9AB6571481CD100090C61C /* enemyguage.png */; };
 		CF9AB65A1481CD100090C61C /* enemyguage_bg.png in Resources */ = {isa = PBXBuildFile; fileRef = CF9AB6581481CD100090C61C /* enemyguage_bg.png */; };
+		CFE2D6451482E19200244946 /* earthquake.wav in Resources */ = {isa = PBXBuildFile; fileRef = CFE2D6441482E19200244946 /* earthquake.wav */; };
+		CFE2D6471482E3CF00244946 /* stoneCrash.wav in Resources */ = {isa = PBXBuildFile; fileRef = CFE2D6461482E3CF00244946 /* stoneCrash.wav */; };
+		CFE2D6491482E3F100244946 /* stoneRolling.wav in Resources */ = {isa = PBXBuildFile; fileRef = CFE2D6481482E3F100244946 /* stoneRolling.wav */; };
+		CFE2D64B1482E47A00244946 /* stoneDrop.wav in Resources */ = {isa = PBXBuildFile; fileRef = CFE2D64A1482E47A00244946 /* stoneDrop.wav */; };
+		CFE2D64D1482E50800244946 /* arrow.wav in Resources */ = {isa = PBXBuildFile; fileRef = CFE2D64C1482E50800244946 /* arrow.wav */; };
+		CFE2D64F1482ED0E00244946 /* healingSound.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = CFE2D64E1482ED0E00244946 /* healingSound.mp3 */; };
+		CFE2D6511482ED7600244946 /* cancel.wav in Resources */ = {isa = PBXBuildFile; fileRef = CFE2D6501482ED7500244946 /* cancel.wav */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -1903,6 +1910,13 @@
 		CFB21656146824490011E4E2 /* Slot.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Slot.m; sourceTree = "<group>"; };
 		CFBB56181470488D00E7A7FF /* SkillData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SkillData.h; sourceTree = "<group>"; };
 		CFBB56191470488D00E7A7FF /* SkillData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SkillData.m; sourceTree = "<group>"; };
+		CFE2D6441482E19200244946 /* earthquake.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = earthquake.wav; sourceTree = "<group>"; };
+		CFE2D6461482E3CF00244946 /* stoneCrash.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = stoneCrash.wav; sourceTree = "<group>"; };
+		CFE2D6481482E3F100244946 /* stoneRolling.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = stoneRolling.wav; sourceTree = "<group>"; };
+		CFE2D64A1482E47A00244946 /* stoneDrop.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = stoneDrop.wav; sourceTree = "<group>"; };
+		CFE2D64C1482E50800244946 /* arrow.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = arrow.wav; sourceTree = "<group>"; };
+		CFE2D64E1482ED0E00244946 /* healingSound.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = healingSound.mp3; sourceTree = "<group>"; };
+		CFE2D6501482ED7500244946 /* cancel.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = cancel.wav; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -3790,6 +3804,7 @@
 		03702A8B1481A3ED006EDCAC /* skills */ = {
 			isa = PBXGroup;
 			children = (
+				CFE2D6421482E18600244946 /* skillSound */,
 				03702A8C1481A3ED006EDCAC /* arrow.png */,
 				03702A8D1481A3ED006EDCAC /* healing_effect.plist */,
 				03702A8E1481A3ED006EDCAC /* healing_effect.png */,
@@ -3973,6 +3988,20 @@
 				CFBB56191470488D00E7A7FF /* SkillData.m */,
 			);
 			name = SkillObject;
+			sourceTree = "<group>";
+		};
+		CFE2D6421482E18600244946 /* skillSound */ = {
+			isa = PBXGroup;
+			children = (
+				CFE2D6501482ED7500244946 /* cancel.wav */,
+				CFE2D64E1482ED0E00244946 /* healingSound.mp3 */,
+				CFE2D6481482E3F100244946 /* stoneRolling.wav */,
+				CFE2D6461482E3CF00244946 /* stoneCrash.wav */,
+				CFE2D6441482E19200244946 /* earthquake.wav */,
+				CFE2D64A1482E47A00244946 /* stoneDrop.wav */,
+				CFE2D64C1482E50800244946 /* arrow.wav */,
+			);
+			name = skillSound;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -4731,6 +4760,13 @@
 				032C8C851482B87E00C16BA6 /* game_bg.mp3 in Resources */,
 				03AA62131482E9CD00F880A4 /* effect_water.mp3 in Resources */,
 				03AA62161482EF0E00F880A4 /* title_bg.mp3 in Resources */,
+				CFE2D6451482E19200244946 /* earthquake.wav in Resources */,
+				CFE2D6471482E3CF00244946 /* stoneCrash.wav in Resources */,
+				CFE2D6491482E3F100244946 /* stoneRolling.wav in Resources */,
+				CFE2D64B1482E47A00244946 /* stoneDrop.wav in Resources */,
+				CFE2D64D1482E50800244946 /* arrow.wav in Resources */,
+				CFE2D64F1482ED0E00244946 /* healingSound.mp3 in Resources */,
+				CFE2D6511482ED7600244946 /* cancel.wav in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

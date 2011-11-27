@@ -37,9 +37,7 @@
         
         unusedArrowArray = [[NSMutableArray alloc] init];
         arrowArray = [[NSMutableArray alloc] init];
-      //  for(int i=0; i<30 ; i++){
-      //      [unusedArrowArray addObject:[[ArrowObject alloc] init:@"arrow.png" :damage :gameScene]];
-      //  }
+
     }
     
     return self;

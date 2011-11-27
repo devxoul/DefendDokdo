@@ -12,6 +12,7 @@
 #import "GameScene.h"
 #import "Enemy.h"
 #import "UserData.h"
+#import "SimpleAudioEngine.h"
 
 @implementation Stone
 
@@ -100,11 +101,17 @@
                 }
 				
                 if(y<SEA_Y){
+                    if([[UserData userData] backSound]){
+                        [[SimpleAudioEngine sharedEngine] playEffect:@"stoneDrop.wav"];
+                    }
                     stoneState = STONE_STATE_STOP;
                 }
             }
             else{
                 //돌이 부딪히는 애니메이션 구현// 돌이 바닥에 부딪힐 때 이펙트
+                if([[UserData userData] backSound]){
+                    [[SimpleAudioEngine sharedEngine] playEffect:@"stoneCrash.wav"];
+                }
                 stoneState = STONE_STATE_ROLLING;
                 speed = speed/15;
             }
@@ -114,6 +121,9 @@
         case STONE_STATE_ROLLING:{
             if(y<SEA_Y){
                 //돌이 물에 떨어지는 이펙트
+                if([[UserData userData] backSound]){
+                    [[SimpleAudioEngine sharedEngine] playEffect:@"stoneDrop.wav"];
+                }
                 stoneState = STONE_STATE_STOP;
                 break;
             }
