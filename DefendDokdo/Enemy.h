@@ -21,6 +21,7 @@
 	NSInteger hp;
     NSInteger power;
 	CGFloat speed;
+	NSInteger money;
 	
 	CCSprite *enemySpr;
 	
@@ -81,9 +82,9 @@
 	CGFloat gapY;
 	
 	BOOL firstDirection; // 초기 방향
-	BOOL isFlightExists; // 비행기가 아직도 떠있는지
+	BOOL isPlaneExists; // 비행기가 아직도 떠있는지
 	BOOL fallWithNoDamage; // YES일 경우 떨어져도 데미지를 입지 않음. (비행기에서 떨어질 때, 돌 맞고 떨어질 때)
-    
+    BOOL explodeItself; // 공격하기위해 터진 폭탄인지 - 사용자 입력으로 인해 터지면 돈이 올라감
     
     //게이지바
     CCSprite *hpGauge;
@@ -107,9 +108,11 @@
 @property (nonatomic, readonly, getter = getBoundingBox) CGRect boundingBox;
 @property (nonatomic, readonly, getter = getTouchBoundingBox) CGRect touchBoundingBox;
 
+@property (nonatomic, readonly) BOOL isPlaneExists;
+
 + (CGFloat)getGroundY:(CGFloat)x;
 
-- (id)initWithGameScene:(GameScene *)scene type:(NSInteger)_type level:(NSInteger)_level hp:(NSInteger)_hp power:(NSInteger)_power speed:(CGFloat)_speed;
+- (id)initWithGameScene:(GameScene *)scene type:(NSInteger)type level:(NSInteger)level hp:(NSInteger)hp power:(NSInteger)power speed:(CGFloat)speed money:(NSInteger)money;
 - (void)update;
 - (void)applyForce:(CGFloat)x:(CGFloat)y;
 

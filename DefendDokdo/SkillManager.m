@@ -33,7 +33,7 @@ enum{
 
 - (id)initWithGameScene:(GameScene *)gameScene
 {
-	if( self == [super init] )
+	if( self = [super init] )
 	{
 		_gameScene = gameScene;
         skillState = SKILL_STATE_NORMAL;

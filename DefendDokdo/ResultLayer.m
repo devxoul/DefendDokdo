@@ -59,13 +59,13 @@
         [self addChild: result_menu z:5];
         
         //게임머니
-         moneyLabel = [CCLabelTTF labelWithString:[NSString stringWithFormat:@"%d",[[UserData userData] point]] dimensions:CGSizeMake(0,0) alignment:UITextAlignmentRight fontName:@"NanumScript.ttf" fontSize:70];
+         moneyLabel = [CCLabelTTF labelWithString:[NSString stringWithFormat:@"%d",[[UserData userData] point]] dimensions:CGSizeMake(200, 60) alignment:UITextAlignmentRight fontName:@"NanumScript.ttf" fontSize:70];
         
         [self addChild:moneyLabel];
         
         [moneyLabel setColor:ccc3(0, 0, 0)];
         [moneyLabel setAnchorPoint:CGPointZero];
-        [moneyLabel setPosition:CGPointMake(380, 240)];
+        [moneyLabel setPosition:CGPointMake(210, 260)];
         
 //        //뒤로 가기 
 //        CCMenu *backButton = [CCMenu menuWithItems:
@@ -103,6 +103,8 @@
 
 -(void)moveGame:(id)sender
 {
+	[[SimpleAudioEngine sharedEngine] stopBackgroundMusic];
+	
     if ([UserData userData].backSound)
         [[SimpleAudioEngine sharedEngine] playEffect:@"click.mp3"];    
 	

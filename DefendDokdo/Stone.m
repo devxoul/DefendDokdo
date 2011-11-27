@@ -37,21 +37,21 @@
         
         (isEffect==YES) ? (effectPower = [[skillInfo objectForKey:@"effectPower"] integerValue]) : (effectPower =0);
         if(110 < x && x < 225){
-            downPoint = 31.f/23.f * x - 98.3;
+            downPoint = [Enemy getGroundY:x]; //31.f/23.f * x - 98.3;
             direction = DIRECTION_STATE_LEFT;
         }
         else if(225 <= x && x <= 240){
             x=225;
-            downPoint = 31.f/23.f * x - 98.3;
+            downPoint = [Enemy getGroundY:x]; //31.f/23.f * x - 98.3;
             direction = DIRECTION_STATE_LEFT;
         }
         else if(260 < x && x < 360){
-            downPoint = -31.f/20.f * x  + 608;
+            downPoint = [Enemy getGroundY:x]; //-31.f/20.f * x  + 608;
             direction = DIRECTION_STATE_RIGHT;
         }
         else if(240 < x && x <= 260){
             x = 260;
-            downPoint = -31.f/20.f * x  + 608;
+            downPoint = [Enemy getGroundY:x]; //-31.f/20.f * x  + 608;
             direction = DIRECTION_STATE_RIGHT;
         }
         stoneState = STONE_STATE_DOWN;
@@ -73,17 +73,11 @@
     if(stoneState==STONE_STATE_DOWN || stoneState == STONE_STATE_ROLLING){
         //적 충돌 체크!
         for(Enemy* current in gameScene.enemies){
-            
-            
+			
             if(CGRectIntersectsRect([current getBoundingBox], stoneSprite.boundingBox)){
                 switch (direction) {
-//                    case DIRECTION_STATE_LEFT:
-//                        if(effectPower==0){
-                            [current beDamaged:damage];
-//                        }
-//                        else{//enemy State에 따라서 !
-//                            [current beDamaged:damage forceX:-(CGFloat)effectPower forceY:-(CGFloat)effectPower];
-//                        }
+                    case DIRECTION_STATE_LEFT:
+						[current beDamaged:damage forceX:-(CGFloat)effectPower forceY:-(CGFloat)effectPower];
                         break;
                     case DIRECTION_STATE_RIGHT:
                         [current beDamaged:damage forceX:(CGFloat)effectPower forceY:-(CGFloat)effectPower];
@@ -104,7 +98,7 @@
                         stoneSprite.rotation += 3;
                         break;
                 }
-
+				
                 if(y<SEA_Y){
                     stoneState = STONE_STATE_STOP;
                 }
@@ -128,14 +122,14 @@
                 case DIRECTION_STATE_LEFT:
                     stoneSprite.rotation -= 10*speed;
                     x = x-speed;
-                    y = y - speed*31.f/23.f;
+                    y = [Enemy getGroundY:x]; //y - speed*31.f/23.f;
                     [stoneSprite setPosition:ccp(x,y)];
                     speed+=GRAVITY/3.0;
                     break;
                 case DIRECTION_STATE_RIGHT:
                     stoneSprite.rotation += 10*speed;
                     x = x+speed;
-                    y = y - speed*31.f/20.f;
+                    y = [Enemy getGroundY:x]; //y - speed*31.f/20.f;
                     [stoneSprite setPosition:ccp(x,y)];
                     speed+=GRAVITY/3.0;
                     break;
@@ -146,7 +140,7 @@
             break;
             
     }
-
+	
 }
 
 @end

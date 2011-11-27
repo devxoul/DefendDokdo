@@ -15,12 +15,15 @@
 #import "SkillData.h"
 //#import "MainLayer.h"
 #import "ResultLayer.h"
+#import "SimpleAudioEngine.h"
 
 @implementation GameUILayer
 
 @synthesize skills, slot1Count, slot2Count, slot3Count,slotState;
 
 -(void)update{
+	moneyLabel.string = [[[NSString stringWithFormat:@"%d", _gameScene.money] retain] autorelease];
+	
     //HP, MP Gage Bar 그리기
     //MP에 관해서는 증가량 설정~
     //    [mpBar setTextureRect:CGRectMake(0,0, 174 ,12)];
@@ -84,6 +87,15 @@
 		self.isTouchEnabled = YES;
         
     }
+	
+	CCSprite *moneySpr = [[CCSprite alloc] initWithFile:@"money_icon.png"];
+	moneySpr.position = ccp( 20, 300 );
+	[self addChild:moneySpr];
+	
+	moneyLabel = [[CCLabelTTF labelWithString:@"0" fontName:@"NanumScript" fontSize:30] retain];
+	moneyLabel.color = ccc3( 0, 0, 0 );
+	moneyLabel.position = ccp( 50, 301 );
+	[self addChild:moneyLabel];
     
     //스킬 넣는 부분 - 수정 필요함
     skills = [[NSMutableArray alloc] init];
@@ -211,7 +223,7 @@
     
     pauseBtn = [[CCMenuItemImage itemFromNormalImage:@"pause_stop_off_btn.png" selectedImage:@"pause_stop_on_btn.png" target:self selector:@selector(onPauseBtnTouch:)] retain];
 	CCMenu *menu = [[CCMenu menuWithItems:pauseBtn, nil] retain];
-	menu.position = ccp( 450, 300 );
+	menu.position = ccp( 450, 290 );
 	[self addChild:menu];
 	
 	pauseBg = [[CCSprite alloc] initWithFile:@"black.png"];
@@ -258,11 +270,13 @@
 
 -(void)onTryAgainBtnClick:(id)sender
 {
+	[[SimpleAudioEngine sharedEngine] stopBackgroundMusic];
 	[[CCDirector sharedDirector] pushScene:[GameScene node]];	
 }
 
 - (void)onMainMenuBtnClick:(id)sender
 {
+	[[SimpleAudioEngine sharedEngine] stopBackgroundMusic];
 	[[CCDirector sharedDirector] pushScene:[ResultLayer	scene]];
 }
 

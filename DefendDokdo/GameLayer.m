@@ -47,7 +47,7 @@
 		Enemy *e = nil;
 		for (NSUInteger i = 0, j = scene.enemies.count;i < j;i++) {
 			e = [scene.enemies objectAtIndex:i];
-			if (CGRectContainsPoint(e.touchBoundingBox, targetPoint) && e.state != ENEMY_STATE_FLIGHT && e.state != ENEMY_STATE_DIE && e.state != ENEMY_STATE_EXPLOSION)
+			if (CGRectContainsPoint(e.touchBoundingBox, targetPoint) && e.state != ENEMY_STATE_FLIGHT && e.state != ENEMY_STATE_BOAT && e.state != ENEMY_STATE_SWIM && e.state != ENEMY_STATE_DIE && e.state != ENEMY_STATE_EXPLOSION)
 			{
 				if (![controlManager manageObject:e WithTouch:touch] )
 					i = j;

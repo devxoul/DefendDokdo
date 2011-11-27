@@ -24,6 +24,8 @@
     CCSprite* mplabel;
     
     GameScene* _gameScene;
+	
+	CCLabelTTF *moneyLabel;
 
     CCLabelTTF* hp;
     CCLabelTTF* mp;

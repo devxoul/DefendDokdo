@@ -11,6 +11,7 @@
 #import "GameScene.h"
 #import "Flag.h"
 #import "Player.h"
+#import "SimpleAudioEngine.h"
 
 @interface Enemy(Private)
 - (void)initBoatAnimation;
@@ -49,13 +50,10 @@
 - (void)stopBeingHit;
 - (void)stopBeingHit:(id)sender;
 - (void)stopDying;
-- (void)stopDying:(id)sender;
 - (void)stopExplosion;
-- (void)stopExplosion:(id)sender;
 - (void)stopCurrentAction;
 
 - (void)stopWaterEffect;
-- (void)stopWaterEffect:(id)sender;
 
 - (void)attack;
 - (void)onAttack:(id)sener;
@@ -63,6 +61,8 @@
 - (CGFloat)getGroundY;
 - (BOOL)getPlaneExists;
 - (void)setPlaneExists;
+
+- (void)remove;
 @end
 
 
@@ -70,11 +70,11 @@
 
 @synthesize type, level, state;
 @synthesize maxHp, hp, power, speed;
-@synthesize x = _x, y = _y, dx, dy, boundingBox, touchBoundingBox;
+@synthesize x = _x, y = _y, dx, dy, boundingBox, touchBoundingBox, isPlaneExists;
 
 #pragma mark - initialize
 
-- (id)initWithGameScene:(GameScene *)scene type:(NSInteger)_type level:(NSInteger)_level hp:(NSInteger)_hp power:(NSInteger)_power speed:(CGFloat)_speed
+- (id)initWithGameScene:(GameScene *)scene type:(NSInteger)_type level:(NSInteger)_level hp:(NSInteger)_hp power:(NSInteger)_power speed:(CGFloat)_speed money:(NSInteger)_money
 {
 	if( self = [self init] )
 	{
@@ -89,6 +89,7 @@
 		self.hp = self.maxHp = _hp;
 		self.power = _power;
 		self.speed = _speed;
+		money = _money;
 		
 		// 처음 방향 - 비행기 계속 날아갈 때 필요
 		if( arc4random() % 2 )
@@ -163,7 +164,7 @@
 	boatBatchNode = [[CCSpriteBatchNode batchNodeWithFile:[NSString stringWithFormat:@"enemy_%d_%d_idle.png", type, level]] retain];
 	[boatBatchNode addChild:boatEnemySpr];
 	
-	NSMutableArray *aniFrames = [[NSMutableArray alloc] init];
+	NSMutableArray *aniFrames = [[[NSMutableArray alloc] init] autorelease];
 	for( NSInteger i = 0; i < 1; i++ )
 	{
 		CCSpriteFrame *frame = [[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:[NSString stringWithFormat:@"enemy_%d_%d_idle_%d.png", type, level, i]];
@@ -187,7 +188,7 @@
 	flightBatchNode = [[CCSpriteBatchNode batchNodeWithFile:@"plane.png"] retain];
 	[flightBatchNode addChild:flightEnemySpr];
 	
-	NSMutableArray *aniFrames = [[NSMutableArray alloc] init];
+	NSMutableArray *aniFrames = [[[NSMutableArray alloc] init] autorelease];
 	for( NSInteger i = 0; i < 1; i++ )
 	{
 		CCSpriteFrame *frame = [[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:[NSString stringWithFormat:@"plane.png", ENEMY_TYPE_KAMIKAZE, level, i]];
@@ -208,7 +209,7 @@
 	swimBatchNode = [[CCSpriteBatchNode batchNodeWithFile:[NSString stringWithFormat:@"enemy_%d_%d_swim.png", type, level]] retain];
 	[swimBatchNode addChild:swimEnemySpr];
 	
-	NSMutableArray *aniFrames = [[NSMutableArray alloc] init];
+	NSMutableArray *aniFrames = [[[NSMutableArray alloc] init] autorelease];
 	for( int i = 0; i < 8; i++ )
 	{
 		CCSpriteFrame *frame = [[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:[NSString stringWithFormat:@"enemy_%d_%d_swim_%d.png", type, level, i]];
@@ -229,7 +230,7 @@
 	walkBatchNode = [[CCSpriteBatchNode batchNodeWithFile:[NSString stringWithFormat:@"enemy_%d_%d_walk.png", type, level]] retain];
 	[walkBatchNode addChild:walkEnemySpr];
 	
-	NSMutableArray *aniFrames = [[NSMutableArray alloc] init];
+	NSMutableArray *aniFrames = [[[NSMutableArray alloc] init] autorelease];
 	for( NSInteger i = 0; i < 8; i++ )
 	{
 		CCSpriteFrame *frame = [[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:[NSString stringWithFormat:@"enemy_%d_%d_walk_%d.png", type, level, i]];
@@ -250,7 +251,7 @@
 	attackBatchNode = [[CCSpriteBatchNode batchNodeWithFile:[NSString stringWithFormat:@"enemy_%d_%d_attack.png", type, level]] retain];
 	[attackBatchNode addChild:attackEnemySpr];
 	
-	NSMutableArray *aniFrames = [[NSMutableArray alloc] init];
+	NSMutableArray *aniFrames = [[[NSMutableArray alloc] init] autorelease];
 	for( NSInteger i = 0; i < 4; i++ )
 	{
 		CCSpriteFrame *frame = [[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:[NSString stringWithFormat:@"enemy_%d_%d_attack_%d.png", type, level, i]];
@@ -271,7 +272,7 @@
 	catchBatchNode = [[CCSpriteBatchNode batchNodeWithFile:[NSString stringWithFormat:@"enemy_%d_%d_catch.png", type, level]] retain];
 	[catchBatchNode addChild:catchEnemySpr];
 	
-	NSMutableArray *aniFrames = [[NSMutableArray alloc] init];
+	NSMutableArray *aniFrames = [[[NSMutableArray alloc] init] autorelease];
 	for( NSInteger i = 0; i < 4; i++ )
 	{
 		CCSpriteFrame *frame = [[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:[NSString stringWithFormat:@"enemy_%d_%d_catch_%d.png", type, level, i]];
@@ -292,7 +293,7 @@
 	fallBatchNode = [[CCSpriteBatchNode batchNodeWithFile:[NSString stringWithFormat:@"enemy_%d_%d_fall.png", type, level]] retain];
 	[fallBatchNode addChild:fallEnemySpr];
 	
-	NSMutableArray *aniFrames = [[NSMutableArray alloc] init];
+	NSMutableArray *aniFrames = [[[NSMutableArray alloc] init] autorelease];
 	for( NSInteger i = 0; i < 3; i++ )
 	{
 		CCSpriteFrame *frame = [[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:[NSString stringWithFormat:@"enemy_%d_%d_fall_%d.png", type, level, i]];
@@ -313,7 +314,7 @@
 	hitBatchNode = [[CCSpriteBatchNode batchNodeWithFile:[NSString stringWithFormat:@"enemy_%d_%d_hit.png", type, level]] retain];
 	[hitBatchNode addChild:hitEnemySpr];
 	
-	NSMutableArray *aniFrames = [[NSMutableArray alloc] init];
+	NSMutableArray *aniFrames = [[[NSMutableArray alloc] init] autorelease];
 	for( NSInteger i = 0; i < 6; i++ )
 	{
 		CCSpriteFrame *frame = [[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:[NSString stringWithFormat:@"enemy_%d_%d_hit_%d.png", type, level, i]];
@@ -334,7 +335,7 @@
 	dieBatchNode = [[CCSpriteBatchNode batchNodeWithFile:[NSString stringWithFormat:@"enemy_%d_%d_fall.png", type, level]] retain];
 	[dieBatchNode addChild:dieEnemySpr];
 	
-	NSMutableArray *aniFrames = [[NSMutableArray alloc] init];
+	NSMutableArray *aniFrames = [[[NSMutableArray alloc] init] autorelease];
 	for( NSInteger i = 0; i < 3; i++ )
 	{
 		CCSpriteFrame *frame = [[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:[NSString stringWithFormat:@"enemy_%d_%d_fall_%d.png", type, level, i]];
@@ -355,7 +356,7 @@
 	explosionBatchNode = [[CCSpriteBatchNode batchNodeWithFile:[NSString stringWithFormat:@"enemy_%d_%d_explosion.png", ENEMY_TYPE_KAMIKAZE, level]] retain];
 	[explosionBatchNode addChild:explosionEnemySpr];
 	
-	NSMutableArray *aniFrames = [[NSMutableArray alloc] init];
+	NSMutableArray *aniFrames = [[[NSMutableArray alloc] init] autorelease];
 	for( NSInteger i = 0; i < 9; i++ )
 	{
 		CCSpriteFrame *frame = [[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:[NSString stringWithFormat:@"enemy_%d_%d_explosion_%d.png", ENEMY_TYPE_KAMIKAZE, level, i]];
@@ -379,7 +380,7 @@
 	waterEffectBatchNode = [[CCSpriteBatchNode batchNodeWithFile:@"effect_water.png"] retain];
 	[waterEffectBatchNode addChild:waterEffectSpr];
 	
-	NSMutableArray *aniFrames = [[NSMutableArray alloc] init];
+	NSMutableArray *aniFrames = [[[NSMutableArray alloc] init] autorelease];
 	for( NSInteger i = 0; i < 8; i++ )
 	{
 		CCSpriteFrame *frame = [[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:[NSString stringWithFormat:@"effect_water_%d.png", i]];
@@ -442,23 +443,20 @@
 	return [Enemy getGroundY:self.x + gapX];
 }
 
-- (BOOL)getPlaneExists
+- (BOOL)getIsPlaneExists
 {
-	return isFlightExists;
+	return isPlaneExists;
 }
 
-- (void)setPlaneExists:(BOOL)isExists
+- (void)setIsPlaneExists:(BOOL)isExists
 {
-	isFlightExists = isExists;
+	isPlaneExists = isExists;
 	
 	// 더이상 날아가지 않게
 	if( !isExists )
 	{
 		[flightEnemySpr stopAllActions];
 		[gameScene.gameLayer removeChild:flightBatchNode cleanup:YES];
-		[flightBatchNode release];
-		[flightEnemySpr release];
-		[flightAnimation release];
 	}
 }
 
@@ -472,23 +470,23 @@
     [hpGauge setTextureRect:CGRectMake(0, 0, width, 2)];
 	
 	// 비행기 계속 날아가게
-	if( isFlightExists && type == ENEMY_TYPE_KAMIKAZE && state != ENEMY_STATE_FLIGHT )
+	if( isPlaneExists && type == ENEMY_TYPE_KAMIKAZE && state != ENEMY_STATE_FLIGHT )
 	{
 		if( firstDirection == DIRECTION_STATE_LEFT ) // 왼쪽에서 시작
 		{
 			flightEnemySpr.position = ccp( flightEnemySpr.position.x + self.speed, PLANE_Y + gapY * 3 );
 			
 			// 화면 밖으로 나가면 제거
-			if( flightEnemySpr.position.x < -50 )
-				[self setPlaneExists:NO];
+			if( flightEnemySpr.position.x > 530 )
+				isPlaneExists = NO;
 		}
 		else // 오른쪽에서 시작
 		{
 			flightEnemySpr.position = ccp( flightEnemySpr.position.x - self.speed, PLANE_Y + gapY * 3 );
 			
 			// 화면 밖으로 나가면 제거
-			if( flightEnemySpr.position.x > 530 )
-				[self setPlaneExists:NO];
+			if( flightEnemySpr.position.x < -50 )
+				isPlaneExists = NO;
 		}
 	}
 	
@@ -749,7 +747,7 @@
 	state = ENEMY_STATE_FLIGHT;
 	[enemySpr addChild:flightBatchNode];
 	[flightEnemySpr runAction:[CCRepeatForever actionWithAction:flightAnimation]];
-	isFlightExists = YES;
+	isPlaneExists = YES;
 }
 
 - (void)startSwimming
@@ -827,7 +825,7 @@
 	}
 	else
 	{
-		[dieEnemySpr runAction:[CCSequence actions:dieAnimation, [CCCallFunc actionWithTarget:self selector:@selector(stopDying:)], nil]];
+		[dieEnemySpr runAction:[CCSequence actions:dieAnimation, [CCCallFunc actionWithTarget:self selector:@selector(stopDying)], nil]];
 	}
 }
 
@@ -835,7 +833,7 @@
 {
 	state = ENEMY_STATE_EXPLOSION;
 	[enemySpr addChild:explosionBatchNode];
-	[explosionEnemySpr runAction:[CCSequence actions:explosionAnimation, [CCCallFunc actionWithTarget:self selector:@selector(stopExplosion:)], nil]];
+	[explosionEnemySpr runAction:[CCSequence actions:explosionAnimation, [CCCallFunc actionWithTarget:self selector:@selector(stopExplosion)], nil]];
 	
 	if( fabs( self.x + gapX - FLAG_X ) <= EXPLOSION_ARRANGE )
 		[self attack];
@@ -847,11 +845,12 @@
 - (void)startWaterEffect
 {
 	NSLog( @"첨벙" );
+	[[SimpleAudioEngine sharedEngine] playEffect:@"effect_water.mp3"];
 	if( isWaterEffectRunning ) return;
 	isWaterEffectRunning = YES;
 	waterEffectBatchNode.position = ccp( self.x, self.y );
 	[gameScene.gameLayer addChild:waterEffectBatchNode z:Z_ENEMY];
-	[waterEffectSpr runAction:[CCSequence actions:waterEffectAnimation, [CCCallFunc actionWithTarget:self selector:@selector(stopWaterEffect:)], nil]];
+	[waterEffectSpr runAction:[CCSequence actions:waterEffectAnimation, [CCCallFunc actionWithTarget:self selector:@selector(stopWaterEffect)], nil]];
 }
 
 
@@ -927,24 +926,14 @@
 	[dieEnemySpr stopAllActions];
 	[enemySpr removeChild:dieBatchNode cleanup:YES];
 	[gameScene.gameLayer removeChild:enemySpr cleanup:YES];
-	state = ENEMY_STATE_REMOVE;
-}
-
-- (void)stopDying:(id)sender
-{
-	[self stopDying];
+	[self remove];
 }
 
 - (void)stopExplosion
 {
 	[explosionEnemySpr stopAllActions];
 	[enemySpr removeChild:explosionBatchNode cleanup:YES];
-	state = ENEMY_STATE_REMOVE;
-}
-
-- (void)stopExplosion:(id)sender
-{
-	[self stopExplosion];
+	[self remove];
 }
 
 - (void)stopCurrentAction
@@ -1003,11 +992,6 @@
 	[gameScene.gameLayer removeChild:waterEffectBatchNode cleanup:NO];
 }
 
-- (void)stopWaterEffect:(id)sender
-{
-	[self stopWaterEffect];
-}
-
 
 #pragma mark - attack
 
@@ -1015,6 +999,9 @@
 {
 	NSLog( @"공격!" );
 	gameScene.flag.hp -= power;
+	
+	if( type == ENEMY_TYPE_KAMIKAZE )
+		explodeItself = YES;
 }
 
 - (void)onAttack:(id)sener
@@ -1036,8 +1023,6 @@
 		[self startFalling];
 	}
 	
-	NSLog( @"날아가라! ( %f, %f )", x, y );
-	
 	dx += x;
 	dy += y;
 }
@@ -1052,7 +1037,6 @@
 
 - (void)beDamaged:(NSInteger)damage
 {
-	NSLog( @"%d의 데미지를 입고 아야해쪄염", damage );
 	if( state == ENEMY_STATE_FLIGHT || state == ENEMY_STATE_DIE || state == ENEMY_STATE_EXPLOSION ) return;
 	
 	// 카미카제는 폭발
@@ -1077,7 +1061,7 @@
 
 - (void)beDamaged:(NSInteger)damage forceX:(NSInteger)forceX forceY:(NSInteger)forceY
 {
-	if( state == ENEMY_STATE_FLIGHT || state == ENEMY_STATE_FALL || state == ENEMY_STATE_DIE || state == ENEMY_STATE_EXPLOSION ) return;
+	if( state == ENEMY_STATE_FLIGHT || state == ENEMY_STATE_FALL || state == ENEMY_STATE_HIT || state == ENEMY_STATE_DIE || state == ENEMY_STATE_EXPLOSION ) return;
 	
 	// 카미카제는 폭발
 	if( type == ENEMY_TYPE_KAMIKAZE )
@@ -1087,6 +1071,8 @@
 		[self startExplosion];
 		return;
 	}
+	
+	NSLog( @"현재 상태는?? %d", state );
 	
 	if( state != ENEMY_STATE_HIT )
 		self.hp -= damage;
@@ -1102,6 +1088,16 @@
 		fallWithNoDamage = YES;
 		[self applyForce:forceX :forceY];
 	}
+}
+
+#pragma mark - remove
+
+- (void)remove
+{
+	if( !explodeItself )
+		gameScene.money += money;
+	
+	state = ENEMY_STATE_REMOVE;
 }
 
 @end

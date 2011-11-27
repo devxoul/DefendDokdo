@@ -4,7 +4,6 @@
 <dict>
 	<key>StageInfoList</key>
 	<array>
-		<!-- 1 -->
 		<array>
 			<integer>50</integer>
 			<integer>0</integer>
@@ -75,8 +74,6 @@
 			<integer>0</integer>
 			<integer>0</integer>
 		</array>
-		
-		<!-- 6 -->
 		<array>
 			<integer>10</integer>
 			<integer>0</integer>

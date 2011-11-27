@@ -60,8 +60,11 @@
 		Enemy *enemy = [gameScene.enemies objectAtIndex:i];
 		[enemy update];
 		
-		if( enemy.state == ENEMY_STATE_REMOVE )
+		if( ( enemy.state == ENEMY_STATE_REMOVE && enemy.type != ENEMY_TYPE_KAMIKAZE ) ||
+		    ( enemy.state == ENEMY_STATE_REMOVE && enemy.type == ENEMY_TYPE_KAMIKAZE && !enemy.isPlaneExists ) )
+		{
 			[willBeRemovedEnemyIndices addIndex:i];
+		}
 	}
 	
 	[gameScene.enemies removeObjectsAtIndexes:willBeRemovedEnemyIndices];
@@ -70,7 +73,7 @@
 - (void)createEnemy:(NSInteger)type level:(NSInteger)level
 {
 	NSDictionary *enemyInfo = [[enemyInfoList objectAtIndex:type] objectAtIndex:level];
-	[gameScene.enemies addObject:[[Enemy alloc] initWithGameScene:gameScene type:type level:level hp:[[enemyInfo objectForKey:@"hp"] integerValue] power:[[enemyInfo objectForKey:@"power"] integerValue] speed:[[enemyInfo objectForKey:@"speed"] floatValue]]];
+	[gameScene.enemies addObject:[[Enemy alloc] initWithGameScene:gameScene type:type level:level hp:[[enemyInfo objectForKey:@"hp"] integerValue] power:[[enemyInfo objectForKey:@"power"] integerValue] speed:[[enemyInfo objectForKey:@"speed"] floatValue] money:[[enemyInfo objectForKey:@"money"] integerValue]]];
 }
 
 @end

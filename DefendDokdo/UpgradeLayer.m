@@ -33,6 +33,7 @@
 	{
         tabState = 0;
         buttonState = 0;
+		upgradeButtonState = 0;
         
         //배경
         //        upgradeBgSprite = [[CCSprite alloc] initWithFile:@"dokdo_bg.jpg"];
@@ -404,13 +405,14 @@
         //        [moneyLabel setPosition:CGPointMake(370, 240)];
         
         //게임머니
-        moneyLabel = [CCLabelTTF labelWithString:[NSString stringWithFormat:@"%d",[[UserData userData] point]] dimensions:CGSizeMake(0,0) alignment:UITextAlignmentRight fontName:@"NanumScript.ttf" fontSize:70];
+		moneyLabel = [CCLabelTTF labelWithString:[NSString stringWithFormat:@"%d",[[UserData userData] point]] dimensions:CGSizeMake(200, 60) alignment:UITextAlignmentRight fontName:@"NanumScript.ttf" fontSize:70];
         
-        [self addChild:moneyLabel z:2];
+        [self addChild:moneyLabel];
         
         [moneyLabel setColor:ccc3(0, 0, 0)];
         [moneyLabel setAnchorPoint:CGPointZero];
-        [moneyLabel setPosition:CGPointMake(380, 240)];
+        [moneyLabel setPosition:CGPointMake(210, 260)];
+		
         
         //뒤로가기 
         menu_back = [CCMenuItemImage itemFromNormalImage:@"back_on_btn.png" selectedImage:@"back_off_btn.png" target:self selector:@selector(back)];
@@ -487,8 +489,11 @@
 
 -(void)tab1Clicked:(id)sender{
 	
+	if( upgradeButtonState == 1 )
+		return;
+	
     if ([UserData userData].backSound)
-        [[SimpleAudioEngine sharedEngine] playEffect:@"click.mp3"];    	
+        [[SimpleAudioEngine sharedEngine] playEffect:@"click.mp3"];
     
     tab1BgSprite.visible = YES;
     tab2BgSprite.visible = NO;
@@ -542,8 +547,11 @@
 
 -(void)tab2Clicked:(id)sender{
 	
+	if( upgradeButtonState == 1 )
+		return;
+	
     if ([UserData userData].backSound)
-        [[SimpleAudioEngine sharedEngine] playEffect:@"click.mp3"];    	
+        [[SimpleAudioEngine sharedEngine] playEffect:@"click.mp3"];
     
     tab1BgSprite.visible = NO;
     tab2BgSprite.visible = YES;
@@ -584,6 +592,9 @@
 }
 
 -(void)tab3Clicked:(id)sender{
+	
+	if( upgradeButtonState == 1 )
+		return;
     
     if ([UserData userData].backSound)
         [[SimpleAudioEngine sharedEngine] playEffect:@"click.mp3"];    
@@ -626,6 +637,9 @@
 }
 
 -(void)selectButton1:(id)sender{
+	
+	if( upgradeButtonState == 1 )
+		return;
     
     if ([UserData userData].backSound)
         [[SimpleAudioEngine sharedEngine] playEffect:@"click.mp3"];    
@@ -656,6 +670,9 @@
 }
 
 -(void)selectButton2:(id)sender{
+	
+	if( upgradeButtonState == 1 )
+		return;
 
     if ([UserData userData].backSound)
         [[SimpleAudioEngine sharedEngine] playEffect:@"click.mp3"];    
@@ -686,6 +703,9 @@
 }
 
 -(void)selectButton3:(id)sender{
+	
+	if( upgradeButtonState == 1 )
+		return;
     
     if ([UserData userData].backSound)
         [[SimpleAudioEngine sharedEngine] playEffect:@"click.mp3"];    
@@ -716,6 +736,9 @@
 }
 
 -(void)selectButton4:(id)sender{
+	
+	if( upgradeButtonState == 1 )
+		return;
 
     if ([UserData userData].backSound)
         [[SimpleAudioEngine sharedEngine] playEffect:@"click.mp3"];    
@@ -745,8 +768,245 @@
     
 }
 
+
 -(void)upgradeItem{
     
+    if(upgradeButtonState == 1)
+        return;
+    
+	popSpr = [[CCSprite alloc] initWithFile:@"small_popup.png"];
+	[popSpr setAnchorPoint:ccp(0.5, 0.5)];
+	[popSpr setPosition:ccp(240, 160)];
+	[self addChild:popSpr z:13];
+	
+	label = [CCLabelTTF labelWithString:@"really?" fontName:@"NanumScript.ttf" fontSize:55];
+	label.color = ccWHITE;
+	label.anchorPoint = ccp(0.5, 0.5);
+	label.position = ccp(245, 190);
+	[self addChild:label z:14];
+	
+	CCMenuItemImage* yes;    
+	CCMenuItemImage* no;
+	
+	upgradeButtonState = 1;
+	
+	
+	yes = [CCMenuItemImage itemFromNormalImage:@"yes_off_btn.png" selectedImage:@"yes_on_btn.png" block:^(id sender) {
+		//            BOOL result;
+		//            result = [[UserData userData] removeToFile];
+		//            
+		
+		
+		switch (tabState) {
+			case 0:
+				
+				switch (buttonState) {
+					case 1:
+						if ([UserData userData].flagLevel < 8){
+                            [UserData userData].flagLevel++; 
+                            [[UserData userData] saveToFile];
+                            
+                            [upgradeLabel1 setString:[NSString stringWithFormat:@"Lv %d",[[UserData userData] flagLevel]]];
+                            [upgradeLabel2 setString:[NSString stringWithFormat:@"%d G", [[SkillData skillData] getSkillPrice:UPGRADE_TYPE_FLAG :[[UserData userData] flagLevel]]]];
+						}
+						break;
+						
+					case 2:
+						if ([UserData userData].userAtkLevel < 20){
+                            [UserData userData].userAtkLevel++; 
+                            [[UserData userData] saveToFile];
+                            
+                            [upgradeLabel3 setString:[NSString stringWithFormat:@"Lv %d",[[UserData userData] userAtkLevel]]];
+                            [upgradeLabel4 setString:[NSString stringWithFormat:@"%d G", [[SkillData skillData] getSkillPrice:UPGRADE_TYPE_ATTACK :[[UserData userData] userAtkLevel]]]];
+						}
+						break;
+						
+					case 3:
+						if ([UserData userData].userMaxMpLevel < 20){
+                            [UserData userData].userMaxMpLevel++; 
+                            [[UserData userData] saveToFile];
+                            
+                            [upgradeLabel5 setString:[NSString stringWithFormat:@"Lv %d",[[UserData userData] userMaxMpLevel]]];
+                            [upgradeLabel6 setString:[NSString stringWithFormat:@"%d G", [[SkillData skillData] getSkillPrice:UPGRADE_TYPE_MAXMP :[[UserData userData] userMaxMpLevel]]]];
+						}
+						break;
+						
+					case 4:
+						if ([UserData userData].userMPspeedLevel < 20){
+                            [UserData userData].userMPspeedLevel++; 
+                            [[UserData userData] saveToFile];
+                            
+                            [upgradeLabel7 setString:[NSString stringWithFormat:@"Lv %d",[[UserData userData] userMPspeedLevel]]];
+                            [upgradeLabel8 setString:[NSString stringWithFormat:@"%d G", [[SkillData skillData] getSkillPrice:UPGRADE_TYPE_REGENMP :[[UserData userData] userMPspeedLevel]]]];
+						}
+						break;
+						
+					default:
+						break;
+				}
+				
+				break;
+				
+			case 1:
+				
+				switch (buttonState) {
+					case 1:
+						if ([UserData userData].stoneLevel < 20){
+							[UserData userData].stoneLevel++; 
+							[[UserData userData] saveToFile];
+							
+							[upgradeLabel1 setString:[NSString stringWithFormat:@"Lv %d",[[UserData userData] stoneLevel]]];
+							[upgradeLabel2 setString:[NSString stringWithFormat:@"%d G", [[SkillData skillData] getSkillPrice:SKILL_STATE_STONE :[[UserData userData] stoneLevel]]]];
+						}
+						
+						selectMenu1.visible = NO;
+						
+						break;
+						
+					case 2:
+						if ([UserData userData].arrowLevel < 20){
+							[UserData userData].arrowLevel++; 
+							[[UserData userData] saveToFile];
+							
+							[upgradeLabel3 setString:[NSString stringWithFormat:@"Lv %d",[[UserData userData] arrowLevel]]];
+							[upgradeLabel4 setString:[NSString stringWithFormat:@"%d G", [[SkillData skillData] getSkillPrice:SKILL_STATE_ARROW :[[UserData userData] arrowLevel]]]];
+						}
+						
+						selectMenu2.visible = NO;
+						
+						break;
+						
+					case 3:
+						if ([UserData userData].hillLevel < 20){
+							[UserData userData].hillLevel++; 
+							[[UserData userData] saveToFile];
+							
+							[upgradeLabel5 setString:[NSString stringWithFormat:@"Lv %d",[[UserData userData] hillLevel]]];
+							[upgradeLabel6 setString:[NSString stringWithFormat:@"%d G", [[SkillData skillData] getSkillPrice:SKILL_STATE_HEALING :[[UserData userData] hillLevel]]]];
+						}
+						
+						selectMenu3.visible = NO;
+						
+						break;
+						
+					case 4:
+						if ([UserData userData].earthquakeLevel < 20){
+							[UserData userData].earthquakeLevel++; 
+							[[UserData userData] saveToFile];
+							
+							[upgradeLabel7 setString:[NSString stringWithFormat:@"Lv %d",[[UserData userData] earthquakeLevel]]];
+							[upgradeLabel8 setString:[NSString stringWithFormat:@"%d G", [[SkillData skillData] getSkillPrice:SKILL_STATE_EARTHQUAKE :[[UserData userData] earthquakeLevel]]]];
+						}
+						
+						selectMenu4.visible = NO;
+						
+						break;
+						
+					default:
+						break;
+				}
+				
+				break;
+				
+			case 2:
+				
+				switch (buttonState) {
+					case 1:
+						if ([UserData userData].flagLevel < 9) {
+							[UserData userData].flagLevel++; 
+							[[UserData userData] saveToFile];
+						}
+						break;
+						
+					case 2:
+						if ([UserData userData].userAtkLevel < 21){
+							[UserData userData].userAtkLevel++; 
+							[[UserData userData] saveToFile];
+						}
+						break;
+						
+					case 3:
+						if ([UserData userData].userMaxMpLevel < 21){
+							[UserData userData].userMaxMpLevel++; 
+							[[UserData userData] saveToFile];
+						}
+						break;
+						
+					case 4:
+						if ([UserData userData].userMPspeedLevel < 21){
+							[UserData userData].userMPspeedLevel++; 
+							[[UserData userData] saveToFile];
+						}
+						break;
+						
+					default:
+						break;
+				}
+				
+				break;
+				
+			default:
+				break;
+		}
+		
+		reset_menu.visible = NO;
+		popSpr.visible = NO;
+		label.visible = NO;
+		
+		upgradeButtonState = 0;
+		
+		
+	}];
+	
+	[yes setAnchorPoint:CGPointZero];
+	yes.position = ccp(160, 115);
+	
+	no = [CCMenuItemImage itemFromNormalImage:@"no_off_btn.png" selectedImage:@"no_on_btn.png" block:^(id sender) {
+		
+		upgradeButtonState = 0;
+		
+		reset_menu.visible = NO;
+		popSpr.visible = NO;
+		label.visible = NO;
+		
+	}];
+	
+	[no setAnchorPoint:CGPointZero];
+	no.position = ccp(290, 115);
+	
+	reset_menu = [CCMenu menuWithItems:yes, no, nil];    
+	[reset_menu setAnchorPoint:CGPointZero];
+	[reset_menu setPosition:CGPointZero];
+	[self addChild:reset_menu z:14];
+    
+}
+
+/*-(void)upgradeItem{
+	
+	if( upgradeButtonState == 1 )
+		return;
+    
+	popSpr = [[CCSprite alloc] initWithFile:@"small_popup.png"];
+	[popSpr setAnchorPoint:ccp(0.5, 0.5)];
+	[popSpr setPosition:ccp(240, 160)];
+	[self addChild:popSpr z:13];
+	
+	label = [CCLabelTTF labelWithString:@"really?" fontName:@"NanumScript.ttf" fontSize:55];
+	label.color = ccWHITE;
+	label.anchorPoint = ccp(0.5, 0.5);
+	label.position = ccp(245, 190);
+	[self addChild:label z:14];
+	
+	CCMenuItemImage* yes;    
+	CCMenuItemImage* no;
+	
+	upgradeButtonState = 1;
+	
+	
+	yes = [CCMenuItemImage itemFromNormalImage:@"yes_off_btn.png" selectedImage:@"yes_on_btn.png" block:^(id sender) {
+		//            BOOL result;
+		//            result = [[UserData userData] removeToFile];
+		
     switch (tabState) {
         case 0:
             
@@ -937,7 +1197,7 @@
     
     
     
-}
+}*/
 
 -(void)setSlotItem:(id)sender{
     

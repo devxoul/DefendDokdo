@@ -19,6 +19,8 @@
 
 #import "UserData.h"
 
+#import "SimpleAudioEngine.h"
+
 
 @interface GameScene(Private)
 - (void)initLayers;
@@ -34,7 +36,7 @@
 @synthesize flag, enemies, player;
 @synthesize skillManager;
 @synthesize nGameState;
-@synthesize currentStage, sunPermillage;
+@synthesize currentStage, sunPermillage, money;
 
 
 NSInteger arryWaveEffect1[18] = 
@@ -119,6 +121,9 @@ NSInteger arryWaveEffect3[22] =
 {
 	if( self = [super init] )
 	{
+		if( [UserData userData].backSound )
+			[[SimpleAudioEngine sharedEngine] playBackgroundMusic:@"game_bg.mp3" loop:YES];
+		
 		[self initManagers];
 		[self initLayers];
 		[self initStage];
@@ -292,7 +297,7 @@ NSInteger arryWaveEffect3[22] =
 		if ([UserData isGameCenterAvailable])
 			[UserData sendScore:0 Of:@"level"];
 		
-		[[UserData userData] setStageLevel:currentStage + 1];
+		[[UserData userData] setStageLevel:currentStage + 1]; // 스테이지 레벨 올리기
 
 		nGameState = GAMESTATE_ENDING;		
 		
@@ -357,6 +362,9 @@ NSInteger arryWaveEffect3[22] =
 
 - (void)onLabelEnd:(id)sender
 {
+	[[SimpleAudioEngine sharedEngine] stopBackgroundMusic];
+	[[UserData userData] setPoint:[[UserData userData] point] + money]; // 돈 증가
+	[[UserData userData] saveToFile];
 	[[CCDirector sharedDirector] pushScene:[CCTransitionCrossFade transitionWithDuration:0.3 scene:[ResultLayer scene]]];
 }
 

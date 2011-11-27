@@ -37,7 +37,8 @@
 	// always call "super" init
 	// Apple recommends to re-assign "self" with the "super" return value
 	if( (self=[super init])) {
-        
+		if( [UserData userData].backSound )
+			[[SimpleAudioEngine sharedEngine] playBackgroundMusic:@"title_bg.mp3"];
         
 		self.isTouchEnabled = YES;
         

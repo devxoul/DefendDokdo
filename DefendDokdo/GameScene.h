@@ -44,6 +44,7 @@
 	NSInteger nWaveCount;
 	
 	NSInteger currentStage;
+	NSInteger money; // 스테이지에서 얻은 돈
 	
 	CCLabelTTF *label;
 	
@@ -67,6 +68,7 @@
 
 @property (readonly) NSInteger currentStage;
 @property (readonly) NSInteger sunPermillage;
+@property (readwrite) NSInteger money;
 
 -(void)waveEffect:(NSInteger)_count;
 
