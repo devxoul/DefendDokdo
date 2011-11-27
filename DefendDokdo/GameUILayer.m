@@ -61,7 +61,7 @@
     }else{
         [slot1MpLabel setColor:ccBLACK];
     }
-        
+    
     if(mpStat < slot2Mp || slot2Mp == 0){
         [slot2MpLabel setColor:ccRED];    
     }
@@ -113,7 +113,7 @@
         [slot1MpLabel setPosition:ccp(315,11)];
         [slot1MpLabel setColor:ccRED];
         [self addChild:slot1MpLabel];
-
+        
     }
     
     slot1Shadow = [[CCSprite alloc] initWithFile:@"skill_shadow.png"];
@@ -123,14 +123,14 @@
     slot1Count = 0;
     [self addChild:slot1Shadow];
     
-/*    
-    slot1MpShadow = [[CCSprite alloc] initWithFile:@"skill_shadow.png"];
-    [slot1MpShadow setPosition:ccp(295, 51)];
-    [slot1MpShadow setAnchorPoint:ccp(0.5, 1.0)];
-    [slot1MpShadow setOpacity:150];
-    [self addChild:slot1MpShadow];
-    [slot1MpShadow setVisible:NO];
-*/
+    /*    
+     slot1MpShadow = [[CCSprite alloc] initWithFile:@"skill_shadow.png"];
+     [slot1MpShadow setPosition:ccp(295, 51)];
+     [slot1MpShadow setAnchorPoint:ccp(0.5, 1.0)];
+     [slot1MpShadow setOpacity:150];
+     [self addChild:slot1MpShadow];
+     [slot1MpShadow setVisible:NO];
+     */
     //삭제할 내용 - 
     //스킬 쿨타임 정하기
     switch ([[[[UserData userData] userSkillSlot] objectForKey:@"1"] integerValue]) {
@@ -165,13 +165,13 @@
     }else{
         [skills addObject:[[Slot alloc] initWithSkillInfo:SKILL_STATE_LOCK :self :ccp(368,25)]];
         slot2Mp = 0;
-
+        
         slot2MpLabel = [CCLabelTTF labelWithString:@"none" dimensions:CGSizeZero alignment:UITextAlignmentRight fontName:@"NanumScript" fontSize:15];
         [slot2MpLabel setAnchorPoint:ccp(0.5, 0.5)];
         [slot2MpLabel setPosition:ccp(388,11)];
         [slot2MpLabel setColor:ccRED];
         [self addChild:slot2MpLabel];
-
+        
     }
     slot2Shadow = [[CCSprite alloc] initWithFile:@"skill_shadow.png"];
     [slot2Shadow setPosition:ccp(367.5, 51)];
@@ -180,13 +180,13 @@
     slot2Count = 0;
     [self addChild:slot2Shadow];
     /*
-    slot2MpShadow = [[CCSprite alloc] initWithFile:@"skill_shadow.png"];
-    [slot2MpShadow setPosition:ccp(368, 51)];
-    [slot2MpShadow setAnchorPoint:ccp(0.5, 1.0)];
-    [slot2MpShadow setOpacity:150];
-    [self addChild:slot2MpShadow];
-    [slot2MpShadow setVisible:NO];
-    */
+     slot2MpShadow = [[CCSprite alloc] initWithFile:@"skill_shadow.png"];
+     [slot2MpShadow setPosition:ccp(368, 51)];
+     [slot2MpShadow setAnchorPoint:ccp(0.5, 1.0)];
+     [slot2MpShadow setOpacity:150];
+     [self addChild:slot2MpShadow];
+     [slot2MpShadow setVisible:NO];
+     */
     //스킬 쿨타임 정하기
     switch ([[[[UserData userData] userSkillSlot] objectForKey:@"2"] integerValue]) {
         case SKILL_STATE_STONE:
@@ -216,7 +216,7 @@
         [slot3MpLabel setPosition:ccp(460,11)];
         [slot3MpLabel setColor:ccRED];
         [self addChild:slot3MpLabel];
-
+        
     }else{
         [skills addObject:[[Slot alloc] initWithSkillInfo:SKILL_STATE_LOCK :self :ccp(441,25)]];
         slot3Mp = 0;
@@ -234,13 +234,13 @@
     slot3Count = 0;
     [self addChild:slot3Shadow];
     /*
-    slot3MpShadow = [[CCSprite alloc] initWithFile:@"skill_shadow.png"];
-    [slot3MpShadow setPosition:ccp(441, 51)];
-    [slot3MpShadow setAnchorPoint:ccp(0.5, 1.0)];
-    [slot3MpShadow setOpacity:150];
-    [self addChild:slot3MpShadow];
-    [slot3MpShadow setVisible:NO];
-    */
+     slot3MpShadow = [[CCSprite alloc] initWithFile:@"skill_shadow.png"];
+     [slot3MpShadow setPosition:ccp(441, 51)];
+     [slot3MpShadow setAnchorPoint:ccp(0.5, 1.0)];
+     [slot3MpShadow setOpacity:150];
+     [self addChild:slot3MpShadow];
+     [slot3MpShadow setVisible:NO];
+     */
     //삭제할 내용 - 
     switch ([[[[UserData userData] userSkillSlot] objectForKey:@"3"] integerValue]) {
         case SKILL_STATE_STONE:
@@ -383,120 +383,136 @@
                 [[slot slotSprite] setVisible:YES];
             }
             
-            if(CGRectContainsPoint([[skills objectAtIndex:0] slotSprite].boundingBox, location) && slot1Count == 0){
-                switch( [[skills objectAtIndex:0] skillType]){
-                    case SKILL_STATE_STONE:
-                        if(_gameScene.player.mp < [[[[SkillData skillData] getSkillInfo:SKILL_STATE_STONE :[[UserData userData] stoneLevel]] objectForKey:@"mp"] integerValue]){
-                            if([[UserData userData] backSound]){
-                                [[SimpleAudioEngine sharedEngine] playEffect:@"cancel.wav"];
+            if(CGRectContainsPoint([[skills objectAtIndex:0] slotSprite].boundingBox, location)){
+                if(slot1Count == 0){
+                    switch( [[skills objectAtIndex:0] skillType]){
+                        case SKILL_STATE_STONE:
+                            if(_gameScene.player.mp < [[[[SkillData skillData] getSkillInfo:SKILL_STATE_STONE :[[UserData userData] stoneLevel]] objectForKey:@"mp"] integerValue]){
+                                if([[UserData userData] backSound]){
+                                    [[SimpleAudioEngine sharedEngine] playEffect:@"cancel.wav"];
+                                }
+                                return;
                             }
-                            return;
-                        }
-                        [[[skills objectAtIndex:0] slotSprite] setVisible:NO];
-                        slotState = 1;
-                        _gameScene.skillManager.skillState = SKILL_STATE_STONE;
-                        break;
-                    case SKILL_STATE_ARROW:
-                        if(_gameScene.player.mp < [[[[SkillData skillData] getSkillInfo:SKILL_STATE_ARROW :[[UserData userData] arrowLevel]] objectForKey:@"mp"] integerValue]){     
-                            if([[UserData userData] backSound]){
-                                [[SimpleAudioEngine sharedEngine] playEffect:@"cancel.wav"];
+                            [[[skills objectAtIndex:0] slotSprite] setVisible:NO];
+                            slotState = 1;
+                            _gameScene.skillManager.skillState = SKILL_STATE_STONE;
+                            break;
+                        case SKILL_STATE_ARROW:
+                            if(_gameScene.player.mp < [[[[SkillData skillData] getSkillInfo:SKILL_STATE_ARROW :[[UserData userData] arrowLevel]] objectForKey:@"mp"] integerValue]){     
+                                if([[UserData userData] backSound]){
+                                    [[SimpleAudioEngine sharedEngine] playEffect:@"cancel.wav"];
+                                }
+                                return;
                             }
-                            return;
-                        }
-                        [[[skills objectAtIndex:0] slotSprite] setVisible:NO];
-                        slotState = 1;
-                        _gameScene.skillManager.skillState = SKILL_STATE_ARROW;
-                        break;
-                    case SKILL_STATE_HEALING:
-                        slotState = 1;
-                        _gameScene.skillManager.skillState = SKILL_STATE_HEALING;
-                        break;
-                    case SKILL_STATE_EARTHQUAKE:
-                        slotState = 1;
-                        _gameScene.skillManager.skillState = SKILL_STATE_EARTHQUAKE;
-                        break;
-                    case SKILL_STATE_LOCK:
-                        break;
-                        
+                            [[[skills objectAtIndex:0] slotSprite] setVisible:NO];
+                            slotState = 1;
+                            _gameScene.skillManager.skillState = SKILL_STATE_ARROW;
+                            break;
+                        case SKILL_STATE_HEALING:
+                            slotState = 1;
+                            _gameScene.skillManager.skillState = SKILL_STATE_HEALING;
+                            break;
+                        case SKILL_STATE_EARTHQUAKE:
+                            slotState = 1;
+                            _gameScene.skillManager.skillState = SKILL_STATE_EARTHQUAKE;
+                            break;
+                        case SKILL_STATE_LOCK:
+                            break;
+                            
+                    }
+                }
+                else{
+                    if([[UserData userData] backSound]){
+                        [[SimpleAudioEngine sharedEngine] playEffect:@"cancel.wav"];
+                    }
                 }
             }
-            else if(CGRectContainsPoint([[skills objectAtIndex:1] slotSprite].boundingBox, location) && slot2Count == 0){
-                switch( [[skills objectAtIndex:1] skillType]){
-                    case SKILL_STATE_STONE:
-                        if(_gameScene.player.mp < [[[[SkillData skillData] getSkillInfo:SKILL_STATE_STONE :[[UserData userData] stoneLevel]] objectForKey:@"mp"] integerValue]){ 
-                            if([[UserData userData] backSound]){
-                                [[SimpleAudioEngine sharedEngine] playEffect:@"cancel.wav"];
+            else if(CGRectContainsPoint([[skills objectAtIndex:1] slotSprite].boundingBox, location)){
+                if(slot2Count == 0){
+                    switch( [[skills objectAtIndex:1] skillType]){
+                        case SKILL_STATE_STONE:
+                            if(_gameScene.player.mp < [[[[SkillData skillData] getSkillInfo:SKILL_STATE_STONE :[[UserData userData] stoneLevel]] objectForKey:@"mp"] integerValue]){ 
+                                if([[UserData userData] backSound]){
+                                    [[SimpleAudioEngine sharedEngine] playEffect:@"cancel.wav"];
+                                }
+                                return;
                             }
-                            return;
-                        }
-                        [[[skills objectAtIndex:1] slotSprite] setVisible:NO];
-                        slotState = 2;
-                        _gameScene.skillManager.skillState = SKILL_STATE_STONE;
-                        break;
-                    case SKILL_STATE_ARROW:
-                        if(_gameScene.player.mp < [[[[SkillData skillData] getSkillInfo:SKILL_STATE_ARROW :[[UserData userData] arrowLevel]] objectForKey:@"mp"] integerValue]){    
-                            if([[UserData userData] backSound]){
-                                [[SimpleAudioEngine sharedEngine] playEffect:@"cancel.wav"];
+                            [[[skills objectAtIndex:1] slotSprite] setVisible:NO];
+                            slotState = 2;
+                            _gameScene.skillManager.skillState = SKILL_STATE_STONE;
+                            break;
+                        case SKILL_STATE_ARROW:
+                            if(_gameScene.player.mp < [[[[SkillData skillData] getSkillInfo:SKILL_STATE_ARROW :[[UserData userData] arrowLevel]] objectForKey:@"mp"] integerValue]){    
+                                if([[UserData userData] backSound]){
+                                    [[SimpleAudioEngine sharedEngine] playEffect:@"cancel.wav"];
+                                }
+                                return;
                             }
-                            return;
-                        }
-                        [[[skills objectAtIndex:1] slotSprite] setVisible:NO];
-                        slotState = 2;
-                        _gameScene.skillManager.skillState = SKILL_STATE_ARROW;
-                        break;
-                    case SKILL_STATE_HEALING:
-                        slotState = 2;
-                        _gameScene.skillManager.skillState = SKILL_STATE_HEALING;
-                        break;
-                    case SKILL_STATE_EARTHQUAKE:
-                        slotState = 2;
-                        _gameScene.skillManager.skillState = SKILL_STATE_EARTHQUAKE;
-                        break;
-                    case SKILL_STATE_LOCK:
-                        break;
-                        
+                            [[[skills objectAtIndex:1] slotSprite] setVisible:NO];
+                            slotState = 2;
+                            _gameScene.skillManager.skillState = SKILL_STATE_ARROW;
+                            break;
+                        case SKILL_STATE_HEALING:
+                            slotState = 2;
+                            _gameScene.skillManager.skillState = SKILL_STATE_HEALING;
+                            break;
+                        case SKILL_STATE_EARTHQUAKE:
+                            slotState = 2;
+                            _gameScene.skillManager.skillState = SKILL_STATE_EARTHQUAKE;
+                            break;
+                        case SKILL_STATE_LOCK:
+                            break;
+                            
+                    }
+                }
+                else{
+                    if([[UserData userData] backSound]){
+                        [[SimpleAudioEngine sharedEngine] playEffect:@"cancel.wav"];
+                    }
                 }
             }
-            else if(CGRectContainsPoint([[skills objectAtIndex:2] slotSprite].boundingBox, location) && slot3Count == 0){
-                switch( [[skills objectAtIndex:2] skillType]){
-                    case SKILL_STATE_STONE:
-                        if(_gameScene.player.mp < [[[[SkillData skillData] getSkillInfo:SKILL_STATE_STONE :[[UserData userData] stoneLevel]] objectForKey:@"mp"] integerValue]){ 
-                            if([[UserData userData] backSound]){
-                                [[SimpleAudioEngine sharedEngine] playEffect:@"cancel.wav"];
+            else if(CGRectContainsPoint([[skills objectAtIndex:2] slotSprite].boundingBox, location)){
+                if(slot3Count == 0){
+                    switch( [[skills objectAtIndex:2] skillType]){
+                        case SKILL_STATE_STONE:
+                            if(_gameScene.player.mp < [[[[SkillData skillData] getSkillInfo:SKILL_STATE_STONE :[[UserData userData] stoneLevel]] objectForKey:@"mp"] integerValue]){ 
+                                if([[UserData userData] backSound]){
+                                    [[SimpleAudioEngine sharedEngine] playEffect:@"cancel.wav"];
+                                }
+                                return;
                             }
-                            return;
-                        }
-                        [[[skills objectAtIndex:2] slotSprite] setVisible:NO];
-                        slotState = 3;
-                        _gameScene.skillManager.skillState = SKILL_STATE_STONE;
-                        break;
-                    case SKILL_STATE_ARROW:
-                        if(_gameScene.player.mp < [[[[SkillData skillData] getSkillInfo:SKILL_STATE_ARROW :[[UserData userData] arrowLevel]] objectForKey:@"mp"] integerValue]){                        
-                            if([[UserData userData] backSound]){
-                                [[SimpleAudioEngine sharedEngine] playEffect:@"cancel.wav"];
+                            [[[skills objectAtIndex:2] slotSprite] setVisible:NO];
+                            slotState = 3;
+                            _gameScene.skillManager.skillState = SKILL_STATE_STONE;
+                            break;
+                        case SKILL_STATE_ARROW:
+                            if(_gameScene.player.mp < [[[[SkillData skillData] getSkillInfo:SKILL_STATE_ARROW :[[UserData userData] arrowLevel]] objectForKey:@"mp"] integerValue]){                        
+                                if([[UserData userData] backSound]){
+                                    [[SimpleAudioEngine sharedEngine] playEffect:@"cancel.wav"];
+                                }
+                                return;
                             }
-                            return;
-                        }
-                        [[[skills objectAtIndex:2] slotSprite] setVisible:NO];
-                        slotState = 3;
-                        _gameScene.skillManager.skillState = SKILL_STATE_ARROW;
-                        break;
-                    case SKILL_STATE_HEALING:
-                        slotState = 3;
-                        _gameScene.skillManager.skillState = SKILL_STATE_HEALING;
-                        break;
-                    case SKILL_STATE_EARTHQUAKE:
-                        slotState = 3;
-                        _gameScene.skillManager.skillState = SKILL_STATE_EARTHQUAKE;
-                        break;
-                    case SKILL_STATE_LOCK:
-                        break;
-                        
+                            [[[skills objectAtIndex:2] slotSprite] setVisible:NO];
+                            slotState = 3;
+                            _gameScene.skillManager.skillState = SKILL_STATE_ARROW;
+                            break;
+                        case SKILL_STATE_HEALING:
+                            slotState = 3;
+                            _gameScene.skillManager.skillState = SKILL_STATE_HEALING;
+                            break;
+                        case SKILL_STATE_EARTHQUAKE:
+                            slotState = 3;
+                            _gameScene.skillManager.skillState = SKILL_STATE_EARTHQUAKE;
+                            break;
+                        case SKILL_STATE_LOCK:
+                            break;
+                            
+                    }
                 }
-            }
-            else{
-                if([[UserData userData] backSound]){
-                    [[SimpleAudioEngine sharedEngine] playEffect:@"cancel.wav"];
+                else{
+                    if([[UserData userData] backSound]){
+                        [[SimpleAudioEngine sharedEngine] playEffect:@"cancel.wav"];
+                    }
                 }
             }
         }           
