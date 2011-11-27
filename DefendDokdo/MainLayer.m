@@ -6,6 +6,7 @@
 //  Copyright 2011년 Joyfl. All rights reserved.
 //
 
+#import "SimpleAudioEngine.h"
 #import "MainLayer.h"
 
 #import "IntroLayer.h"
@@ -17,6 +18,7 @@
 //테스트
 #import "ResultLayer.h"
 #import "UpgradeLayer.h"
+#import "UserData.h"
 
 @implementation MainLayer
 
@@ -47,9 +49,7 @@
         
         //메뉴배경
         
-
         sunSprite = [[CCSprite alloc] initWithFile:@"sun_ui.png"];
-
         sunSprite.anchorPoint =CGPointZero;
         [sunSprite setPosition:ccp(50, 250)];
         [self addChild:sunSprite z:0];
@@ -142,15 +142,25 @@
 
 -(void)moveGame:(id)sender
 {
+    if ([UserData userData].backSound)
+        [[SimpleAudioEngine sharedEngine] playEffect:@"click.mp3"];    
+	
    [[CCDirector sharedDirector] replaceScene:[CCTransitionCrossFade transitionWithDuration:0.5 scene:[ResultLayer scene]]];
 }
 
 -(void)moveIntro:(id)sender
 {
+    if ([UserData userData].backSound)
+        [[SimpleAudioEngine sharedEngine] playEffect:@"click.mp3"];    
+	
     [[CCDirector sharedDirector] replaceScene:[CCTransitionCrossFade transitionWithDuration:0.5 scene:[IntroLayer scene]]]; 
 }
 
 -(void)moveSetting:(id)sender{
+
+    if ([UserData userData].backSound)
+        [[SimpleAudioEngine sharedEngine] playEffect:@"click.mp3"];    
+
     
     [[CCDirector sharedDirector] replaceScene:[CCTransitionCrossFade transitionWithDuration:0.5 scene:[SettingsLayer scene]]];
 }
@@ -164,11 +174,15 @@
 
 -(void)moveRank:(id)sender
 {
-    
+    if ([UserData userData].backSound)
+        [[SimpleAudioEngine sharedEngine] playEffect:@"click.mp3"];        
 }
 
 -(void)moveInfo:(id)sender
 {
+	if ([UserData userData].backSound)
+        [[SimpleAudioEngine sharedEngine] playEffect:@"click.mp3"];    
+
     [[CCDirector sharedDirector] replaceScene:[CCTransitionCrossFade transitionWithDuration:0.5 scene:[InfoLayer scene]]]; 
 }
 

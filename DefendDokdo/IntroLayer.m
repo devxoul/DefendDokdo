@@ -6,6 +6,9 @@
 //  Copyright 2011년 Joyfl. All rights reserved.
 //
 
+#import "SimpleAudioEngine.h"
+#import "UserData.h"
+
 #import "IntroLayer.h"
 #import "MainLayer.h"
 
@@ -90,30 +93,43 @@
 
 -(void)korean:(id)sender{
     
+    if ([UserData userData].backSound)
+        [[SimpleAudioEngine sharedEngine] playEffect:@"click.mp3"];    
+	
     description.text = [introInfo objectForKey:@"korean"]; 
     
 }
 
 -(void)english:(id)sender{
     
+    if ([UserData userData].backSound)
+        [[SimpleAudioEngine sharedEngine] playEffect:@"click.mp3"];    
+	
     description.text = [introInfo objectForKey:@"english"]; 
     
 }
 
 -(void)japanese:(id)sender{
     
-    description.text = [introInfo objectForKey:@"japanese"]; 
-    
+    if ([UserData userData].backSound)
+        [[SimpleAudioEngine sharedEngine] playEffect:@"click.mp3"];    
+	
+    description.text = [introInfo objectForKey:@"japanese"];     
 }
 
 -(void)chinese:(id)sender{
     
-    description.text = [introInfo objectForKey:@"chinese"]; 
-    
+	if ([UserData userData].backSound)
+        [[SimpleAudioEngine sharedEngine] playEffect:@"click.mp3"];    
+
+    description.text = [introInfo objectForKey:@"chinese"];     
 }
 
 - (void)back{
     
+    if ([UserData userData].backSound)
+        [[SimpleAudioEngine sharedEngine] playEffect:@"click.mp3"];    
+	
     [[CCDirector sharedDirector] replaceScene:[CCTransitionCrossFade transitionWithDuration:0.7 scene:[MainLayer scene]]];
     [description removeFromSuperview];
     

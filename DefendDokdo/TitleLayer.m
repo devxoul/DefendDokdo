@@ -107,6 +107,9 @@
     
 //    touchTheScreenSprite.visible = NO;
     
+    if ([UserData userData].backSound)
+        [[SimpleAudioEngine sharedEngine] playEffect:@"click.mp3"];    
+	
     [[CCDirector sharedDirector] pushScene:[CCTransitionPageTurn transitionWithDuration:0.5 scene:[MainLayer scene]]];
     
 //    [titleLogo runAction:[CCSequence actions:[CCMoveTo actionWithDuration:1 position:ccp(titleLogo.position.x , 350)], 

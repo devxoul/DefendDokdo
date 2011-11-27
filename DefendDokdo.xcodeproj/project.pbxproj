@@ -827,6 +827,16 @@
 		03702DDE1481A3EF006EDCAC /* white2.gif in Resources */ = {isa = PBXBuildFile; fileRef = 03702ADB1481A3ED006EDCAC /* white2.gif */; };
 		03702DDF1481A639006EDCAC /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 03398A95146001FF002AAAA3 /* main.m */; };
 		03F7E281147F25A100F5AC1A /* GameKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03F7E27F147F257800F5AC1A /* GameKit.framework */; };
+		BAA674561481CBD100FA92D1 /* atk_btn.png in Resources */ = {isa = PBXBuildFile; fileRef = BAA6744C1481CBD100FA92D1 /* atk_btn.png */; };
+		BAA674571481CBD100FA92D1 /* money_btn.png in Resources */ = {isa = PBXBuildFile; fileRef = BAA6744D1481CBD100FA92D1 /* money_btn.png */; };
+		BAA674581481CBD100FA92D1 /* flag_btn.png in Resources */ = {isa = PBXBuildFile; fileRef = BAA6744E1481CBD100FA92D1 /* flag_btn.png */; };
+		BAA674591481CBD100FA92D1 /* maxmp_btn.png in Resources */ = {isa = PBXBuildFile; fileRef = BAA6744F1481CBD100FA92D1 /* maxmp_btn.png */; };
+		BAA6745A1481CBD100FA92D1 /* mp_btn.png in Resources */ = {isa = PBXBuildFile; fileRef = BAA674501481CBD100FA92D1 /* mp_btn.png */; };
+		BAA6745B1481CBD100FA92D1 /* esqueke_btn.png in Resources */ = {isa = PBXBuildFile; fileRef = BAA674511481CBD100FA92D1 /* esqueke_btn.png */; };
+		BAA6745C1481CBD100FA92D1 /* healing_btn.png in Resources */ = {isa = PBXBuildFile; fileRef = BAA674521481CBD100FA92D1 /* healing_btn.png */; };
+		BAA6745D1481CBD100FA92D1 /* arrow_btn.png in Resources */ = {isa = PBXBuildFile; fileRef = BAA674531481CBD100FA92D1 /* arrow_btn.png */; };
+		BAA6745E1481CBD100FA92D1 /* stone_btn.png in Resources */ = {isa = PBXBuildFile; fileRef = BAA674541481CBD100FA92D1 /* stone_btn.png */; };
+		BAA6745F1481CBD100FA92D1 /* heal_btn.png in Resources */ = {isa = PBXBuildFile; fileRef = BAA674551481CBD100FA92D1 /* heal_btn.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -1864,6 +1874,16 @@
 		03F7E283147F271900F5AC1A /* InfoLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InfoLayer.m; sourceTree = "<group>"; };
 		3CB4BED4147B760C00D8B7B4 /* SkillLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SkillLayer.h; sourceTree = "<group>"; };
 		3CB4BED5147B760C00D8B7B4 /* SkillLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SkillLayer.m; sourceTree = "<group>"; };
+		BAA6744C1481CBD100FA92D1 /* atk_btn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = atk_btn.png; sourceTree = "<group>"; };
+		BAA6744D1481CBD100FA92D1 /* money_btn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = money_btn.png; sourceTree = "<group>"; };
+		BAA6744E1481CBD100FA92D1 /* flag_btn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = flag_btn.png; sourceTree = "<group>"; };
+		BAA6744F1481CBD100FA92D1 /* maxmp_btn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = maxmp_btn.png; sourceTree = "<group>"; };
+		BAA674501481CBD100FA92D1 /* mp_btn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mp_btn.png; sourceTree = "<group>"; };
+		BAA674511481CBD100FA92D1 /* esqueke_btn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = esqueke_btn.png; sourceTree = "<group>"; };
+		BAA674521481CBD100FA92D1 /* healing_btn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = healing_btn.png; sourceTree = "<group>"; };
+		BAA674531481CBD100FA92D1 /* arrow_btn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = arrow_btn.png; sourceTree = "<group>"; };
+		BAA674541481CBD100FA92D1 /* stone_btn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = stone_btn.png; sourceTree = "<group>"; };
+		BAA674551481CBD100FA92D1 /* heal_btn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = heal_btn.png; sourceTree = "<group>"; };
 		CF3F668414697C51003F4E51 /* Arrow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Arrow.h; sourceTree = "<group>"; };
 		CF3F668514697C51003F4E51 /* Arrow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Arrow.m; sourceTree = "<group>"; };
 		CF3F6688146AAB8E003F4E51 /* ArrowObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ArrowObject.h; sourceTree = "<group>"; };
@@ -3785,6 +3805,16 @@
 		03702AA81481A3ED006EDCAC /* ui */ = {
 			isa = PBXGroup;
 			children = (
+				BAA6744C1481CBD100FA92D1 /* atk_btn.png */,
+				BAA6744D1481CBD100FA92D1 /* money_btn.png */,
+				BAA6744E1481CBD100FA92D1 /* flag_btn.png */,
+				BAA6744F1481CBD100FA92D1 /* maxmp_btn.png */,
+				BAA674501481CBD100FA92D1 /* mp_btn.png */,
+				BAA674511481CBD100FA92D1 /* esqueke_btn.png */,
+				BAA674521481CBD100FA92D1 /* healing_btn.png */,
+				BAA674531481CBD100FA92D1 /* arrow_btn.png */,
+				BAA674541481CBD100FA92D1 /* stone_btn.png */,
+				BAA674551481CBD100FA92D1 /* heal_btn.png */,
 				03702AA91481A3ED006EDCAC /* back_off_btn.png */,
 				03702AAA1481A3ED006EDCAC /* back_on_btn.png */,
 				03702AAB1481A3ED006EDCAC /* cash_off_tab_btn.png */,
@@ -4671,6 +4701,16 @@
 				03702DDC1481A3EF006EDCAC /* upgrade_on_btn2.png in Resources */,
 				03702DDD1481A3EF006EDCAC /* upgrade_on_tab_btn.png in Resources */,
 				03702DDE1481A3EF006EDCAC /* white2.gif in Resources */,
+				BAA674561481CBD100FA92D1 /* atk_btn.png in Resources */,
+				BAA674571481CBD100FA92D1 /* money_btn.png in Resources */,
+				BAA674581481CBD100FA92D1 /* flag_btn.png in Resources */,
+				BAA674591481CBD100FA92D1 /* maxmp_btn.png in Resources */,
+				BAA6745A1481CBD100FA92D1 /* mp_btn.png in Resources */,
+				BAA6745B1481CBD100FA92D1 /* esqueke_btn.png in Resources */,
+				BAA6745C1481CBD100FA92D1 /* healing_btn.png in Resources */,
+				BAA6745D1481CBD100FA92D1 /* arrow_btn.png in Resources */,
+				BAA6745E1481CBD100FA92D1 /* stone_btn.png in Resources */,
+				BAA6745F1481CBD100FA92D1 /* heal_btn.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

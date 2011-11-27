@@ -6,6 +6,9 @@
 //  Copyright 2011년 Joyfl. All rights reserved.
 //
 
+#import "SimpleAudioEngine.h"
+#import "UserData.h"
+
 #import "ResultLayer.h"
 
 #import "GameScene.h"
@@ -40,14 +43,6 @@
         [flagImage setPosition:CGPointMake(77, 80)];
         [self addChild:flagImage z:4];
         
-        ddayLabel = [CCLabelTTF labelWithString:[NSString stringWithFormat:@"stage %d",[[UserData userData] stageLevel]] dimensions:CGSizeMake(0,0) alignment:UITextAlignmentCenter fontName:@"Helvetica" fontSize:25];
-        
-        [self addChild:ddayLabel z:7];
-        
-        [ddayLabel setColor:ccc3(0, 0, 0)];
-        [ddayLabel setAnchorPoint:CGPointZero];
-        [ddayLabel setPosition:CGPointMake(75, 43)];
-
         //start
         result_start = [CCMenuItemImage itemFromNormalImage:@"start_on_btn.png" selectedImage:@"start_off_btn.png" target:self selector:@selector(moveGame:)];
         [result_start setAnchorPoint:CGPointZero];
@@ -108,16 +103,26 @@
 
 -(void)moveGame:(id)sender
 {
+    if ([UserData userData].backSound)
+        [[SimpleAudioEngine sharedEngine] playEffect:@"click.mp3"];    
+	
     [[CCDirector sharedDirector] replaceScene:[CCTransitionCrossFade transitionWithDuration:0.7 scene:[GameScene node]]];
 }
 
 -(void)moveUpgrade:(id)sender
 {
+    if ([UserData userData].backSound)
+        [[SimpleAudioEngine sharedEngine] playEffect:@"click.mp3"];    
+	
+//    [[CCDirector sharedDirector] pushScene:[CCTransitionSlideInT transitionWithDuration:0.3 scene:
     [[CCDirector sharedDirector] replaceScene:[CCTransitionCrossFade transitionWithDuration:0.7 scene:[UpgradeLayer scene]]];
 }
 
 - (void)back:(id)sender {
     
+    if ([UserData userData].backSound)
+        [[SimpleAudioEngine sharedEngine] playEffect:@"click.mp3"];    
+	
     [[CCDirector sharedDirector] replaceScene:[CCTransitionCrossFade transitionWithDuration:0.7 scene:[MainLayer scene]]];
 }
 

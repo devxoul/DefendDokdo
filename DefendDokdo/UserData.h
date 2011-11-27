@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 #import <GameKit/GameKit.h>
 
+
 @interface UserData : NSObject
 {
 @public
@@ -30,19 +31,19 @@
 	NSUInteger userAtkLevel;
 	NSUInteger userMaxMpLevel;
 	NSUInteger userMPspeedLevel;
-
+	
     // user setting value
-    BOOL backSound;         // back ground sound
-    BOOL vibration;         // 진동
-    
-    NSDictionary *stageInfo;
+	BOOL backSound;         // back ground sound
+	BOOL vibration;         // 진동
+	
+	NSDictionary *stageInfo;
 }
 
 @property (readwrite) NSUInteger point;
 @property (readwrite) NSUInteger stageLevel;
 
-@property (nonatomic, retain) NSMutableDictionary* skillSlot;
-@property (nonatomic, retain) NSMutableDictionary* userSkillSlot;
+@property (readwrite, retain) NSMutableDictionary* skillSlot;
+@property (readwrite, retain) NSMutableDictionary* userSkillSlot;
 
 @property (readwrite) NSUInteger flagLevel;
 @property (readwrite) NSUInteger userAtkLevel;
@@ -75,5 +76,7 @@
 + (void)sendScore:(int)_score Of:(NSString *)type;
 + (void)showArchboardOnViewController:(UIViewController<GKAchievementViewControllerDelegate> *)controller;
 + (void)showLeaderboardOnViewController:(UIViewController<GKLeaderboardViewControllerDelegate> *)controller;
+
+//- (BOOL)buyStage:(NSNumber *)stage;
 
 @end
