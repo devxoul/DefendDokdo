@@ -7,7 +7,7 @@
 //
 
 #import "UserData.h"
-
+#import "Const.h"
 
 @implementation UserData
 
@@ -104,8 +104,7 @@
             [skillSlot setObject:[NSNumber numberWithBool:YES] forKey:@"1"];
             [skillSlot setObject:[NSNumber numberWithBool:NO] forKey:@"2"];
             [skillSlot setObject:[NSNumber numberWithBool:NO] forKey:@"3"];
-            
-		}else
+		} else
             [skillSlot retain];
 		
 		userSkillSlot = [dict objectForKey:@"SlotInSkill"];
@@ -116,11 +115,12 @@
             [userSkillSlot setObject:[NSNumber numberWithInteger:-1] forKey:@"1"];
             [userSkillSlot setObject:[NSNumber numberWithInteger:-1] forKey:@"2"];
             [userSkillSlot setObject:[NSNumber numberWithInteger:-1] forKey:@"3"];
+			
             //			
             //			[userSkillSlot addObject:[NSNumber numberWithInteger:-1]];
             //			[userSkillSlot addObject:[NSNumber numberWithInteger:-1]];
             //			[userSkillSlot addObject:[NSNumber numberWithInteger:-1]];
-		}else
+		} else
             [userSkillSlot retain];
 		
 		stageInfo = [[NSDictionary dictionaryWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"StageList" ofType:@"plist"]] retain];
@@ -142,6 +142,27 @@
 	}
 	
 	return nil;
+}
+
+-(NSInteger)getSkillLevel:(NSInteger)skillType{
+    NSInteger result = 0;
+    
+    switch (skillType) {
+        case SKILL_STATE_STONE:
+            result = stoneLevel;
+            break;
+        case SKILL_STATE_ARROW:
+            result = arrowLevel;
+            break;
+        case SKILL_STATE_HEALING:
+            result = hillLevel;
+            break;
+        case SKILL_STATE_EARTHQUAKE:
+            result = earthquakeLevel;
+            break;
+            
+    }
+    return result;
 }
 
 - (BOOL)saveToFile

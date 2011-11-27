@@ -83,6 +83,11 @@
 	BOOL firstDirection; // 초기 방향
 	BOOL isFlightExists; // 비행기가 아직도 떠있는지
 	BOOL fallWithNoDamage; // YES일 경우 떨어져도 데미지를 입지 않음. (비행기에서 떨어질 때, 돌 맞고 떨어질 때)
+    
+    
+    //게이지바
+    CCSprite *hpGauge;
+    CCSprite *hpGaugeBg;
 }
 
 @property (nonatomic) NSInteger type;

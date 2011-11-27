@@ -32,6 +32,10 @@
     CCSprite* slot2Shadow;
     CCSprite* slot3Shadow;
     
+    CCSprite* slot1MpShadow;
+    CCSprite* slot2MpShadow;
+    CCSprite* slot3MpShadow;
+    
     NSInteger slot1Count;
     NSInteger slot1MaxCount;
     
@@ -47,6 +51,10 @@
 	CCMenu *pauseMenu;
 
     NSInteger slotState;
+    
+    NSInteger slot1Mp;
+    NSInteger slot2Mp;
+    NSInteger slot3Mp;
 }
 
 @property (retain, nonatomic) NSMutableArray* skills;

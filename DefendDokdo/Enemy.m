@@ -1,10 +1,10 @@
-	//
-	//  Enemy.m
-	//  DefendDokdo
-	//
-	//  Created by 전 수열 on 11. 11. 1..
-	//  Copyright 2011년 Joyfl. All rights reserved.
-	//
+//
+//  Enemy.m
+//  DefendDokdo
+//
+//  Created by 전 수열 on 11. 11. 1..
+//  Copyright 2011년 Joyfl. All rights reserved.
+//
 
 #import "Enemy.h"
 #import "Const.h"
@@ -90,7 +90,7 @@
 		self.power = _power;
 		self.speed = _speed;
 		
-			// 처음 방향 - 비행기 계속 날아갈 때 필요
+		// 처음 방향 - 비행기 계속 날아갈 때 필요
 		if( arc4random() % 2 )
 		{
 			self.x = -50;
@@ -105,17 +105,27 @@
 		self.y = 320 + gapY;
 		
 		dx = dy = 0;
-		
+        
 		enemySpr = [[CCSprite alloc] init];
 		enemySpr.anchorPoint = ccp( 0.5f, 0 );
 		[gameScene.gameLayer addChild:enemySpr z:Z_ENEMY];
 		
-			// 공통 애니메이션
+		hpGaugeBg = [[CCSprite alloc] initWithFile:@"enemyguage_bg.png"];
+        hpGaugeBg.anchorPoint = ccp(0.0, 0.0);
+		hpGaugeBg.position = ccp( -15.0, 50.0 );
+        [enemySpr addChild:hpGaugeBg z:Z_ENEMY];
+        
+        hpGauge = [[CCSprite alloc] initWithFile:@"enemyguage.png"];
+        hpGauge.anchorPoint = ccp(0.0, 0.0);
+		hpGauge.position = ccp( -15.0, 50.0 );
+        [enemySpr addChild:hpGauge z:Z_ENEMY];
+		
+		// 공통 애니메이션
 		[self initWalkAnimation];
 		[self initCatchAnimation];
 		[self initFallAnimation];
 		
-			// 카미카제에만 해당하는 애니메이션
+		// 카미카제에만 해당하는 애니메이션
 		if( type == ENEMY_TYPE_KAMIKAZE )
 		{
 			[self initFlightAnimation];
@@ -419,7 +429,7 @@
 		return ( x - 110 ) * 34 / 27 + 60 + sinf( x / 10 ) * 3;
 	
 	else if( FLAG_LEFT_X <= x && x <= FLAG_RIGHT_X )
-		return FLAG_Y;
+		return TOP_Y;
 	
 	else
 		return -1 * ( x - 360 ) * 31 / 25 + 70 + cosf( x / 10 ) * 3;
@@ -441,7 +451,7 @@
 {
 	isFlightExists = isExists;
 	
-		// 더이상 날아가지 않게
+	// 더이상 날아가지 않게
 	if( !isExists )
 	{
 		[flightEnemySpr stopAllActions];
@@ -456,15 +466,19 @@
 #pragma mark - update
 
 - (void)update
-{
-		// 비행기 계속 날아가게
+{    
+    CGFloat width = 30.0 * (CGFloat)hp / (CGFloat)maxHp;
+	if( width < 0 ) width = 0;
+    [hpGauge setTextureRect:CGRectMake(0, 0, width, 2)];
+	
+	// 비행기 계속 날아가게
 	if( isFlightExists && type == ENEMY_TYPE_KAMIKAZE && state != ENEMY_STATE_FLIGHT )
 	{
 		if( firstDirection == DIRECTION_STATE_LEFT ) // 왼쪽에서 시작
 		{
 			flightEnemySpr.position = ccp( flightEnemySpr.position.x + self.speed, PLANE_Y + gapY * 3 );
 			
-				// 화면 밖으로 나가면 제거
+			// 화면 밖으로 나가면 제거
 			if( flightEnemySpr.position.x < -50 )
 				[self setPlaneExists:NO];
 		}
@@ -503,7 +517,7 @@
 			break;
 			
 		case ENEMY_STATE_FLIGHT:
-				// 떨어뜨리기
+			// 떨어뜨리기
 			if( self.y + gapY - [self getGroundY] < 110 && ( DOKDO_LEFT_X < self.x + gapX && self.x + gapX < DOKDO_RIGHT_X ) )
 			{
 				fallWithNoDamage = YES;
@@ -564,7 +578,7 @@
 			{
 				[self stopWalking];
 				
-					// 카미카제는 공격 없이 바로 폭발
+				// 카미카제는 공격 없이 바로 폭발
 				if( type != ENEMY_TYPE_KAMIKAZE )
 					[self startAttack];
 				else
@@ -573,7 +587,7 @@
 			break;
 			
 		case ENEMY_STATE_ATTACK:
-			self.y = FLAG_Y;
+			self.y = TOP_Y;
 			
 			if( FLAG_LEFT_X <= self.x + gapX && self.x + gapX <= FLAG_X )
 			{
@@ -610,7 +624,10 @@
 				self.x += dx;
 				self.y += dy;
 				
-					// 땅에 철푸덕
+				if( self.x < 0 ) self.x = 0;
+				else if( self.x > 480 ) self.x = 480;
+				
+				// 땅에 철푸덕
 				if( self.y - gapY < [self getGroundY] )
 				{
 					[self stopFalling];
@@ -621,10 +638,9 @@
 						// 일반 타입의 경우 데미지를 입음
 						if( type != ENEMY_TYPE_KAMIKAZE )
 						{
-#warning temp
 							NSLog( @"사용자 공격력 : %d", gameScene.player.power );
 							NSLog( @"dy : %f", dy );
-							[self beDamaged:abs( (NSInteger)( gameScene.player.power * dy * 0.1 ) )]; // temp damage
+							[self beDamaged:abs( (NSInteger)( gameScene.player.power * dy * 0.2 ) )]; // temp damage
 						}
 						
 						// 카미카제는 바로 폭발함
@@ -643,7 +659,7 @@
 					}
 				}
 				
-					// 입수
+				// 입수
 				else if( self.y - gapY <= SEA_Y )
 				{
 					dx = 0;
@@ -655,8 +671,7 @@
 						// 일반 타입의 경우 데미지를 입음
 						if( type != ENEMY_TYPE_KAMIKAZE )
 						{
-#warning temp
-							[self beDamaged:abs( (NSInteger)( gameScene.player.power * dy * 0.05 ) )]; // temp damage
+							[self beDamaged:abs( (NSInteger)( gameScene.player.power * dy * 0.1 ) )];
 						}
 						
 						// 카미카제는 바로 폭발함
@@ -674,14 +689,14 @@
 			}
 			else
 			{
-					// 물에서 위로 올라가기
+				// 물에서 위로 올라가기
 				if( self.y + dy - gapY <= SEA_Y )
 				{
 					NSLog( @"물 위로 올라가자 어푸어푸" );
 					dy += BUOYANCY;
 					self.y += dy;
 				}
-					// 수면 위로 뿅
+				// 수면 위로 뿅
 				else
 				{
 					NSLog( @"수면위로 뿅" );
@@ -704,7 +719,7 @@
 			else
 				dieEnemySpr.flipX = YES;
 			
-				// 물에서 죽으면 꼬르륵 하면서 물 밑으로 내려감
+			// 물에서 죽으면 꼬르륵 하면서 물 밑으로 내려감
 			if( self.x + gapX < DOKDO_LEFT_X || DOKDO_RIGHT_X < self.x + gapX )
 			{
 				self.y += dy;
@@ -714,6 +729,8 @@
 			}
 			break;
 	}
+    
+	
 }
 
 
@@ -903,9 +920,8 @@
 	[dieEnemySpr stopAllActions];
 	[enemySpr removeChild:dieBatchNode cleanup:YES];	
 	[gameScene.gameLayer removeChild:enemySpr cleanup:YES];
+	state = ENEMY_STATE_REMOVE;
 	
-//	[gameScene.enemies removeObject:self];
-//	[self release];
 }
 
 - (void)stopDying:(id)sender
@@ -917,9 +933,7 @@
 {
 	[explosionEnemySpr stopAllActions];
 	[enemySpr removeChild:explosionBatchNode cleanup:YES];
-	
-//	[gameScene.enemies removeObject:self];
-//	[self release];
+	state = ENEMY_STATE_REMOVE;
 }
 
 - (void)stopExplosion:(id)sender
@@ -1033,7 +1047,7 @@
 	NSLog( @"%d의 데미지를 입었다 ㅠㅠ", damage );
 	if( state == ENEMY_STATE_FLIGHT || state == ENEMY_STATE_DIE || state == ENEMY_STATE_EXPLOSION ) return;
 	
-		// 카미카제는 폭발
+	// 카미카제는 폭발
 	if( type == ENEMY_TYPE_KAMIKAZE )
 	{
 		self.hp = 0;
@@ -1068,7 +1082,7 @@
 {
 	if( state == ENEMY_STATE_FLIGHT || state == ENEMY_STATE_FALL || state == ENEMY_STATE_DIE || state == ENEMY_STATE_EXPLOSION ) return;
 	
-		// 카미카제는 폭발
+	// 카미카제는 폭발
 	if( type == ENEMY_TYPE_KAMIKAZE )
 	{		
 		self.hp = 0;

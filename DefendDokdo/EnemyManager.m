@@ -53,17 +53,24 @@
 		lastSunPermillage = gameScene.sunPermillage;
 	}
 	
-	for( Enemy *enemy in gameScene.enemies )
+	NSMutableIndexSet *willBeRemovedEnemyIndices = [[[NSMutableIndexSet alloc] init] autorelease];
+	
+	for( NSInteger i = 0; i < gameScene.enemies.count; i++ )
 	{
+		Enemy *enemy = [gameScene.enemies objectAtIndex:i];
 		[enemy update];
+		
+		if( enemy.state == ENEMY_STATE_REMOVE )
+			[willBeRemovedEnemyIndices addIndex:i];
 	}
+	
+	[gameScene.enemies removeObjectsAtIndexes:willBeRemovedEnemyIndices];
 }
 
 - (void)createEnemy:(NSInteger)type level:(NSInteger)level
 {
 	NSDictionary *enemyInfo = [[enemyInfoList objectAtIndex:type] objectAtIndex:level];
-	Enemy *enemy = [[[Enemy alloc] initWithGameScene:gameScene type:type level:level hp:[[enemyInfo objectForKey:@"hp"] integerValue] power:[[enemyInfo objectForKey:@"power"] integerValue] speed:[[enemyInfo objectForKey:@"speed"] floatValue]] autorelease];
-	[gameScene.enemies addObject:enemy];
+	[gameScene.enemies addObject:[[Enemy alloc] initWithGameScene:gameScene type:type level:level hp:[[enemyInfo objectForKey:@"hp"] integerValue] power:[[enemyInfo objectForKey:@"power"] integerValue] speed:[[enemyInfo objectForKey:@"speed"] floatValue]]];
 }
 
 @end

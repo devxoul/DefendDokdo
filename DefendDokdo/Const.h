@@ -18,6 +18,7 @@
 #define PLANE_Y				280
 #define DOKDO_LEFT_X		125
 #define DOKDO_RIGHT_X		365
+#define TOP_Y				215
 #define FLAG_LEFT_X			235
 #define FLAG_RIGHT_X		252
 #define FLAG_X				250
@@ -39,6 +40,7 @@
 #define ENEMY_STATE_HIT			7
 #define ENEMY_STATE_DIE			8
 #define ENEMY_STATE_EXPLOSION	9
+#define ENEMY_STATE_REMOVE		10
 
 #define Z_BACKGROUND		0
 #define Z_SUN				1

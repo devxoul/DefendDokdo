@@ -25,6 +25,8 @@
     //MP에 관해서는 증가량 설정~
     //    [mpBar setTextureRect:CGRectMake(0,0, 174 ,12)];
     //    [hpBar setTextureRect:CGRectMake(0,0, 194 ,12)];
+    NSInteger mpStat = _gameScene.player.mp;
+    
     
     [hp setString:[NSString stringWithFormat:@"%d/%d",(NSInteger)_gameScene.flag.hp, (NSInteger)_gameScene.flag.maxHp]];
     CGFloat hpCount = 194.0/ _gameScene.flag.maxHp;
@@ -52,6 +54,26 @@
     if(slot3Count > 0){
         slot3Count--;
     }
+    
+    if(mpStat < slot1Mp || slot1Mp == 0){
+        [slot1MpShadow setVisible:YES];
+    }else{
+        [slot1MpShadow setVisible:NO];
+    }
+        
+    if(mpStat < slot2Mp || slot2Mp == 0){
+        [slot2MpShadow setVisible:YES];
+    }
+    else{
+        [slot2MpShadow setVisible:NO];
+
+    }
+    if(mpStat < slot3Mp || slot3Mp == 0){
+        [slot3MpShadow setVisible:YES];
+    }
+    else{
+        [slot3MpShadow setVisible:NO];
+    }
 }
 
 
@@ -65,51 +87,79 @@
     
     //스킬 넣는 부분 - 수정 필요함
     skills = [[NSMutableArray alloc] init];
-    
     if([[[[UserData userData] skillSlot] objectForKey:@"1"] boolValue]){
         [skills addObject:[[Slot alloc] initWithSkillInfo:[[[[UserData userData] userSkillSlot] objectForKey:@"1"] integerValue] :self :ccp(295,25)]];
-    }else
+        slot1Mp = [[[[SkillData skillData] getSkillInfo:[[[[UserData userData] userSkillSlot] objectForKey:@"1"] integerValue] :[[UserData userData] getSkillLevel:[[[[UserData userData] userSkillSlot] objectForKey:@"1"] integerValue]]] objectForKey:@"mp"] integerValue];
+    }else{
         [skills addObject:[[Slot alloc] initWithSkillInfo:SKILL_STATE_LOCK :self :ccp(295,25)]];
-    
+        slot1Mp = 0;
+    }
     
     slot1Shadow = [[CCSprite alloc] initWithFile:@"skill_shadow.png"];
-    [slot1Shadow setPosition:ccp(294, 50)];
+    [slot1Shadow setPosition:ccp(295, 51)];
     [slot1Shadow setAnchorPoint:ccp(0.5, 1.0)];
     [slot1Shadow setOpacity:150];
     slot1Count = 0;
     [self addChild:slot1Shadow];
+
     
+    slot1MpShadow = [[CCSprite alloc] initWithFile:@"skill_shadow.png"];
+    [slot1MpShadow setPosition:ccp(295, 51)];
+    [slot1MpShadow setAnchorPoint:ccp(0.5, 1.0)];
+    [slot1MpShadow setOpacity:150];
+    [self addChild:slot1MpShadow];
+    [slot1MpShadow setVisible:NO];
+
     //삭제할 내용 - 
     slot1MaxCount = 100;
     
     
     if([[[[UserData userData] skillSlot] objectForKey:@"2"] boolValue]){
         [skills addObject:[[Slot alloc] initWithSkillInfo:[[[[UserData userData] userSkillSlot] objectForKey:@"2"] integerValue] :self :ccp(368,25)]];
-    }else
+        
+        slot2Mp = [[[[SkillData skillData] getSkillInfo:[[[[UserData userData] userSkillSlot] objectForKey:@"2"] integerValue] :[[UserData userData] getSkillLevel:[[[[UserData userData] userSkillSlot] objectForKey:@"2"] integerValue]]] objectForKey:@"mp"] integerValue];
+    }else{
         [skills addObject:[[Slot alloc] initWithSkillInfo:SKILL_STATE_LOCK :self :ccp(368,25)]];
-
+        slot2Mp = 0;
+    }
     slot2Shadow = [[CCSprite alloc] initWithFile:@"skill_shadow.png"];
-    [slot2Shadow setPosition:ccp(367, 50)];
+    [slot2Shadow setPosition:ccp(368, 51)];
     [slot2Shadow setAnchorPoint:ccp(0.5, 1.0)];
     [slot2Shadow setOpacity:150];
     slot2Count = 0;
-    
     [self addChild:slot2Shadow];
+    
+    slot2MpShadow = [[CCSprite alloc] initWithFile:@"skill_shadow.png"];
+    [slot2MpShadow setPosition:ccp(368, 51)];
+    [slot2MpShadow setAnchorPoint:ccp(0.5, 1.0)];
+    [slot2MpShadow setOpacity:150];
+    [self addChild:slot2MpShadow];
+    [slot2MpShadow setVisible:NO];
     
     //삭제할 내용 - 
     slot2MaxCount = 100;
     
     if([[[[UserData userData] skillSlot] objectForKey:@"3"] boolValue]){
         [skills addObject:[[Slot alloc] initWithSkillInfo:[[[[UserData userData] userSkillSlot] objectForKey:@"3"] integerValue] :self :ccp(441,25)]];
-    }else
+        
+        slot3Mp = [[[[SkillData skillData] getSkillInfo:[[[[UserData userData] userSkillSlot] objectForKey:@"3"] integerValue] :[[UserData userData] getSkillLevel:[[[[UserData userData] userSkillSlot] objectForKey:@"3"] integerValue]]] objectForKey:@"mp"] integerValue];
+    }else{
         [skills addObject:[[Slot alloc] initWithSkillInfo:SKILL_STATE_LOCK :self :ccp(441,25)]];
-
+        slot3Mp = 0;
+    }
     slot3Shadow = [[CCSprite alloc] initWithFile:@"skill_shadow.png"];
-    [slot3Shadow setPosition:ccp(440, 50)];
+    [slot3Shadow setPosition:ccp(441, 51)];
     [slot3Shadow setAnchorPoint:ccp(0.5, 1.0)];
     [slot3Shadow setOpacity:150];
     slot3Count = 0;
     [self addChild:slot3Shadow];
+    
+    slot3MpShadow = [[CCSprite alloc] initWithFile:@"skill_shadow.png"];
+    [slot3MpShadow setPosition:ccp(441, 51)];
+    [slot3MpShadow setAnchorPoint:ccp(0.5, 1.0)];
+    [slot3MpShadow setOpacity:150];
+    [self addChild:slot3MpShadow];
+    [slot3MpShadow setVisible:NO];
     
     //삭제할 내용 - 
     slot3MaxCount = 100;
@@ -147,13 +197,13 @@
     mpBar.anchorPoint = ccp(0.0f, 0.5f);
     [self addChild:mpBar];    
     
-    hp = [CCLabelTTF labelWithString:@"0/0" dimensions:CGSizeMake(192, 13) alignment:UITextAlignmentRight fontName:@"ArialMT" fontSize:13];
+    hp = [CCLabelTTF labelWithString:@"0/0" dimensions:CGSizeMake(192, 13) alignment:UITextAlignmentRight fontName:@"NanumScript" fontSize:13];
     [hp setAnchorPoint:ccp(0.5, 0.5)];
     [hp setPosition:ccp(GAMEUILAYER_DEFAULT_X + 145.f, GAMEUILAYER_DEFAULT_Y + 27.5f)];
     [hp setColor:ccBLACK];
     [self addChild:hp];
     
-    mp = [CCLabelTTF labelWithString:@"0/0" dimensions:CGSizeMake(172, 13) alignment:UITextAlignmentRight fontName:@"ArialMT" fontSize:13];
+    mp = [CCLabelTTF labelWithString:@"0/0" dimensions:CGSizeMake(172, 13) alignment:UITextAlignmentRight fontName:@"NanumScript" fontSize:13];
     [mp setAnchorPoint:ccp(0.5, 0.5)];
     [mp setPosition:ccp(GAMEUILAYER_DEFAULT_X + 155.f, GAMEUILAYER_DEFAULT_Y + 10.5f)];
     [mp setColor:ccBLACK];

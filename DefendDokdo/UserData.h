@@ -66,6 +66,8 @@
 + (void)connectGameCenter;
 + (void)sendScore:(int)_score Of:(NSString *)type;
 
+-(NSInteger)getSkillLevel:(NSInteger)skillType;
+
 - (BOOL)saveToFile;
 - (BOOL)removeToFile;
 - (BOOL)setToFile;

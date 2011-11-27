@@ -837,6 +837,8 @@
 		BAA6745D1481CBD100FA92D1 /* arrow_btn.png in Resources */ = {isa = PBXBuildFile; fileRef = BAA674531481CBD100FA92D1 /* arrow_btn.png */; };
 		BAA6745E1481CBD100FA92D1 /* stone_btn.png in Resources */ = {isa = PBXBuildFile; fileRef = BAA674541481CBD100FA92D1 /* stone_btn.png */; };
 		BAA6745F1481CBD100FA92D1 /* heal_btn.png in Resources */ = {isa = PBXBuildFile; fileRef = BAA674551481CBD100FA92D1 /* heal_btn.png */; };
+		CF9AB6591481CD100090C61C /* enemyguage.png in Resources */ = {isa = PBXBuildFile; fileRef = CF9AB6571481CD100090C61C /* enemyguage.png */; };
+		CF9AB65A1481CD100090C61C /* enemyguage_bg.png in Resources */ = {isa = PBXBuildFile; fileRef = CF9AB6581481CD100090C61C /* enemyguage_bg.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -1889,6 +1891,8 @@
 		CF3F6688146AAB8E003F4E51 /* ArrowObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ArrowObject.h; sourceTree = "<group>"; };
 		CF73B4D51466C0D800CE8D2E /* Stone.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Stone.h; sourceTree = "<group>"; };
 		CF73B4D61466C0D800CE8D2E /* Stone.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Stone.m; sourceTree = "<group>"; };
+		CF9AB6571481CD100090C61C /* enemyguage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = enemyguage.png; sourceTree = "<group>"; };
+		CF9AB6581481CD100090C61C /* enemyguage_bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = enemyguage_bg.png; sourceTree = "<group>"; };
 		CFB21655146824490011E4E2 /* Slot.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Slot.h; sourceTree = "<group>"; };
 		CFB21656146824490011E4E2 /* Slot.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Slot.m; sourceTree = "<group>"; };
 		CFBB56181470488D00E7A7FF /* SkillData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SkillData.h; sourceTree = "<group>"; };
@@ -2334,6 +2338,8 @@
 		037027841481A3EC006EDCAC /* enemies */ = {
 			isa = PBXGroup;
 			children = (
+				CF9AB6571481CD100090C61C /* enemyguage.png */,
+				CF9AB6581481CD100090C61C /* enemyguage_bg.png */,
 				037027851481A3EC006EDCAC /* enemy_0_0 */,
 				037027C41481A3EC006EDCAC /* enemy_0_1 */,
 				037028031481A3EC006EDCAC /* enemy_0_2 */,
@@ -4711,6 +4717,8 @@
 				BAA6745D1481CBD100FA92D1 /* arrow_btn.png in Resources */,
 				BAA6745E1481CBD100FA92D1 /* stone_btn.png in Resources */,
 				BAA6745F1481CBD100FA92D1 /* heal_btn.png in Resources */,
+				CF9AB6591481CD100090C61C /* enemyguage.png in Resources */,
+				CF9AB65A1481CD100090C61C /* enemyguage_bg.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

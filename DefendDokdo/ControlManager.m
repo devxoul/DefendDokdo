@@ -10,14 +10,13 @@
 #import "Enemy.h"
 #import "Const.h"
 
-#warning change CONSTANT
 #define ACC_CONSTANT 2000
-#define INTERVAL_LOWER_BOUND 0.07
-#define INTERVAL_UPPER_BOUND 0.11
+#define MIN_INTERVAL 0.005
+#define MAX_ACC 10
 
 @interface pointObject:NSObject{
-	CGPoint p;
-	CGPoint acc;
+	CGPoint p; // 최근
+	CGPoint acc; // 가속도
 	NSDate *time;
 }
 @property CGPoint p;
@@ -90,22 +89,29 @@
 		object.x = targetPoint.x;// - 20;
 		object.y = targetPoint.y - 20;
 		
-//		if( DOKDO_LEFT_X <= object.x && object.x <= DOKDO_RIGHT_X )
-//		{
-			if( object.y < [Enemy getGroundY:object.x] - 10 )
-			{
-				[self stopManagingObjectOfTouch:touch];
-				return false;
-			}
-//		}
+		//		if( DOKDO_LEFT_X <= object.x && object.x <= DOKDO_RIGHT_X )
+		//		{
+		if( object.y < [Enemy getGroundY:object.x] - 10 )
+		{
+			[self stopManagingObjectOfTouch:touch];
+			return false;
+		}
+		//		}
 		
-		NSTimeInterval interval = [[[originalPositionArray objectAtIndex:i] time] timeIntervalSinceNow];
-		CGPoint originalPoint = [[originalPositionArray objectAtIndex:i] p];
+		pointObject *obj = [originalPositionArray objectAtIndex:i];
+		CGPoint lastPoint = [obj p];
 		
-		[[originalPositionArray objectAtIndex:i] setAcc:CGPointMake((targetPoint.x - originalPoint.y)/ABS(interval)/ACC_CONSTANT, (targetPoint.y - originalPoint.y)/ABS(interval)/ACC_CONSTANT)];
+		NSTimeInterval interval = ABS( [[[originalPositionArray objectAtIndex:i] time] timeIntervalSinceNow] );
+		NSLog( @"interval : %f", interval );
+		if( interval < MIN_INTERVAL ) interval = MIN_INTERVAL;
 		
-		[[originalPositionArray objectAtIndex:i] setP:targetPoint];
-		[[originalPositionArray objectAtIndex:i] setTime:[NSDate date]];
+		CGPoint acc = [obj acc];
+		CGFloat accX = acc.x + ( targetPoint.x - lastPoint.x ) / interval / ACC_CONSTANT;
+		CGFloat accY = acc.y + ( targetPoint.y - lastPoint.y ) / interval / ACC_CONSTANT;
+		[obj setAcc:CGPointMake(accX, accY)];
+		
+		[obj setP:targetPoint];
+		[obj setTime:[NSDate date]];
 		return true;
 	}
 	return false;
@@ -117,18 +123,13 @@
 	{
 		NSUInteger i = [touchArray indexOfObject:touch];
 		Enemy *object = [managedObjectsArray objectAtIndex:i];
-		NSTimeInterval interval = ABS([[[originalPositionArray objectAtIndex:i] time] timeIntervalSinceNow]);
-		CGPoint acc;
-		if (interval > INTERVAL_UPPER_BOUND) {
-			acc = CGPointMake(0.0f, 0.0f);
-		}
-		if (interval > INTERVAL_LOWER_BOUND) {
-			CGPoint targetPoint = [[CCDirector sharedDirector] convertToGL:[touch locationInView: [touch view]]];
-			CGPoint originalPoint = [[originalPositionArray objectAtIndex:i] p];
-			acc = CGPointMake((targetPoint.x - originalPoint.y)/ABS(interval)/ACC_CONSTANT, (targetPoint.y - originalPoint.y)/ABS(interval)/ACC_CONSTANT);
-		}
-		else
-			acc = [[originalPositionArray objectAtIndex:i] acc];
+		CGPoint acc = [[originalPositionArray objectAtIndex:i] acc];
+		
+//		if( acc.x > MAX_ACC ) acc.x = MAX_ACC;
+//		else if( acc.x < -MAX_ACC ) acc.x = -MAX_ACC;
+//		
+//		if( acc.y > MAX_ACC ) acc.y = MAX_ACC;
+//		else if( acc.y < -MAX_ACC ) acc.y = -MAX_ACC;
 		
 		[object applyForce:acc.x :acc.y];
 		NSLog(@"force : (%f, %f)", acc.x, acc.y);
