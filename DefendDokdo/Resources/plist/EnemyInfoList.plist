@@ -12,6 +12,8 @@
 				<integer>1</integer>
 				<key>speed</key>
 				<integer>1</integer>
+				<key>money</key>
+				<integer>10</integer>
 			</dict>
 			<dict>
 				<key>hp</key>
@@ -20,6 +22,8 @@
 				<integer>0</integer>
 				<key>speed</key>
 				<integer>1</integer>
+				<key>money</key>
+				<integer>10</integer>
 			</dict>
 			<dict>
 				<key>hp</key>
@@ -28,32 +32,8 @@
 				<integer>0</integer>
 				<key>speed</key>
 				<integer>1</integer>
-			</dict>
-		</array>
-		<array>
-			<dict>
-				<key>hp</key>
-				<integer>0</integer>
-				<key>power</key>
-				<integer>0</integer>
-				<key>speed</key>
-				<integer>1</integer>
-			</dict>
-			<dict>
-				<key>hp</key>
-				<integer>0</integer>
-				<key>power</key>
-				<integer>0</integer>
-				<key>speed</key>
-				<integer>1</integer>
-			</dict>
-			<dict>
-				<key>hp</key>
-				<integer>0</integer>
-				<key>power</key>
-				<integer>0</integer>
-				<key>speed</key>
-				<integer>1</integer>
+				<key>money</key>
+				<integer>10</integer>
 			</dict>
 		</array>
 		<array>
@@ -64,6 +44,8 @@
 				<integer>0</integer>
 				<key>speed</key>
 				<integer>1</integer>
+				<key>money</key>
+				<integer>10</integer>
 			</dict>
 			<dict>
 				<key>hp</key>
@@ -72,6 +54,8 @@
 				<integer>0</integer>
 				<key>speed</key>
 				<integer>1</integer>
+				<key>money</key>
+				<integer>10</integer>
 			</dict>
 			<dict>
 				<key>hp</key>
@@ -80,6 +64,40 @@
 				<integer>0</integer>
 				<key>speed</key>
 				<integer>1</integer>
+				<key>money</key>
+				<integer>10</integer>
+			</dict>
+		</array>
+		<array>
+			<dict>
+				<key>hp</key>
+				<integer>0</integer>
+				<key>power</key>
+				<integer>0</integer>
+				<key>speed</key>
+				<integer>1</integer>
+				<key>money</key>
+				<integer>10</integer>
+			</dict>
+			<dict>
+				<key>hp</key>
+				<integer>0</integer>
+				<key>power</key>
+				<integer>0</integer>
+				<key>speed</key>
+				<integer>1</integer>
+				<key>money</key>
+				<integer>10</integer>
+			</dict>
+			<dict>
+				<key>hp</key>
+				<integer>0</integer>
+				<key>power</key>
+				<integer>0</integer>
+				<key>speed</key>
+				<integer>1</integer>
+				<key>money</key>
+				<integer>10</integer>
 			</dict>
 		</array>
 		<array>
@@ -90,6 +108,8 @@
 				<integer>10</integer>
 				<key>speed</key>
 				<integer>1</integer>
+				<key>money</key>
+				<integer>10</integer>
 			</dict>
 			<dict>
 				<key>hp</key>
@@ -98,6 +118,8 @@
 				<integer>0</integer>
 				<key>speed</key>
 				<integer>1</integer>
+				<key>money</key>
+				<integer>10</integer>
 			</dict>
 			<dict>
 				<key>hp</key>
@@ -106,6 +128,8 @@
 				<integer>0</integer>
 				<key>speed</key>
 				<integer>1</integer>
+				<key>money</key>
+				<integer>10</integer>
 			</dict>
 		</array>
 	</array>

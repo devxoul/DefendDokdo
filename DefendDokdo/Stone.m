@@ -77,13 +77,13 @@
             
             if(CGRectIntersectsRect([current getBoundingBox], stoneSprite.boundingBox)){
                 switch (direction) {
-                    case DIRECTION_STATE_LEFT:
-                        if(effectPower==0){
+//                    case DIRECTION_STATE_LEFT:
+//                        if(effectPower==0){
                             [current beDamaged:damage];
-                        }
-                        else{//enemy State에 따라서 !
-                            [current beDamaged:damage forceX:-(CGFloat)effectPower forceY:-(CGFloat)effectPower];
-                        }
+//                        }
+//                        else{//enemy State에 따라서 !
+//                            [current beDamaged:damage forceX:-(CGFloat)effectPower forceY:-(CGFloat)effectPower];
+//                        }
                         break;
                     case DIRECTION_STATE_RIGHT:
                         [current beDamaged:damage forceX:(CGFloat)effectPower forceY:-(CGFloat)effectPower];

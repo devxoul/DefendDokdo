@@ -640,7 +640,7 @@
 						{
 							NSLog( @"사용자 공격력 : %d", gameScene.player.power );
 							NSLog( @"dy : %f", dy );
-							[self beDamaged:abs( (NSInteger)( gameScene.player.power * dy * 0.2 ) )]; // temp damage
+							[self beDamaged:abs( (NSInteger)( gameScene.player.power * dy * 0.2 ) )];
 						}
 						
 						// 카미카제는 바로 폭발함
@@ -730,7 +730,7 @@
 			break;
 	}
     
-	
+	gameScene.player.mp = gameScene.player.maxMp;
 }
 
 
@@ -801,7 +801,10 @@
 
 - (void)startBeingHit
 {
-	if( state == ENEMY_STATE_HIT ) return;
+	NSLog( @"startBeingHit" );
+	
+	if( state == ENEMY_STATE_HIT )
+		[self stopBeingHit];
 	
 	state = ENEMY_STATE_HIT;
 	[enemySpr addChild:hitBatchNode];
@@ -903,11 +906,15 @@
 {
 	[hitEnemySpr stopAllActions];
 	[enemySpr removeChild:hitBatchNode cleanup:NO];
+	
+	NSLog( @"stopBeingHit" );
 }
 
 - (void)stopBeingHit:(id)sender
 {
 	[self stopBeingHit];
+	
+	NSLog( @"stopBeingHit:sender" );
 	
 	if( self.x + gapX < DOKDO_LEFT_X || DOKDO_RIGHT_X < self.x + gapX )
 		[self startSwimming];
@@ -918,10 +925,9 @@
 - (void)stopDying
 {
 	[dieEnemySpr stopAllActions];
-	[enemySpr removeChild:dieBatchNode cleanup:YES];	
+	[enemySpr removeChild:dieBatchNode cleanup:YES];
 	[gameScene.gameLayer removeChild:enemySpr cleanup:YES];
 	state = ENEMY_STATE_REMOVE;
-	
 }
 
 - (void)stopDying:(id)sender
@@ -1030,6 +1036,8 @@
 		[self startFalling];
 	}
 	
+	NSLog( @"날아가라! ( %f, %f )", x, y );
+	
 	dx += x;
 	dy += y;
 }
@@ -1044,7 +1052,7 @@
 
 - (void)beDamaged:(NSInteger)damage
 {
-	NSLog( @"%d의 데미지를 입었다 ㅠㅠ", damage );
+	NSLog( @"%d의 데미지를 입고 아야해쪄염", damage );
 	if( state == ENEMY_STATE_FLIGHT || state == ENEMY_STATE_DIE || state == ENEMY_STATE_EXPLOSION ) return;
 	
 	// 카미카제는 폭발
@@ -1062,20 +1070,9 @@
 	[self stopCurrentAction];
 	
 	if( self.hp <= 0 )
-	{
 		[self startDying];
-	}
 	else
-	{
-		if( self.x + gapX < DOKDO_LEFT_X || DOKDO_RIGHT_X < self.x + gapX )
-		{
-			[self startSwimming];
-		}
-		else
-		{
-			[self startBeingHit];
-		}
-	}
+		[self startBeingHit];
 }
 
 - (void)beDamaged:(NSInteger)damage forceX:(NSInteger)forceX forceY:(NSInteger)forceY
@@ -1084,7 +1081,7 @@
 	
 	// 카미카제는 폭발
 	if( type == ENEMY_TYPE_KAMIKAZE )
-	{		
+	{
 		self.hp = 0;
 		[self stopCurrentAction];
 		[self startExplosion];
