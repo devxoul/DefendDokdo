@@ -17,119 +17,119 @@
 			</dict>
 			<dict>
 				<key>hp</key>
-				<integer>0</integer>
+				<integer>80</integer>
 				<key>power</key>
-				<integer>0</integer>
+				<integer>2</integer>
 				<key>speed</key>
 				<integer>1</integer>
 				<key>money</key>
-				<integer>10</integer>
+				<integer>40</integer>
 			</dict>
 			<dict>
 				<key>hp</key>
-				<integer>0</integer>
+				<integer>110</integer>
 				<key>power</key>
-				<integer>0</integer>
+				<integer>3</integer>
 				<key>speed</key>
 				<integer>1</integer>
 				<key>money</key>
-				<integer>10</integer>
+				<integer>70</integer>
 			</dict>
 		</array>
 		<array>
 			<dict>
 				<key>hp</key>
-				<integer>0</integer>
+				<integer>60</integer>
 				<key>power</key>
-				<integer>0</integer>
+				<integer>1</integer>
 				<key>speed</key>
 				<integer>1</integer>
 				<key>money</key>
-				<integer>10</integer>
+				<integer>20</integer>
 			</dict>
 			<dict>
 				<key>hp</key>
-				<integer>0</integer>
+				<integer>90</integer>
 				<key>power</key>
 				<integer>0</integer>
 				<key>speed</key>
 				<integer>1</integer>
 				<key>money</key>
-				<integer>10</integer>
+				<integer>50</integer>
 			</dict>
 			<dict>
 				<key>hp</key>
-				<integer>0</integer>
+				<integer>120</integer>
 				<key>power</key>
 				<integer>0</integer>
 				<key>speed</key>
 				<integer>1</integer>
 				<key>money</key>
-				<integer>10</integer>
+				<integer>80</integer>
 			</dict>
 		</array>
 		<array>
 			<dict>
 				<key>hp</key>
-				<integer>0</integer>
+				<integer>70</integer>
 				<key>power</key>
-				<integer>0</integer>
+				<integer>1</integer>
 				<key>speed</key>
 				<integer>1</integer>
 				<key>money</key>
-				<integer>10</integer>
+				<integer>30</integer>
 			</dict>
-			<dict>
-				<key>hp</key>
-				<integer>0</integer>
-				<key>power</key>
-				<integer>0</integer>
-				<key>speed</key>
-				<integer>1</integer>
-				<key>money</key>
-				<integer>10</integer>
-			</dict>
-			<dict>
-				<key>hp</key>
-				<integer>0</integer>
-				<key>power</key>
-				<integer>0</integer>
-				<key>speed</key>
-				<integer>1</integer>
-				<key>money</key>
-				<integer>10</integer>
-			</dict>
-		</array>
-		<array>
 			<dict>
 				<key>hp</key>
 				<integer>100</integer>
 				<key>power</key>
-				<integer>10</integer>
+				<integer>2</integer>
 				<key>speed</key>
 				<integer>1</integer>
 				<key>money</key>
-				<integer>10</integer>
+				<integer>60</integer>
 			</dict>
 			<dict>
 				<key>hp</key>
-				<integer>0</integer>
+				<integer>130</integer>
 				<key>power</key>
-				<integer>0</integer>
+				<integer>3</integer>
 				<key>speed</key>
 				<integer>1</integer>
 				<key>money</key>
+				<integer>90</integer>
+			</dict>
+		</array>
+		<array>
+			<dict>
+				<key>hp</key>
+				<integer>1</integer>
+				<key>power</key>
 				<integer>10</integer>
+				<key>speed</key>
+				<integer>2</integer>
+				<key>money</key>
+				<integer>50</integer>
 			</dict>
 			<dict>
 				<key>hp</key>
-				<integer>0</integer>
-				<key>power</key>
-				<integer>0</integer>
-				<key>speed</key>
 				<integer>1</integer>
+				<key>power</key>
+				<integer>30</integer>
+				<key>speed</key>
+				<integer>2</integer>
 				<key>money</key>
-				<integer>10</integer>
+				<integer>100</integer>
+			</dict>
+			<dict>
+				<key>hp</key>
+				<integer>1</integer>
+				<key>power</key>
+				<integer>50</integer>
+				<key>speed</key>
+				<integer>2</integer>
+				<key>money</key>
+				<integer>200</integer>
 			</dict>
 		</array>
 	</array>

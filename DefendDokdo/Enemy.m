@@ -12,6 +12,7 @@
 #import "Flag.h"
 #import "Player.h"
 #import "SimpleAudioEngine.h"
+#import "UserData.h"
 
 @interface Enemy(Private)
 - (void)initBoatAnimation;
@@ -727,8 +728,6 @@
 			}
 			break;
 	}
-    
-	gameScene.player.mp = gameScene.player.maxMp;
 }
 
 
@@ -845,7 +844,8 @@
 - (void)startWaterEffect
 {
 	NSLog( @"첨벙" );
-	[[SimpleAudioEngine sharedEngine] playEffect:@"effect_water.mp3"];
+	if( [UserData userData].backSound )
+		[[SimpleAudioEngine sharedEngine] playEffect:@"effect_water.mp3"];
 	if( isWaterEffectRunning ) return;
 	isWaterEffectRunning = YES;
 	waterEffectBatchNode.position = ccp( self.x, self.y );
