@@ -728,6 +728,11 @@
 			}
 			break;
 	}
+	
+	if( enemySpr.children.count < 3 )
+	{
+		state = ENEMY_STATE_FALL;
+	}
 }
 
 
@@ -1048,8 +1053,7 @@
 		return;
 	}
 	
-	if( state != ENEMY_STATE_HIT )
-		self.hp -= damage;
+	self.hp -= damage;
 	
 	[self stopCurrentAction];
 	
@@ -1074,8 +1078,7 @@
 	
 	NSLog( @"현재 상태는?? %d", state );
 	
-	if( state != ENEMY_STATE_HIT )
-		self.hp -= damage;
+	self.hp -= damage;
 	
 	[self stopCurrentAction];
 	
