@@ -197,7 +197,7 @@
 	if ([[NSFileManager defaultManager] fileExistsAtPath:path])
 		[[NSFileManager defaultManager] removeItemAtPath:path error:nil];
 	
-	point = 0;
+	point = 10000000;
 	
 	stageLevel = 0;
 	

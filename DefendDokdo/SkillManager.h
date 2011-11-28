@@ -23,12 +23,16 @@
     CCSprite* healSpr;
     CCAnimate* healingAnimation;
     
+    CCSprite* waterEffectSpr;
+    CCAnimate* waterEffectAnimation;
+    
     NSInteger earthQuakeSlot;
     NSInteger stoneSlot;
     NSInteger healSlot;
     NSInteger arrowSlot;
     
     CCSpriteBatchNode* healBatchNode;
+    CCSpriteBatchNode* waterEffectBatchNode;
 }
 
 @property (readwrite) NSInteger skillState;
@@ -46,7 +50,9 @@
 - (void) shakyMinus:(id)sender;
 - (void) doHeal;
 - (void) initHealingAnimation;
-
+- (void) initWaterEffectAnimation;
+- (void) startWaterEffect:(CGPoint)location;
+- (void) endWater;
 - (BOOL) useMp:(CGFloat)mp;
 
 @end

@@ -16,7 +16,7 @@
 
 @implementation Stone
 
-@synthesize stoneState, mp, stoneSprite;
+@synthesize stoneState, mp, stoneSprite, x, y;
 
 
 

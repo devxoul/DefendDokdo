@@ -35,6 +35,8 @@
 
 @property (readonly)  NSInteger mp;
 @property (readwrite) NSInteger stoneState;
+@property (readonly) CGFloat x;
+@property (readonly) CGFloat y;
 
 @property (nonatomic, retain) CCSprite* stoneSprite; 
 

@@ -40,17 +40,16 @@ enum{
         arrow = [[Arrow alloc] initWithInfo:_gameScene];
         stoneArray = [[NSMutableArray alloc] init];
         [self initHealingAnimation];
+        [self initWaterEffectAnimation];
 	}
-	
 	return self;
 }
 
 -(void)initHealingAnimation{
-
     [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:@"healing_effect.plist"];
 	
 	healSpr = [[CCSprite spriteWithSpriteFrameName:@"healing_effect_1.png"] retain];
-    [healSpr setPosition:ccp(240, FLAG_Y)];
+    [healSpr setPosition:ccp(240, FLAG_Y - 10.0)];
 	healSpr.anchorPoint = ccp( 0.5f, 0.0 );
 	
 	healBatchNode = [[CCSpriteBatchNode batchNodeWithFile:@"healing_effect.png"] retain];
@@ -68,12 +67,42 @@ enum{
     
     [self addChild:healBatchNode z:1];    
     [healSpr setVisible:NO];
-//	[flagSpr runAction:[CCRepeatForever actionWithAction:flagAnimation]];
-
-
 }
 
+- (void)initWaterEffectAnimation
+{
+	[[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:@"effect_water.plist"];
+	
+	waterEffectSpr = [[CCSprite spriteWithSpriteFrameName:@"effect_water_0.png"] retain];
+	waterEffectSpr.anchorPoint = ccp( 0.5f, 0.5f );
+	
+	waterEffectBatchNode = [[CCSpriteBatchNode batchNodeWithFile:@"effect_water.png"] retain];
+	[waterEffectBatchNode addChild:waterEffectSpr];
+	
+	NSMutableArray *aniFrames = [[NSMutableArray alloc] init];
+	for( NSInteger i = 0; i < 8; i++ )
+	{
+		CCSpriteFrame *frame = [[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:[NSString stringWithFormat:@"effect_water_%d.png", i]];
+		[aniFrames addObject:frame];
+	}
+	
+	CCAnimation *animation = [CCAnimation animationWithFrames:aniFrames delay:0.08f];
+	waterEffectAnimation = [[CCAnimate alloc] initWithAnimation:animation restoreOriginalFrame:NO];
+    [waterEffectSpr setVisible:NO];
+    [self addChild:waterEffectBatchNode];
+}
 
+- (void) startWaterEffect:(CGPoint)location{
+    [waterEffectSpr stopAllActions];
+    [waterEffectSpr setVisible:YES];
+    [waterEffectSpr setPosition:ccp(location.x, location.y+20.0)];
+    CCCallFunc *back = [CCCallFunc actionWithTarget:self selector:@selector(endWater)];
+    [waterEffectSpr runAction:[CCSequence actions:waterEffectAnimation,back, nil]];  
+}
+
+-(void) endWater{
+    [waterEffectSpr setVisible:NO];
+}
 
 - (void)doHeal{
     
@@ -139,12 +168,12 @@ enum{
         
         NSMutableIndexSet *removedStone = [[NSMutableIndexSet alloc] init];
         for(Stone *current in stoneArray){
+            [current draw];
             if(current.stoneState == STONE_STATE_STOP){
+                [self startWaterEffect:ccp(current.x, current.y)];
                 [removedStone addIndex:[stoneArray indexOfObject:current]];
                 [[current stoneSprite] removeFromParentAndCleanup:YES];
             }
-            else
-                [current draw];
         }
         [stoneArray removeObjectsAtIndexes:removedStone];
     }
@@ -183,7 +212,8 @@ enum{
             }
             skillState = SKILL_STATE_NORMAL;
             if([self useMp:(CGFloat)stone.mp]){
-                [_gameScene.skillLayer addChild:[stone stoneSprite] z:1 tag:skill_stone_tag];
+                //                [_gameScene.skillLayer addChild:[stone stoneSprite] z:1 tag:skill_stone_tag];
+                [_gameScene.gameLayer addChild:[stone stoneSprite] z:Z_SEA-1];
                 if([[UserData userData] backSound]){
                     [[SimpleAudioEngine sharedEngine] playEffect:@"stoneRolling.wav"];
                 }
@@ -311,5 +341,8 @@ enum{
         return YES;
     }
 }
+
+
+
 
 @end
