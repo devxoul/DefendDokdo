@@ -739,7 +739,7 @@
 	
 	if( enemySpr.children.count < 3 )
 	{
-		state = ENEMY_STATE_FALL;
+		[self startFalling];
 	}
 }
 

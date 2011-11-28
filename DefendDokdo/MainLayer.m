@@ -169,7 +169,7 @@
 
 -(void)moveFacebook:(id)sender
 {
-    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"http://www.facebook.com/Dokdo.page"]];
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"http://www.facebook.com/DefendDokdo"]];
 }
 
 -(void)moveRank:(id)sender

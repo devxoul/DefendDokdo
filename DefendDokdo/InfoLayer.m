@@ -17,7 +17,7 @@ NSString* infoArr[15] =
 {
 	@"Information",
 	@" ",
-	@"ters213@gmail.com",
+	@"defend.dokdo@gmail.com",
 	@" ",
 	@"Credit",
 	@" ",
