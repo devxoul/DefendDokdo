@@ -273,13 +273,19 @@
 	static bool connected = NO;
 	if (!connected)
 	{
+#ifdef DEBUGGING
 		NSLog(@"게임센터 연결 시도");
+#endif
 		if([GKLocalPlayer localPlayer].authenticated == NO) //게임센터 로그인이 아직일때
 			[[GKLocalPlayer localPlayer] authenticateWithCompletionHandler:^(NSError* error){
 				if(error == NULL){
+#ifdef DEBUGGING
 					NSLog(@"게임센터 로그인 성공");
+#endif
 				} else {
+#ifdef DEBUGGING
 					NSLog(@"게임센터 로그인 에러");
+#endif
 				}
 			}];
 	}

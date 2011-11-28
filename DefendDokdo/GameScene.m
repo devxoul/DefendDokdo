@@ -129,7 +129,10 @@ NSInteger arryWaveEffect3[22] =
 		[self initStage];
 		
 		currentStage = [[UserData userData] stageLevel];
+		
+#ifdef DEBUGGING
 		NSLog( @"currentStage : %d", currentStage );
+#endif
 	}
 	
 	return self;

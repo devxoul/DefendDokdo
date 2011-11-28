@@ -43,7 +43,9 @@
 			{
 				if( frequency && j % frequency == 0 )
 				{
+#ifdef DEBUGGING
 					NSLog( @"가라 %d번 %d레벨 Enemy!!", i / 3, i % 3 );
+#endif
 					[self createEnemy:i / 3 level:i % 3];
 					break;
 				}

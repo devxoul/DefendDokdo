@@ -102,7 +102,11 @@
 		CGPoint lastPoint = [obj p];
 		
 		NSTimeInterval interval = ABS( [[[originalPositionArray objectAtIndex:i] time] timeIntervalSinceNow] );
+		
+#ifdef DEBUGGING
 		NSLog( @"interval : %f", interval );
+#endif
+		
 		if( interval < MIN_INTERVAL ) interval = MIN_INTERVAL;
 		
 		CGPoint acc = [obj acc];
@@ -132,7 +136,10 @@
 //		else if( acc.y < -MAX_ACC ) acc.y = -MAX_ACC;
 		
 		[object applyForce:acc.x :acc.y];
+		
+#ifdef DEBUGGING
 		NSLog(@"force : (%f, %f)", acc.x, acc.y);
+#endif
 		
 		[touchArray removeObjectAtIndex:i];
 		[managedObjectsArray removeObjectAtIndex:i];

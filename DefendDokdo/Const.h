@@ -9,6 +9,8 @@
 #ifndef DefendDokdo_Const_h
 #define DefendDokdo_Const_h
 
+#define DEBUGGING
+
 #define GRAVITY				0.6
 #define AIR_RESISTANCE		0.01
 #define WATER_RESISTANCE	0.5

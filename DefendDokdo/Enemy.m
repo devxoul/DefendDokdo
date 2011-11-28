@@ -637,8 +637,10 @@
 						// 일반 타입의 경우 데미지를 입음
 						if( type != ENEMY_TYPE_KAMIKAZE )
 						{
+#ifdef DEBUGGING
 							NSLog( @"사용자 공격력 : %d", gameScene.player.power );
 							NSLog( @"dy : %f", dy );
+#endif
 							[self beDamaged:abs( (NSInteger)( gameScene.player.power * dy * 0.2 ) )];
 						}
 						
@@ -676,7 +678,9 @@
 						// 카미카제는 바로 폭발함
 						else
 						{
+#ifdef DEBUGGING
 							NSLog( @"퍼엉" );
+#endif
 							[self stopFalling];
 							[self startExplosion];
 							return;
@@ -691,14 +695,18 @@
 				// 물에서 위로 올라가기
 				if( self.y + dy - gapY <= SEA_Y )
 				{
+#ifdef DEBUGGING
 					NSLog( @"물 위로 올라가자 어푸어푸" );
+#endif
 					dy += BUOYANCY;
 					self.y += dy;
 				}
 				// 수면 위로 뿅
 				else
 				{
+#ifdef DEBUGGING
 					NSLog( @"수면위로 뿅" );
+#endif
 					[self stopFalling];
 					[self startSwimming];
 				}
@@ -803,7 +811,9 @@
 
 - (void)startBeingHit
 {
+#ifdef DEBUGGING
 	NSLog( @"startBeingHit" );
+#endif
 	
 	if( state == ENEMY_STATE_HIT )
 		[self stopBeingHit];
@@ -848,7 +858,10 @@
 
 - (void)startWaterEffect
 {
+#ifdef DEBUGGING
 	NSLog( @"첨벙" );
+#endif
+	
 	if( [UserData userData].backSound )
 		[[SimpleAudioEngine sharedEngine] playEffect:@"effect_water.mp3"];
 	if( isWaterEffectRunning ) return;
@@ -911,14 +924,18 @@
 	[hitEnemySpr stopAllActions];
 	[enemySpr removeChild:hitBatchNode cleanup:NO];
 	
+#ifdef DEBUGGING
 	NSLog( @"stopBeingHit" );
+#endif
 }
 
 - (void)stopBeingHit:(id)sender
 {
 	[self stopBeingHit];
 	
+#ifdef DEBUGGING
 	NSLog( @"stopBeingHit:sender" );
+#endif
 	
 	if( self.x + gapX < DOKDO_LEFT_X || DOKDO_RIGHT_X < self.x + gapX )
 		[self startSwimming];
@@ -1002,7 +1019,9 @@
 
 - (void)attack
 {
+#ifdef DEBUGGING
 	NSLog( @"공격!" );
+#endif	
 	gameScene.flag.hp -= power;
 	
 	if( type == ENEMY_TYPE_KAMIKAZE )
@@ -1076,7 +1095,9 @@
 		return;
 	}
 	
+#ifdef DEBUGGING
 	NSLog( @"현재 상태는?? %d", state );
+#endif
 	
 	self.hp -= damage;
 	
